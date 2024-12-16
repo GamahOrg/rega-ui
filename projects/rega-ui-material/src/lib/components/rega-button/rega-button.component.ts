@@ -2,10 +2,9 @@ import { CommonModule } from "@angular/common";
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
-  selector: "lib-rega-button",
+  selector: "rega-button",
   imports: [CommonModule],
   templateUrl: "./rega-button.component.html",
-  styleUrl: "./rega-button.component.css",
 })
 export class RegaButtonComponent {
   @Input()

@@ -1,0 +1,430 @@
+// Primary: These are the splashes of color that should appear the most in your UI, and are the ones that determine the overall "look" of the site.
+// Use these for things like primary actions, links, accent borders, or text you want to emphasize.
+$transparent: transparent;
+$primaryColor: #0038ff !default;
+$primaryLogo: #221afb !default;
+$secondaryColor: #eff6ff !default;
+$primaryDisable: #f7f7f7 !default;
+// Text Colors: For all kind of text
+$primaryText: #272424 !default;
+$secondaryText: #72788e !default;
+$tertiaryText: #bcc6db !default;
+$disableText: #a9aeb2 !default;
+$supportText: #ffffff !default;
+// Neutrals: These are the colors you will use the most and will make up the majority of your UI.
+// Use them for, backgrounds, and borders, containers, deciders, background avatars, tab navigation.
+$primaryCard: #f7f8fa !default;
+$secondaryCard: #ffffff !default;
+$outlineColor: #e6e9ef !default;
+$tabNavBG: #ffffff !default;
+$primaryBG: #fdfdfd !default;
+// Status Colors: These colors should be used fairly conservatively throughout your UI to avoid overpowering your primary colors.
+// Use them when you need an element to stand out, or to reinforce things like error states or positive trends with the appropriate semantic color.
+
+// Positive
+$positiveText: #20c992 !default;
+$positiveBG: #eaf9f1 !default;
+// Warning
+$warningText: #fe9e46 !default;
+$warningBG: #fbf1e0 !default;
+// Negative
+$negativeText: #fc5555 !default;
+$negativeBg: #fee2e2 !default;
+// Other
+$primaryHover: #0051ff !default;
+$primaryHeaderBG: #0038ff12 !default;
+$secondaryHover: #e3eaf2 !default;
+$skeleton: #edf0f8 !default;
+$overly: #b5b7c0 !default;
+$alternating: #eef0f2 !default;
+$secondaryAlternating: #272424 !default;
+$supportColor: #6366f1 !default;
+
+// categories
+$neon-pink: #ec4899 !default;
+$mustard-yellow: #eab308 !default;
+$emerald-green: #22c55e !default;
+$teal: #14b8a6 !default;
+$tangerine: #f59e0b !default;
+$azure: #3b82f6 !default;
+$amethyst: #a855f7 !default;
+$carrot-orange: #f97316 !default;
+$lime-green: #84cc16 !default;
+$ultramarine-blue: #6366f1 !default;
+$mint-green: #34d399 !default;
+$chartreuse-green: #a3e635 !default;
+$pink-peony: #f472b6 !default;
+// end categories
+
+//
+$default-bundle-color: #a0e8d1 !default;
+$premium-bundle-color: #fbcfe8 !default;
+$gold-bundle-color: #fed7aa !default;
+$platinum-bundle-color: #bfdbfe !default;
+
+//
+
+.color-transparent {
+  color: $transparent;
+}
+
+.bg-transparent {
+  background-color: $transparent;
+}
+
+.color-primaryColor {
+  color: $primaryColor;
+}
+
+.bg-primaryColor {
+  background-color: $primaryColor;
+}
+
+.color-primaryLogo {
+  color: $primaryLogo;
+}
+
+.bg-primaryLogo {
+  background-color: $primaryLogo;
+}
+
+.color-secondaryColor {
+  color: $secondaryColor;
+}
+
+.bg-secondaryColor {
+  background-color: $secondaryColor;
+}
+
+.color-primaryDisable {
+  color: $primaryDisable;
+}
+
+.bg-primaryDisable {
+  background-color: $primaryDisable;
+}
+
+.color-primaryText {
+  color: $primaryText;
+}
+
+.bg-primaryText {
+  background-color: $primaryText;
+}
+
+.color-secondaryText {
+  color: $secondaryText;
+}
+
+.bg-secondaryText {
+  background-color: $secondaryText;
+}
+
+.color-tertiaryText {
+  color: $tertiaryText;
+}
+
+.bg-tertiaryText {
+  background-color: $tertiaryText;
+}
+
+.color-disableText {
+  color: $disableText;
+}
+
+.bg-disableText {
+  background-color: $disableText;
+}
+
+.color-supportText {
+  color: $supportText;
+}
+
+.bg-supportText {
+  background-color: $supportText;
+}
+
+.color-primaryCard {
+  color: $primaryCard;
+}
+
+.bg-primaryCard {
+  background-color: $primaryCard;
+}
+
+.color-secondaryCard {
+  color: $secondaryCard;
+}
+
+.bg-secondaryCard {
+  background-color: $secondaryCard;
+}
+
+.color-outlineColor {
+  color: $outlineColor;
+}
+
+.bg-outlineColor {
+  background-color: $outlineColor;
+}
+
+.color-tabNavBG {
+  color: $tabNavBG;
+}
+
+.bg-tabNavBG {
+  background-color: $tabNavBG;
+}
+
+.color-primaryBG {
+  color: $primaryBG;
+}
+
+.bg-primaryBG {
+  background-color: $primaryBG;
+}
+
+.color-positiveText {
+  color: $positiveText;
+}
+
+.bg-positiveText {
+  background-color: $positiveText;
+}
+
+.color-positiveBG {
+  color: $positiveBG;
+}
+
+.bg-positiveBG {
+  background-color: $positiveBG;
+}
+
+.color-warningText {
+  color: $warningText;
+}
+
+.bg-warningText {
+  background-color: $warningText;
+}
+
+.color-warningBG {
+  color: $warningBG;
+}
+
+.bg-warningBG {
+  background-color: $warningBG;
+}
+
+.bg-primaryHeaderBG {
+  background-color: $primaryHeaderBG;
+}
+
+.color-negativeText {
+  color: $negativeText;
+}
+
+.bg-negativeText {
+  background-color: $negativeText;
+}
+
+.color-negativeBg {
+  color: $negativeBg;
+}
+
+.bg-negativeBg {
+  background-color: $negativeBg;
+}
+
+.color-primaryHover {
+  color: $primaryHover;
+}
+
+.bg-primaryHover {
+  background-color: $primaryHover;
+}
+
+.color-secondaryHover {
+  color: $secondaryHover;
+}
+
+.bg-secondaryHover {
+  background-color: $secondaryHover;
+}
+
+.color-skeleton {
+  color: $skeleton;
+}
+
+.bg-skeleton {
+  background-color: $skeleton;
+}
+
+.color-overly {
+  color: $overly;
+}
+
+.bg-overly {
+  background-color: $overly;
+}
+
+.color-alternating {
+  color: $alternating;
+}
+
+.bg-alternating {
+  background-color: $alternating;
+}
+
+.color-secondaryAlternating {
+  color: $secondaryAlternating;
+}
+
+.bg-secondaryAlternating {
+  background-color: $secondaryAlternating;
+}
+
+.color-supportColor {
+  color: $supportColor;
+}
+
+.bg-supportColor {
+  background-color: $supportColor;
+}
+
+// categories class
+.color-neon-pink {
+  color: $neon-pink;
+}
+
+.bg-neon-pink {
+  background-color: $neon-pink;
+}
+
+.color-mustard-yellow {
+  color: $mustard-yellow;
+}
+
+.bg-mustard-yellow {
+  background-color: $mustard-yellow;
+}
+
+.color-emerald-green {
+  color: $emerald-green;
+}
+
+.bg-emerald-green {
+  background-color: $emerald-green;
+}
+
+.color-teal {
+  color: $teal;
+}
+
+.bg-teal {
+  background-color: $teal;
+}
+
+.color-tangerine {
+  color: $tangerine;
+}
+
+.bg-tangerine {
+  background-color: $tangerine;
+}
+
+.color-azure {
+  color: $azure;
+}
+
+.bg-azure {
+  background-color: $azure;
+}
+
+.color-amethyst {
+  color: $amethyst;
+}
+
+.bg-amethyst {
+  background-color: $amethyst;
+}
+
+.color-carrot-orange {
+  color: $carrot-orange;
+}
+
+.bg-carrot-orange {
+  background-color: $carrot-orange;
+}
+
+.color-lime-green {
+  color: $lime-green;
+}
+
+.bg-lime-green {
+  background-color: $lime-green;
+}
+
+.color-ultramarine-blue {
+  color: $ultramarine-blue;
+}
+
+.bg-ultramarine-blue {
+  background-color: $ultramarine-blue;
+}
+
+.color-mint-green {
+  color: $mint-green;
+}
+
+.bg-mint-green {
+  background-color: $mint-green;
+}
+
+.color-chartreuse-green {
+  color: $chartreuse-green;
+}
+
+.bg-chartreuse-green {
+  background-color: $chartreuse-green;
+}
+
+.color-pink-peony {
+  color: $pink-peony;
+}
+
+.bg-pink-peony {
+  background-color: $pink-peony;
+}
+
+.color-default-bundle {
+  color: $default-bundle-color;
+}
+
+.bg-default-bundle {
+  background-color: $default-bundle-color;
+}
+
+.color-premium-bundle {
+  color: $premium-bundle-color;
+}
+
+.bg-premium-bundle {
+  background-color: $premium-bundle-color;
+}
+
+.color-gold-bundle {
+  color: $gold-bundle-color;
+}
+
+.bg-gold-bundle {
+  background-color: $gold-bundle-color;
+}
+
+.color-platinum-bundle {
+  color: $platinum-bundle-color;
+}
+
+.bg-platinum-bundle {
+  background-color: $platinum-bundle-color;
+}

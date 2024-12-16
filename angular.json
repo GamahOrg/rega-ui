@@ -122,7 +122,10 @@
           "options": {
             "configDir": "projects/rega-ui-material/.storybook",
             "browserTarget": "rega-ui-material:build",
-            "styles": ["src/styles/tailwind.scss"],
+            "styles": [
+              "src/styles/tailwind.scss",
+              "./projects/rega-ui-material/src/assets/styles/main.scss"
+            ],
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "projects/rega-ui-material"],
             "port": 6006

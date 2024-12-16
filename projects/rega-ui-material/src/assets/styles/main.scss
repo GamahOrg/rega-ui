@@ -1,0 +1,15 @@
+@import "colors";
+@import "font";
+@import "variables";
+@import "typography";
+
+/** Components **/
+@import "components/rega-button.component.scss";
+
+body {
+  font-family: $font-family-fe, $font-family-fa;
+
+  .mt-auto:empty {
+    display: none;
+  }
+}
