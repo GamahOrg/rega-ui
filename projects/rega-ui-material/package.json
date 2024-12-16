@@ -1,0 +1,22 @@
+{
+  "name": "rega-ui-material",
+  "description": "A ui material for REGA Angular apps",
+  "author": "Mohamed Eldeeb",
+  "keywords": [
+    "rega",
+    "rega material",
+    "rega ui material"
+  ],
+  "version": "0.0.2",
+  "peerDependencies": {
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "devDependencies": {
+    "@storybook/addon-styling-webpack": "^1.0.1"
+  }
+}

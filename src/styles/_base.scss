@@ -1,0 +1,67 @@
+@import "variables";
+
+@font-face {
+  font-family: "serif";
+  src: url("../assets/fonts/jzoor/JF-Flat-regular.ttf");
+}
+
+:root {
+  --nav-bg: #f8f8f8;
+  --nav-border: #d3d3d3;
+}
+
+.df-primary {
+  --bg-color: #4378db;
+  --text-color: #faf0e6;
+}
+
+.df-secondary {
+  --bg-color: rgb(249, 186, 11);
+  --text-color: #333;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-content-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-col-stretch {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  min-height: 100vh;
+  width: 70%;
+  gap: 10px;
+  padding: 0;
+  padding: 2.25rem 0;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 1rem;
+    gap: 8px;
+    width: 100%;
+  }
+}
