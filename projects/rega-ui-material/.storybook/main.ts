@@ -1,36 +1,36 @@
-const path = require('path');
-import type { StorybookConfig } from '@storybook/angular';
+const path = require("path");
+import type { StorybookConfig } from "@storybook/angular";
 
 const config: StorybookConfig = {
   stories: [
-    '../src/**/*.mdx',
-    '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
-    '../**/*.stories.@(js|jsx|ts|tsx|mdx)',
+    "../src/**/*.mdx",
+    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../**/*.stories.@(js|jsx|ts|tsx|mdx)",
   ],
   addons: [
-    '@storybook/addon-onboarding',
-    '@storybook/addon-essentials',
-    '@chromatic-com/storybook',
-    '@storybook/addon-interactions',
-    '@storybook/addon-links',
-    '@storybook/addon-actions',
-    '@storybook/addon-postcss',
-    '@storybook/addon-styling-webpack',
+    "@storybook/addon-onboarding",
+    "@storybook/addon-essentials",
+    "@chromatic-com/storybook",
+    "@storybook/addon-interactions",
+    "@storybook/addon-links",
+    "@storybook/addon-actions",
+    "@storybook/addon-postcss",
+    "@storybook/addon-styling-webpack",
   ],
   framework: {
-    name: '@storybook/angular',
+    name: "@storybook/angular",
     options: {},
   },
   webpackFinal: async (config: any) => {
     config.module.rules.push({
       test: /.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
-      include: path.resolve(__dirname, './'), // Adjust the path as necessary
+      use: ["style-loader", "css-loader", "sass-loader"],
+      include: path.resolve(__dirname, "./"),
     });
     config.module.rules.push({
       test: /\.css$/,
-      use: ['style-loader', 'css-loader'],
-      include: path.resolve(__dirname, './'), // Adjust the path as necessary
+      use: ["style-loader", "css-loader"],
+      include: path.resolve(__dirname, "./"),
     });
 
     return config;

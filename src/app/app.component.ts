@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-import { RegaButtonComponent } from '@rega-material';
+import { Component } from "@angular/core";
+import { RegaButtonComponent } from "@rega-material";
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   standalone: true,
   imports: [RegaButtonComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  templateUrl: "./app.component.html",
+  styleUrl: "./app.component.scss",
 })
 export class AppComponent {
-  title = 'rega-ui';
+  title = "rega-ui";
 }

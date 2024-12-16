@@ -1,11 +1,9 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'rega-button',
+  selector: "rega-button",
   imports: [],
-  templateUrl: './button.component.html',
-  styleUrl: './button.component.css'
+  templateUrl: "./button.component.html",
+  styleUrl: "./button.component.css",
 })
-export class ButtonComponent {
-
-}
+export class ButtonComponent {}

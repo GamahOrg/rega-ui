@@ -1,1 +1,1 @@
-export * from './rega-button/rega-button.component';
+export * from "./rega-button/rega-button.component";

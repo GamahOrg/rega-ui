@@ -1,11 +1,11 @@
-import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
-  selector: 'lib-rega-button',
+  selector: "lib-rega-button",
   imports: [CommonModule],
-  templateUrl: './rega-button.component.html',
-  styleUrl: './rega-button.component.css',
+  templateUrl: "./rega-button.component.html",
+  styleUrl: "./rega-button.component.css",
 })
 export class RegaButtonComponent {
   @Input()
@@ -17,7 +17,7 @@ export class RegaButtonComponent {
 
   /** How large should the button be? */
   @Input()
-  size: 'small' | 'medium' | 'large' = 'medium';
+  size: "small" | "medium" | "large" = "medium";
 
   /**
    * Button contents
@@ -25,7 +25,7 @@ export class RegaButtonComponent {
    * @required
    */
   @Input()
-  label = 'Button';
+  label = "Button";
 
   /** Optional click handler */
   @Output()
@@ -33,9 +33,9 @@ export class RegaButtonComponent {
 
   public get classes(): string[] {
     const mode = this.primary
-      ? 'storybook-button--primary'
-      : 'storybook-button--secondary';
+      ? "storybook-button--primary"
+      : "storybook-button--secondary";
 
-    return ['storybook-button', `storybook-button--${this.size}`, mode];
+    return ["storybook-button", `storybook-button--${this.size}`, mode];
   }
 }
