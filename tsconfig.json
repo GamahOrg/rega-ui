@@ -4,6 +4,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
+    "baseUrl": ".",
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -15,7 +16,11 @@
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "paths": {
-      "@rega-material": ["./dist/rega-ui-material"]
+      "rega-material": ["dist/rega-ui-material"],
+      "@rega-material": ["projects/rega-ui-material/src/lib"],
+      "@rega-material/utils": ["projects/rega-ui-material/src/utils"],
+      "@rega-material/services": ["projects/rega-ui-material/src/services"],
+      "@rega-material/assets": ["projects/rega-ui-material/src/assets"]
     },
     "importHelpers": true,
     "target": "ES2022",

@@ -1,40 +1,62 @@
 import { CommonModule } from "@angular/common";
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import {
+  AfterViewInit,
+  Component,
+  input,
+  InputSignal,
+  linkedSignal,
+  Signal,
+} from "@angular/core";
+import { initFlowbite } from "flowbite";
+import {
+  SizeType,
+  SizeEnum,
+  ButtonVariantType,
+  ButtonVariantEnum,
+  ButtonType,
+  ButtonColorEnum,
+  ButtonColorType,
+} from "@rega-material/utils";
 
 @Component({
   selector: "rega-button",
   imports: [CommonModule],
   templateUrl: "./rega-button.component.html",
 })
-export class RegaButtonComponent {
-  @Input()
-  primary = true;
+export class RegaButtonComponent implements AfterViewInit {
+  public label: InputSignal<string> = input("Button");
 
-  /** What background color to use */
-  @Input()
-  backgroundColor?: string;
+  public buttonType: InputSignal<ButtonType> = input("button" as ButtonType);
 
-  /** How large should the button be? */
-  @Input()
-  size: "small" | "medium" | "large" = "medium";
+  public color: InputSignal<ButtonColorType> = input(
+    ButtonColorEnum.Primary as ButtonColorType
+  );
 
-  /**
-   * Button contents
-   *
-   * @required
-   */
-  @Input()
-  label = "Button";
+  public size: InputSignal<SizeType> = input(SizeEnum.Medium as SizeType);
 
-  /** Optional click handler */
-  @Output()
-  onClick = new EventEmitter<Event>();
+  public variant: InputSignal<ButtonVariantType> = input(
+    ButtonVariantEnum.Contained as ButtonVariantType
+  );
 
-  public get classes(): string[] {
-    const mode = this.primary
-      ? "storybook-button--primary"
-      : "storybook-button--secondary";
+  public loading: InputSignal<boolean> = input(false);
 
-    return ["storybook-button", `storybook-button--${this.size}`, mode];
+  public disabled: InputSignal<boolean> = input(false);
+
+  public btnClass: InputSignal<string> = input("");
+
+  public readonly classes: Signal<string[]> = linkedSignal(() => {
+    const classes: string[] = [
+      "rega-btn",
+      `rega-btn--${this.color()}`,
+      `rega-btn--${this.size()}`,
+      `rega-btn--${this.variant()}`,
+      this.btnClass(),
+    ];
+    if (this.disabled() || this.loading()) classes.push("rega-btn--disabled");
+    return classes;
+  });
+
+  public ngAfterViewInit(): void {
+    initFlowbite();
   }
 }

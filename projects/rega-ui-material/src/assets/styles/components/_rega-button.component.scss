@@ -1,0 +1,124 @@
+// SCSS Variables
+
+$sizes: (
+  small: (
+    74px,
+    24px,
+    8px,
+    12px,
+    400,
+  ),
+  medium: (
+    94px,
+    32px,
+    12px,
+    14px,
+    400,
+  ),
+  large: (
+    110px,
+    40px,
+    16px,
+    16px,
+    400,
+  ),
+);
+
+// Mixins
+@mixin btnColor($bg, $color) {
+  background-color: $bg;
+  color: $color;
+}
+
+@mixin btnSize($w, $h, $p, $fs, $fw) {
+  min-width: $w;
+  height: $h;
+  padding: $p;
+  font-size: $fs;
+  font-weight: $fw;
+  svg {
+    height: $fs;
+    width: $fs;
+  }
+}
+
+@function border-color($color) {
+  @return mix($color, #ffffff, 25%);
+}
+
+@function bg-color($color) {
+  @return mix($color, #ffffff, 15%);
+}
+
+@mixin btn-variant($color) {
+  &.rega-btn--outlined {
+    border: 2px solid border-color($color);
+    color: $color !important;
+    background-color: transparent !important;
+    &:hover {
+      background-color: bg-color($color) !important;
+    }
+  }
+
+  &.rega-btn--text,
+  &.rega-btn--transparent {
+    border: none;
+    color: $color !important;
+    background-color: transparent !important;
+    &:hover {
+      background-color: bg-color($color) !important;
+    }
+  }
+
+  &.rega-btn--solid {
+    border: none;
+    color: $color !important;
+    background-color: bg-color($color) !important;
+    &:hover {
+      background-color: mix($color, #ffffff, 30%) !important;
+    }
+  }
+}
+
+// Base Styles
+.rega-btn {
+  border-radius: 4px;
+  transition: border-radius 0.2s ease-in-out;
+}
+
+// Generate Button Variants
+@each $name, $color in $colors {
+  .rega-btn--#{$name} {
+    @include btn-variant($color);
+    @include btnColor(
+      $color,
+      if($name == "secondary" or $name == "warning", #000000, #ffffff)
+    );
+
+    &.rega-btn--contained {
+      @extend .rega-btn--#{$name};
+      &:hover {
+        background-color: darken($color, 5%) !important;
+      }
+    }
+  }
+}
+
+// Disabled State
+.rega-btn--disabled {
+  @include btnColor($disabledColor !important, #9da4ae !important);
+  cursor: default !important;
+}
+
+// Generate Button Sizes
+@each $size, $values in $sizes {
+  .rega-btn--#{$size} {
+    @include btnSize(
+      nth($values, 1),
+      nth($values, 2),
+      nth($values, 3),
+      nth($values, 4),
+      nth($values, 5)
+    );
+  }
+}

@@ -1,5 +1,6 @@
 module.exports = {
   content: [
+    "./node_modules/flowbite/**/*.js",
     "./src/**/*.{html,ts}",
     "./projects/rega-ui-material/**/*.{html,ts,css,scss}",
     "./projects/rega-ui-material/.storybook/**/*.{html,ts}",
@@ -13,5 +14,6 @@ module.exports = {
     require("tailwindcss"),
     require("autoprefixer"),
     require("@tailwindcss/forms"),
+    require("flowbite/plugin"),
   ],
 };

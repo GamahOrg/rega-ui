@@ -11,24 +11,44 @@
     "miscellaneous": {
         "variables": [
             {
-                "name": "Large",
+                "name": "Disabled",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts",
+                "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: \"large\",\n    label: \"Button\",\n  },\n}"
+                "defaultValue": "{\n  args: {\n    label: \"Button\",\n    size: SizeEnum.Medium,\n    disabled: true,\n  },\n}"
+            },
+            {
+                "name": "ErrorOutline",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Error,\n    variant: ButtonVariantEnum.Outlined,\n  },\n}"
+            },
+            {
+                "name": "Loading",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: \"Button\",\n    size: SizeEnum.Medium,\n    loading: true,\n  },\n}"
             },
             {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts",
+                "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<RegaButtonComponent>",
-                "defaultValue": "{\n  title: \"Example/Button\",\n  component: RegaButtonComponent,\n  tags: [\"autodocs\"],\n  argTypes: {\n    backgroundColor: {\n      control: \"color\",\n    },\n  },\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  args: { onClick: fn() },\n}"
+                "defaultValue": "{\n  title: \"Button\",\n  component: RegaButtonComponent,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  // args: { onClick: fn() },\n}"
             },
             {
                 "name": "preview",
@@ -38,37 +58,47 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
+                "defaultValue": "{\n  parameters: {\n    layout: \"centered\",\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
             },
             {
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts",
+                "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    primary: true,\n    label: \"My Button\",\n  },\n}"
+                "defaultValue": "{\n  argTypes: {\n    disabled: {\n      control: { type: \"boolean\" },\n    },\n    loading: {\n      control: { type: \"boolean\" },\n    },\n    size: {\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n    },\n    buttonType: {\n      options: [\"button\", \"reset\", \"submit\"],\n      control: { type: \"select\" },\n    },\n    color: {\n      options: GStatic.enumToArray(ButtonColorEnum).map(({ value }) => value),\n      control: { type: \"select\" },\n    },\n    variant: {\n      options: GStatic.enumToArray(ButtonVariantEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n    },\n    btnClass: {\n      control: { type: \"text\" },\n    },\n  },\n  args: {\n    label: \"Button\",\n    color: ButtonColorEnum.Primary,\n    size: SizeEnum.Medium,\n    variant: ButtonVariantEnum.Contained,\n    disabled: false,\n    loading: false,\n    buttonType: \"button\",\n    btnClass: \"\",\n  },\n}"
             },
             {
-                "name": "Secondary",
+                "name": "SecondaryLarge",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts",
+                "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: \"Button\",\n  },\n}"
+                "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Large,\n    color: ButtonColorEnum.Secondary,\n  },\n}"
             },
             {
-                "name": "Small",
+                "name": "SolidWarning",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts",
+                "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: \"small\",\n    label: \"Button\",\n  },\n}"
+                "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Warning,\n    variant: ButtonVariantEnum.Solid,\n  },\n}"
+            },
+            {
+                "name": "TextInfo",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Info,\n    variant: ButtonVariantEnum.Text,\n  },\n}"
             }
         ],
         "functions": [],
@@ -78,7 +108,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "StoryObj<RegaButtonComponent>",
-                "file": "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts",
+                "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -87,56 +117,86 @@
         ],
         "enumerations": [],
         "groupedVariables": {
-            "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts": [
+            "projects/rega-ui-material/src/lib/stories/button.stories.ts": [
                 {
-                    "name": "Large",
+                    "name": "Disabled",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts",
+                    "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: \"large\",\n    label: \"Button\",\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    label: \"Button\",\n    size: SizeEnum.Medium,\n    disabled: true,\n  },\n}"
+                },
+                {
+                    "name": "ErrorOutline",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Error,\n    variant: ButtonVariantEnum.Outlined,\n  },\n}"
+                },
+                {
+                    "name": "Loading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: \"Button\",\n    size: SizeEnum.Medium,\n    loading: true,\n  },\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts",
+                    "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<RegaButtonComponent>",
-                    "defaultValue": "{\n  title: \"Example/Button\",\n  component: RegaButtonComponent,\n  tags: [\"autodocs\"],\n  argTypes: {\n    backgroundColor: {\n      control: \"color\",\n    },\n  },\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  args: { onClick: fn() },\n}"
+                    "defaultValue": "{\n  title: \"Button\",\n  component: RegaButtonComponent,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  // args: { onClick: fn() },\n}"
                 },
                 {
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts",
+                    "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    primary: true,\n    label: \"My Button\",\n  },\n}"
+                    "defaultValue": "{\n  argTypes: {\n    disabled: {\n      control: { type: \"boolean\" },\n    },\n    loading: {\n      control: { type: \"boolean\" },\n    },\n    size: {\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n    },\n    buttonType: {\n      options: [\"button\", \"reset\", \"submit\"],\n      control: { type: \"select\" },\n    },\n    color: {\n      options: GStatic.enumToArray(ButtonColorEnum).map(({ value }) => value),\n      control: { type: \"select\" },\n    },\n    variant: {\n      options: GStatic.enumToArray(ButtonVariantEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n    },\n    btnClass: {\n      control: { type: \"text\" },\n    },\n  },\n  args: {\n    label: \"Button\",\n    color: ButtonColorEnum.Primary,\n    size: SizeEnum.Medium,\n    variant: ButtonVariantEnum.Contained,\n    disabled: false,\n    loading: false,\n    buttonType: \"button\",\n    btnClass: \"\",\n  },\n}"
                 },
                 {
-                    "name": "Secondary",
+                    "name": "SecondaryLarge",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts",
+                    "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: \"Button\",\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Large,\n    color: ButtonColorEnum.Secondary,\n  },\n}"
                 },
                 {
-                    "name": "Small",
+                    "name": "SolidWarning",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts",
+                    "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: \"small\",\n    label: \"Button\",\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Warning,\n    variant: ButtonVariantEnum.Solid,\n  },\n}"
+                },
+                {
+                    "name": "TextInfo",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Info,\n    variant: ButtonVariantEnum.Text,\n  },\n}"
                 }
             ],
             "projects/rega-ui-material/.storybook/preview.ts": [
@@ -148,20 +208,20 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Preview",
-                    "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
+                    "defaultValue": "{\n  parameters: {\n    layout: \"centered\",\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
                 }
             ]
         },
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
-            "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts": [
+            "projects/rega-ui-material/src/lib/stories/button.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
                     "rawtype": "StoryObj<RegaButtonComponent>",
-                    "file": "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts",
+                    "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -186,17 +246,37 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts",
+                "filePath": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Large",
+                "name": "Disabled",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts",
+                "filePath": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ErrorOutline",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Loading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -206,7 +286,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts",
+                "filePath": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -216,27 +296,37 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts",
+                "filePath": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Secondary",
+                "name": "SecondaryLarge",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts",
+                "filePath": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Small",
+                "name": "SolidWarning",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/rega-ui-material/src/lib/components/rega-button/button.stories.ts",
+                "filePath": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TextInfo",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

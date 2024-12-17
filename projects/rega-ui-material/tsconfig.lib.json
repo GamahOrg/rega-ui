@@ -4,15 +4,16 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
+    "baseUrl": ".",
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
     "types": [],
     "paths": {
-      "@rega-material/*": ["./src/lib/*"],
-      "@rega-material/utils/*": ["./src/utils/*"],
-      "@rega-material/services/*": ["./src/services/*"],
-      "@rega-material/assets/*": ["./src/assets/*"]
+      "@rega-material": ["src/lib"],
+      "@rega-material/utils": ["src/utils"],
+      "@rega-material/services": ["src/services"],
+      "@rega-material/assets": ["src/assets"]
     }
   },
   "exclude": ["**/*.spec.ts"]
