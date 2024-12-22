@@ -1,5 +1,5 @@
 import { Injectable, signal, WritableSignal } from "@angular/core";
-import { Breadcrumb } from "@rega-material/utils";
+import { Breadcrumb } from "../utils";
 
 @Injectable({ providedIn: "root" })
 export class BreadcrumbService {

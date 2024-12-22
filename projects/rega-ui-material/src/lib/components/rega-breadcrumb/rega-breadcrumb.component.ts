@@ -6,19 +6,21 @@ import {
   inject,
   input,
   InputSignal,
+  linkedSignal,
 } from "@angular/core";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  Direction,
-  DirEnum,
-  SizeEnum,
-  SizeType,
-} from "@rega-material/utils";
-import { RegaButtonComponent } from "../rega-button/rega-button.component";
 import { Router, RouterModule } from "@angular/router";
 import { from, take } from "rxjs";
-import { BreadcrumbService } from "@rega-material/services";
+
+import { RegaButtonComponent } from "../rega-button/rega-button.component";
+import { BreadcrumbService } from "../../../services";
+import {
+  BreadcrumbItem,
+  SizeType,
+  SizeEnum,
+  Direction,
+  DirEnum,
+  Breadcrumb,
+} from "../../../utils";
 
 @Component({
   selector: "rega-breadcrumb",
@@ -44,12 +46,16 @@ export class RegaBreadcrumbComponent {
             items[items.length - 1],
           ],
   });
+  public linkedItems = linkedSignal(() => this.items());
 
   public size: InputSignal<SizeType> = input(SizeEnum.Medium as SizeType);
+  public linkedSize = linkedSignal(() => this.size());
 
   public breadcrumbClass: InputSignal<string> = input("");
+  public linkedBreadcrumbClass = linkedSignal(() => this.breadcrumbClass());
 
   public btnClass: InputSignal<string> = input("");
+  public linkedBtnClass = linkedSignal(() => this.btnClass());
 
   public dir: InputSignal<Direction> = input(DirEnum.LTR as Direction);
 
@@ -66,12 +72,10 @@ export class RegaBreadcrumbComponent {
       const { items, size, btnClass, breadcrumbClass } =
         this.#breadcrumbService.breadcrumb() as Breadcrumb;
 
-      this.items().concat(items.length ? items : this.items());
-      this.size().concat(size.length ? size : this.size());
-      this.btnClass().concat(btnClass.length ? btnClass : this.btnClass());
-      this.breadcrumbClass().concat(
-        breadcrumbClass.length ? breadcrumbClass : this.breadcrumbClass()
-      );
+      items.length && this.linkedItems.set(items);
+      size && this.linkedSize.set(size);
+      btnClass && this.linkedBtnClass.set(btnClass);
+      breadcrumbClass && this.linkedBreadcrumbClass.set(breadcrumbClass);
     }
   });
 }

@@ -18,7 +18,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  argTypes: {\r\n    items: {},\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    btnClass: { control: { type: \"text\" } },\r\n    breadcrumbClass: { control: { type: \"text\" } },\r\n  },\r\n  args: {\r\n    items: [\r\n      { label: \"Link 1\", link: \"/link1\" },\r\n      { label: \"Link 2\", link: \"/link2\" },\r\n      { label: \"Link 3\", link: \"/link3\" },\r\n      { label: \"Link 4\", link: \"/link4\" },\r\n      { label: \"Link 5\", link: \"/link5\" },\r\n    ],\r\n  },\r\n}"
+                "defaultValue": "{\r\n  argTypes: {\r\n    items: {},\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    dir: {\r\n      options: GStatic.enumToArray(DirEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    btnClass: { control: { type: \"text\" } },\r\n    breadcrumbClass: { control: { type: \"text\" } },\r\n  },\r\n  args: {\r\n    items: [\r\n      { label: \"Link 1\", link: \"/link1\" },\r\n      { label: \"Link 2\", link: \"/link2\" },\r\n      { label: \"Link 3\", link: \"/link3\" },\r\n      { label: \"Link 4\", link: \"/link4\" },\r\n      { label: \"Link 5\", link: \"/link5\" },\r\n    ],\r\n  },\r\n}"
             },
             {
                 "name": "Disabled",
@@ -108,7 +108,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    items: [\r\n      { label: \"رابط 1\", link: \"/link1\" },\r\n      { label: \"رابط 2\", link: \"/link2\" },\r\n      { label: \"رابط 3\", link: \"/link3\" },\r\n      { label: \"رابط 4\", link: \"/link4\" },\r\n      { label: \"رابط 5\", link: \"/link5\" },\r\n      { label: \"رابط 6\", link: \"/link6\" },\r\n    ],\r\n  },\r\n  parameters: {\r\n    rtl: true, // Add this line to enable RTL direction in Storybook preview\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    dir: DirEnum.RTL,\r\n    items: [\r\n      { label: \"رابط 1\", link: \"/link1\" },\r\n      { label: \"رابط 2\", link: \"/link2\" },\r\n      { label: \"رابط 3\", link: \"/link3\" },\r\n      { label: \"رابط 4\", link: \"/link4\" },\r\n      { label: \"رابط 5\", link: \"/link5\" },\r\n      { label: \"رابط 6\", link: \"/link6\" },\r\n    ],\r\n  },\r\n}"
             },
             {
                 "name": "SecondaryLarge",
@@ -177,7 +177,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  argTypes: {\r\n    items: {},\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    btnClass: { control: { type: \"text\" } },\r\n    breadcrumbClass: { control: { type: \"text\" } },\r\n  },\r\n  args: {\r\n    items: [\r\n      { label: \"Link 1\", link: \"/link1\" },\r\n      { label: \"Link 2\", link: \"/link2\" },\r\n      { label: \"Link 3\", link: \"/link3\" },\r\n      { label: \"Link 4\", link: \"/link4\" },\r\n      { label: \"Link 5\", link: \"/link5\" },\r\n    ],\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  argTypes: {\r\n    items: {},\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    dir: {\r\n      options: GStatic.enumToArray(DirEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    btnClass: { control: { type: \"text\" } },\r\n    breadcrumbClass: { control: { type: \"text\" } },\r\n  },\r\n  args: {\r\n    items: [\r\n      { label: \"Link 1\", link: \"/link1\" },\r\n      { label: \"Link 2\", link: \"/link2\" },\r\n      { label: \"Link 3\", link: \"/link3\" },\r\n      { label: \"Link 4\", link: \"/link4\" },\r\n      { label: \"Link 5\", link: \"/link5\" },\r\n    ],\r\n  },\r\n}"
                 },
                 {
                     "name": "ExtraItems",
@@ -207,7 +207,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    items: [\r\n      { label: \"رابط 1\", link: \"/link1\" },\r\n      { label: \"رابط 2\", link: \"/link2\" },\r\n      { label: \"رابط 3\", link: \"/link3\" },\r\n      { label: \"رابط 4\", link: \"/link4\" },\r\n      { label: \"رابط 5\", link: \"/link5\" },\r\n      { label: \"رابط 6\", link: \"/link6\" },\r\n    ],\r\n  },\r\n  parameters: {\r\n    rtl: true, // Add this line to enable RTL direction in Storybook preview\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    dir: DirEnum.RTL,\r\n    items: [\r\n      { label: \"رابط 1\", link: \"/link1\" },\r\n      { label: \"رابط 2\", link: \"/link2\" },\r\n      { label: \"رابط 3\", link: \"/link3\" },\r\n      { label: \"رابط 4\", link: \"/link4\" },\r\n      { label: \"رابط 5\", link: \"/link5\" },\r\n      { label: \"رابط 6\", link: \"/link6\" },\r\n    ],\r\n  },\r\n}"
                 }
             ],
             "projects/rega-ui-material/src/lib/stories/button.stories.ts": [

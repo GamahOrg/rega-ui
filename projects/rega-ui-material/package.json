@@ -1,5 +1,5 @@
 {
-  "name": "rega-material",
+  "name": "rega-material-ui",
   "description": "A ui material for REGA Angular apps",
   "author": "Mohamed Eldeeb",
   "keywords": [
@@ -7,7 +7,7 @@
     "rega material",
     "rega ui material"
   ],
-  "version": "0.0.4",
+  "version": "0.0.3",
   "peerDependencies": {
     "@angular/common": "^19.0.0",
     "@angular/core": "^19.0.0"

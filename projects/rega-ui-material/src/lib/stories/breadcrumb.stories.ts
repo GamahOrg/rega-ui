@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/angular";
+import { GStatic, SizeEnum, DirEnum } from "../../utils";
 import { RegaBreadcrumbComponent } from "../components";
-import { DirEnum, GStatic, SizeEnum } from "@rega-material/utils";
 
 const meta: Meta<RegaBreadcrumbComponent> = {
   title: "Breadcrumb",
@@ -30,6 +30,19 @@ export const Default: Story = {
       { label: "Link 1", link: "/link1" },
       { label: "Link 2", link: "/link2" },
       { label: "Link 3", link: "/link3" },
+      { label: "Link 4", link: "/link4" },
+      { label: "Link 5", link: "/link5" },
+    ],
+  },
+};
+
+export const DisabledItems: Story = {
+  args: {
+    ...Default.args,
+    items: [
+      { label: "Link 1", link: "/link1" },
+      { label: "Link 2", link: "/link2" },
+      { label: "Link 3", link: "/link3", disabled: true },
       { label: "Link 4", link: "/link4" },
       { label: "Link 5", link: "/link5" },
     ],

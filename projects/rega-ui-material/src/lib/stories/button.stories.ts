@@ -1,11 +1,6 @@
 import { type Meta, type StoryObj } from "@storybook/angular";
 import { RegaButtonComponent } from "../components";
-import {
-  ButtonColorEnum,
-  ButtonVariantEnum,
-  GStatic,
-  SizeEnum,
-} from "@rega-material/utils";
+import { GStatic, SizeEnum, ButtonColorEnum, ButtonVariantEnum } from "../../utils";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<RegaButtonComponent> = {

@@ -8,7 +8,7 @@ export interface BreadcrumbItem {
 
 export interface Breadcrumb {
   items: BreadcrumbItem[];
-  size: SizeType;
-  btnClass: string;
-  breadcrumbClass: string;
+  size?: SizeType;
+  btnClass?: string;
+  breadcrumbClass?: string;
 }

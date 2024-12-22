@@ -9,14 +9,14 @@ import {
 } from "@angular/core";
 import { initFlowbite } from "flowbite";
 import {
+  ButtonType,
+  ButtonColorType,
+  ButtonColorEnum,
   SizeType,
   SizeEnum,
   ButtonVariantType,
   ButtonVariantEnum,
-  ButtonType,
-  ButtonColorEnum,
-  ButtonColorType,
-} from "@rega-material/utils";
+} from "../../../utils";
 
 @Component({
   selector: "rega-button",
