@@ -24,12 +24,8 @@ type Story = StoryObj<RegaButtonComponent>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   argTypes: {
-    disabled: {
-      control: { type: "boolean" },
-    },
-    loading: {
-      control: { type: "boolean" },
-    },
+    disabled: { control: { type: "boolean" } },
+    loading: { control: { type: "boolean" } },
     size: {
       options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),
       control: { type: "radio" },
@@ -46,9 +42,7 @@ export const Primary: Story = {
       options: GStatic.enumToArray(ButtonVariantEnum).map(({ value }) => value),
       control: { type: "radio" },
     },
-    btnClass: {
-      control: { type: "text" },
-    },
+    btnClass: { control: { type: "text" } },
   },
   args: {
     label: "Button",

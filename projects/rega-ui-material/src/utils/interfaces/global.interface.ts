@@ -1,6 +1,8 @@
-import { SizeEnum } from "../enums";
+import { DirEnum, SizeEnum } from "../enums";
 
 export type SizeType = `${SizeEnum}`;
+
+export type Direction = `${DirEnum}`;
 
 export interface IdName {
   id: any;

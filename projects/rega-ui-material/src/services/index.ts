@@ -1,1 +1,1 @@
-export * from "./rega-ui-material.service";
+export * from "./breadcrumb.service";

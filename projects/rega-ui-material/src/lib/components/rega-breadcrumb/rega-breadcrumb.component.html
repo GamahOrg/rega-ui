@@ -1,0 +1,62 @@
+<nav
+  [className]="breadcrumbClass()"
+  class="breadcrumb max-w-full flex overflow-x-auto"
+  aria-label="Breadcrumb"
+  [attr.dir]="dir()"
+>
+  <ol class="inline-flex items-center space-x-1">
+    @let itemsLength = items().length;
+
+    @if (itemsLength) {
+      @for (item of items(); track $index) {
+        <li class="inline-flex items-center">
+          @if (!$first) {
+            @let iconSize = size() === SizeEnum.Small ? "w-2 h-2" : "w-3 h-3";
+
+            @if (divider()) {
+              <ng-container *ngTemplateOutlet="divider()" />
+            } @else {
+              <svg
+                [ngClass]="iconSize"
+                class="text-gray-300 mx-1 rtl:scale-x-[-1]"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 9 4-4-4-4"
+                />
+              </svg>
+            }
+          }
+
+          @if (breadcrumbBtn()) {
+            <ng-container
+              *ngTemplateOutlet="breadcrumbBtn(); context: { $implicit: item, $index }"
+            />
+          } @else {
+            @let disabled = item.disabled || $last;
+            <rega-button
+              [label]="item.label"
+              [size]="size()"
+              [disabled]="disabled"
+              variant="transparent"
+              [btnClass]="
+                (disabled ? '!text-gray-400' : '!text-gray-900') +
+                ' ' +
+                '!min-w-5 !px-0' +
+                btnClass()
+              "
+              (click)="!!item.link && onNavigate(item.link)"
+            />
+          }
+        </li>
+      }
+    }
+  </ol>
+</nav>

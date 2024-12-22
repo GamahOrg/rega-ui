@@ -1,5 +1,4 @@
 // SCSS Variables
-
 $sizes: (
   small: (
     74px,
@@ -50,32 +49,41 @@ $sizes: (
   @return mix($color, #ffffff, 15%);
 }
 
-@mixin btn-variant($color) {
+@mixin btnVariant($name, $color) {
   &.rega-btn--outlined {
-    border: 2px solid border-color($color);
-    color: $color !important;
+    border: 2px solid if($name == disabled, $color, border-color($color));
+    color: $color;
     background-color: transparent !important;
-    &:hover {
-      background-color: bg-color($color) !important;
-    }
   }
 
   &.rega-btn--text,
   &.rega-btn--transparent {
     border: none;
-    color: $color !important;
+    color: $color;
     background-color: transparent !important;
+  }
+
+  &.rega-btn--text,
+  &.rega-btn--outlined {
     &:hover {
-      background-color: bg-color($color) !important;
+      background-color: if($name == disabled, transparent, bg-color($color)) !important;
     }
+  }
+
+  &.rega-btn--transparent {
+    background-color: transparent !important;
   }
 
   &.rega-btn--solid {
     border: none;
-    color: $color !important;
-    background-color: bg-color($color) !important;
+    color: if($name == disabled, #ffffff, $color);
+    background-color: if($name == disabled, $color, bg-color($color)) !important;
     &:hover {
-      background-color: mix($color, #ffffff, 30%) !important;
+      background-color: if(
+        $name == disabled,
+        $color,
+        mix($color, #ffffff, 30%)
+      ) !important;
     }
   }
 }
@@ -89,25 +97,23 @@ $sizes: (
 // Generate Button Variants
 @each $name, $color in $colors {
   .rega-btn--#{$name} {
-    @include btn-variant($color);
+    @include btnVariant($name, $color);
     @include btnColor(
       $color,
-      if($name == "secondary" or $name == "warning", #000000, #ffffff)
+      if($name == secondary or $name == warning, #000000, #ffffff)
     );
 
     &.rega-btn--contained {
       @extend .rega-btn--#{$name};
       &:hover {
-        background-color: darken($color, 5%) !important;
+        background-color: if($name == disabled, $color, darken($color, 5%)) !important;
       }
     }
-  }
-}
 
-// Disabled State
-.rega-btn--disabled {
-  @include btnColor($disabledColor !important, #9da4ae !important);
-  cursor: default !important;
+    &.rega-btn--disabled {
+      cursor: auto;
+    }
+  }
 }
 
 // Generate Button Sizes

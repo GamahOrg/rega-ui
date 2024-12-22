@@ -4,7 +4,8 @@
 @import "typography";
 
 /** Components **/
-@import "components/rega-button.component.scss";
+@import "components/rega-button.component";
+@import "components/breadcrumb.component";
 
 body {
   font-family: $font-family-fe, $font-family-fa;

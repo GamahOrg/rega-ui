@@ -3,3 +3,8 @@ export enum SizeEnum {
   Medium = "medium",
   Large = "large",
 }
+
+export enum DirEnum {
+  LTR = "ltr",
+  RTL = "rtl",
+}

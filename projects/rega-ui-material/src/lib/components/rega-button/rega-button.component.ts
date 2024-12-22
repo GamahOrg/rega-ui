@@ -24,7 +24,7 @@ import {
   templateUrl: "./rega-button.component.html",
 })
 export class RegaButtonComponent implements AfterViewInit {
-  public label: InputSignal<string> = input("Button");
+  public label: InputSignal<string> = input.required();
 
   public buttonType: InputSignal<ButtonType> = input("button" as ButtonType);
 
@@ -53,7 +53,7 @@ export class RegaButtonComponent implements AfterViewInit {
       this.btnClass(),
     ];
     if (this.disabled() || this.loading()) classes.push("rega-btn--disabled");
-    return classes;
+    return classes.filter(Boolean);
   });
 
   public ngAfterViewInit(): void {
