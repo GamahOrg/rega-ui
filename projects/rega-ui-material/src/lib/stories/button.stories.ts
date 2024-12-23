@@ -4,7 +4,7 @@ import { GStatic, SizeEnum, ButtonColorEnum, ButtonVariantEnum } from "../../uti
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<RegaButtonComponent> = {
-  title: "Button",
+  title: "Components/Button",
   component: RegaButtonComponent,
   tags: ["autodocs"],
   argTypes: {},

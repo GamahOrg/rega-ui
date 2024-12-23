@@ -41,17 +41,17 @@
             />
           } @else {
             @let disabled = item.disabled || $last;
+            @let btnClass =
+              (disabled ? "!text-gray-400" : "!text-gray-900") +
+              " !min-w-5 !px-0 " +
+              linkedBtnClass();
+
             <rega-button
               [label]="item.label"
               [size]="linkedSize()"
               [disabled]="disabled"
               variant="transparent"
-              [btnClass]="
-                (disabled ? '!text-gray-400' : '!text-gray-900') +
-                ' ' +
-                '!min-w-5 !px-0' +
-                linkedBtnClass()
-              "
+              [btnClass]="btnClass"
               (click)="!!item.link && onNavigate(item.link)"
             />
           }
