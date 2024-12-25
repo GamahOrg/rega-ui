@@ -17,6 +17,7 @@ import {
   UntypedFormGroup,
   Validators,
 } from "@angular/forms";
+import { TextAreaComponent } from "projects/rega-ui-material/src/lib/components/textarea/textarea.component";
 @Component({
   selector: "app-root",
   standalone: true,
@@ -26,6 +27,7 @@ import {
     FormsModule,
     RegaBreadcrumbComponent,
     TextInputComponent,
+    TextAreaComponent,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
@@ -34,7 +36,7 @@ export class AppComponent implements OnInit {
   readonly #fb = inject(FormBuilder);
   readonly #breadcrumbService = inject(BreadcrumbService);
 
-  public control: UntypedFormControl = this.#fb.control(null, [Validators.email]);
+  public control: UntypedFormControl = this.#fb.control(null, [Validators.required]);
 
   public formGroup = this.#fb.group({
     control: [null, [Validators.required]],
@@ -52,6 +54,7 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(): void {
     this.control.valueChanges.subscribe((res) => {
+      console.log("🚀 ~ AppComponent ~ this.control.valueChanges.subscribe ~ res:", res);
       // console.log("Values: ", res);
     });
 

@@ -1,0 +1,58 @@
+// Base Style
+.rega-textarea {
+  label {
+    font-size: 16px;
+  }
+
+  textarea {
+    outline: none;
+    border-radius: 4px;
+    width: 100%;
+    min-height: 96px;
+    padding: 12px 16px;
+    font-size: 16px;
+    color: #161616;
+    border: 1px solid;
+  }
+
+  &.rega-textarea--default {
+    textarea {
+      @apply text-[#161616] focus:border-[#161616] border border-gray-400;
+    }
+  }
+
+  &.rega-textarea--darker {
+    @extend .rega-textarea--default;
+    textarea {
+      @apply bg-[#f3f4f6];
+    }
+  }
+
+  &.rega-textarea--lighter {
+    @extend .rega-textarea--default;
+    textarea {
+      @apply border-0 focus:border bg-[#fcfcfd];
+    }
+  }
+
+  &.rega-textarea--disabled {
+    @extend .rega-textarea--default;
+    textarea {
+      @apply border-[#e5e7eb] text-[#9da4ae];
+    }
+  }
+
+  &.rega-textarea--invalid {
+    @extend .rega-textarea--default;
+
+    .underline-animation {
+      &::after {
+        @apply bg-[#b42318];
+      }
+    }
+
+    textarea {
+      @apply focus:border-[#b42318] border-[#b42318];
+    }
+  }
+}

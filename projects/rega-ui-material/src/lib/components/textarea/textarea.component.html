@@ -1,0 +1,21 @@
+<div [ngClass]="classes()">
+  @if (label()) {
+    <label for="textarea" class="block mb-1 px-[2px] text-sm font-medium text-gray-900">{{
+      label()
+    }}</label>
+  }
+
+  <div class="relative underline-animation mb-1">
+    <textarea
+      id="textarea"
+      [(ngModel)]="value"
+      [disabled]="linkedDisabled()"
+      [placeholder]="placeholder()"
+      [readOnly]="readOnly()"
+      type="text"
+      class="ring-0 focus:ring-0 block w-full p-2.5"
+      (input)="onInputChange($event)"
+      (blur)="onTouched(); touched.set(true)"
+    ></textarea>
+  </div>
+</div>
