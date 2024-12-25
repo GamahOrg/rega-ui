@@ -32,6 +32,7 @@
     "ngx-toastr": "^19.0.0",
     "rega-material-ui": "^0.0.3",
     "rxjs": "~7.8.0",
+    "storybook-addon-rtl": "^1.0.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },

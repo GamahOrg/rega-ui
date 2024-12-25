@@ -57,8 +57,6 @@ export class RegaBreadcrumbComponent {
   public btnClass: InputSignal<string> = input("");
   public linkedBtnClass = linkedSignal(() => this.btnClass());
 
-  public dir: InputSignal<Direction> = input(DirEnum.LTR as Direction);
-
   public readonly SizeEnum = SizeEnum;
 
   public onNavigate = (path: string): void => {

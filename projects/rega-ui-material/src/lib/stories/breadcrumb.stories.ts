@@ -3,7 +3,7 @@ import { GStatic, SizeEnum, DirEnum } from "../../utils";
 import { RegaBreadcrumbComponent } from "../components";
 
 const meta: Meta<RegaBreadcrumbComponent> = {
-  title: "Breadcrumb",
+  title: "Components/Breadcrumb",
   component: RegaBreadcrumbComponent,
   tags: ["autodocs"],
 };
@@ -16,10 +16,6 @@ export const Default: Story = {
     items: {},
     size: {
       options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),
-      control: { type: "radio" },
-    },
-    dir: {
-      options: GStatic.enumToArray(DirEnum).map(({ value }) => value),
       control: { type: "radio" },
     },
     btnClass: { control: { type: "text" } },
@@ -64,9 +60,9 @@ export const ExtraItems: Story = {
 };
 
 export const RTL: Story = {
+  parameters: { direction: "rtl" },
   args: {
     ...Default.args,
-    dir: DirEnum.RTL,
     items: [
       { label: "رابط 1", link: "/link1" },
       { label: "رابط 2", link: "/link2" },
