@@ -1,0 +1,47 @@
+<div [ngClass]="classes()">
+  @if (label()) {
+    <label for="input" class="block mb-1 px-[2px] text-sm font-medium text-gray-900">{{
+      label()
+    }}</label>
+  }
+
+  <div class="relative underline-animation mb-1">
+    @if (prefix() || inputPrefix()) {
+      <button
+        [ngClass]="prefixClass()"
+        class="absolute prefix h-[calc(100%-2px)] start-[1px] bottom-[1px] flex justify-center items-center text-[#6c737f] bg-[#f3f4f6]"
+      >
+        @if (inputPrefix()) {
+          <ng-container *ngTemplateOutlet="$any(inputPrefix()?.ref)" />
+        } @else {
+          {{ prefix() }}
+        }
+      </button>
+    }
+
+    <input
+      id="input"
+      [(ngModel)]="value"
+      [disabled]="linkedDisabled()"
+      [placeholder]="placeholder()"
+      [readOnly]="readOnly()"
+      type="text"
+      class="ring-0 focus:ring-0 block w-full p-2.5"
+      (input)="onInputChange($event)"
+      (blur)="onTouched(); touched.set(true)"
+    />
+
+    @if (suffix() || inputSuffix()) {
+      <button
+        [ngClass]="suffixClass()"
+        class="absolute suffix h-[calc(100%-2px)] end-[1px] bottom-[1px] flex justify-center items-center text-[#6c737f] bg-[#f3f4f6]"
+      >
+        @if (inputSuffix()) {
+          <ng-container *ngTemplateOutlet="$any(inputSuffix()?.ref)" />
+        } @else {
+          {{ suffix() }}
+        }
+      </button>
+    }
+  </div>
+</div>

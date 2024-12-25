@@ -21,6 +21,16 @@
                 "defaultValue": "{\r\n  argTypes: {\r\n    items: {},\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    dir: {\r\n      options: GStatic.enumToArray(DirEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    btnClass: { control: { type: \"text\" } },\r\n    breadcrumbClass: { control: { type: \"text\" } },\r\n  },\r\n  args: {\r\n    items: [\r\n      { label: \"Link 1\", link: \"/link1\" },\r\n      { label: \"Link 2\", link: \"/link2\" },\r\n      { label: \"Link 3\", link: \"/link3\" },\r\n      { label: \"Link 4\", link: \"/link4\" },\r\n      { label: \"Link 5\", link: \"/link5\" },\r\n    ],\r\n  },\r\n}"
             },
             {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  argTypes: {\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(InputVariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    error: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    readOnly: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    prefix: { control: { type: \"text\" }, description: \"Boolean\" },\r\n    inputPrefix: {\r\n      control: { type: \"object\" },\r\n      description:\r\n        \"Make sure you importing <InputPrefixDirective> ... Then inside component tag <ng-template inputPrefix>prefix<ng-template/>\",\r\n    },\r\n    suffix: { control: { type: \"text\" }, description: \"String\" },\r\n    inputSuffix: {\r\n      control: { type: \"object\" },\r\n      description:\r\n        \"Make sure you importing <InputSuffixDirective> ... Then inside component tag <ng-template suffixPrefix>suffix<ng-template/>\",\r\n    },\r\n    inputClass: { control: { type: \"text\" }, description: \"String\" },\r\n    prefixClass: { control: { type: \"text\" }, description: \"String\" },\r\n    suffixClass: { control: { type: \"text\" }, description: \"String\" },\r\n    placeholder: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
+            },
+            {
                 "name": "Disabled",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -29,6 +39,26 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    label: \"Button\",\n    size: SizeEnum.Medium,\n    disabled: true,\n  },\n}"
+            },
+            {
+                "name": "DisabledItems",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/breadcrumb.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    items: [\r\n      { label: \"Link 1\", link: \"/link1\" },\r\n      { label: \"Link 2\", link: \"/link2\" },\r\n      { label: \"Link 3\", link: \"/link3\", disabled: true },\r\n      { label: \"Link 4\", link: \"/link4\" },\r\n      { label: \"Link 5\", link: \"/link5\" },\r\n    ],\r\n  },\r\n}"
+            },
+            {
+                "name": "Error",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    error: true,\r\n  },\r\n}"
             },
             {
                 "name": "ErrorOutline",
@@ -68,7 +98,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<RegaBreadcrumbComponent>",
-                "defaultValue": "{\r\n  title: \"Breadcrumb\",\r\n  component: RegaBreadcrumbComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+                "defaultValue": "{\r\n  title: \"Components/Breadcrumb\",\r\n  component: RegaBreadcrumbComponent,\r\n  tags: [\"autodocs\"],\r\n}"
             },
             {
                 "name": "meta",
@@ -78,7 +108,27 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<RegaButtonComponent>",
-                "defaultValue": "{\n  title: \"Button\",\n  component: RegaButtonComponent,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  // args: { onClick: fn() },\n}"
+                "defaultValue": "{\n  title: \"Components/Button\",\n  component: RegaButtonComponent,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  // args: { onClick: fn() },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TextInputComponent>",
+                "defaultValue": "{\r\n  title: \"Components/Text Input\",\r\n  component: TextInputComponent,\r\n  tags: [\"autodocs\"],\r\n  args: {},\r\n  decorators: [],\r\n}"
+            },
+            {
+                "name": "Prefix",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    prefix: \"$\",\r\n    placeholder: \"Enter price\",\r\n  },\r\n}"
             },
             {
                 "name": "preview",
@@ -109,6 +159,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    dir: DirEnum.RTL,\r\n    items: [\r\n      { label: \"رابط 1\", link: \"/link1\" },\r\n      { label: \"رابط 2\", link: \"/link2\" },\r\n      { label: \"رابط 3\", link: \"/link3\" },\r\n      { label: \"رابط 4\", link: \"/link4\" },\r\n      { label: \"رابط 5\", link: \"/link5\" },\r\n      { label: \"رابط 6\", link: \"/link6\" },\r\n    ],\r\n  },\r\n}"
+            },
+            {
+                "name": "RTL",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    label: \"العنوان\",\r\n    placeholder: \"نص توضيحي\",\r\n  },\r\n  parameters: {\r\n    direction: \"rtl\",\r\n  },\r\n}"
             },
             {
                 "name": "SecondaryLarge",
@@ -164,6 +224,17 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TextInputComponent>",
+                "file": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
             }
         ],
         "enumerations": [],
@@ -178,6 +249,16 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  argTypes: {\r\n    items: {},\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    dir: {\r\n      options: GStatic.enumToArray(DirEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    btnClass: { control: { type: \"text\" } },\r\n    breadcrumbClass: { control: { type: \"text\" } },\r\n  },\r\n  args: {\r\n    items: [\r\n      { label: \"Link 1\", link: \"/link1\" },\r\n      { label: \"Link 2\", link: \"/link2\" },\r\n      { label: \"Link 3\", link: \"/link3\" },\r\n      { label: \"Link 4\", link: \"/link4\" },\r\n      { label: \"Link 5\", link: \"/link5\" },\r\n    ],\r\n  },\r\n}"
+                },
+                {
+                    "name": "DisabledItems",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/breadcrumb.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    items: [\r\n      { label: \"Link 1\", link: \"/link1\" },\r\n      { label: \"Link 2\", link: \"/link2\" },\r\n      { label: \"Link 3\", link: \"/link3\", disabled: true },\r\n      { label: \"Link 4\", link: \"/link4\" },\r\n      { label: \"Link 5\", link: \"/link5\" },\r\n    ],\r\n  },\r\n}"
                 },
                 {
                     "name": "ExtraItems",
@@ -197,7 +278,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<RegaBreadcrumbComponent>",
-                    "defaultValue": "{\r\n  title: \"Breadcrumb\",\r\n  component: RegaBreadcrumbComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+                    "defaultValue": "{\r\n  title: \"Components/Breadcrumb\",\r\n  component: RegaBreadcrumbComponent,\r\n  tags: [\"autodocs\"],\r\n}"
                 },
                 {
                     "name": "RTL",
@@ -208,6 +289,58 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    dir: DirEnum.RTL,\r\n    items: [\r\n      { label: \"رابط 1\", link: \"/link1\" },\r\n      { label: \"رابط 2\", link: \"/link2\" },\r\n      { label: \"رابط 3\", link: \"/link3\" },\r\n      { label: \"رابط 4\", link: \"/link4\" },\r\n      { label: \"رابط 5\", link: \"/link5\" },\r\n      { label: \"رابط 6\", link: \"/link6\" },\r\n    ],\r\n  },\r\n}"
+                }
+            ],
+            "projects/rega-ui-material/src/lib/stories/text-input.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  argTypes: {\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(InputVariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    error: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    readOnly: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    prefix: { control: { type: \"text\" }, description: \"Boolean\" },\r\n    inputPrefix: {\r\n      control: { type: \"object\" },\r\n      description:\r\n        \"Make sure you importing <InputPrefixDirective> ... Then inside component tag <ng-template inputPrefix>prefix<ng-template/>\",\r\n    },\r\n    suffix: { control: { type: \"text\" }, description: \"String\" },\r\n    inputSuffix: {\r\n      control: { type: \"object\" },\r\n      description:\r\n        \"Make sure you importing <InputSuffixDirective> ... Then inside component tag <ng-template suffixPrefix>suffix<ng-template/>\",\r\n    },\r\n    inputClass: { control: { type: \"text\" }, description: \"String\" },\r\n    prefixClass: { control: { type: \"text\" }, description: \"String\" },\r\n    suffixClass: { control: { type: \"text\" }, description: \"String\" },\r\n    placeholder: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
+                },
+                {
+                    "name": "Error",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    error: true,\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TextInputComponent>",
+                    "defaultValue": "{\r\n  title: \"Components/Text Input\",\r\n  component: TextInputComponent,\r\n  tags: [\"autodocs\"],\r\n  args: {},\r\n  decorators: [],\r\n}"
+                },
+                {
+                    "name": "Prefix",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    prefix: \"$\",\r\n    placeholder: \"Enter price\",\r\n  },\r\n}"
+                },
+                {
+                    "name": "RTL",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    label: \"العنوان\",\r\n    placeholder: \"نص توضيحي\",\r\n  },\r\n  parameters: {\r\n    direction: \"rtl\",\r\n  },\r\n}"
                 }
             ],
             "projects/rega-ui-material/src/lib/stories/button.stories.ts": [
@@ -249,7 +382,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<RegaButtonComponent>",
-                    "defaultValue": "{\n  title: \"Button\",\n  component: RegaButtonComponent,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  // args: { onClick: fn() },\n}"
+                    "defaultValue": "{\n  title: \"Components/Button\",\n  component: RegaButtonComponent,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  // args: { onClick: fn() },\n}"
                 },
                 {
                     "name": "Primary",
@@ -333,6 +466,19 @@
                     "description": "",
                     "kind": 183
                 }
+            ],
+            "projects/rega-ui-material/src/lib/stories/text-input.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TextInputComponent>",
+                    "file": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
             ]
         }
     },
@@ -357,6 +503,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/breadcrumb.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DisabledItems",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -483,6 +639,66 @@
             },
             {
                 "filePath": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Error",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Prefix",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "RTL",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

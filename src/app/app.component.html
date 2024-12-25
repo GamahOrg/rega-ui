@@ -1,1 +1,13 @@
-<rega-breadcrumb [items]="[]" />
+<!-- <rega-breadcrumb [items]="[]" /> -->
+
+<rega-text-input
+  dir="rtl"
+  [formControl]="control"
+  label="العنوان"
+  placeholder="ادخل النص"
+/>
+
+<!-- [error]="control.touched && !!control.errors" -->
+{{ "Is Valid: " + control.valid }}
+<br />
+{{ "Errors: " + (control.errors | json) }}

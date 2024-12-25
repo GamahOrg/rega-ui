@@ -1,0 +1,141 @@
+// Underline Animation Styles
+.underline-animation {
+  @apply relative;
+
+  &::after {
+    @apply absolute content-[''] w-full h-[2px] bg-[#161616] left-0 bottom-0 rounded-br-lg rounded-bl-lg scale-x-0 transition-transform duration-300;
+  }
+
+  &:focus-within:not(.disabled):not(.readonly)::after {
+    @apply scale-x-100;
+  }
+
+  input:disabled,
+  input[readonly] {
+    @apply pointer-events-none;
+  }
+
+  input:disabled + ::after,
+  input[readonly] + ::after {
+    @apply scale-x-0 !important;
+  }
+}
+
+$sizes: (
+  small: (
+    24px,
+    12px,
+    40px,
+  ),
+  medium: (
+    32px,
+    14px,
+    50px,
+  ),
+  large: (
+    40px,
+    16px,
+    60px,
+  ),
+);
+
+@mixin inputSize($h, $fs) {
+  input {
+    height: $h;
+  }
+
+  input,
+  label,
+  .prefix,
+  .suffix {
+    font-size: $fs;
+  }
+}
+
+// Base Style
+.rega-input {
+  input {
+    border-radius: 4px;
+  }
+
+  button {
+    &.prefix {
+      border-start-start-radius: 4px;
+      border-end-start-radius: 4px;
+    }
+
+    &.suffix {
+      border-start-end-radius: 4px;
+      border-end-end-radius: 4px;
+    }
+  }
+
+  &.rega-input--default {
+    input {
+      @apply text-[#161616] focus:border-[#161616] border border-gray-400;
+    }
+  }
+
+  &.rega-input--darker {
+    @extend .rega-input--default;
+    input {
+      @apply bg-[#f3f4f6];
+    }
+  }
+
+  &.rega-input--lighter {
+    @extend .rega-input--default;
+    input {
+      @apply border-0 focus:border bg-[#fcfcfd];
+    }
+  }
+
+  &.rega-input--disabled {
+    @extend .rega-input--default;
+    input {
+      @apply border-[#e5e7eb] text-[#9da4ae];
+    }
+  }
+
+  &.rega-input--invalid {
+    @extend .rega-input--default;
+
+    .underline-animation {
+      &::after {
+        @apply bg-[#b42318];
+      }
+    }
+
+    input {
+      @apply focus:border-[#b42318] border-[#b42318];
+    }
+  }
+}
+
+// Generate Button Sizes
+@each $size, $values in $sizes {
+  $preSufSize: nth($values, 3);
+  .rega-input--prefix-#{$size} {
+    .prefix {
+      width: $preSufSize;
+    }
+
+    input {
+      padding-inline-start: calc(#{$preSufSize} + 5px);
+    }
+  }
+
+  .rega-input--suffix-#{$size} {
+    .suffix {
+      width: $preSufSize;
+    }
+
+    input {
+      padding-inline-end: calc(#{$preSufSize} + 5px);
+    }
+  }
+
+  .rega-input--#{$size} {
+    @include inputSize(nth($values, 1), nth($values, 2));
+  }
+}

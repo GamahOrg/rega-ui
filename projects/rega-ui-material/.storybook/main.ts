@@ -17,6 +17,7 @@ const config: StorybookConfig = {
     "@storybook/addon-actions",
     "@storybook/addon-postcss",
     "@storybook/addon-styling-webpack",
+    "storybook-addon-rtl",
   ],
   framework: {
     name: "@storybook/angular",
