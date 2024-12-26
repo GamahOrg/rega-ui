@@ -38,7 +38,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  argTypes: {\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(InputVariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    error: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    readOnly: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    placeholder: { control: { type: \"text\" }, description: \"String\" },\r\n    textareaClass: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
+                "defaultValue": "{\r\n  argTypes: {\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(TextareaVariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    error: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    readOnly: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    placeholder: { control: { type: \"text\" }, description: \"String\" },\r\n    textareaClass: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
             },
             {
                 "name": "Disabled",
@@ -403,7 +403,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  argTypes: {\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(InputVariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    error: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    readOnly: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    placeholder: { control: { type: \"text\" }, description: \"String\" },\r\n    textareaClass: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  argTypes: {\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(TextareaVariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    error: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    readOnly: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    placeholder: { control: { type: \"text\" }, description: \"String\" },\r\n    textareaClass: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
                 },
                 {
                     "name": "Error",
