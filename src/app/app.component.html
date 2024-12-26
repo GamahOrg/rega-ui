@@ -6,7 +6,9 @@
   label="العنوان"
   placeholder="ادخل النص"
 /> -->
-<rega-textarea [formControl]="control" label="Label" />
+<div class="w-1/2">
+  <rega-textarea [formControl]="control" label="Label" />
+</div>
 
 <!-- [error]="control.touched && !!control.errors" -->
 {{ "Is Valid: " + control.valid }}

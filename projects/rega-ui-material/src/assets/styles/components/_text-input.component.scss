@@ -10,6 +10,10 @@
     @apply scale-x-100;
   }
 
+  &:active:not(.disabled):not(.readonly)::after {
+    @apply scale-x-50;
+  }
+
   input:disabled,
   input[readonly] {
     @apply pointer-events-none;

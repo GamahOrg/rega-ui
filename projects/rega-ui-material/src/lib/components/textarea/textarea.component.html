@@ -5,7 +5,7 @@
     }}</label>
   }
 
-  <div class="relative underline-animation mb-1">
+  <div class="underline-animation mb-1">
     <textarea
       id="textarea"
       [(ngModel)]="value"
@@ -13,7 +13,7 @@
       [placeholder]="placeholder()"
       [readOnly]="readOnly()"
       type="text"
-      class="ring-0 focus:ring-0 block w-full p-2.5"
+      class="max-w-full ring-0 focus:ring-0 block p-2.5"
       (input)="onInputChange($event)"
       (blur)="onTouched(); touched.set(true)"
     ></textarea>
