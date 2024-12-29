@@ -24,18 +24,22 @@ export const Primary: Story = {
     size: {
       options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),
       control: { type: "radio" },
+      description: "SizeEnum",
     },
     buttonType: {
       options: ["button", "reset", "submit"],
       control: { type: "select" },
+      description: " ['button', 'reset', 'submit']",
     },
     color: {
       options: GStatic.enumToArray(ButtonColorEnum).map(({ value }) => value),
       control: { type: "select" },
+      description: "ButtonColorEnum",
     },
     variant: {
       options: GStatic.enumToArray(ButtonVariantEnum).map(({ value }) => value),
       control: { type: "radio" },
+      description: "ButtonVariantEnum",
     },
     btnClass: { control: { type: "text" } },
   },

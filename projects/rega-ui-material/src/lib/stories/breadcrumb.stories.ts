@@ -17,9 +17,10 @@ export const Default: Story = {
     size: {
       options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),
       control: { type: "radio" },
+      description: "SizeEnum",
     },
-    btnClass: { control: { type: "text" } },
-    breadcrumbClass: { control: { type: "text" } },
+    btnClass: { control: { type: "text" }, description: "String" },
+    breadcrumbClass: { control: { type: "text" }, description: "String" },
   },
   args: {
     items: [

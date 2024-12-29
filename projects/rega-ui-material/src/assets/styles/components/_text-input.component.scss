@@ -76,7 +76,7 @@ $sizes: (
 
   &.rega-input--default {
     input {
-      @apply text-[#161616] focus:border-[#161616] border border-gray-400;
+      @apply text-[#161616] focus:border-[#161616] border border-[var(--border-color)];
     }
   }
 
@@ -90,14 +90,14 @@ $sizes: (
   &.rega-input--lighter {
     @extend .rega-input--default;
     input {
-      @apply border-0 focus:border bg-[#fcfcfd];
+      @apply border-0 focus:border bg-lightColor;
     }
   }
 
   &.rega-input--disabled {
     @extend .rega-input--default;
     input {
-      @apply border-[#e5e7eb] text-[#9da4ae];
+      @apply text-disabledColor border-disabledBorderColor;
     }
   }
 
@@ -106,12 +106,12 @@ $sizes: (
 
     .underline-animation {
       &::after {
-        @apply bg-[#b42318];
+        @apply bg-errorColor;
       }
     }
 
     input {
-      @apply focus:border-[#b42318] border-[#b42318];
+      @apply focus:border-errorColor border-errorColor;
     }
   }
 }

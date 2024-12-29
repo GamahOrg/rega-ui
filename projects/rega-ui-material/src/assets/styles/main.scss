@@ -3,16 +3,16 @@
 @import "variables";
 @import "typography";
 
+@import "material-icons/iconfont/material-icons.css";
+
 /** Components **/
 @import "components/rega-button.component";
 @import "components/breadcrumb.component";
 @import "components/text-input.component";
 @import "components/textarea.component";
+@import "./components/textarea.component";
+@import "./components/checkbox.component";
 
 body {
   font-family: $font-family-fe, $font-family-fa;
-
-  .mt-auto:empty {
-    display: none;
-  }
 }

@@ -1,0 +1,90 @@
+// SCSS Variables
+$sizes: (
+  small: (
+    14px,
+    12px,
+    400,
+  ),
+  medium: (
+    18px,
+    14px,
+    500,
+  ),
+  large: (
+    22px,
+    16px,
+    500,
+  ),
+);
+
+@mixin checkboxSize($w, $fs, $fw) {
+  input {
+    height: clamp($w, $w, $w);
+    width: clamp($w, $w, $w);
+  }
+
+  label {
+    font-size: $fs;
+    font-weight: $fw;
+  }
+
+  mat-icon {
+    height: clamp($w, $w, $w);
+    width: clamp($w, $w, $w);
+    min-width: clamp($w, $w, $w);
+    max-width: clamp($w, $w, $w);
+    font-size: clamp($w, $w, $w);
+  }
+
+  .description {
+    margin-inline-start: calc($w + 0.5rem);
+  }
+
+  .description,
+  .error p {
+    font-size: calc($fs - 1px);
+    font-weight: calc($fw - 100);
+  }
+}
+
+.rega-checkbox {
+  input {
+    @apply relative inline-block outline-none ring-0 transition-[0.1s] rounded-[2px] border border-solid border-borderColor
+    bg-transparent cursor-pointer focus:ring-0;
+  }
+
+  label {
+    @apply text-sm font-medium cursor-pointer;
+  }
+
+  label,
+  .description {
+    @apply text-gray-900;
+  }
+}
+
+// Generate Button Variants
+@each $name, $color in $colors {
+  .rega-checkbox--#{$name} {
+    input {
+      color: $color;
+    }
+
+    &.rega-checkbox--disabled {
+      input {
+        @apply text-disabledBorderColor bg-lightColor;
+      }
+
+      input,
+      label {
+        @apply cursor-auto pointer-events-none;
+      }
+    }
+  }
+}
+
+@each $size, $values in $sizes {
+  .rega-checkbox--#{$size} {
+    @include checkboxSize(nth($values, 1), nth($values, 2), nth($values, 3));
+  }
+}

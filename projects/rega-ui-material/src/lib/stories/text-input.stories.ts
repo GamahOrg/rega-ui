@@ -18,11 +18,13 @@ export const Default: Story = {
     size: {
       options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),
       control: { type: "radio" },
+      description: "SizeEnum",
     },
     label: { control: { type: "text" } },
     variant: {
       options: GStatic.enumToArray(InputVariantEnum).map(({ value }) => value),
       control: { type: "radio" },
+      description: "InputVariantEnum",
     },
     error: { control: { type: "boolean" }, description: "Boolean" },
     readOnly: { control: { type: "boolean" }, description: "Boolean" },

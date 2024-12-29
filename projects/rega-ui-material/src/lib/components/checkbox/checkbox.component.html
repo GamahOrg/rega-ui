@@ -1,0 +1,28 @@
+<div [ngClass]="classes()" class="rega-checkbox flex flex-col justify-start items-start">
+  <div class="flex justify-start items-center gap-2">
+    <input
+      [(ngModel)]="value"
+      [disabled]="disabled()"
+      id="checkbox"
+      type="checkbox"
+      (input)="onCheckboxChange($event)"
+      (blur)="onTouched(); touched.set(true)"
+    />
+
+    <label for="checkbox">{{ label() }}</label>
+  </div>
+
+  @if (description()) {
+    <p class="description text-wrap mt-[8px]">{{ description() }}</p>
+  }
+
+  @if (errorMsg()) {
+    <div
+      [ngClass]="{ 'mt-2': !description() }"
+      class="error flex justify-start items-start gap-2 mt-1"
+    >
+      <mat-icon class="block text-errorColor" fontIcon="error_outline" />
+      <p class="text-wrap text-errorColor">{{ errorMsg() }}</p>
+    </div>
+  }
+</div>

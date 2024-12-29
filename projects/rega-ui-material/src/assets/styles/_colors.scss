@@ -4,69 +4,14 @@ $transparent: transparent;
 $primaryColor: #1b8354;
 $secondaryColor: #dba102;
 $successColor: #079455;
-$errorColor: #d92d20;
 $warningColor: #dc6803;
 $infoColor: #1570ef;
-$disabledColor: #e5e7eb;
-$primaryLogo: #221afb !default;
-// $secondaryColor: #eff6ff !default;
-$primaryDisable: #f7f7f7 !default;
-// Text Colors: For all kind of text
-$primaryText: #272424 !default;
-$secondaryText: #72788e !default;
-$tertiaryText: #bcc6db !default;
-$disableText: #a9aeb2 !default;
-$supportText: #ffffff !default;
-// Neutrals: These are the colors you will use the most and will make up the majority of your UI.
-// Use them for, backgrounds, and borders, containers, deciders, background avatars, tab navigation.
-$primaryCard: #f7f8fa !default;
-$secondaryCard: #ffffff !default;
-$outlineColor: #e6e9ef !default;
-$tabNavBG: #ffffff !default;
-$primaryBG: #fdfdfd !default;
-// Status Colors: These colors should be used fairly conservatively throughout your UI to avoid overpowering your primary colors.
-// Use them when you need an element to stand out, or to reinforce things like error states or positive trends with the appropriate semantic color.
-
-// Positive
-$positiveText: #20c992 !default;
-$positiveBG: #eaf9f1 !default;
-// Warning
-$warningText: #fe9e46 !default;
-$warningBG: #fbf1e0 !default;
-// Negative
-$negativeText: #fc5555 !default;
-$negativeBg: #fee2e2 !default;
-// Other
-$primaryHover: #0051ff !default;
-$primaryHeaderBG: #0038ff12 !default;
-$secondaryHover: #e3eaf2 !default;
-$skeleton: #edf0f8 !default;
-$overly: #b5b7c0 !default;
-$alternating: #eef0f2 !default;
-$secondaryAlternating: #272424 !default;
-$supportColor: #6366f1 !default;
-
-// categories
-$neon-pink: #ec4899 !default;
-$mustard-yellow: #eab308 !default;
-$emerald-green: #22c55e !default;
-$teal: #14b8a6 !default;
-$tangerine: #f59e0b !default;
-$azure: #3b82f6 !default;
-$amethyst: #a855f7 !default;
-$carrot-orange: #f97316 !default;
-$lime-green: #84cc16 !default;
-$ultramarine-blue: #6366f1 !default;
-$mint-green: #34d399 !default;
-$chartreuse-green: #a3e635 !default;
-$pink-peony: #f472b6 !default;
-// end categories
-
-//
-$default-bundle-color: #a0e8d1 !default;
-$premium-bundle-color: #fbcfe8 !default;
-$gold-bundle-color: #fed7aa !default;
-$platinum-bundle-color: #bfdbfe !default;
+$lightColor: #fcfcfd;
+$errorColor: #b42318;
+$borderColor: #9ca3af;
+//Disabled color
+$disabledColor: #9da4ae;
+$disabledBorderColor: #e5e7eb;
 
 // Colors
 $colors: (
@@ -78,3 +23,20 @@ $colors: (
   info: $infoColor,
   disabled: $disabledColor,
 );
+
+$additional-colors: (
+  light: $lightColor,
+  border: $borderColor,
+  disabledCorder: $disabledBorderColor,
+);
+
+// Convert the SCSS map into CSS custom properties
+:root {
+  @each $key, $value in $colors {
+    --#{$key}-color: #{$value};
+  }
+
+  @each $key, $value in $additional-colors {
+    --#{$key}-color: #{$value};
+  }
+}

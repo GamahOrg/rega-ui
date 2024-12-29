@@ -18,7 +18,7 @@
 
   &.rega-textarea--default {
     textarea {
-      @apply text-[#161616] focus:border-[#161616] border border-gray-400;
+      @apply text-[#161616] focus:border-[#161616] border border-borderColor;
     }
   }
 
@@ -32,14 +32,14 @@
   &.rega-textarea--lighter {
     @extend .rega-textarea--default;
     textarea {
-      @apply border-0 focus:border bg-[#fcfcfd];
+      @apply border-0 focus:border bg-lightColor;
     }
   }
 
   &.rega-textarea--disabled {
     @extend .rega-textarea--default;
     textarea {
-      @apply border-[#e5e7eb] text-[#9da4ae];
+      @apply text-disabledColor border-disabledBorderColor;
     }
   }
 
@@ -48,12 +48,12 @@
 
     .underline-animation {
       &::after {
-        @apply bg-[#b42318];
+        @apply bg-errorColor;
       }
     }
 
     textarea {
-      @apply focus:border-[#b42318] border-[#b42318];
+      @apply focus:border-errorColor border-errorColor;
     }
   }
 }

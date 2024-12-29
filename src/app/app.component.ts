@@ -18,6 +18,7 @@ import {
   Validators,
 } from "@angular/forms";
 import { TextAreaComponent } from "projects/rega-ui-material/src/lib/components/textarea/textarea.component";
+import { CheckboxComponent } from "projects/rega-ui-material/src/lib";
 @Component({
   selector: "app-root",
   standalone: true,
@@ -28,6 +29,7 @@ import { TextAreaComponent } from "projects/rega-ui-material/src/lib/components/
     RegaBreadcrumbComponent,
     TextInputComponent,
     TextAreaComponent,
+    CheckboxComponent,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
@@ -36,7 +38,7 @@ export class AppComponent implements OnInit {
   readonly #fb = inject(FormBuilder);
   readonly #breadcrumbService = inject(BreadcrumbService);
 
-  public control: UntypedFormControl = this.#fb.control(null, [Validators.required]);
+  public control: UntypedFormControl = this.#fb.control(true);
 
   public formGroup = this.#fb.group({
     control: [null, [Validators.required]],

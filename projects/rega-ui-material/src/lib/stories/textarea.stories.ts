@@ -20,6 +20,7 @@ export const Default: Story = {
     variant: {
       options: GStatic.enumToArray(TextareaVariantEnum).map(({ value }) => value),
       control: { type: "radio" },
+      description: "TextareaVariantEnum",
     },
     error: { control: { type: "boolean" }, description: "Boolean" },
     readOnly: { control: { type: "boolean" }, description: "Boolean" },

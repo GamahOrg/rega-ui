@@ -18,7 +18,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  argTypes: {\r\n    items: {},\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    btnClass: { control: { type: \"text\" } },\r\n    breadcrumbClass: { control: { type: \"text\" } },\r\n  },\r\n  args: {\r\n    items: [\r\n      { label: \"Link 1\", link: \"/link1\" },\r\n      { label: \"Link 2\", link: \"/link2\" },\r\n      { label: \"Link 3\", link: \"/link3\" },\r\n      { label: \"Link 4\", link: \"/link4\" },\r\n      { label: \"Link 5\", link: \"/link5\" },\r\n    ],\r\n  },\r\n}"
+                "defaultValue": "{\r\n  argTypes: {\r\n    items: {},\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    btnClass: { control: { type: \"text\" }, description: \"String\" },\r\n    breadcrumbClass: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    items: [\r\n      { label: \"Link 1\", link: \"/link1\" },\r\n      { label: \"Link 2\", link: \"/link2\" },\r\n      { label: \"Link 3\", link: \"/link3\" },\r\n      { label: \"Link 4\", link: \"/link4\" },\r\n      { label: \"Link 5\", link: \"/link5\" },\r\n    ],\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  argTypes: {\r\n    color: {\r\n      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),\r\n      control: { type: \"select\" },\r\n      description: \"ColorEnum\",\r\n    },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    errorMsg: { control: { type: \"text\" }, description: \"String\" },\r\n    description: { control: { type: \"text\" }, description: \"String\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -28,7 +38,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  argTypes: {\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(InputVariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    error: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    readOnly: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    prefix: { control: { type: \"text\" }, description: \"Boolean\" },\r\n    inputPrefix: {\r\n      control: { type: \"object\" },\r\n      description:\r\n        \"Make sure you importing <InputPrefixDirective> ... Then inside component tag <ng-template inputPrefix>prefix<ng-template/>\",\r\n    },\r\n    suffix: { control: { type: \"text\" }, description: \"String\" },\r\n    inputSuffix: {\r\n      control: { type: \"object\" },\r\n      description:\r\n        \"Make sure you importing <InputSuffixDirective> ... Then inside component tag <ng-template suffixPrefix>suffix<ng-template/>\",\r\n    },\r\n    inputClass: { control: { type: \"text\" }, description: \"String\" },\r\n    prefixClass: { control: { type: \"text\" }, description: \"String\" },\r\n    suffixClass: { control: { type: \"text\" }, description: \"String\" },\r\n    placeholder: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
+                "defaultValue": "{\r\n  argTypes: {\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(InputVariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"InputVariantEnum\",\r\n    },\r\n    error: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    readOnly: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    prefix: { control: { type: \"text\" }, description: \"Boolean\" },\r\n    inputPrefix: {\r\n      control: { type: \"object\" },\r\n      description:\r\n        \"Make sure you importing <InputPrefixDirective> ... Then inside component tag <ng-template inputPrefix>prefix<ng-template/>\",\r\n    },\r\n    suffix: { control: { type: \"text\" }, description: \"String\" },\r\n    inputSuffix: {\r\n      control: { type: \"object\" },\r\n      description:\r\n        \"Make sure you importing <InputSuffixDirective> ... Then inside component tag <ng-template suffixPrefix>suffix<ng-template/>\",\r\n    },\r\n    inputClass: { control: { type: \"text\" }, description: \"String\" },\r\n    prefixClass: { control: { type: \"text\" }, description: \"String\" },\r\n    suffixClass: { control: { type: \"text\" }, description: \"String\" },\r\n    placeholder: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -38,7 +48,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  argTypes: {\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(TextareaVariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    error: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    readOnly: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    placeholder: { control: { type: \"text\" }, description: \"String\" },\r\n    textareaClass: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
+                "defaultValue": "{\r\n  argTypes: {\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(TextareaVariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"TextareaVariantEnum\",\r\n    },\r\n    error: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    readOnly: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    placeholder: { control: { type: \"text\" }, description: \"String\" },\r\n    textareaClass: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
             },
             {
                 "name": "Disabled",
@@ -49,6 +59,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    label: \"Button\",\n    size: SizeEnum.Medium,\n    disabled: true,\n  },\n}"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    disabled: true,\r\n  },\r\n}"
             },
             {
                 "name": "DisabledItems",
@@ -134,6 +154,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<CheckboxComponent>",
+                "defaultValue": "{\r\n  title: \"Components/Checkbox\",\r\n  component: CheckboxComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -178,7 +208,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  argTypes: {\n    disabled: { control: { type: \"boolean\" } },\n    loading: { control: { type: \"boolean\" } },\n    size: {\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n    },\n    buttonType: {\n      options: [\"button\", \"reset\", \"submit\"],\n      control: { type: \"select\" },\n    },\n    color: {\n      options: GStatic.enumToArray(ButtonColorEnum).map(({ value }) => value),\n      control: { type: \"select\" },\n    },\n    variant: {\n      options: GStatic.enumToArray(ButtonVariantEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n    },\n    btnClass: { control: { type: \"text\" } },\n  },\n  args: {\n    label: \"Button\",\n    color: ButtonColorEnum.Primary,\n    size: SizeEnum.Medium,\n    variant: ButtonVariantEnum.Contained,\n    disabled: false,\n    loading: false,\n    buttonType: \"button\",\n    btnClass: \"\",\n  },\n}"
+                "defaultValue": "{\n  argTypes: {\n    disabled: { control: { type: \"boolean\" } },\n    loading: { control: { type: \"boolean\" } },\n    size: {\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n      description: \"SizeEnum\",\n    },\n    buttonType: {\n      options: [\"button\", \"reset\", \"submit\"],\n      control: { type: \"select\" },\n      description: \" ['button', 'reset', 'submit']\",\n    },\n    color: {\n      options: GStatic.enumToArray(ButtonColorEnum).map(({ value }) => value),\n      control: { type: \"select\" },\n      description: \"ButtonColorEnum\",\n    },\n    variant: {\n      options: GStatic.enumToArray(ButtonVariantEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n      description: \"ButtonVariantEnum\",\n    },\n    btnClass: { control: { type: \"text\" } },\n  },\n  args: {\n    label: \"Button\",\n    color: ButtonColorEnum.Primary,\n    size: SizeEnum.Medium,\n    variant: ButtonVariantEnum.Contained,\n    disabled: false,\n    loading: false,\n    buttonType: \"button\",\n    btnClass: \"\",\n  },\n}"
             },
             {
                 "name": "RTL",
@@ -189,6 +219,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  parameters: { direction: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    items: [\r\n      { label: \"رابط 1\", link: \"/link1\" },\r\n      { label: \"رابط 2\", link: \"/link2\" },\r\n      { label: \"رابط 3\", link: \"/link3\" },\r\n      { label: \"رابط 4\", link: \"/link4\" },\r\n      { label: \"رابط 5\", link: \"/link5\" },\r\n      { label: \"رابط 6\", link: \"/link6\" },\r\n    ],\r\n  },\r\n}"
+            },
+            {
+                "name": "RTL",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    label: \"العنوان\",\r\n    description:\r\n      'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق \"ليتراسيت\" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل \"ألدوس بايج مايكر\" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.',\r\n    errorMsg: \"نص الخطأ\",\r\n  },\r\n}"
             },
             {
                 "name": "RTL",
@@ -239,6 +279,36 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Info,\n    variant: ButtonVariantEnum.Text,\n  },\n}"
+            },
+            {
+                "name": "WithDescription",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n  },\r\n}"
+            },
+            {
+                "name": "WithDescriptionAndError",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    errorMsg: \"Error Message\",\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n  },\r\n}"
+            },
+            {
+                "name": "WithError",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: { ...Default.args, errorMsg: \"Error Message\" },\r\n}"
             }
         ],
         "functions": [],
@@ -260,6 +330,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<RegaButtonComponent>",
                 "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<CheckboxComponent>",
+                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -299,7 +380,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  argTypes: {\r\n    items: {},\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    btnClass: { control: { type: \"text\" } },\r\n    breadcrumbClass: { control: { type: \"text\" } },\r\n  },\r\n  args: {\r\n    items: [\r\n      { label: \"Link 1\", link: \"/link1\" },\r\n      { label: \"Link 2\", link: \"/link2\" },\r\n      { label: \"Link 3\", link: \"/link3\" },\r\n      { label: \"Link 4\", link: \"/link4\" },\r\n      { label: \"Link 5\", link: \"/link5\" },\r\n    ],\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  argTypes: {\r\n    items: {},\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    btnClass: { control: { type: \"text\" }, description: \"String\" },\r\n    breadcrumbClass: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    items: [\r\n      { label: \"Link 1\", link: \"/link1\" },\r\n      { label: \"Link 2\", link: \"/link2\" },\r\n      { label: \"Link 3\", link: \"/link3\" },\r\n      { label: \"Link 4\", link: \"/link4\" },\r\n      { label: \"Link 5\", link: \"/link5\" },\r\n    ],\r\n  },\r\n}"
                 },
                 {
                     "name": "DisabledItems",
@@ -342,6 +423,78 @@
                     "defaultValue": "{\r\n  parameters: { direction: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    items: [\r\n      { label: \"رابط 1\", link: \"/link1\" },\r\n      { label: \"رابط 2\", link: \"/link2\" },\r\n      { label: \"رابط 3\", link: \"/link3\" },\r\n      { label: \"رابط 4\", link: \"/link4\" },\r\n      { label: \"رابط 5\", link: \"/link5\" },\r\n      { label: \"رابط 6\", link: \"/link6\" },\r\n    ],\r\n  },\r\n}"
                 }
             ],
+            "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  argTypes: {\r\n    color: {\r\n      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),\r\n      control: { type: \"select\" },\r\n      description: \"ColorEnum\",\r\n    },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    errorMsg: { control: { type: \"text\" }, description: \"String\" },\r\n    description: { control: { type: \"text\" }, description: \"String\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    disabled: true,\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<CheckboxComponent>",
+                    "defaultValue": "{\r\n  title: \"Components/Checkbox\",\r\n  component: CheckboxComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+                },
+                {
+                    "name": "RTL",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    label: \"العنوان\",\r\n    description:\r\n      'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق \"ليتراسيت\" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل \"ألدوس بايج مايكر\" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.',\r\n    errorMsg: \"نص الخطأ\",\r\n  },\r\n}"
+                },
+                {
+                    "name": "WithDescription",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n  },\r\n}"
+                },
+                {
+                    "name": "WithDescriptionAndError",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    errorMsg: \"Error Message\",\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n  },\r\n}"
+                },
+                {
+                    "name": "WithError",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: { ...Default.args, errorMsg: \"Error Message\" },\r\n}"
+                }
+            ],
             "projects/rega-ui-material/src/lib/stories/text-input.stories.ts": [
                 {
                     "name": "Default",
@@ -351,7 +504,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  argTypes: {\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(InputVariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    error: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    readOnly: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    prefix: { control: { type: \"text\" }, description: \"Boolean\" },\r\n    inputPrefix: {\r\n      control: { type: \"object\" },\r\n      description:\r\n        \"Make sure you importing <InputPrefixDirective> ... Then inside component tag <ng-template inputPrefix>prefix<ng-template/>\",\r\n    },\r\n    suffix: { control: { type: \"text\" }, description: \"String\" },\r\n    inputSuffix: {\r\n      control: { type: \"object\" },\r\n      description:\r\n        \"Make sure you importing <InputSuffixDirective> ... Then inside component tag <ng-template suffixPrefix>suffix<ng-template/>\",\r\n    },\r\n    inputClass: { control: { type: \"text\" }, description: \"String\" },\r\n    prefixClass: { control: { type: \"text\" }, description: \"String\" },\r\n    suffixClass: { control: { type: \"text\" }, description: \"String\" },\r\n    placeholder: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  argTypes: {\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(InputVariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"InputVariantEnum\",\r\n    },\r\n    error: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    readOnly: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    prefix: { control: { type: \"text\" }, description: \"Boolean\" },\r\n    inputPrefix: {\r\n      control: { type: \"object\" },\r\n      description:\r\n        \"Make sure you importing <InputPrefixDirective> ... Then inside component tag <ng-template inputPrefix>prefix<ng-template/>\",\r\n    },\r\n    suffix: { control: { type: \"text\" }, description: \"String\" },\r\n    inputSuffix: {\r\n      control: { type: \"object\" },\r\n      description:\r\n        \"Make sure you importing <InputSuffixDirective> ... Then inside component tag <ng-template suffixPrefix>suffix<ng-template/>\",\r\n    },\r\n    inputClass: { control: { type: \"text\" }, description: \"String\" },\r\n    prefixClass: { control: { type: \"text\" }, description: \"String\" },\r\n    suffixClass: { control: { type: \"text\" }, description: \"String\" },\r\n    placeholder: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
                 },
                 {
                     "name": "Error",
@@ -403,7 +556,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  argTypes: {\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(TextareaVariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n    },\r\n    error: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    readOnly: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    placeholder: { control: { type: \"text\" }, description: \"String\" },\r\n    textareaClass: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  argTypes: {\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(TextareaVariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"TextareaVariantEnum\",\r\n    },\r\n    error: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    readOnly: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    placeholder: { control: { type: \"text\" }, description: \"String\" },\r\n    textareaClass: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
                 },
                 {
                     "name": "Error",
@@ -485,7 +638,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  argTypes: {\n    disabled: { control: { type: \"boolean\" } },\n    loading: { control: { type: \"boolean\" } },\n    size: {\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n    },\n    buttonType: {\n      options: [\"button\", \"reset\", \"submit\"],\n      control: { type: \"select\" },\n    },\n    color: {\n      options: GStatic.enumToArray(ButtonColorEnum).map(({ value }) => value),\n      control: { type: \"select\" },\n    },\n    variant: {\n      options: GStatic.enumToArray(ButtonVariantEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n    },\n    btnClass: { control: { type: \"text\" } },\n  },\n  args: {\n    label: \"Button\",\n    color: ButtonColorEnum.Primary,\n    size: SizeEnum.Medium,\n    variant: ButtonVariantEnum.Contained,\n    disabled: false,\n    loading: false,\n    buttonType: \"button\",\n    btnClass: \"\",\n  },\n}"
+                    "defaultValue": "{\n  argTypes: {\n    disabled: { control: { type: \"boolean\" } },\n    loading: { control: { type: \"boolean\" } },\n    size: {\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n      description: \"SizeEnum\",\n    },\n    buttonType: {\n      options: [\"button\", \"reset\", \"submit\"],\n      control: { type: \"select\" },\n      description: \" ['button', 'reset', 'submit']\",\n    },\n    color: {\n      options: GStatic.enumToArray(ButtonColorEnum).map(({ value }) => value),\n      control: { type: \"select\" },\n      description: \"ButtonColorEnum\",\n    },\n    variant: {\n      options: GStatic.enumToArray(ButtonVariantEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n      description: \"ButtonVariantEnum\",\n    },\n    btnClass: { control: { type: \"text\" } },\n  },\n  args: {\n    label: \"Button\",\n    color: ButtonColorEnum.Primary,\n    size: SizeEnum.Medium,\n    variant: ButtonVariantEnum.Contained,\n    disabled: false,\n    loading: false,\n    buttonType: \"button\",\n    btnClass: \"\",\n  },\n}"
                 },
                 {
                     "name": "SecondaryLarge",
@@ -554,6 +707,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<RegaButtonComponent>",
                     "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<CheckboxComponent>",
+                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -745,6 +911,86 @@
             },
             {
                 "filePath": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "RTL",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithDescription",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithDescriptionAndError",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithError",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
