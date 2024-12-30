@@ -23,7 +23,8 @@ import { initFlowbite } from "flowbite";
 import { MatIconModule } from "@angular/material/icon";
 
 @Component({
-  selector: "rega-checkbox",
+  selector:
+    "rega-checkbox[formControlName],rega-checkbox[ngModel],rega-checkbox[formControl]",
   imports: [CommonModule, FormsModule, ReactiveFormsModule, MatIconModule],
   templateUrl: "./checkbox.component.html",
   providers: [
