@@ -1,4 +1,6 @@
-import { ColorEnum, DirEnum, SizeEnum } from "../enums";
+import { ColorEnum, DirEnum, SizeEnum, VariantEnum } from "../enums";
+
+export type VariantType = `${VariantEnum}`;
 
 export type SizeType = `${SizeEnum}`;
 

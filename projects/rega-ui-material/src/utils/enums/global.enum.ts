@@ -1,3 +1,9 @@
+export enum VariantEnum {
+  Default = "default",
+  darker = "darker",
+  lighter = "lighter",
+}
+
 export enum SizeEnum {
   Small = "small",
   Medium = "medium",

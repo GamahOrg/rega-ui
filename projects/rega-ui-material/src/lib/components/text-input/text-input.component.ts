@@ -21,8 +21,7 @@ import {
 } from "../../../utils";
 
 @Component({
-  selector:
-    "rega-text-input[formControlName],rega-text-input[ngModel],rega-text-input[formControl]",
+  selector: "rega-input[formControlName],rega-input[ngModel],rega-input[formControl]",
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: "./text-input.component.html",
   providers: [
@@ -34,9 +33,9 @@ import {
   ],
 })
 export class TextInputComponent extends BaseFormValueAccessorComponent {
-  public size: InputSignal<SizeType> = input(SizeEnum.Large as SizeType);
-
   public label: InputSignal<string> = input("");
+
+  public size: InputSignal<SizeType> = input(SizeEnum.Large as SizeType);
 
   public variant: InputSignal<InputVariantType> = input(
     InputVariantEnum.Default as InputVariantType
