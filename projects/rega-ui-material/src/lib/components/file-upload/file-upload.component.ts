@@ -21,10 +21,11 @@ import {
 
 import { RegaButtonComponent } from "../rega-button/rega-button.component";
 import { MatIconModule } from "@angular/material/icon";
+import { FileListComponent } from "../../ui";
 
 @Component({
   selector: "rega-file-upload",
-  imports: [CommonModule, MatIconModule, RegaButtonComponent],
+  imports: [CommonModule, MatIconModule, RegaButtonComponent, FileListComponent],
   templateUrl: "./file-upload.component.html",
   providers: [
     {
@@ -37,7 +38,7 @@ import { MatIconModule } from "@angular/material/icon";
 export class FileUploadComponent extends BaseFormValueAccessorComponent {
   public label: InputSignal<string> = input("Browse Files");
 
-  public multiple: InputSignal<boolean> = input(false);
+  public multiple: InputSignal<boolean> = input(true);
 
   public accept: InputSignal<string> = input("image/*,application/pdf");
 
@@ -46,15 +47,17 @@ export class FileUploadComponent extends BaseFormValueAccessorComponent {
   public disabled: InputSignal<boolean> = input(false);
   public linkedDisabled = computed(() => this.disabled() || this.isDisabled());
 
-  public size: InputSignal<SizeType> = input(SizeEnum.Large as SizeType);
+  public btnSize: InputSignal<SizeType> = input(SizeEnum.Large as SizeType);
+
+  public btnLoading: InputSignal<boolean> = input(false);
+
+  public btn: InputSignal<SizeType> = input(SizeEnum.Large as SizeType);
 
   public btnClass: InputSignal<string> = input("upload-file");
 
   public onSelectFiles: OutputEmitterRef<File[]> = output();
 
   public selectedFiles: WritableSignal<FilesListItem[]> = signal([]);
-
-  public readonly FileState = FileState;
 
   public selectFile(event: any, files: FileList | null | undefined): void {
     const allFiles: File[] = files?.length ? Array.from(files) : [];
@@ -66,7 +69,7 @@ export class FileUploadComponent extends BaseFormValueAccessorComponent {
     event.target.value = null;
   }
 
-  public onRemoveFile = (file: FilesListItem): void => {
+  public removeFile = (file: FilesListItem): void => {
     const files = this.selectedFiles().filter((f) => f.file.name !== file.file.name);
     this._updateValues(files);
   };
@@ -100,6 +103,8 @@ export class FileUploadComponent extends BaseFormValueAccessorComponent {
   };
 
   private _acceptTypesRegex = (): RegExp => {
+    if (!this.accept()) return /.*/;
+
     return new RegExp(
       this.accept()
         .split(",")
@@ -112,7 +117,7 @@ export class FileUploadComponent extends BaseFormValueAccessorComponent {
     return {
       file,
       type: FileState.MAX_SIZE,
-      msg: `File "${file.name}" exceeds the maximum size of ${this.sizeLimit()} MB.`,
+      msg: `File exceeds the maximum size of ${this.sizeLimit()} MB.`,
     };
   }
 
@@ -120,7 +125,7 @@ export class FileUploadComponent extends BaseFormValueAccessorComponent {
     return {
       file,
       type: FileState.INVALID_TYPE,
-      msg: `File "${file.name}" has an invalid type. Accepted types: ${this.accept()}`,
+      msg: `File has an invalid type. Accepted types: ${this.accept()}`,
     };
   }
 }
