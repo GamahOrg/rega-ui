@@ -34,11 +34,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  argTypes: {},\r\n  args: {},\r\n}"
+                "defaultValue": "{\r\n  argTypes: {\r\n    label: { control: { type: \"text\" } },\r\n    accept: { control: { type: \"text\" } },\r\n    sizeLimit: { control: { type: \"number\" }, description: \"In MB\" },\r\n    multiple: { control: { type: \"boolean\" } },\r\n    onSelectFiles: { description: \"(event: File[]) => void\" },\r\n    btnSize: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    btnLoading: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    btnClass: { control: { type: \"text\" } },\r\n  },\r\n  args: {\r\n    label: \"Browse Files\",\r\n    accept: \"image/*,application/pdf\",\r\n    sizeLimit: 2,\r\n    multiple: false,\r\n    onSelectFiles: (event: File[]): void => {},\r\n    btnSize: SizeEnum.Medium,\r\n    btnLoading: false,\r\n    disabled: false,\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -164,6 +174,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta",
+                "defaultValue": "{\r\n  title: \"Components/FileUpload/DropZone\",\r\n  component: DropZoneComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -254,6 +274,16 @@
                 "name": "RTL",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    label: \"تصفح الملفات\",\r\n  },\r\n}"
+            },
+            {
+                "name": "RTL",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -330,6 +360,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<RegaButtonComponent>",
                 "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<DropZoneComponent>",
+                "file": "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -486,6 +527,28 @@
                     "defaultValue": "{\r\n  parameters: { direction: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    items: [\r\n      { label: \"رابط 1\", link: \"/link1\" },\r\n      { label: \"رابط 2\", link: \"/link2\" },\r\n      { label: \"رابط 3\", link: \"/link3\" },\r\n      { label: \"رابط 4\", link: \"/link4\" },\r\n      { label: \"رابط 5\", link: \"/link5\" },\r\n      { label: \"رابط 6\", link: \"/link6\" },\r\n    ],\r\n  },\r\n}"
                 }
             ],
+            "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta",
+                    "defaultValue": "{\r\n  title: \"Components/FileUpload/DropZone\",\r\n  component: DropZoneComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+                }
+            ],
             "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts": [
                 {
                     "name": "Default",
@@ -495,7 +558,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  argTypes: {},\r\n  args: {},\r\n}"
+                    "defaultValue": "{\r\n  argTypes: {\r\n    label: { control: { type: \"text\" } },\r\n    accept: { control: { type: \"text\" } },\r\n    sizeLimit: { control: { type: \"number\" }, description: \"In MB\" },\r\n    multiple: { control: { type: \"boolean\" } },\r\n    onSelectFiles: { description: \"(event: File[]) => void\" },\r\n    btnSize: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    btnLoading: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    btnClass: { control: { type: \"text\" } },\r\n  },\r\n  args: {\r\n    label: \"Browse Files\",\r\n    accept: \"image/*,application/pdf\",\r\n    sizeLimit: 2,\r\n    multiple: false,\r\n    onSelectFiles: (event: File[]): void => {},\r\n    btnSize: SizeEnum.Medium,\r\n    btnLoading: false,\r\n    disabled: false,\r\n  },\r\n}"
                 },
                 {
                     "name": "meta",
@@ -506,6 +569,16 @@
                     "deprecationMessage": "",
                     "type": "Meta",
                     "defaultValue": "{\r\n  title: \"Components/FileUpload/FileUpload\",\r\n  component: FileUploadComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+                },
+                {
+                    "name": "RTL",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    label: \"تصفح الملفات\",\r\n  },\r\n}"
                 }
             ],
             "projects/rega-ui-material/src/lib/stories/text-input.stories.ts": [
@@ -720,6 +793,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<RegaButtonComponent>",
                     "file": "projects/rega-ui-material/src/lib/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<DropZoneComponent>",
+                    "file": "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -946,6 +1032,36 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -961,6 +1077,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "RTL",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

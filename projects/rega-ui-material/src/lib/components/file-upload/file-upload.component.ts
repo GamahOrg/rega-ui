@@ -2,9 +2,12 @@ import { CommonModule } from "@angular/common";
 import {
   Component,
   computed,
+  effect,
   forwardRef,
+  inject,
   input,
   InputSignal,
+  OnChanges,
   output,
   OutputEmitterRef,
   signal,
@@ -18,6 +21,8 @@ import {
   SizeEnum,
   SizeType,
 } from "../../../utils";
+
+import { UploadFilesService } from "../../../services";
 
 import { RegaButtonComponent } from "../rega-button/rega-button.component";
 import { MatIconModule } from "@angular/material/icon";
@@ -35,7 +40,12 @@ import { FileListComponent } from "../../ui";
     },
   ],
 })
-export class FileUploadComponent extends BaseFormValueAccessorComponent {
+export class FileUploadComponent
+  extends BaseFormValueAccessorComponent
+  implements OnChanges
+{
+  readonly #uploadFilesService = inject(UploadFilesService);
+
   public label: InputSignal<string> = input("Browse Files");
 
   public multiple: InputSignal<boolean> = input(true);
@@ -59,73 +69,31 @@ export class FileUploadComponent extends BaseFormValueAccessorComponent {
 
   public selectedFiles: WritableSignal<FilesListItem[]> = signal([]);
 
+  public ngOnChanges(): void {
+    this.#uploadFilesService.selectedFiles = this.selectedFiles;
+    this.#uploadFilesService.multiple.set(this.multiple());
+    this.#uploadFilesService.accept.set(this.accept());
+    this.#uploadFilesService.sizeLimit.set(this.sizeLimit());
+  }
+
   public selectFile(event: any, files: FileList | null | undefined): void {
-    const allFiles: File[] = files?.length ? Array.from(files) : [];
-    const fileList: FilesListItem[] = this.selectedFiles();
-
-    const _files = this._processFiles(allFiles, fileList, this._acceptTypesRegex());
-
-    this._updateValues(this.multiple() ? _files : [_files[0]]);
+    this.#uploadFilesService.selectFile(files);
     event.target.value = null;
   }
 
   public removeFile = (file: FilesListItem): void => {
-    const files = this.selectedFiles().filter((f) => f.file.name !== file.file.name);
-    this._updateValues(files);
+    this.#uploadFilesService.removeFile(file);
   };
 
-  private _updateValues = (fileList: FilesListItem[]): void => {
-    const res = fileList.filter((f) => f.type === FileState.SUCCESS).map((f) => f.file);
+  private _effect$ = effect(() => {
+    const result: File[] = this.selectedFiles()
+      .filter(({ type }) => type === FileState.SUCCESS)
+      .map((f) => f.file);
 
-    this.selectedFiles.set(fileList);
-    this.value = res;
-    this.onChange(res);
-    this.onSelectFiles.emit(this.value);
-  };
-
-  private _processFiles = (
-    files: File[],
-    fileList: FilesListItem[],
-    acceptRegex: RegExp
-  ): FilesListItem[] => {
-    const result = [...fileList];
-
-    for (const file of files) {
-      if (fileList.some((f) => f.file.name.includes(file.name))) continue;
-
-      if (file.size > this.sizeLimit() * 1024 * 1000)
-        result.unshift(this._sizeErrorEntry(file));
-      else if (!acceptRegex.test(file.type)) result.unshift(this._typeErrorEntry(file));
-      else result.unshift({ file, type: FileState.SUCCESS });
-    }
-
-    return result;
-  };
-
-  private _acceptTypesRegex = (): RegExp => {
-    if (!this.accept()) return /.*/;
-
-    return new RegExp(
-      this.accept()
-        .split(",")
-        .map((type) => type.trim().replace("*", ".*"))
-        .join("|")
-    );
-  };
-
-  private _sizeErrorEntry(file: File): FilesListItem {
-    return {
-      file,
-      type: FileState.MAX_SIZE,
-      msg: `File exceeds the maximum size of ${this.sizeLimit()} MB.`,
-    };
-  }
-
-  private _typeErrorEntry(file: File): FilesListItem {
-    return {
-      file,
-      type: FileState.INVALID_TYPE,
-      msg: `File has an invalid type. Accepted types: ${this.accept()}`,
-    };
-  }
+    console.log("🚀 ~ _effect$=effect ~ this.selectedFiles():", this.selectedFiles());
+    console.log("🚀 ~ _effect$=effect ~ result:", result);
+    this.value = result;
+    this.onChange(result);
+    this.onSelectFiles.emit(result);
+  });
 }

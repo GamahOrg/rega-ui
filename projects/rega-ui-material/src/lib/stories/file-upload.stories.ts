@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/angular";
 import { FileUploadComponent } from "../components/file-upload/file-upload.component";
-import { FilesListItem, GStatic, SizeEnum } from "../../utils";
+import { GStatic, SizeEnum } from "../../utils";
 
 const meta: Meta = {
   title: "Components/FileUpload/FileUpload",
