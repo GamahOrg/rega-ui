@@ -106,17 +106,15 @@ $sizes: (
     &.rega-btn--contained {
       @extend .rega-btn--#{$name};
       &:hover {
-        background-color: if(
-          $name == disabled,
-          $disabledBorderColor,
-          darken($color, 5%)
-        ) !important;
+        background-color: if($name == disabled, $disabledBorderColor, darken($color, 5%));
       }
     }
 
-    &.rega-btn--disabled {
+    &.rega-btn--disabled,
+    &.rega-btn--disabled:hover {
       @apply cursor-auto;
-      @include btnColor($disabledBorderColor, #ffffff);
+      background-color: $disabledBorderColor !important;
+      color: #ffffff !important;
     }
   }
 }

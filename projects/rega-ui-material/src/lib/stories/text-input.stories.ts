@@ -6,8 +6,6 @@ const meta: Meta<TextInputComponent> = {
   title: "Components/Text Input",
   component: TextInputComponent,
   tags: ["autodocs"],
-  args: {},
-  decorators: [],
 };
 
 export default meta;

@@ -18,7 +18,10 @@ import {
   Validators,
 } from "@angular/forms";
 import { TextAreaComponent } from "projects/rega-ui-material/src/lib/components/textarea/textarea.component";
-import { CheckboxComponent } from "projects/rega-ui-material/src/lib";
+import {
+  CheckboxComponent,
+  FileUploadComponent,
+} from "projects/rega-ui-material/src/lib";
 @Component({
   selector: "app-root",
   standalone: true,
@@ -30,6 +33,7 @@ import { CheckboxComponent } from "projects/rega-ui-material/src/lib";
     TextInputComponent,
     TextAreaComponent,
     CheckboxComponent,
+    FileUploadComponent,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
@@ -64,4 +68,8 @@ export class AppComponent implements OnInit {
       items: this.items,
     });
   }
+
+  public onFileChange = (files: any): void => {
+    console.log("🚀 ~ AppComponent ~ files:", files);
+  };
 }

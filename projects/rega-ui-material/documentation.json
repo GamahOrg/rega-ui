@@ -11,6 +11,16 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "Basic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <mat-form-field>\r\n        <mat-label>Select an option</mat-label>\r\n        <mat-select>\r\n          <mat-option value=\"option1\">Option 1</mat-option>\r\n          <mat-option value=\"option2\">Option 2</mat-option>\r\n          <mat-option value=\"option3\">Option 3</mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n    `,\r\n  }),\r\n}"
+            },
+            {
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -24,11 +34,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "file": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  argTypes: {\r\n    color: {\r\n      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),\r\n      control: { type: \"select\" },\r\n      description: \"ColorEnum\",\r\n    },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    errorMsg: { control: { type: \"text\" }, description: \"String\" },\r\n    description: { control: { type: \"text\" }, description: \"String\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
+                "defaultValue": "{\r\n  argTypes: {},\r\n  args: {},\r\n}"
             },
             {
                 "name": "Default",
@@ -64,11 +74,11 @@
                 "name": "Disabled",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    disabled: true,\r\n  },\r\n}"
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <mat-form-field>\r\n        <mat-label>Disabled select</mat-label>\r\n        <mat-select disabled>\r\n          <mat-option value=\"option1\">Option 1</mat-option>\r\n          <mat-option value=\"option2\">Option 2</mat-option>\r\n          <mat-option value=\"option3\">Option 3</mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "DisabledItems",
@@ -154,11 +164,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "file": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<CheckboxComponent>",
-                "defaultValue": "{\r\n  title: \"Components/Checkbox\",\r\n  component: CheckboxComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+                "type": "Meta",
+                "defaultValue": "{\r\n  title: \"Components/FileUpload/FileUpload\",\r\n  component: FileUploadComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta",
+                "defaultValue": "{\r\n  title: \"Components/Select/Autocomplete\",\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        MatSelectModule,\r\n        MatFormFieldModule,\r\n        BrowserAnimationsModule,\r\n        FormsModule,\r\n        ReactiveFormsModule,\r\n      ],\r\n    }),\r\n  ],\r\n  tags: [\"autodocs\"],\r\n}"
             },
             {
                 "name": "meta",
@@ -168,7 +188,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TextInputComponent>",
-                "defaultValue": "{\r\n  title: \"Components/Text Input\",\r\n  component: TextInputComponent,\r\n  tags: [\"autodocs\"],\r\n  args: {},\r\n  decorators: [],\r\n}"
+                "defaultValue": "{\r\n  title: \"Components/Text Input\",\r\n  component: TextInputComponent,\r\n  tags: [\"autodocs\"],\r\n}"
             },
             {
                 "name": "meta",
@@ -179,6 +199,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<TextInputComponent>",
                 "defaultValue": "{\r\n  title: \"Components/Text Area\",\r\n  component: TextAreaComponent,\r\n  tags: [\"autodocs\"],\r\n  args: {},\r\n  decorators: [],\r\n}"
+            },
+            {
+                "name": "Multiple",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <mat-form-field>\r\n        <mat-label>Multiple select</mat-label>\r\n        <mat-select multiple>\r\n          <mat-option value=\"option1\">Option 1</mat-option>\r\n          <mat-option value=\"option2\">Option 2</mat-option>\r\n          <mat-option value=\"option3\">Option 3</mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "Prefix",
@@ -219,16 +249,6 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  parameters: { direction: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    items: [\r\n      { label: \"رابط 1\", link: \"/link1\" },\r\n      { label: \"رابط 2\", link: \"/link2\" },\r\n      { label: \"رابط 3\", link: \"/link3\" },\r\n      { label: \"رابط 4\", link: \"/link4\" },\r\n      { label: \"رابط 5\", link: \"/link5\" },\r\n      { label: \"رابط 6\", link: \"/link6\" },\r\n    ],\r\n  },\r\n}"
-            },
-            {
-                "name": "RTL",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    label: \"العنوان\",\r\n    description:\r\n      'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق \"ليتراسيت\" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل \"ألدوس بايج مايكر\" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.',\r\n    errorMsg: \"نص الخطأ\",\r\n  },\r\n}"
             },
             {
                 "name": "RTL",
@@ -281,34 +301,14 @@
                 "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Info,\n    variant: ButtonVariantEnum.Text,\n  },\n}"
             },
             {
-                "name": "WithDescription",
+                "name": "WithFormControl",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n  },\r\n}"
-            },
-            {
-                "name": "WithDescriptionAndError",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    errorMsg: \"Error Message\",\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n  },\r\n}"
-            },
-            {
-                "name": "WithError",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: { ...Default.args, errorMsg: \"Error Message\" },\r\n}"
+                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <mat-form-field>\r\n        <mat-label>With form control</mat-label>\r\n        <mat-select [formControl]=\"control\">\r\n          <mat-option value=\"option1\">Option 1</mat-option>\r\n          <mat-option value=\"option2\">Option 2</mat-option>\r\n          <mat-option value=\"option3\">Option 3</mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n    `,\r\n    props: {\r\n      control: new FormControl(\"option1\"),\r\n    },\r\n  }),\r\n}"
             }
         ],
         "functions": [],
@@ -339,8 +339,19 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<CheckboxComponent>",
-                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "rawtype": "StoryObj<FileUploadComponent>",
+                "file": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj",
+                "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -371,6 +382,58 @@
         ],
         "enumerations": [],
         "groupedVariables": {
+            "projects/rega-ui-material/src/lib/stories/select.stories.ts": [
+                {
+                    "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <mat-form-field>\r\n        <mat-label>Select an option</mat-label>\r\n        <mat-select>\r\n          <mat-option value=\"option1\">Option 1</mat-option>\r\n          <mat-option value=\"option2\">Option 2</mat-option>\r\n          <mat-option value=\"option3\">Option 3</mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <mat-form-field>\r\n        <mat-label>Disabled select</mat-label>\r\n        <mat-select disabled>\r\n          <mat-option value=\"option1\">Option 1</mat-option>\r\n          <mat-option value=\"option2\">Option 2</mat-option>\r\n          <mat-option value=\"option3\">Option 3</mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta",
+                    "defaultValue": "{\r\n  title: \"Components/Select/Autocomplete\",\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        MatSelectModule,\r\n        MatFormFieldModule,\r\n        BrowserAnimationsModule,\r\n        FormsModule,\r\n        ReactiveFormsModule,\r\n      ],\r\n    }),\r\n  ],\r\n  tags: [\"autodocs\"],\r\n}"
+                },
+                {
+                    "name": "Multiple",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <mat-form-field>\r\n        <mat-label>Multiple select</mat-label>\r\n        <mat-select multiple>\r\n          <mat-option value=\"option1\">Option 1</mat-option>\r\n          <mat-option value=\"option2\">Option 2</mat-option>\r\n          <mat-option value=\"option3\">Option 3</mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n    `,\r\n  }),\r\n}"
+                },
+                {
+                    "name": "WithFormControl",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <mat-form-field>\r\n        <mat-label>With form control</mat-label>\r\n        <mat-select [formControl]=\"control\">\r\n          <mat-option value=\"option1\">Option 1</mat-option>\r\n          <mat-option value=\"option2\">Option 2</mat-option>\r\n          <mat-option value=\"option3\">Option 3</mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n    `,\r\n    props: {\r\n      control: new FormControl(\"option1\"),\r\n    },\r\n  }),\r\n}"
+                }
+            ],
             "projects/rega-ui-material/src/lib/stories/breadcrumb.stories.ts": [
                 {
                     "name": "Default",
@@ -423,76 +486,26 @@
                     "defaultValue": "{\r\n  parameters: { direction: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    items: [\r\n      { label: \"رابط 1\", link: \"/link1\" },\r\n      { label: \"رابط 2\", link: \"/link2\" },\r\n      { label: \"رابط 3\", link: \"/link3\" },\r\n      { label: \"رابط 4\", link: \"/link4\" },\r\n      { label: \"رابط 5\", link: \"/link5\" },\r\n      { label: \"رابط 6\", link: \"/link6\" },\r\n    ],\r\n  },\r\n}"
                 }
             ],
-            "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts": [
+            "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                    "file": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  argTypes: {\r\n    color: {\r\n      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),\r\n      control: { type: \"select\" },\r\n      description: \"ColorEnum\",\r\n    },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    errorMsg: { control: { type: \"text\" }, description: \"String\" },\r\n    description: { control: { type: \"text\" }, description: \"String\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
-                },
-                {
-                    "name": "Disabled",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    disabled: true,\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  argTypes: {},\r\n  args: {},\r\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                    "file": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<CheckboxComponent>",
-                    "defaultValue": "{\r\n  title: \"Components/Checkbox\",\r\n  component: CheckboxComponent,\r\n  tags: [\"autodocs\"],\r\n}"
-                },
-                {
-                    "name": "RTL",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    label: \"العنوان\",\r\n    description:\r\n      'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق \"ليتراسيت\" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل \"ألدوس بايج مايكر\" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.',\r\n    errorMsg: \"نص الخطأ\",\r\n  },\r\n}"
-                },
-                {
-                    "name": "WithDescription",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n  },\r\n}"
-                },
-                {
-                    "name": "WithDescriptionAndError",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    errorMsg: \"Error Message\",\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n  },\r\n}"
-                },
-                {
-                    "name": "WithError",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: { ...Default.args, errorMsg: \"Error Message\" },\r\n}"
+                    "type": "Meta",
+                    "defaultValue": "{\r\n  title: \"Components/FileUpload/FileUpload\",\r\n  component: FileUploadComponent,\r\n  tags: [\"autodocs\"],\r\n}"
                 }
             ],
             "projects/rega-ui-material/src/lib/stories/text-input.stories.ts": [
@@ -524,7 +537,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<TextInputComponent>",
-                    "defaultValue": "{\r\n  title: \"Components/Text Input\",\r\n  component: TextInputComponent,\r\n  tags: [\"autodocs\"],\r\n  args: {},\r\n  decorators: [],\r\n}"
+                    "defaultValue": "{\r\n  title: \"Components/Text Input\",\r\n  component: TextInputComponent,\r\n  tags: [\"autodocs\"],\r\n}"
                 },
                 {
                     "name": "Prefix",
@@ -713,13 +726,26 @@
                     "kind": 183
                 }
             ],
-            "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts": [
+            "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<CheckboxComponent>",
-                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                    "rawtype": "StoryObj<FileUploadComponent>",
+                    "file": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/rega-ui-material/src/lib/stories/select.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj",
+                    "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -920,7 +946,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "filePath": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -930,17 +956,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Disabled",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "filePath": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -950,47 +966,67 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
-                "type": "variable",
+                "filePath": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
+                "type": "type alias",
                 "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "RTL",
+                "linksubtype": "typealias",
+                "name": "Story",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "filePath": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "WithDescription",
+                "name": "Basic",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "filePath": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "WithDescriptionAndError",
+                "name": "Disabled",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "filePath": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "WithError",
+                "name": "meta",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "filePath": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Multiple",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithFormControl",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

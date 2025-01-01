@@ -82,3 +82,8 @@ $zIndex-toast: 1090;
 // display
 $d-block-ruby: block ruby;
 // end display
+@mixin iconSize($fs) {
+  height: $fs;
+  width: $fs;
+  font-size: $fs;
+}
