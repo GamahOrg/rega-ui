@@ -1,8 +1,8 @@
 .upload-file {
   color: #ffffff !important;
-  background-color: #0d121c !important;
+  background-color: $darkColor !important;
 
   &:hover {
-    background-color: mix(#0d121c, #ffffff, 90%) !important;
+    background-color: mix($darkColor, #ffffff, 90%) !important;
   }
 }

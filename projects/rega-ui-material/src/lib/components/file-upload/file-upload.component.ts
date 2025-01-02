@@ -7,15 +7,16 @@ import {
   inject,
   input,
   InputSignal,
+  linkedSignal,
   OnChanges,
   output,
   OutputEmitterRef,
-  signal,
   WritableSignal,
 } from "@angular/core";
 import { NG_VALUE_ACCESSOR } from "@angular/forms";
 import {
   BaseFormValueAccessorComponent,
+  DropzoneDirective,
   FileState,
   FilesListItem,
   SizeEnum,
@@ -30,7 +31,13 @@ import { FileListComponent } from "../../ui";
 
 @Component({
   selector: "rega-file-upload",
-  imports: [CommonModule, MatIconModule, RegaButtonComponent, FileListComponent],
+  imports: [
+    CommonModule,
+    MatIconModule,
+    RegaButtonComponent,
+    FileListComponent,
+    DropzoneDirective,
+  ],
   templateUrl: "./file-upload.component.html",
   providers: [
     {
@@ -54,6 +61,8 @@ export class FileUploadComponent
 
   public sizeLimit: InputSignal<number> = input(2); //In MB
 
+  public draggable: InputSignal<boolean> = input(false);
+
   public disabled: InputSignal<boolean> = input(false);
   public linkedDisabled = computed(() => this.disabled() || this.isDisabled());
 
@@ -67,13 +76,13 @@ export class FileUploadComponent
 
   public onSelectFiles: OutputEmitterRef<File[]> = output();
 
-  public selectedFiles: WritableSignal<FilesListItem[]> = signal([]);
+  public selectedFiles: WritableSignal<FilesListItem[]> =
+    this.#uploadFilesService.selectedFiles;
 
   public ngOnChanges(): void {
-    this.#uploadFilesService.selectedFiles = this.selectedFiles;
-    this.#uploadFilesService.multiple.set(this.multiple());
-    this.#uploadFilesService.accept.set(this.accept());
-    this.#uploadFilesService.sizeLimit.set(this.sizeLimit());
+    this.#uploadFilesService.multiple = linkedSignal(() => this.multiple());
+    this.#uploadFilesService.accept = linkedSignal(() => this.accept());
+    this.#uploadFilesService.sizeLimit = linkedSignal(() => this.sizeLimit());
   }
 
   public selectFile(event: any, files: FileList | null | undefined): void {
@@ -90,8 +99,6 @@ export class FileUploadComponent
       .filter(({ type }) => type === FileState.SUCCESS)
       .map((f) => f.file);
 
-    console.log("🚀 ~ _effect$=effect ~ this.selectedFiles():", this.selectedFiles());
-    console.log("🚀 ~ _effect$=effect ~ result:", result);
     this.value = result;
     this.onChange(result);
     this.onSelectFiles.emit(result);

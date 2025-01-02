@@ -1,18 +1,25 @@
 <div class="flex flex-col justify-start items-stretch gap-5">
-  <div class="flex justify-start items-center">
-    <rega-button
-      [label]="label()"
-      [size]="btnSize()"
-      [loading]="btnLoading()"
-      [disabled]="disabled()"
-      [btnClass]="btnClass()"
-      (click)="input.click(); $event.stopPropagation()"
-    >
-      <ng-content />
-    </rega-button>
+  <div
+    regaDropzone
+    [ngClass]="linkedDisabled() ? 'cursor-auto' : 'cursor-pointer'"
+    class="flex justify-start items-center outline-none"
+    (fileDropped)="!linkedDisabled() && draggable() && selectFile(null, $event)"
+    (click)="input.click(); $event.stopPropagation()"
+  >
+    <ng-content>
+      <rega-button
+        [label]="label()"
+        [size]="btnSize()"
+        [loading]="btnLoading()"
+        [disabled]="linkedDisabled()"
+        [btnClass]="btnClass()"
+      />
+    </ng-content>
   </div>
 
-  <rega-file-list [fileList]="selectedFiles()" (onRemoveFile)="removeFile($event)" />
+  @if (selectedFiles().length) {
+    <rega-file-list [fileList]="selectedFiles()" (onRemoveFile)="removeFile($event)" />
+  }
 </div>
 
 <input

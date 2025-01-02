@@ -17,7 +17,7 @@ export const Default: Story = {
     accept: { control: { type: "text" } },
     sizeLimit: { control: { type: "number" }, description: "In MB" },
     multiple: { control: { type: "boolean" } },
-    onSelectFiles: { description: "(event: File[]) => void" },
+    draggable: { control: { type: "boolean" } },
     btnSize: {
       options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),
       control: { type: "radio" },
@@ -26,16 +26,18 @@ export const Default: Story = {
     btnLoading: { control: { type: "boolean" } },
     disabled: { control: { type: "boolean" } },
     btnClass: { control: { type: "text" } },
+    onSelectFiles: { description: "(event: File[]) => void" },
   },
   args: {
     label: "Browse Files",
     accept: "image/*,application/pdf",
     sizeLimit: 2,
     multiple: false,
-    onSelectFiles: (event: File[]): void => {},
+    draggable: true,
     btnSize: SizeEnum.Medium,
     btnLoading: false,
     disabled: false,
+    onSelectFiles: (event: File[]): void => {},
   },
 };
 

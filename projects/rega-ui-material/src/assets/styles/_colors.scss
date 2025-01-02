@@ -7,11 +7,13 @@ $successColor: #079455;
 $warningColor: #dc6803;
 $infoColor: #1570ef;
 $lightColor: #fcfcfd;
+$semiLightColor: #f3f4f6;
 $errorColor: #b42318;
 $borderColor: #9ca3af;
 //Disabled color
 $disabledColor: #9da4ae;
 $disabledBorderColor: #e5e7eb;
+$darkColor: #0d121c;
 
 // Colors
 $colors: (
@@ -26,6 +28,8 @@ $colors: (
 
 $additional-colors: (
   light: $lightColor,
+  semiLight: $semiLightColor,
+  dark: $darkColor,
   border: $borderColor,
   disabledCorder: $disabledBorderColor,
 );
