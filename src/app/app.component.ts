@@ -20,6 +20,7 @@ import {
 import { TextAreaComponent } from "projects/rega-ui-material/src/lib/components/textarea/textarea.component";
 import {
   CheckboxComponent,
+  DropZoneComponent,
   FileUploadComponent,
 } from "projects/rega-ui-material/src/lib";
 @Component({
@@ -34,6 +35,7 @@ import {
     TextAreaComponent,
     CheckboxComponent,
     FileUploadComponent,
+    DropZoneComponent,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",

@@ -60,7 +60,7 @@ export class DropZoneComponent
 
   public description: InputSignal<string> = input("");
 
-  public btnLabel: InputSignal<string> = input("");
+  public btnLabel: InputSignal<string> = input("Brows Files");
 
   public disabled: InputSignal<boolean> = input(false);
   public linkedDisabled = computed(() => this.disabled() || this.isDisabled());
