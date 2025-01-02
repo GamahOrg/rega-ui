@@ -1,1 +1,45 @@
-<p>drop-zone works!</p>
+<div class="flex flex-col justify-start items-stretch gap-5">
+  <div
+    regaDropzone
+    class="flex justify-center items-center outline-none"
+    (fileDropped)="!linkedDisabled() && selectFile(null, $event)"
+    (click)="!linkedDisabled() && input.click()"
+  >
+    <ng-content>
+      <div
+        [ngClass]="classes()"
+        class="w-full h-full flex flex-col justify-around items-center gap-3"
+      >
+        <mat-icon>upload_file</mat-icon>
+        @if (title()) {
+          <h3 class="text-sm font-normal">{{ title() }}</h3>
+        }
+
+        @if (description()) {
+          <p class="text-xs font-light">{{ description() }}</p>
+        }
+
+        <rega-button
+          [size]="SizeEnum.Large"
+          [disabled]="linkedDisabled()"
+          [label]="btnLabel()"
+          btnClass="brows-files"
+          class="mt-2"
+        />
+      </div>
+    </ng-content>
+  </div>
+
+  @if (selectedFiles().length) {
+    <rega-file-list [fileList]="selectedFiles()" (onRemoveFile)="removeFile($event)" />
+  }
+</div>
+
+<input
+  #input
+  [multiple]="multiple()"
+  [accept]="accept()"
+  type="file"
+  hidden
+  (change)="selectFile($event, input?.files)"
+/>

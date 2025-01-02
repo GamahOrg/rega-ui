@@ -25,7 +25,7 @@
   &.rega-textarea--darker {
     @extend .rega-textarea--default;
     textarea {
-      @apply bg-[#f3f4f6];
+      @apply bg-semiLightColor;
     }
   }
 

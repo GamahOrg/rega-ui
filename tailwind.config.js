@@ -19,6 +19,8 @@ module.exports = {
         errorColor: "var(--error-color)",
         infoColor: "var(--info-color)",
         lightColor: "var(--light-color)",
+        semiLightColor: "var(--semiLight-color)",
+        darkColor: "var(--dark-color)",
         disabledColor: "var(--disabled-color)",
         borderColor: "var(--border-color)",
         disabledBorderColor: "var(--disabledCorder-color)",

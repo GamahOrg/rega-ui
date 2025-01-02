@@ -114,7 +114,7 @@ $sizes: (
     &.rega-btn--disabled:hover {
       @apply cursor-auto;
       background-color: $disabledBorderColor !important;
-      color: #ffffff !important;
+      color: $disabledColor !important;
     }
   }
 }
