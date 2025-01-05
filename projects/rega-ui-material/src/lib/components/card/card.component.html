@@ -1,0 +1,43 @@
+<div [ngClass]="classes()">
+  <ng-content select="[card-header]">
+    <div class="flex justify-between items-center">
+      <div class="icon-wrapper"><mat-icon [fontIcon]="icon()" /></div>
+
+      @if (type() === CardTypeEnum.Selectable) {
+        <rega-checkbox
+          [(ngModel)]="value"
+          [size]="SizeEnum.Large"
+          [color]="color()"
+          [disabled]="linkedDisabled()"
+          (valueChange)="onSelectChange($event)"
+        />
+      }
+    </div>
+  </ng-content>
+
+  <ng-content select="[card-content]">
+    <div class="flex flex-col justify-center items-stretch">
+      <div class="title">{{ title() }}</div>
+      <div class="description">{{ description() }}</div>
+    </div>
+  </ng-content>
+
+  <ng-content select="[card-actions]" />
+
+  @if (type() === CardTypeEnum.Expandable) {
+    <div class="flex flex-col justify-center items-stretch gap-2">
+      <div class="flex justify-start items-center">
+        <mat-icon
+          [fontIcon]="defaultExpanded() ? 'expand_less' : 'expand_more'"
+          (click)="defaultExpanded.set(!defaultExpanded())"
+        />
+      </div>
+
+      @if (defaultExpanded()) {
+        <ng-content select="[card-expandableContent]">
+          <p>{{ expandableContent() }}</p>
+        </ng-content>
+      }
+    </div>
+  }
+</div>

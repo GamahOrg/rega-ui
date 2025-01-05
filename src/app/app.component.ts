@@ -19,6 +19,7 @@ import {
 } from "@angular/forms";
 import { TextAreaComponent } from "projects/rega-ui-material/src/lib/components/textarea/textarea.component";
 import {
+  CardComponent,
   CheckboxComponent,
   DropZoneComponent,
   FileUploadComponent,
@@ -40,6 +41,7 @@ import {
     DropZoneComponent,
     RadioGroupComponent,
     RadioButtonComponent,
+    CardComponent,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
@@ -55,6 +57,11 @@ export class AppComponent implements OnInit {
 
   public formGroup = this.#fb.group({
     control: [null, [Validators.required]],
+  });
+
+  public selectionGroup = this.#fb.group({
+    selection1: [null],
+    selection2: [null],
   });
 
   title = "rega-ui";
@@ -75,6 +82,14 @@ export class AppComponent implements OnInit {
 
     this.radio.valueChanges.subscribe((res) => {
       console.log("🚀 ~ AppComponent ~ this.control.valueChanges.subscribe ~ res:", res);
+      // console.log("Values: ", res);
+    });
+
+    this.selectionGroup.valueChanges.subscribe((res) => {
+      console.log(
+        "🚀 ~ AppComponent ~ this.selectionGroup.valueChanges.subscribe ~ res:",
+        res
+      );
       // console.log("Values: ", res);
     });
 

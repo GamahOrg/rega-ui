@@ -54,3 +54,25 @@
   >
   </rega-drop-zone>
 </div>
+
+<div class="w-1/2 p-4">
+  <div
+    [formGroup]="selectionGroup"
+    class="flex flex-col justify-evenly items-center gap-4"
+  >
+    <rega-card
+      formControlName="selection1"
+      [type]="'selectable'"
+      title="Card Title 1"
+      description="Card content 1"
+    />
+
+    <rega-card
+      formControlName="selection2"
+      [type]="'selectable'"
+      [color]="'warning'"
+      title="Card Title 2"
+      description="Card content 2"
+    />
+  </div>
+</div>

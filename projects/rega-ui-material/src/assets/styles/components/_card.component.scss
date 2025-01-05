@@ -1,0 +1,65 @@
+.rega-card {
+  @apply w-[350px] flex flex-col justify-start items-stretch gap-[24px] overflow-hidden outline-none text-[#1f2a37] p-[16px] rounded-[16px];
+
+  .icon-wrapper {
+    $icon-width: 25px;
+
+    @apply h-[45px] w-[45px] flex justify-center items-center rounded-full;
+
+    mat-icon {
+      height: clamp($icon-width, $icon-width, $icon-width);
+      width: clamp($icon-width, $icon-width, $icon-width);
+      min-width: clamp($icon-width, $icon-width, $icon-width);
+      max-width: clamp($icon-width, $icon-width, $icon-width);
+      font-size: clamp($icon-width, $icon-width, $icon-width);
+    }
+  }
+
+  .title {
+    @apply text-[18px] font-bold;
+  }
+
+  .description {
+    @apply text-[16px];
+  }
+
+  //   hover #f9fafb
+  //  border-[2px] border-[#d2d6db]
+  //   box-shadow: rgba(16, 24, 40, 0.06) 0px 2px 4px -2px, rgba(16, 24, 40, 0.1) 0px 4px 8px -2px;
+}
+
+.rega-card--default {
+  @apply cursor-auto;
+}
+
+.rega-card--expandable,
+.rega-card--selectable {
+  @apply cursor-pointer hover:bg-[#f9fafb];
+}
+
+.rega-card--shadow {
+  box-shadow:
+    rgba(16, 24, 40, 0.06) 0px 2px 4px -2px,
+    rgba(16, 24, 40, 0.1) 0px 4px 8px -2px;
+}
+
+.rega-card--shadowless {
+  @apply shadow-none;
+}
+
+.rega-card--stroked {
+  @apply border-[2px] border-[#d2d6db];
+}
+
+.rega-card--disabled {
+  @apply cursor-auto pointer-events-none bg-disabledBorderColor hover:bg-disabledBorderColor;
+}
+
+@each $name, $color in $colors {
+  .rega-card--#{$name} {
+    .icon-wrapper {
+      color: mix($color, #ffffff, 85%);
+      background-color: mix($color, #ffffff, 5%);
+    }
+  }
+}
