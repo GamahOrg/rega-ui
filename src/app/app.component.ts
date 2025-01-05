@@ -22,6 +22,8 @@ import {
   CheckboxComponent,
   DropZoneComponent,
   FileUploadComponent,
+  RadioButtonComponent,
+  RadioGroupComponent,
 } from "projects/rega-ui-material/src/lib";
 @Component({
   selector: "app-root",
@@ -36,6 +38,8 @@ import {
     CheckboxComponent,
     FileUploadComponent,
     DropZoneComponent,
+    RadioGroupComponent,
+    RadioButtonComponent,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
@@ -44,6 +48,9 @@ export class AppComponent implements OnInit {
   readonly #fb = inject(FormBuilder);
   readonly #breadcrumbService = inject(BreadcrumbService);
 
+  // public radio: string = "2";
+  public radio: UntypedFormControl = this.#fb.control({ value: 2, disabled: false });
+  public controlArea: UntypedFormControl = this.#fb.control(null);
   public control: UntypedFormControl = this.#fb.control(true);
 
   public formGroup = this.#fb.group({
@@ -62,6 +69,11 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(): void {
     this.control.valueChanges.subscribe((res) => {
+      console.log("🚀 ~ AppComponent ~ this.control.valueChanges.subscribe ~ res:", res);
+      // console.log("Values: ", res);
+    });
+
+    this.radio.valueChanges.subscribe((res) => {
       console.log("🚀 ~ AppComponent ~ this.control.valueChanges.subscribe ~ res:", res);
       // console.log("Values: ", res);
     });

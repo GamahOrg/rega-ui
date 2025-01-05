@@ -61,12 +61,19 @@ $sizes: (
     border: none;
     color: $color;
     background-color: transparent !important;
+
+    &:disabled {
+      color: $disabledColor !important;
+    }
   }
 
   &.rega-btn--text,
   &.rega-btn--outlined {
     &:hover {
       background-color: if($name == disabled, transparent, bg-color($color)) !important;
+    }
+    &:disabled {
+      color: $disabledColor !important;
     }
   }
 
@@ -84,6 +91,11 @@ $sizes: (
         $color,
         mix($color, #ffffff, 30%)
       ) !important;
+    }
+
+    &:disabled {
+      background-color: $disabledBorderColor !important;
+      color: $disabledColor !important;
     }
   }
 }
@@ -108,13 +120,15 @@ $sizes: (
       &:hover {
         background-color: if($name == disabled, $disabledBorderColor, darken($color, 5%));
       }
+
+      &:disabled {
+        @include btnColor($disabledBorderColor, #ffffff);
+      }
     }
 
     &.rega-btn--disabled,
     &.rega-btn--disabled:hover {
       @apply cursor-auto;
-      background-color: $disabledBorderColor !important;
-      color: $disabledColor !important;
     }
   }
 }

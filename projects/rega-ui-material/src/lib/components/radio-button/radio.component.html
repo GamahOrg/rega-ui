@@ -1,0 +1,31 @@
+<div [ngClass]="classes()" class="flex flex-col justify-start items-start">
+  <label class="flex justify-center items-center cursor-pointer">
+    <input
+      [value]="value()"
+      [checked]="checked()"
+      [disabled]="linkedDisabled()"
+      type="radio"
+      (change)="onInputChange($event)"
+    />
+
+    <span class="custom-radio"></span>
+
+    <span class="label">
+      <ng-content>{{ label() }}</ng-content>
+    </span>
+  </label>
+
+  @if (description()) {
+    <p class="description text-wrap mt-[8px]">{{ description() }}</p>
+  }
+
+  @if (errorMsg()) {
+    <div
+      [ngClass]="{ 'mt-2': !description() }"
+      class="error flex justify-start items-start gap-2 mt-1"
+    >
+      <mat-icon class="block text-errorColor mt-[1px]" fontIcon="error_outline" />
+      <p class="text-wrap text-errorColor">{{ errorMsg() }}</p>
+    </div>
+  }
+</div>

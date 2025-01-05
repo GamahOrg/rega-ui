@@ -49,7 +49,7 @@ $sizes: (
 
 .rega-checkbox {
   input {
-    @apply relative inline-block outline-none ring-0 transition-[0.1s] rounded-[2px] border border-solid border-borderColor
+    @apply relative inline-block outline-none ring-0 focus:ring-transparent transition-[0.1s] rounded-[2px] border border-solid border-borderColor
     bg-transparent cursor-pointer focus:ring-0;
   }
 

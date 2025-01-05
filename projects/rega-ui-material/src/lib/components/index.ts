@@ -5,3 +5,5 @@ export * from "./checkbox/checkbox.component";
 export * from "./autocomplete/autocomplete.component";
 export * from "./file-upload/file-upload.component";
 export * from "./drop-zone/drop-zone.component";
+export * from "./radio-button/radio.component";
+export * from "./radio-group/radio-group.component";

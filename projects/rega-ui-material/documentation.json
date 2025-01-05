@@ -34,11 +34,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  argTypes: {\r\n    color: {\r\n      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),\r\n      control: { type: \"select\" },\r\n      description: \"ColorEnum\",\r\n    },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    errorMsg: { control: { type: \"text\" }, description: \"String\" },\r\n    description: { control: { type: \"text\" }, description: \"String\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{}"
+                "defaultValue": "{\r\n  argTypes: {\r\n    accept: { control: { type: \"text\" } },\r\n    sizeLimit: { control: { type: \"number\" }, description: \"In MB\" },\r\n    multiple: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    title: { control: { type: \"text\" } },\r\n    description: { control: { type: \"text\" } },\r\n    btnLabel: { control: { type: \"text\" } },\r\n    dropzoneClass: { control: { type: \"text\" } },\r\n    onFileDropped: { description: \"(event: File[]) => void\" },\r\n  },\r\n  args: {\r\n    accept: \"image/*,application/pdf\",\r\n    sizeLimit: 2,\r\n    multiple: true,\r\n    disabled: false,\r\n    title: \"Drag and drop files here to upload\",\r\n    description:\r\n      \"Maximum file size allowed is 2MB, supported file formats include .jpg, .png, and.pdf.\",\r\n    btnLabel: \"Browse Files\",\r\n    dropzoneClass: \"\",\r\n    onFileDropped: (event: File[]): void => {},\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -48,7 +58,27 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  argTypes: {\r\n    label: { control: { type: \"text\" } },\r\n    accept: { control: { type: \"text\" } },\r\n    sizeLimit: { control: { type: \"number\" }, description: \"In MB\" },\r\n    multiple: { control: { type: \"boolean\" } },\r\n    onSelectFiles: { description: \"(event: File[]) => void\" },\r\n    btnSize: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    btnLoading: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    btnClass: { control: { type: \"text\" } },\r\n  },\r\n  args: {\r\n    label: \"Browse Files\",\r\n    accept: \"image/*,application/pdf\",\r\n    sizeLimit: 2,\r\n    multiple: false,\r\n    onSelectFiles: (event: File[]): void => {},\r\n    btnSize: SizeEnum.Medium,\r\n    btnLoading: false,\r\n    disabled: false,\r\n  },\r\n}"
+                "defaultValue": "{\r\n  argTypes: {\r\n    label: { control: { type: \"text\" } },\r\n    accept: { control: { type: \"text\" } },\r\n    sizeLimit: { control: { type: \"number\" }, description: \"In MB\" },\r\n    multiple: { control: { type: \"boolean\" } },\r\n    draggable: { control: { type: \"boolean\" } },\r\n    btnSize: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    btnLoading: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    btnClass: { control: { type: \"text\" } },\r\n    onSelectFiles: { description: \"(event: File[]) => void\" },\r\n  },\r\n  args: {\r\n    label: \"Browse Files\",\r\n    accept: \"image/*,application/pdf\",\r\n    sizeLimit: 2,\r\n    multiple: false,\r\n    draggable: true,\r\n    btnSize: SizeEnum.Medium,\r\n    btnLoading: false,\r\n    disabled: false,\r\n    onSelectFiles: (event: File[]): void => {},\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/radio-group.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  argTypes: {\r\n    disabled: { control: { type: \"boolean\" } },\r\n    readOnly: { control: { type: \"boolean\" } },\r\n    color: {\r\n      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),\r\n      control: { type: \"select\" },\r\n      description: \"ButtonColorEnum\",\r\n    },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    valueChange: { description: \"(event: any) => void\" },\r\n  },\r\n  args: {\r\n    // color: ColorEnum.Primary,\r\n    // size: SizeEnum.Medium,\r\n    // readOnly: false,\r\n    // disabled: false,\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  argTypes: {\r\n    label: { control: { type: \"text\" } },\r\n    description: { control: { type: \"text\" }, description: \"String\" },\r\n    errorMsg: { control: { type: \"text\" }, description: \"String\" },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    readOnly: { control: { type: \"boolean\" } },\r\n    color: {\r\n      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),\r\n      control: { type: \"select\" },\r\n      description: \"ButtonColorEnum\",\r\n    },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    value: { description: \"any\" },\r\n    onChange: { description: \"(event: boolean) => void\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n    color: ColorEnum.Primary,\r\n    size: SizeEnum.Medium,\r\n    disabled: false,\r\n    readOnly: false,\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -79,6 +109,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    label: \"Button\",\n    size: SizeEnum.Medium,\n    disabled: true,\n  },\n}"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    disabled: true,\r\n  },\r\n}"
             },
             {
                 "name": "Disabled",
@@ -174,6 +214,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<CheckboxComponent>",
+                "defaultValue": "{\r\n  title: \"Components/Checkbox\",\r\n  component: CheckboxComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -189,6 +239,26 @@
                 "deprecationMessage": "",
                 "type": "Meta",
                 "defaultValue": "{\r\n  title: \"Components/FileUpload/FileUpload\",\r\n  component: FileUploadComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/radio-group.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<RadioGroupComponent>",
+                "defaultValue": "{\r\n  title: \"Components/Radio/RadioGroup\",\r\n  component: RadioGroupComponent,\r\n  tags: [\"autodocs\"],\r\n  decorators: [moduleMetadata({ imports: [RadioGroupComponent, RadioButtonComponent] })],\r\n  render: (args) => {\r\n    const { size, color, readOnly, disabled, ...props } = args;\r\n    return {\r\n      props,\r\n      template: `\r\n        <rega-radio-group [color]=\"'${color}'\" [size]=\"'${size}'\" [disabled]=\"${disabled}\" [readOnly]=\"${readOnly}\" class=\"flex justify-evenly items-center gap-10\">\r\n            <rega-radio-button value=\"1\">Label 1 </rega-radio-button>\r\n            <rega-radio-button value=\"2\">Label 2 </rega-radio-button>\r\n            <rega-radio-button value=\"3\">Label 3 </rega-radio-button>\r\n        </rega-radio-group>\r\n      `,\r\n    };\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<RadioButtonComponent>",
+                "defaultValue": "{\r\n  title: \"Components/Radio/Radio\",\r\n  component: RadioButtonComponent,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [RadioGroupComponent, RadioButtonComponent],\r\n      providers: [RadioGroupComponent],\r\n    }),\r\n  ],\r\n  tags: [\"autodocs\"],\r\n}"
             },
             {
                 "name": "meta",
@@ -274,11 +344,41 @@
                 "name": "RTL",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    label: \"العنوان\",\r\n    description:\r\n      'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق \"ليتراسيت\" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل \"ألدوس بايج مايكر\" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.',\r\n    errorMsg: \"نص الخطأ\",\r\n  },\r\n}"
+            },
+            {
+                "name": "RTL",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    title: \"قم بسحب وإسقاط الملفات هنا للتحميل\",\r\n    description:\r\n      \"الحد الأقصى لحجم الملف المسموح به هو 2 ميجابايت، وتشمل تنسيقات الملفات المدعومة .jpg و.png و.pdf.\",\r\n    btnLabel: \"تصفح الملفات\",\r\n  },\r\n}"
+            },
+            {
+                "name": "RTL",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    label: \"تصفح الملفات\",\r\n  },\r\n}"
+            },
+            {
+                "name": "RTL",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    label: \"العنوان\",\r\n    description:\r\n      'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق \"ليتراسيت\" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل \"ألدوس بايج مايكر\" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.',\r\n    errorMsg: \"نص الخطأ\",\r\n  },\r\n}"
             },
             {
                 "name": "RTL",
@@ -331,6 +431,66 @@
                 "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Info,\n    variant: ButtonVariantEnum.Text,\n  },\n}"
             },
             {
+                "name": "WarningWithError",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    checked: true,\r\n    size: SizeEnum.Large,\r\n    color: ColorEnum.Warning,\r\n    errorMsg: \"Error message\",\r\n  },\r\n}"
+            },
+            {
+                "name": "withDescription",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    checked: true,\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n  },\r\n}"
+            },
+            {
+                "name": "WithDescription",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n  },\r\n}"
+            },
+            {
+                "name": "withDescriptionAndError",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    checked: true,\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n    errorMsg: \"Error message\",\r\n  },\r\n}"
+            },
+            {
+                "name": "WithDescriptionAndError",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    errorMsg: \"Error Message\",\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n  },\r\n}"
+            },
+            {
+                "name": "WithError",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: { ...Default.args, errorMsg: \"Error Message\" },\r\n}"
+            },
+            {
                 "name": "WithFormControl",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -369,6 +529,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<CheckboxComponent>",
+                "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<DropZoneComponent>",
                 "file": "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts",
                 "deprecated": false,
@@ -382,6 +553,28 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<FileUploadComponent>",
                 "file": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<RadioGroupComponent>",
+                "file": "projects/rega-ui-material/src/lib/stories/radio-group.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<RadioButtonComponent>",
+                "file": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -527,6 +720,78 @@
                     "defaultValue": "{\r\n  parameters: { direction: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    items: [\r\n      { label: \"رابط 1\", link: \"/link1\" },\r\n      { label: \"رابط 2\", link: \"/link2\" },\r\n      { label: \"رابط 3\", link: \"/link3\" },\r\n      { label: \"رابط 4\", link: \"/link4\" },\r\n      { label: \"رابط 5\", link: \"/link5\" },\r\n      { label: \"رابط 6\", link: \"/link6\" },\r\n    ],\r\n  },\r\n}"
                 }
             ],
+            "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  argTypes: {\r\n    color: {\r\n      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),\r\n      control: { type: \"select\" },\r\n      description: \"ColorEnum\",\r\n    },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    errorMsg: { control: { type: \"text\" }, description: \"String\" },\r\n    description: { control: { type: \"text\" }, description: \"String\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    disabled: true,\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<CheckboxComponent>",
+                    "defaultValue": "{\r\n  title: \"Components/Checkbox\",\r\n  component: CheckboxComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+                },
+                {
+                    "name": "RTL",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    label: \"العنوان\",\r\n    description:\r\n      'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق \"ليتراسيت\" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل \"ألدوس بايج مايكر\" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.',\r\n    errorMsg: \"نص الخطأ\",\r\n  },\r\n}"
+                },
+                {
+                    "name": "WithDescription",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n  },\r\n}"
+                },
+                {
+                    "name": "WithDescriptionAndError",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    errorMsg: \"Error Message\",\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n  },\r\n}"
+                },
+                {
+                    "name": "WithError",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: { ...Default.args, errorMsg: \"Error Message\" },\r\n}"
+                }
+            ],
             "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts": [
                 {
                     "name": "Default",
@@ -536,7 +801,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{}"
+                    "defaultValue": "{\r\n  argTypes: {\r\n    accept: { control: { type: \"text\" } },\r\n    sizeLimit: { control: { type: \"number\" }, description: \"In MB\" },\r\n    multiple: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    title: { control: { type: \"text\" } },\r\n    description: { control: { type: \"text\" } },\r\n    btnLabel: { control: { type: \"text\" } },\r\n    dropzoneClass: { control: { type: \"text\" } },\r\n    onFileDropped: { description: \"(event: File[]) => void\" },\r\n  },\r\n  args: {\r\n    accept: \"image/*,application/pdf\",\r\n    sizeLimit: 2,\r\n    multiple: true,\r\n    disabled: false,\r\n    title: \"Drag and drop files here to upload\",\r\n    description:\r\n      \"Maximum file size allowed is 2MB, supported file formats include .jpg, .png, and.pdf.\",\r\n    btnLabel: \"Browse Files\",\r\n    dropzoneClass: \"\",\r\n    onFileDropped: (event: File[]): void => {},\r\n  },\r\n}"
                 },
                 {
                     "name": "meta",
@@ -547,6 +812,16 @@
                     "deprecationMessage": "",
                     "type": "Meta",
                     "defaultValue": "{\r\n  title: \"Components/FileUpload/DropZone\",\r\n  component: DropZoneComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+                },
+                {
+                    "name": "RTL",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    title: \"قم بسحب وإسقاط الملفات هنا للتحميل\",\r\n    description:\r\n      \"الحد الأقصى لحجم الملف المسموح به هو 2 ميجابايت، وتشمل تنسيقات الملفات المدعومة .jpg و.png و.pdf.\",\r\n    btnLabel: \"تصفح الملفات\",\r\n  },\r\n}"
                 }
             ],
             "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts": [
@@ -558,7 +833,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  argTypes: {\r\n    label: { control: { type: \"text\" } },\r\n    accept: { control: { type: \"text\" } },\r\n    sizeLimit: { control: { type: \"number\" }, description: \"In MB\" },\r\n    multiple: { control: { type: \"boolean\" } },\r\n    onSelectFiles: { description: \"(event: File[]) => void\" },\r\n    btnSize: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    btnLoading: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    btnClass: { control: { type: \"text\" } },\r\n  },\r\n  args: {\r\n    label: \"Browse Files\",\r\n    accept: \"image/*,application/pdf\",\r\n    sizeLimit: 2,\r\n    multiple: false,\r\n    onSelectFiles: (event: File[]): void => {},\r\n    btnSize: SizeEnum.Medium,\r\n    btnLoading: false,\r\n    disabled: false,\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  argTypes: {\r\n    label: { control: { type: \"text\" } },\r\n    accept: { control: { type: \"text\" } },\r\n    sizeLimit: { control: { type: \"number\" }, description: \"In MB\" },\r\n    multiple: { control: { type: \"boolean\" } },\r\n    draggable: { control: { type: \"boolean\" } },\r\n    btnSize: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    btnLoading: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    btnClass: { control: { type: \"text\" } },\r\n    onSelectFiles: { description: \"(event: File[]) => void\" },\r\n  },\r\n  args: {\r\n    label: \"Browse Files\",\r\n    accept: \"image/*,application/pdf\",\r\n    sizeLimit: 2,\r\n    multiple: false,\r\n    draggable: true,\r\n    btnSize: SizeEnum.Medium,\r\n    btnLoading: false,\r\n    disabled: false,\r\n    onSelectFiles: (event: File[]): void => {},\r\n  },\r\n}"
                 },
                 {
                     "name": "meta",
@@ -579,6 +854,90 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    label: \"تصفح الملفات\",\r\n  },\r\n}"
+                }
+            ],
+            "projects/rega-ui-material/src/lib/stories/radio-group.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/radio-group.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  argTypes: {\r\n    disabled: { control: { type: \"boolean\" } },\r\n    readOnly: { control: { type: \"boolean\" } },\r\n    color: {\r\n      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),\r\n      control: { type: \"select\" },\r\n      description: \"ButtonColorEnum\",\r\n    },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    valueChange: { description: \"(event: any) => void\" },\r\n  },\r\n  args: {\r\n    // color: ColorEnum.Primary,\r\n    // size: SizeEnum.Medium,\r\n    // readOnly: false,\r\n    // disabled: false,\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/radio-group.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<RadioGroupComponent>",
+                    "defaultValue": "{\r\n  title: \"Components/Radio/RadioGroup\",\r\n  component: RadioGroupComponent,\r\n  tags: [\"autodocs\"],\r\n  decorators: [moduleMetadata({ imports: [RadioGroupComponent, RadioButtonComponent] })],\r\n  render: (args) => {\r\n    const { size, color, readOnly, disabled, ...props } = args;\r\n    return {\r\n      props,\r\n      template: `\r\n        <rega-radio-group [color]=\"'${color}'\" [size]=\"'${size}'\" [disabled]=\"${disabled}\" [readOnly]=\"${readOnly}\" class=\"flex justify-evenly items-center gap-10\">\r\n            <rega-radio-button value=\"1\">Label 1 </rega-radio-button>\r\n            <rega-radio-button value=\"2\">Label 2 </rega-radio-button>\r\n            <rega-radio-button value=\"3\">Label 3 </rega-radio-button>\r\n        </rega-radio-group>\r\n      `,\r\n    };\r\n  },\r\n}"
+                }
+            ],
+            "projects/rega-ui-material/src/lib/stories/radio.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  argTypes: {\r\n    label: { control: { type: \"text\" } },\r\n    description: { control: { type: \"text\" }, description: \"String\" },\r\n    errorMsg: { control: { type: \"text\" }, description: \"String\" },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    readOnly: { control: { type: \"boolean\" } },\r\n    color: {\r\n      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),\r\n      control: { type: \"select\" },\r\n      description: \"ButtonColorEnum\",\r\n    },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    value: { description: \"any\" },\r\n    onChange: { description: \"(event: boolean) => void\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n    color: ColorEnum.Primary,\r\n    size: SizeEnum.Medium,\r\n    disabled: false,\r\n    readOnly: false,\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<RadioButtonComponent>",
+                    "defaultValue": "{\r\n  title: \"Components/Radio/Radio\",\r\n  component: RadioButtonComponent,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [RadioGroupComponent, RadioButtonComponent],\r\n      providers: [RadioGroupComponent],\r\n    }),\r\n  ],\r\n  tags: [\"autodocs\"],\r\n}"
+                },
+                {
+                    "name": "RTL",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    label: \"العنوان\",\r\n    description:\r\n      'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق \"ليتراسيت\" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل \"ألدوس بايج مايكر\" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.',\r\n    errorMsg: \"نص الخطأ\",\r\n  },\r\n}"
+                },
+                {
+                    "name": "WarningWithError",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    checked: true,\r\n    size: SizeEnum.Large,\r\n    color: ColorEnum.Warning,\r\n    errorMsg: \"Error message\",\r\n  },\r\n}"
+                },
+                {
+                    "name": "withDescription",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    checked: true,\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n  },\r\n}"
+                },
+                {
+                    "name": "withDescriptionAndError",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    checked: true,\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n    errorMsg: \"Error message\",\r\n  },\r\n}"
                 }
             ],
             "projects/rega-ui-material/src/lib/stories/text-input.stories.ts": [
@@ -799,6 +1158,19 @@
                     "kind": 183
                 }
             ],
+            "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<CheckboxComponent>",
+                    "file": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts": [
                 {
                     "name": "Story",
@@ -819,6 +1191,32 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<FileUploadComponent>",
                     "file": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/rega-ui-material/src/lib/stories/radio-group.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<RadioGroupComponent>",
+                    "file": "projects/rega-ui-material/src/lib/stories/radio-group.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/rega-ui-material/src/lib/stories/radio.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<RadioButtonComponent>",
+                    "file": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1032,6 +1430,86 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "RTL",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithDescription",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithDescriptionAndError",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithError",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/checkbox.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -1047,6 +1525,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/drop-zone.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "RTL",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1093,6 +1581,106 @@
             },
             {
                 "filePath": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/radio-group.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/radio-group.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/radio-group.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "RTL",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WarningWithError",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "withDescription",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "withDescriptionAndError",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

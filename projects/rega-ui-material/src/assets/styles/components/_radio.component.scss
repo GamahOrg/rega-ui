@@ -1,0 +1,111 @@
+$sizes: (
+  small: (
+    7px,
+    12px,
+    5px,
+    400,
+  ),
+  medium: (
+    10px,
+    14px,
+    8px,
+    500,
+  ),
+  large: (
+    14px,
+    16px,
+    10px,
+    500,
+  ),
+);
+
+.rega-radio {
+  input {
+    display: none;
+  }
+
+  .label {
+    @apply truncate;
+  }
+
+  .custom-radio {
+    @apply inline-block relative rounded-full border-[1px] border-solid border-darkColor after:content-['']  after:absolute after:-translate-x-1/2 after:-translate-y-1/2 after:opacity-0 after:transition-opacity after:duration-[0.2s] after:rounded-full after:left-1/2 after:top-1/2;
+  }
+}
+
+.rega-radio--checked {
+  .custom-radio {
+    @apply after:opacity-100;
+  }
+}
+
+.rega-radio--readonly {
+  label {
+    @apply pointer-events-none;
+  }
+}
+
+.rega-radio--disabled {
+  label {
+    @apply cursor-auto;
+  }
+
+  .custom-radio {
+    @apply bg-semiLightColor;
+  }
+}
+
+@each $name, $color in $colors {
+  .rega-radio--#{$name} {
+    .custom-radio {
+      &::after {
+        background-color: $color;
+      }
+    }
+  }
+}
+
+@each $size, $values in $sizes {
+  .rega-radio--#{$size} {
+    $width: calc(nth($values, 1) + 8px);
+    $icon-width: calc($width + 2px);
+
+    label {
+      gap: nth($values, 3);
+    }
+
+    .custom-radio {
+      width: $width;
+      height: $width;
+      &::after {
+        width: nth($values, 1);
+        height: nth($values, 1);
+      }
+    }
+
+    .label {
+      font-size: nth($values, 2);
+      font-weight: nth($values, 4);
+    }
+
+    .description,
+    .error p {
+      font-size: calc(nth($values, 2) - 1px);
+      font-weight: calc(nth($values, 4) - 100);
+    }
+
+    .description {
+      margin-inline-start: calc($width + 0.5rem);
+    }
+
+    .error {
+      mat-icon {
+        height: clamp($icon-width, $icon-width, $icon-width);
+        width: clamp($icon-width, $icon-width, $icon-width);
+        min-width: clamp($icon-width, $icon-width, $icon-width);
+        max-width: clamp($icon-width, $icon-width, $icon-width);
+        font-size: clamp($icon-width, $icon-width, $icon-width);
+      }
+    }
+  }
+}

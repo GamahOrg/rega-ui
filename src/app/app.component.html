@@ -8,13 +8,29 @@
 /> -->
 
 <div class="w-1/2 p-4">
-  <rega-textarea [formControl]="control" label="Label" />
+  <rega-textarea [formControl]="controlArea" label="Label" />
 </div>
 
 <!-- [error]="control.touched && !!control.errors" -->
-{{ "Is Valid: " + control.valid }}
+{{ "Value: " + controlArea.value }}
 <br />
-{{ "Errors: " + (control.errors | json) }}
+{{ "Is Valid: " + controlArea.valid }}
+<br />
+{{ "Errors: " + (controlArea.errors | json) }}
+
+<div class="w-1/2 p-4">
+  <rega-radio-group
+    [formControl]="radio"
+    [color]="'warning'"
+    [size]="'large'"
+    class="grid grid-cols-2 gap-4"
+  >
+    <rega-radio-button value="1">Label 1 </rega-radio-button>
+    <rega-radio-button value="2">Label 2 </rega-radio-button>
+  </rega-radio-group>
+  <br />
+  {{ "Radio Value: " + radio.value }}
+</div>
 
 <div class="w-1/2 p-4">
   <rega-checkbox
