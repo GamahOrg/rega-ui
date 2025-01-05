@@ -38,7 +38,7 @@ export const Default: Story = {
     color: {
       options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),
       control: { type: "select" },
-      description: "ButtonColorEnum",
+      description: "ColorEnum",
     },
     size: {
       options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),
@@ -87,14 +87,14 @@ export const VerticalWithWarningColorSmall: Story = {
   },
 };
 
-export const RTLWithInfoColorLarge: Story = {
+export const RTLWithSecondaryColorLarge: Story = {
   parameters: { direction: "rtl", dir: "rtl" },
   args: { ...Default.args },
   render: (args) => {
     return {
       args,
       template: `
-        <rega-radio-group [color]="'info'" [size]="'large'" class="flex justify-evenly items-center gap-10">
+        <rega-radio-group [color]="'secondary'" [size]="'large'" class="flex justify-evenly items-center gap-10">
             <rega-radio-button value="1">العنوان 1 </rega-radio-button>
             <rega-radio-button value="2">العنوان 2 </rega-radio-button>
             <rega-radio-button value="3">العنوان 3 </rega-radio-button>
