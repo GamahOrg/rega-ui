@@ -40,7 +40,7 @@ export class CheckboxComponent
   extends BaseFormValueAccessorComponent
   implements AfterViewInit
 {
-  public label: InputSignal<string> = input("Label");
+  public label: InputSignal<string> = input("");
 
   public description: InputSignal<string> = input("");
 
@@ -55,7 +55,7 @@ export class CheckboxComponent
 
   public checkboxClass: InputSignal<string> = input("");
 
-  public change: OutputEmitterRef<any> = output();
+  public valueChange: OutputEmitterRef<boolean> = output();
 
   public readonly classes: Signal<string[]> = linkedSignal(() => {
     const classes: string[] = [
@@ -77,5 +77,6 @@ export class CheckboxComponent
     const input: any = (event.target as HTMLInputElement).checked;
     this.value = input;
     this.onChange(input);
+    this.valueChange.emit(input);
   };
 }

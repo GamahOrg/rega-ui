@@ -24,6 +24,7 @@ export const Default: Story = {
     errorMsg: { control: { type: "text" }, description: "String" },
     description: { control: { type: "text" }, description: "String" },
     disabled: { control: { type: "boolean" }, description: "Boolean" },
+    valueChange: { description: "(event: boolean) => void" },
   },
   args: {
     label: "Label",
