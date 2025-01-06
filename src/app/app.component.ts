@@ -26,6 +26,8 @@ import {
   RadioButtonComponent,
   RadioGroupComponent,
 } from "projects/rega-ui-material/src/lib";
+import { AutoCompleteCompleteEvent, AutoCompleteModule } from 'primeng/autocomplete';
+
 @Component({
   selector: "app-root",
   standalone: true,
@@ -42,6 +44,7 @@ import {
     RadioGroupComponent,
     RadioButtonComponent,
     CardComponent,
+    AutoCompleteModule 
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
@@ -65,6 +68,14 @@ export class AppComponent implements OnInit {
   });
 
   title = "rega-ui";
+  
+  autoCompleteItems: any[] = [];
+
+  value: any;
+
+  search(event: AutoCompleteCompleteEvent) {
+      this.autoCompleteItems = [...Array(10).keys()].map(item => event.query + '-' + item);
+  }
 
   public items: BreadcrumbItem[] = [
     { label: "Link 1", link: "/link1" },

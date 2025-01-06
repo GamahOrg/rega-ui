@@ -8,11 +8,20 @@
 /> -->
 
 <div class="w-1/2 p-4">
-  <rega-textarea [formControl]="controlArea" label="Label" />
+  <p-autocomplete
+    [(ngModel)]="value"
+    [suggestions]="autoCompleteItems"
+    (completeMethod)="search($event)"
+  />
+  <br />
 </div>
 
+<!-- <div class="w-1/2 p-4">
+  <rega-textarea [formControl]="controlArea" label="Label" />
+</div> -->
+
 <!-- [error]="control.touched && !!control.errors" -->
-{{ "Value: " + controlArea.value }}
+<!-- {{ "Value: " + controlArea.value }}
 <br />
 {{ "Is Valid: " + controlArea.valid }}
 <br />
@@ -75,4 +84,4 @@
       description="Card content 2"
     />
   </div>
-</div>
+</div> -->
