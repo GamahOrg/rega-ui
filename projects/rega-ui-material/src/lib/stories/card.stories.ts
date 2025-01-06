@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/angular";
 import { GStatic } from "../../utils";
 import { CardComponent } from "../components";
-import { CardTypeEnum, ColorEnum, EffectTypeEnum } from "dist/rega-ui-material";
+import { CardTypeEnum, ColorEnum, EffectTypeEnum } from "../../utils";
 
 const meta: Meta<CardComponent> = {
   title: "Components/Card",
