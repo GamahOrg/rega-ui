@@ -10,6 +10,8 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideAnimationsAsync(),
-    providePrimeNG({ theme: { preset: PrimeNgPreset } }),
+    providePrimeNG({
+      theme: { preset: PrimeNgPreset, options: { darkModeSelector: false || "none" } },
+    }),
   ],
 };
