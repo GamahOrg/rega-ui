@@ -1,0 +1,122 @@
+.rega-autocomplete {
+  input {
+    @apply focus:outline-none focus:border-none focus:ring-0;
+  }
+
+  .p-autocomplete {
+    @apply w-full p-0 border-[1px] rounded-[4px] border-disabledColor;
+
+    input {
+      @apply border-none hover:border-none focus:border-none;
+    }
+  }
+
+  &.rega-autocomplete--overlay {
+    .p-autocomplete {
+      @apply border-[#161616];
+    }
+  }
+
+  .p-autocomplete .p-autocomplete-input-multiple {
+    @apply rounded-s-[4px] border-none shadow-none;
+  }
+
+  .p-autocomplete-dropdown {
+    @apply rounded-e-[4px] outline-none hover:bg-transparent bg-transparent border-none;
+  }
+
+  .p-autocomplete-dropdown:not(:disabled):hover,
+  .p-autocomplete-dropdown:not(:disabled):active {
+    @apply bg-transparent;
+  }
+
+  .p-inputtext,
+  .p-inputtext:enabled:hover {
+    @apply border-transparent;
+  }
+
+  .p-autocomplete-option:not(.p-autocomplete-option-selected):not(.p-disabled).p-focus {
+    @apply bg-lightColor text-darkColor;
+  }
+
+  .p-autocomplete-option-selected,
+  .p-autocomplete-option-selected.p-focus {
+    @apply bg-transparent text-darkColor;
+  }
+
+  &.rega-autocomplete--default {
+    .p-autocomplete:not(.p-disabled).p-focus .p-autocomplete-input-multiple {
+      // @apply focus:border-[#161616] border-[#161616];
+    }
+
+    input {
+      // @apply text-[#161616] focus:border-[#161616];
+    }
+  }
+
+  &.rega-autocomplete--darker {
+    @extend .rega-autocomplete--default;
+    input {
+      @apply bg-semiLightColor;
+    }
+  }
+
+  &.rega-autocomplete--lighter {
+    @extend .rega-autocomplete--default;
+    input {
+      // @apply border-0 focus:border bg-lightColor;
+    }
+  }
+
+  &.rega-autocomplete--disabled {
+    @extend .rega-autocomplete--default;
+    input {
+      // @apply text-disabledColor border-disabledBorderColor;
+    }
+  }
+
+  &.rega-autocomplete--invalid {
+    @extend .rega-autocomplete--default;
+
+    .underline-animation {
+      &::after {
+        // @apply bg-errorColor;
+      }
+    }
+
+    input {
+      // @apply focus:border-errorColor border-errorColor;
+    }
+  }
+}
+
+$sizes: (
+  small: (
+    24px,
+    12px,
+    40px,
+  ),
+  medium: (
+    32px,
+    14px,
+    50px,
+  ),
+  large: (
+    40px,
+    16px,
+    60px,
+  ),
+);
+
+@each $size, $values in $sizes {
+  .rega-autocomplete--#{$size} {
+    input {
+      height: nth($values, 1);
+    }
+
+    input,
+    label {
+      font-size: nth($values, 2);
+    }
+  }
+}

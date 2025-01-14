@@ -9,16 +9,14 @@ import {
 import { TextInputComponent } from "projects/rega-ui-material/src/lib/components/text-input/text-input.component";
 import {
   FormBuilder,
-  FormControl,
-  FormGroup,
   FormsModule,
   ReactiveFormsModule,
   UntypedFormControl,
-  UntypedFormGroup,
   Validators,
 } from "@angular/forms";
 import { TextAreaComponent } from "projects/rega-ui-material/src/lib/components/textarea/textarea.component";
 import {
+  AutocompleteComponent,
   CardComponent,
   CheckboxComponent,
   DropZoneComponent,
@@ -26,7 +24,7 @@ import {
   RadioButtonComponent,
   RadioGroupComponent,
 } from "projects/rega-ui-material/src/lib";
-import { AutoCompleteCompleteEvent, AutoCompleteModule } from 'primeng/autocomplete';
+import { AutoCompleteCompleteEvent, AutoCompleteModule } from "primeng/autocomplete";
 
 @Component({
   selector: "app-root",
@@ -35,8 +33,8 @@ import { AutoCompleteCompleteEvent, AutoCompleteModule } from 'primeng/autocompl
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    RegaBreadcrumbComponent,
-    TextInputComponent,
+    // RegaBreadcrumbComponent,
+    // TextInputComponent,
     TextAreaComponent,
     CheckboxComponent,
     FileUploadComponent,
@@ -44,7 +42,8 @@ import { AutoCompleteCompleteEvent, AutoCompleteModule } from 'primeng/autocompl
     RadioGroupComponent,
     RadioButtonComponent,
     CardComponent,
-    AutoCompleteModule 
+    AutoCompleteModule,
+    AutocompleteComponent,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
@@ -54,6 +53,7 @@ export class AppComponent implements OnInit {
   readonly #breadcrumbService = inject(BreadcrumbService);
 
   // public radio: string = "2";
+  public autocomplete: UntypedFormControl = this.#fb.nonNullable.control(null);
   public radio: UntypedFormControl = this.#fb.control({ value: 2, disabled: false });
   public controlArea: UntypedFormControl = this.#fb.control(null);
   public control: UntypedFormControl = this.#fb.control(true);
@@ -68,14 +68,6 @@ export class AppComponent implements OnInit {
   });
 
   title = "rega-ui";
-  
-  autoCompleteItems: any[] = [];
-
-  value: any;
-
-  search(event: AutoCompleteCompleteEvent) {
-      this.autoCompleteItems = [...Array(10).keys()].map(item => event.query + '-' + item);
-  }
 
   public items: BreadcrumbItem[] = [
     { label: "Link 1", link: "/link1" },
@@ -86,14 +78,19 @@ export class AppComponent implements OnInit {
   ];
 
   public ngOnInit(): void {
+    this.autocomplete.valueChanges.subscribe((res) => {
+      console.log(
+        "🚀 ~ AppComponent ~ this.autocomplete.valueChanges.subscribe ~ res:",
+        res
+      );
+    });
+
     this.control.valueChanges.subscribe((res) => {
       console.log("🚀 ~ AppComponent ~ this.control.valueChanges.subscribe ~ res:", res);
-      // console.log("Values: ", res);
     });
 
     this.radio.valueChanges.subscribe((res) => {
       console.log("🚀 ~ AppComponent ~ this.control.valueChanges.subscribe ~ res:", res);
-      // console.log("Values: ", res);
     });
 
     this.selectionGroup.valueChanges.subscribe((res) => {
@@ -101,7 +98,6 @@ export class AppComponent implements OnInit {
         "🚀 ~ AppComponent ~ this.selectionGroup.valueChanges.subscribe ~ res:",
         res
       );
-      // console.log("Values: ", res);
     });
 
     this.#breadcrumbService.breadcrumb.set({

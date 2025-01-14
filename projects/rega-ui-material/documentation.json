@@ -11,16 +11,6 @@
     "miscellaneous": {
         "variables": [
             {
-                "name": "Basic",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <mat-form-field>\r\n        <mat-label>Select an option</mat-label>\r\n        <mat-select>\r\n          <mat-option value=\"option1\">Option 1</mat-option>\r\n          <mat-option value=\"option2\">Option 2</mat-option>\r\n          <mat-option value=\"option3\">Option 3</mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n    `,\r\n  }),\r\n}"
-            },
-            {
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -94,6 +84,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -118,7 +118,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    label: \"Button\",\r\n    size: SizeEnum.Medium,\r\n    disabled: true,\r\n  },\r\n}"
+                "defaultValue": "{\n  args: {\n    label: \"Button\",\n    size: SizeEnum.Medium,\n    disabled: true,\n  },\n}"
             },
             {
                 "name": "Disabled",
@@ -129,16 +129,6 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    disabled: true,\r\n  },\r\n}"
-            },
-            {
-                "name": "Disabled",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <mat-form-field>\r\n        <mat-label>Disabled select</mat-label>\r\n        <mat-select disabled>\r\n          <mat-option value=\"option1\">Option 1</mat-option>\r\n          <mat-option value=\"option2\">Option 2</mat-option>\r\n          <mat-option value=\"option3\">Option 3</mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n    `,\r\n  }),\r\n}"
             },
             {
                 "name": "DisabledItems",
@@ -178,7 +168,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    ...Primary.args,\r\n    size: SizeEnum.Medium,\r\n    color: ButtonColorEnum.Error,\r\n    variant: ButtonVariantEnum.Outlined,\r\n  },\r\n}"
+                "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Error,\n    variant: ButtonVariantEnum.Outlined,\n  },\n}"
             },
             {
                 "name": "ExtraItems",
@@ -208,7 +198,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    label: \"Button\",\r\n    size: SizeEnum.Medium,\r\n    loading: true,\r\n  },\r\n}"
+                "defaultValue": "{\n  args: {\n    label: \"Button\",\n    size: SizeEnum.Medium,\n    loading: true,\n  },\n}"
             },
             {
                 "name": "meta",
@@ -228,7 +218,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<RegaButtonComponent>",
-                "defaultValue": "{\r\n  title: \"Components/Button\",\r\n  component: RegaButtonComponent,\r\n  tags: [\"autodocs\"],\r\n  argTypes: {},\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n  // args: { onClick: fn() },\r\n}"
+                "defaultValue": "{\n  title: \"Components/Button\",\n  component: RegaButtonComponent,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  // args: { onClick: fn() },\n}"
             },
             {
                 "name": "meta",
@@ -298,7 +288,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta",
-                "defaultValue": "{\r\n  title: \"Components/Select/Autocomplete\",\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        MatSelectModule,\r\n        MatFormFieldModule,\r\n        BrowserAnimationsModule,\r\n        FormsModule,\r\n        ReactiveFormsModule,\r\n      ],\r\n    }),\r\n  ],\r\n  tags: [\"autodocs\"],\r\n}"
+                "defaultValue": "{\r\n  title: \"Components/Select/Autocomplete\",\r\n  component: AutocompleteComponent,\r\n  tags: [\"autodocs\"],\r\n}"
             },
             {
                 "name": "meta",
@@ -321,16 +311,6 @@
                 "defaultValue": "{\r\n  title: \"Components/Text Area\",\r\n  component: TextAreaComponent,\r\n  tags: [\"autodocs\"],\r\n  args: {},\r\n  decorators: [],\r\n}"
             },
             {
-                "name": "Multiple",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <mat-form-field>\r\n        <mat-label>Multiple select</mat-label>\r\n        <mat-select multiple>\r\n          <mat-option value=\"option1\">Option 1</mat-option>\r\n          <mat-option value=\"option2\">Option 2</mat-option>\r\n          <mat-option value=\"option3\">Option 3</mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n    `,\r\n  }),\r\n}"
-            },
-            {
                 "name": "Prefix",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -348,7 +328,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\r\n  parameters: {\r\n    layout: \"centered\",\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n  },\r\n}"
+                "defaultValue": "{\n  decorators: [\n    applicationConfig({\n      providers: [\n        provideAnimations(),\n        {\n          provide: APP_INITIALIZER,\n          useFactory: provideTheme,\n          deps: [PrimeNG],\n          multi: true,\n        },\n      ],\n    }),\n  ],\n  parameters: {\n    layout: \"centered\",\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
             },
             {
                 "name": "Primary",
@@ -358,7 +338,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  argTypes: {\r\n    disabled: { control: { type: \"boolean\" } },\r\n    loading: { control: { type: \"boolean\" } },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    buttonType: {\r\n      options: [\"button\", \"reset\", \"submit\"],\r\n      control: { type: \"select\" },\r\n      description: \" ['button', 'reset', 'submit']\",\r\n    },\r\n    color: {\r\n      options: GStatic.enumToArray(ButtonColorEnum).map(({ value }) => value),\r\n      control: { type: \"select\" },\r\n      description: \"ButtonColorEnum\",\r\n    },\r\n    variant: {\r\n      options: GStatic.enumToArray(ButtonVariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"ButtonVariantEnum\",\r\n    },\r\n    btnClass: { control: { type: \"text\" } },\r\n  },\r\n  args: {\r\n    label: \"Button\",\r\n    color: ButtonColorEnum.Primary,\r\n    size: SizeEnum.Medium,\r\n    variant: ButtonVariantEnum.Contained,\r\n    disabled: false,\r\n    loading: false,\r\n    buttonType: \"button\",\r\n    btnClass: \"\",\r\n  },\r\n}"
+                "defaultValue": "{\n  argTypes: {\n    disabled: { control: { type: \"boolean\" } },\n    loading: { control: { type: \"boolean\" } },\n    size: {\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n      description: \"SizeEnum\",\n    },\n    buttonType: {\n      options: [\"button\", \"reset\", \"submit\"],\n      control: { type: \"select\" },\n      description: \" ['button', 'reset', 'submit']\",\n    },\n    color: {\n      options: GStatic.enumToArray(ButtonColorEnum).map(({ value }) => value),\n      control: { type: \"select\" },\n      description: \"ButtonColorEnum\",\n    },\n    variant: {\n      options: GStatic.enumToArray(ButtonVariantEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n      description: \"ButtonVariantEnum\",\n    },\n    btnClass: { control: { type: \"text\" } },\n  },\n  args: {\n    label: \"Button\",\n    color: ButtonColorEnum.Primary,\n    size: SizeEnum.Medium,\n    variant: ButtonVariantEnum.Contained,\n    disabled: false,\n    loading: false,\n    buttonType: \"button\",\n    btnClass: \"\",\n  },\n}"
+            },
+            {
+                "name": "provideTheme",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/.storybook/preview.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(config: PrimeNG): any => {\n  return () => {\n    config.theme.set({\n      preset: PrimeNgPreset,\n      options: { darkModeSelector: false || \"none\" },\n    });\n  };\n}"
             },
             {
                 "name": "RTL",
@@ -468,7 +458,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    ...Primary.args,\r\n    size: SizeEnum.Large,\r\n    color: ButtonColorEnum.Secondary,\r\n  },\r\n}"
+                "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Large,\n    color: ButtonColorEnum.Secondary,\n  },\n}"
             },
             {
                 "name": "SelectionGroup",
@@ -488,7 +478,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    ...Primary.args,\r\n    size: SizeEnum.Medium,\r\n    color: ButtonColorEnum.Warning,\r\n    variant: ButtonVariantEnum.Solid,\r\n  },\r\n}"
+                "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Warning,\n    variant: ButtonVariantEnum.Solid,\n  },\n}"
             },
             {
                 "name": "TextInfo",
@@ -498,7 +488,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    ...Primary.args,\r\n    size: SizeEnum.Medium,\r\n    color: ButtonColorEnum.Info,\r\n    variant: ButtonVariantEnum.Text,\r\n  },\r\n}"
+                "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Info,\n    variant: ButtonVariantEnum.Text,\n  },\n}"
             },
             {
                 "name": "VerticalWithWarningColorSmall",
@@ -569,16 +559,6 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: { ...Default.args, errorMsg: \"Error Message\" },\r\n}"
-            },
-            {
-                "name": "WithFormControl",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <mat-form-field>\r\n        <mat-label>With form control</mat-label>\r\n        <mat-select [formControl]=\"control\">\r\n          <mat-option value=\"option1\">Option 1</mat-option>\r\n          <mat-option value=\"option2\">Option 2</mat-option>\r\n          <mat-option value=\"option3\">Option 3</mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n    `,\r\n    props: {\r\n      control: new FormControl(\"option1\"),\r\n    },\r\n  }),\r\n}"
             }
         ],
         "functions": [],
@@ -707,58 +687,6 @@
         ],
         "enumerations": [],
         "groupedVariables": {
-            "projects/rega-ui-material/src/lib/stories/select.stories.ts": [
-                {
-                    "name": "Basic",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <mat-form-field>\r\n        <mat-label>Select an option</mat-label>\r\n        <mat-select>\r\n          <mat-option value=\"option1\">Option 1</mat-option>\r\n          <mat-option value=\"option2\">Option 2</mat-option>\r\n          <mat-option value=\"option3\">Option 3</mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n    `,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "Disabled",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <mat-form-field>\r\n        <mat-label>Disabled select</mat-label>\r\n        <mat-select disabled>\r\n          <mat-option value=\"option1\">Option 1</mat-option>\r\n          <mat-option value=\"option2\">Option 2</mat-option>\r\n          <mat-option value=\"option3\">Option 3</mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n    `,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta",
-                    "defaultValue": "{\r\n  title: \"Components/Select/Autocomplete\",\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [\r\n        MatSelectModule,\r\n        MatFormFieldModule,\r\n        BrowserAnimationsModule,\r\n        FormsModule,\r\n        ReactiveFormsModule,\r\n      ],\r\n    }),\r\n  ],\r\n  tags: [\"autodocs\"],\r\n}"
-                },
-                {
-                    "name": "Multiple",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <mat-form-field>\r\n        <mat-label>Multiple select</mat-label>\r\n        <mat-select multiple>\r\n          <mat-option value=\"option1\">Option 1</mat-option>\r\n          <mat-option value=\"option2\">Option 2</mat-option>\r\n          <mat-option value=\"option3\">Option 3</mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n    `,\r\n  }),\r\n}"
-                },
-                {
-                    "name": "WithFormControl",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <mat-form-field>\r\n        <mat-label>With form control</mat-label>\r\n        <mat-select [formControl]=\"control\">\r\n          <mat-option value=\"option1\">Option 1</mat-option>\r\n          <mat-option value=\"option2\">Option 2</mat-option>\r\n          <mat-option value=\"option3\">Option 3</mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n    `,\r\n    props: {\r\n      control: new FormControl(\"option1\"),\r\n    },\r\n  }),\r\n}"
-                }
-            ],
             "projects/rega-ui-material/src/lib/stories/breadcrumb.stories.ts": [
                 {
                     "name": "Default",
@@ -1113,6 +1041,28 @@
                     "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    checked: true,\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n    errorMsg: \"Error message\",\r\n  },\r\n}"
                 }
             ],
+            "projects/rega-ui-material/src/lib/stories/select.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta",
+                    "defaultValue": "{\r\n  title: \"Components/Select/Autocomplete\",\r\n  component: AutocompleteComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+                }
+            ],
             "projects/rega-ui-material/src/lib/stories/text-input.stories.ts": [
                 {
                     "name": "Default",
@@ -1216,7 +1166,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    label: \"Button\",\r\n    size: SizeEnum.Medium,\r\n    disabled: true,\r\n  },\r\n}"
+                    "defaultValue": "{\n  args: {\n    label: \"Button\",\n    size: SizeEnum.Medium,\n    disabled: true,\n  },\n}"
                 },
                 {
                     "name": "ErrorOutline",
@@ -1226,7 +1176,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    ...Primary.args,\r\n    size: SizeEnum.Medium,\r\n    color: ButtonColorEnum.Error,\r\n    variant: ButtonVariantEnum.Outlined,\r\n  },\r\n}"
+                    "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Error,\n    variant: ButtonVariantEnum.Outlined,\n  },\n}"
                 },
                 {
                     "name": "Loading",
@@ -1236,7 +1186,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    label: \"Button\",\r\n    size: SizeEnum.Medium,\r\n    loading: true,\r\n  },\r\n}"
+                    "defaultValue": "{\n  args: {\n    label: \"Button\",\n    size: SizeEnum.Medium,\n    loading: true,\n  },\n}"
                 },
                 {
                     "name": "meta",
@@ -1246,7 +1196,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<RegaButtonComponent>",
-                    "defaultValue": "{\r\n  title: \"Components/Button\",\r\n  component: RegaButtonComponent,\r\n  tags: [\"autodocs\"],\r\n  argTypes: {},\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\r\n  // args: { onClick: fn() },\r\n}"
+                    "defaultValue": "{\n  title: \"Components/Button\",\n  component: RegaButtonComponent,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  // args: { onClick: fn() },\n}"
                 },
                 {
                     "name": "Primary",
@@ -1256,7 +1206,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  argTypes: {\r\n    disabled: { control: { type: \"boolean\" } },\r\n    loading: { control: { type: \"boolean\" } },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    buttonType: {\r\n      options: [\"button\", \"reset\", \"submit\"],\r\n      control: { type: \"select\" },\r\n      description: \" ['button', 'reset', 'submit']\",\r\n    },\r\n    color: {\r\n      options: GStatic.enumToArray(ButtonColorEnum).map(({ value }) => value),\r\n      control: { type: \"select\" },\r\n      description: \"ButtonColorEnum\",\r\n    },\r\n    variant: {\r\n      options: GStatic.enumToArray(ButtonVariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"ButtonVariantEnum\",\r\n    },\r\n    btnClass: { control: { type: \"text\" } },\r\n  },\r\n  args: {\r\n    label: \"Button\",\r\n    color: ButtonColorEnum.Primary,\r\n    size: SizeEnum.Medium,\r\n    variant: ButtonVariantEnum.Contained,\r\n    disabled: false,\r\n    loading: false,\r\n    buttonType: \"button\",\r\n    btnClass: \"\",\r\n  },\r\n}"
+                    "defaultValue": "{\n  argTypes: {\n    disabled: { control: { type: \"boolean\" } },\n    loading: { control: { type: \"boolean\" } },\n    size: {\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n      description: \"SizeEnum\",\n    },\n    buttonType: {\n      options: [\"button\", \"reset\", \"submit\"],\n      control: { type: \"select\" },\n      description: \" ['button', 'reset', 'submit']\",\n    },\n    color: {\n      options: GStatic.enumToArray(ButtonColorEnum).map(({ value }) => value),\n      control: { type: \"select\" },\n      description: \"ButtonColorEnum\",\n    },\n    variant: {\n      options: GStatic.enumToArray(ButtonVariantEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n      description: \"ButtonVariantEnum\",\n    },\n    btnClass: { control: { type: \"text\" } },\n  },\n  args: {\n    label: \"Button\",\n    color: ButtonColorEnum.Primary,\n    size: SizeEnum.Medium,\n    variant: ButtonVariantEnum.Contained,\n    disabled: false,\n    loading: false,\n    buttonType: \"button\",\n    btnClass: \"\",\n  },\n}"
                 },
                 {
                     "name": "SecondaryLarge",
@@ -1266,7 +1216,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    ...Primary.args,\r\n    size: SizeEnum.Large,\r\n    color: ButtonColorEnum.Secondary,\r\n  },\r\n}"
+                    "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Large,\n    color: ButtonColorEnum.Secondary,\n  },\n}"
                 },
                 {
                     "name": "SolidWarning",
@@ -1276,7 +1226,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    ...Primary.args,\r\n    size: SizeEnum.Medium,\r\n    color: ButtonColorEnum.Warning,\r\n    variant: ButtonVariantEnum.Solid,\r\n  },\r\n}"
+                    "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Warning,\n    variant: ButtonVariantEnum.Solid,\n  },\n}"
                 },
                 {
                     "name": "TextInfo",
@@ -1286,7 +1236,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    ...Primary.args,\r\n    size: SizeEnum.Medium,\r\n    color: ButtonColorEnum.Info,\r\n    variant: ButtonVariantEnum.Text,\r\n  },\r\n}"
+                    "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Info,\n    variant: ButtonVariantEnum.Text,\n  },\n}"
                 }
             ],
             "projects/rega-ui-material/.storybook/preview.ts": [
@@ -1298,7 +1248,17 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Preview",
-                    "defaultValue": "{\r\n  parameters: {\r\n    layout: \"centered\",\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n  },\r\n}"
+                    "defaultValue": "{\n  decorators: [\n    applicationConfig({\n      providers: [\n        provideAnimations(),\n        {\n          provide: APP_INITIALIZER,\n          useFactory: provideTheme,\n          deps: [PrimeNG],\n          multi: true,\n        },\n      ],\n    }),\n  ],\n  parameters: {\n    layout: \"centered\",\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
+                },
+                {
+                    "name": "provideTheme",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/.storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(config: PrimeNG): any => {\n  return () => {\n    config.theme.set({\n      preset: PrimeNgPreset,\n      options: { darkModeSelector: false || \"none\" },\n    });\n  };\n}"
                 }
             ]
         },
@@ -1461,6 +1421,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "preview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/.storybook/preview.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "provideTheme",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1970,17 +1940,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Basic",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Disabled",
+                "name": "Default",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1991,26 +1951,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Multiple",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "WithFormControl",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
