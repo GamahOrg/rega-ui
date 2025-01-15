@@ -1,1 +1,1 @@
-export * from "./selected-items.pipe";
+export * from "./selected-option.pipe";

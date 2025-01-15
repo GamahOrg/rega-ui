@@ -14,7 +14,7 @@ export abstract class GStatic {
 
   // public static toFormData = (data: any): FormData => toFormData(data);
 
-  public static removeDuplicate = <T>(list: T[], param: string = "id"): T[] => {
+  public static removeDuplicate = <T>(list: T[], param: string | null = "id"): T[] => {
     // Sort from length to make biggest objects first Then remove the smaller
     list = list.sort(
       (a: T, b: T) => Object.keys(b as any).length - Object.keys(a as any).length
@@ -25,8 +25,9 @@ export abstract class GStatic {
     const uniqueIds = new Set();
 
     list.forEach((obj) => {
-      if (!uniqueIds.has((obj as any)[param])) {
-        uniqueIds.add((obj as any)[param]);
+      const key = param ? (obj as any)[param] : obj;
+      if (!uniqueIds.has(key)) {
+        uniqueIds.add(key);
         uniqueObjects.push(obj);
       }
     });

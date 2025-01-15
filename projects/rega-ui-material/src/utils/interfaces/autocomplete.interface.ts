@@ -16,3 +16,8 @@ export interface IdLabel {
   id: any;
   label: any;
 }
+
+export interface LazyLoadingEvent {
+  first: number;
+  last: number;
+}

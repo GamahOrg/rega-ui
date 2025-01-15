@@ -35,6 +35,10 @@
     @apply border-transparent;
   }
 
+  .p-autocomplete-option {
+    @apply p-1;
+  }
+
   .p-autocomplete-option:not(.p-autocomplete-option-selected):not(.p-disabled).p-focus {
     @apply bg-lightColor text-darkColor;
   }
@@ -42,6 +46,10 @@
   .p-autocomplete-option-selected,
   .p-autocomplete-option-selected.p-focus {
     @apply bg-transparent text-darkColor;
+  }
+
+  spinnericon {
+    @apply invisible;
   }
 
   &.rega-autocomplete--default {

@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
   readonly #breadcrumbService = inject(BreadcrumbService);
 
   // public radio: string = "2";
-  public autocomplete: UntypedFormControl = this.#fb.nonNullable.control(null);
+  public autocomplete: UntypedFormControl = this.#fb.nonNullable.control(0);
   public radio: UntypedFormControl = this.#fb.control({ value: 2, disabled: false });
   public controlArea: UntypedFormControl = this.#fb.control(null);
   public control: UntypedFormControl = this.#fb.control(true);
