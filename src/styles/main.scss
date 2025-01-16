@@ -1,9 +1,9 @@
-@import "preloader";
-@import "reboot";
-@import "base";
-@import "scrollbar";
-@import "material";
-@import "tailwind.scss";
-@import "ngx-toastr";
+@use "tailwind.scss";
+@use "material";
+@use "reboot";
+@use "ngx-toastr";
+@use "preloader";
+@use "base";
+@use "scrollbar";
 
-@import "../../projects/rega-ui-material/src/assets/styles/main";
+@use "../../projects/rega-ui-material/src/assets/styles/main";

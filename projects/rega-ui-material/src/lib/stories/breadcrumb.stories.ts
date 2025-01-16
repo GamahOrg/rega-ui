@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/angular";
-import { GStatic, SizeEnum, DirEnum } from "../../utils";
+import { GStatic, SizeEnum } from "../../utils";
 import { RegaBreadcrumbComponent } from "../components";
 
 const meta: Meta<RegaBreadcrumbComponent> = {

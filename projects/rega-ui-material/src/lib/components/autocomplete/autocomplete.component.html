@@ -1,1 +1,65 @@
-<p>autocomplete works!</p>
+<div [ngClass]="classes()">
+  @if (label()) {
+    <label for="input" class="block mb-1 px-[2px] text-sm font-medium text-gray-900">{{
+      label()
+    }}</label>
+  }
+  <div class="relative underline-animation mb-1">
+    <p-autocomplete
+      #autocomplete
+      [(ngModel)]="selectedOptions"
+      [suggestions]="filteredOptions()"
+      [optionValue]="optionValue()"
+      [multiple]="multiple()"
+      [placeholder]="placeholder()"
+      [emptyMessage]="emptyMessage()"
+      [dropdownIcon]="dropdownIcon()"
+      [lazy]="lazy()"
+      [virtualScroll]="lazy()"
+      [disabled]="linkedDisabled()"
+      [virtualScrollOptions]="lazyOptions"
+      [dropdown]="true"
+      (onFocus)="onClickAutocomplete()"
+      (click)="onClickAutocomplete()"
+      (onHide)="overlayVisible.set(autocomplete.overlayVisible || false)"
+      (onSelect)="onSelectOption($event)"
+      (onUnselect)="onUnselectOption($event.value)"
+      (completeMethod)="filterOptions($event)"
+    >
+      <ng-template #item let-option>
+        @let optVal = $any(option)[optionValue()];
+        @let isSelected =
+          multiple()
+            ? !!selectedOptions() && $any(selectedOptions()).includes(optVal)
+            : selectedOptions() === optVal;
+        <button
+          [disabled]="linkedDisabled()"
+          class="option"
+          (click)="isSelected && multiple() && onUnselectOption(optVal)"
+        >
+          <span>{{ option.label }}</span>
+
+          @if (isSelected) {
+            <span class="material-icons text-gray-700">done</span>
+          }
+        </button>
+      </ng-template>
+
+      <ng-template #selecteditem let-option>
+        @let opt = options() | selectedOption: option;
+        @let optVal = $any(opt)[optionValue()];
+        <span class="chip">
+          <span>{{ opt.label }}</span>
+
+          <button
+            [disabled]="linkedDisabled()"
+            class="flex justify-center items-center text-gray-700 hover:text-[#1f2a37] outline-none border-none"
+            (click)="multiple() && onUnselectOption(optVal); $event.stopPropagation()"
+          >
+            <span class="material-icons transition hover:scale-125">close</span>
+          </button>
+        </span>
+      </ng-template>
+    </p-autocomplete>
+  </div>
+</div>

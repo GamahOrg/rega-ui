@@ -1,0 +1,157 @@
+@use "../variables";
+
+.rega-autocomplete {
+  input {
+    @apply focus:outline-none focus:border-none focus:ring-0;
+  }
+
+  .p-autocomplete {
+    @apply w-full p-0 border-[1px] rounded-[4px];
+
+    input {
+      @apply border-none hover:border-none focus:border-none px-2 bg-transparent;
+    }
+  }
+
+  .option {
+    @apply w-full h-[32px] flex justify-between items-center py-[4px] px-2 rounded-lg gap-2 outline-none border-none;
+  }
+
+  .chip {
+    @apply h-8 text-[#1f2a37] bg-[#f9fafb] border border-disabledBorderColor inline-flex items-center justify-center gap-2 font-medium px-3 py-0 rounded-full border-solid;
+  }
+
+  .p-autocomplete-input-multiple {
+    @apply py-0 px-1;
+  }
+
+  .p-autocomplete .p-autocomplete-input-multiple {
+    @apply border-none shadow-none bg-transparent;
+  }
+
+  .p-autocomplete-dropdown {
+    @apply outline-none hover:bg-transparent bg-transparent border-none;
+  }
+
+  .p-autocomplete-dropdown:not(:disabled):hover,
+  .p-autocomplete-dropdown:not(:disabled):active {
+    @apply bg-transparent;
+  }
+
+  .p-inputtext,
+  .p-inputtext:enabled:hover {
+    @apply border-transparent;
+  }
+
+  .p-autocomplete-option {
+    @apply py-0 px-1;
+  }
+
+  .p-autocomplete-option:not(.p-autocomplete-option-selected):not(.p-disabled).p-focus {
+    @apply bg-lightColor text-darkColor;
+  }
+
+  .p-autocomplete-option-selected,
+  .p-autocomplete-option-selected.p-focus {
+    @apply bg-transparent text-darkColor;
+  }
+
+  spinnericon {
+    @apply invisible;
+  }
+
+  &.rega-autocomplete--overlay {
+    .p-autocomplete {
+      @apply border-[#161616];
+    }
+  }
+
+  &.rega-autocomplete--default {
+    .p-autocomplete {
+      @apply hover:border-[#161616] focus-within:border-[#161616] border border-borderColor;
+      input {
+        @apply text-[#161616];
+      }
+    }
+  }
+
+  &.rega-autocomplete--darker {
+    @extend .rega-autocomplete--default;
+    .p-autocomplete {
+      @apply bg-semiLightColor;
+    }
+  }
+
+  &.rega-autocomplete--lighter {
+    @extend .rega-autocomplete--default;
+    .p-autocomplete {
+      @apply border-0 focus-within:border bg-lightColor;
+    }
+  }
+
+  &.rega-autocomplete--disabled {
+    .p-autocomplete {
+      @apply text-disabledColor border-disabledBorderColor pointer-events-none;
+      .p-autocomplete-input-multiple {
+        @apply bg-transparent;
+      }
+    }
+  }
+
+  &.rega-autocomplete--invalid {
+    .p-autocomplete {
+      @apply focus-within:border-errorColor hover:border-errorColor border-errorColor;
+    }
+
+    .underline-animation {
+      &::after {
+        @apply bg-errorColor;
+      }
+    }
+  }
+}
+
+$sizes: (
+  // small: (
+  //   24px,
+  //   12px,
+  //   40px,
+  // ),
+  medium: (32px, 14px, 50px),
+  large: (40px, 16px, 60px)
+);
+
+@each $size, $values in $sizes {
+  .rega-autocomplete--#{$size} {
+    $fontSize: nth($values, 2);
+    $height: nth($values, 1);
+
+    .p-autocomplete {
+      height: $height;
+    }
+
+    .option {
+      .material-icons {
+        @include iconSize(calc($fontSize + 8px));
+      }
+    }
+
+    .chip {
+      height: calc($height - 8px);
+      font-size: calc($fontSize - 2px);
+      .material-icons {
+        @include iconSize($fontSize);
+      }
+    }
+
+    .option,
+    input,
+    label {
+      font-size: $fontSize;
+    }
+
+    input::placeholder {
+      font-size: $fontSize;
+    }
+  }
+}

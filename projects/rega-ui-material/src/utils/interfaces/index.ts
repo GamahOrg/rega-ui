@@ -5,3 +5,4 @@ export * from "./text-input.interface";
 export * from "./textarea.interface";
 export * from "./file-upload.interface";
 export * from "./card.interface";
+export * from "./autocomplete.interface";

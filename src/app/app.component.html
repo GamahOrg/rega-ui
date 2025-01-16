@@ -8,15 +8,22 @@
 /> -->
 
 <div class="w-1/2 p-4">
-  <rega-textarea [formControl]="controlArea" label="Label" />
+  <rega-autocomplete
+    [options]="options()"
+    [multiple]="true"
+    [formControl]="autocomplete"
+  />
 </div>
 
-<!-- [error]="control.touched && !!control.errors" -->
-{{ "Value: " + controlArea.value }}
-<br />
-{{ "Is Valid: " + controlArea.valid }}
-<br />
-{{ "Errors: " + (controlArea.errors | json) }}
+<div class="w-1/2 p-4">
+  <rega-textarea [formControl]="controlArea" label="Label" />
+
+  {{ "Value: " + controlArea.value }}
+  <br />
+  {{ "Is Valid: " + controlArea.valid }}
+  <br />
+  {{ "Errors: " + (controlArea.errors | json) }}
+</div>
 
 <div class="w-1/2 p-4">
   <rega-radio-group

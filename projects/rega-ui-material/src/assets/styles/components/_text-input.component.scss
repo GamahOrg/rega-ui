@@ -76,7 +76,7 @@ $sizes: (
 
   &.rega-input--default {
     input {
-      @apply text-[#161616] focus:border-[#161616] border border-[var(--border-color)];
+      @apply text-[#161616] focus:border-[#161616] border border-borderColor;
     }
   }
 

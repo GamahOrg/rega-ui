@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component, inject, OnInit } from "@angular/core";
+import { Component, inject, OnInit, signal, WritableSignal } from "@angular/core";
 import {
   BreadcrumbItem,
   BreadcrumbService,
@@ -9,16 +9,14 @@ import {
 import { TextInputComponent } from "projects/rega-ui-material/src/lib/components/text-input/text-input.component";
 import {
   FormBuilder,
-  FormControl,
-  FormGroup,
   FormsModule,
   ReactiveFormsModule,
   UntypedFormControl,
-  UntypedFormGroup,
   Validators,
 } from "@angular/forms";
 import { TextAreaComponent } from "projects/rega-ui-material/src/lib/components/textarea/textarea.component";
 import {
+  AutocompleteComponent,
   CardComponent,
   CheckboxComponent,
   DropZoneComponent,
@@ -26,6 +24,9 @@ import {
   RadioButtonComponent,
   RadioGroupComponent,
 } from "projects/rega-ui-material/src/lib";
+import { AutoCompleteModule } from "primeng/autocomplete";
+import { Option } from "projects/rega-ui-material/src/utils/interfaces";
+
 @Component({
   selector: "app-root",
   standalone: true,
@@ -33,8 +34,8 @@ import {
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    RegaBreadcrumbComponent,
-    TextInputComponent,
+    // RegaBreadcrumbComponent,
+    // TextInputComponent,
     TextAreaComponent,
     CheckboxComponent,
     FileUploadComponent,
@@ -42,6 +43,8 @@ import {
     RadioGroupComponent,
     RadioButtonComponent,
     CardComponent,
+    AutoCompleteModule,
+    AutocompleteComponent,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
@@ -51,6 +54,7 @@ export class AppComponent implements OnInit {
   readonly #breadcrumbService = inject(BreadcrumbService);
 
   // public radio: string = "2";
+  public autocomplete: UntypedFormControl = this.#fb.nonNullable.control([0]);
   public radio: UntypedFormControl = this.#fb.control({ value: 2, disabled: false });
   public controlArea: UntypedFormControl = this.#fb.control(null);
   public control: UntypedFormControl = this.#fb.control(true);
@@ -64,6 +68,8 @@ export class AppComponent implements OnInit {
     selection2: [null],
   });
 
+  public options: WritableSignal<Option[]> = signal([]);
+
   title = "rega-ui";
 
   public items: BreadcrumbItem[] = [
@@ -75,14 +81,23 @@ export class AppComponent implements OnInit {
   ];
 
   public ngOnInit(): void {
+    for (let i = 0; i < 4; i++) {
+      this.options().push({ label: "Item label " + i, id: i });
+    }
+
+    this.autocomplete.valueChanges.subscribe((res) => {
+      console.log(
+        "🚀 ~ AppComponent ~ this.autocomplete.valueChanges.subscribe ~ res:",
+        res
+      );
+    });
+
     this.control.valueChanges.subscribe((res) => {
       console.log("🚀 ~ AppComponent ~ this.control.valueChanges.subscribe ~ res:", res);
-      // console.log("Values: ", res);
     });
 
     this.radio.valueChanges.subscribe((res) => {
       console.log("🚀 ~ AppComponent ~ this.control.valueChanges.subscribe ~ res:", res);
-      // console.log("Values: ", res);
     });
 
     this.selectionGroup.valueChanges.subscribe((res) => {
@@ -90,7 +105,6 @@ export class AppComponent implements OnInit {
         "🚀 ~ AppComponent ~ this.selectionGroup.valueChanges.subscribe ~ res:",
         res
       );
-      // console.log("Values: ", res);
     });
 
     this.#breadcrumbService.breadcrumb.set({

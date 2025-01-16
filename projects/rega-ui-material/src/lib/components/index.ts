@@ -8,3 +8,4 @@ export * from "./drop-zone/drop-zone.component";
 export * from "./radio-button/radio.component";
 export * from "./radio-group/radio-group.component";
 export * from "./card/card.component";
+export * from "./pagination/pagination.component"

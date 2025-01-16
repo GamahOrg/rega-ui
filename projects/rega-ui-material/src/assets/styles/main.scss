@@ -3,8 +3,8 @@
 @import "variables";
 @import "typography";
 
+@import "primeicons/primeicons.css";
 @import "material-icons/iconfont/material-icons.css";
-
 /** Components **/
 @import "components/rega-button.component";
 @import "components/breadcrumb.component";
@@ -17,6 +17,8 @@
 @import "./components/drop-zone.component";
 @import "./components/radio.component";
 @import "./components/card.component";
+@import "./components/pagination.component";
+@import "./components/autocomplete.component.scss";
 
 body {
   font-family: $font-family-fe, $font-family-fa;

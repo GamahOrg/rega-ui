@@ -83,8 +83,6 @@ export class RadioGroupComponent implements ControlValueAccessor {
   };
 
   public setDisabledState?(isDisabled: boolean): void {
-    console.log("🚀 ~ RadioGroupComponent ~ this.disabled() :", this.disabled());
-
     this.idDisabled.set(isDisabled || (this.disabled() as boolean));
   }
 

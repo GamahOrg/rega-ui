@@ -20,7 +20,7 @@ export class BaseFormValueAccessorComponent implements ControlValueAccessor {
     if (this.#ngControl) {
       this.#ngControl.valueAccessor = this;
       const control = this.#ngControl?.control;
-      this.hasError.set(control!.invalid);
+      if (control) this.hasError.set(control!.invalid);
       control?.valueChanges?.subscribe(() => this.hasError.set(control!.invalid));
     }
   }
