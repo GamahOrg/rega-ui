@@ -8,7 +8,11 @@
 /> -->
 
 <div class="w-1/2 p-4">
-  <rega-autocomplete [formControl]="autocomplete" />
+  <rega-autocomplete
+    [options]="options()"
+    [multiple]="true"
+    [formControl]="autocomplete"
+  />
 </div>
 
 <div class="w-1/2 p-4">

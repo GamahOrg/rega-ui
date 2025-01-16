@@ -1,22 +1,27 @@
 <div [ngClass]="classes()">
+  @if (label()) {
+    <label for="input" class="block mb-1 px-[2px] text-sm font-medium text-gray-900">{{
+      label()
+    }}</label>
+  }
   <div class="relative underline-animation mb-1">
-    @let icon = !autocomplete.overlayVisible ? "pi pi-angle-down" : "pi pi-angle-up";
     <p-autocomplete
       #autocomplete
       [(ngModel)]="selectedOptions"
       [suggestions]="filteredOptions()"
       [optionValue]="optionValue()"
       [multiple]="multiple()"
-      [lazy]="lazy()"
-      [virtualScroll]="lazy()"
       [placeholder]="placeholder()"
       [emptyMessage]="emptyMessage()"
+      [dropdownIcon]="dropdownIcon()"
+      [lazy]="lazy()"
+      [virtualScroll]="lazy()"
+      [disabled]="linkedDisabled()"
       [virtualScrollOptions]="lazyOptions"
-      [dropdownIcon]="icon"
       [dropdown]="true"
       (onFocus)="onClickAutocomplete()"
       (click)="onClickAutocomplete()"
-      (onHide)="overlayVisible.set(false)"
+      (onHide)="overlayVisible.set(autocomplete.overlayVisible || false)"
       (onSelect)="onSelectOption($event)"
       (onUnselect)="onUnselectOption($event.value)"
       (completeMethod)="filterOptions($event)"
@@ -28,7 +33,8 @@
             ? !!selectedOptions() && $any(selectedOptions()).includes(optVal)
             : selectedOptions() === optVal;
         <button
-          class="w-full flex justify-between items-center py-[2px] px-2 rounded-lg gap-2 outline-none border-none"
+          [disabled]="linkedDisabled()"
+          class="option"
           (click)="isSelected && multiple() && onUnselectOption(optVal)"
         >
           <span>{{ option.label }}</span>
@@ -42,18 +48,15 @@
       <ng-template #selecteditem let-option>
         @let opt = options() | selectedOption: option;
         @let optVal = $any(opt)[optionValue()];
-        <span
-          class="h-8 text-base text-[#1f2a37] bg-[#f9fafb] border border-disabledBorderColor inline-flex items-center justify-center gap-2 font-medium px-3 py-0 rounded-full border-solid"
-        >
+        <span class="chip">
           <span>{{ opt.label }}</span>
 
           <button
+            [disabled]="linkedDisabled()"
             class="flex justify-center items-center text-gray-700 hover:text-[#1f2a37] outline-none border-none"
             (click)="multiple() && onUnselectOption(optVal); $event.stopPropagation()"
           >
-            <span class="material-icons transition !text-base hover:scale-125"
-              >close</span
-            >
+            <span class="material-icons transition hover:scale-125">close</span>
           </button>
         </span>
       </ng-template>

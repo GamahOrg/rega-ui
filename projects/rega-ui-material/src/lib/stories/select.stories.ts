@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/angular";
 import { AutocompleteComponent } from "../components";
 
 const meta: Meta = {
-  title: "Components/Select/Autocomplete",
+  title: "Components/Select/Select",
   component: AutocompleteComponent,
   tags: ["autodocs"],
 };

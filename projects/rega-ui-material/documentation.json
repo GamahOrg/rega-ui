@@ -14,6 +14,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  argTypes: {\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum)\r\n        .filter(({ value }) => value !== SizeEnum.Small)\r\n        .map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(VariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"VariantEnum\",\r\n    },\r\n    error: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    options: {\r\n      name: \"options\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: [] as Option[],\r\n      description: \"Option[]\",\r\n      control: { type: \"object\" },\r\n    },\r\n    multiple: { control: { type: \"boolean\" } },\r\n    placeholder: { control: { type: \"text\" } },\r\n    autocompleteClass: { control: { type: \"text\" } },\r\n    emptyMessage: {\r\n      control: { type: \"text\" },\r\n      description: \"Empty result search message\",\r\n    },\r\n    lazy: {\r\n      control: { type: \"boolean\" },\r\n      description: \"If want to filter Or load data on demand from server not from client\",\r\n    },\r\n    onSearch: { description: \"(event: string) => void\" },\r\n    onLazyLoad: { description: \"(event: LazyLoadingEvent) => void\" },\r\n  },\r\n  args: {\r\n    size: SizeEnum.Medium,\r\n    label: \"Label\",\r\n    variant: VariantEnum.Default,\r\n    options: options(),\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/rega-ui-material/src/lib/stories/breadcrumb.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -204,6 +214,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta",
+                "defaultValue": "{\r\n  title: \"Components/Select/Autocomplete\",\r\n  component: AutocompleteComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/rega-ui-material/src/lib/stories/breadcrumb.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -288,7 +308,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta",
-                "defaultValue": "{\r\n  title: \"Components/Select/Autocomplete\",\r\n  component: AutocompleteComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+                "defaultValue": "{\r\n  title: \"Components/Select/Select\",\r\n  component: AutocompleteComponent,\r\n  tags: [\"autodocs\"],\r\n}"
             },
             {
                 "name": "meta",
@@ -309,6 +329,26 @@
                 "deprecationMessage": "",
                 "type": "Meta<TextInputComponent>",
                 "defaultValue": "{\r\n  title: \"Components/Text Area\",\r\n  component: TextAreaComponent,\r\n  tags: [\"autodocs\"],\r\n  args: {},\r\n  decorators: [],\r\n}"
+            },
+            {
+                "name": "MultipleValuesLarge",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    multiple: true,\r\n    // size: SizeEnum.Large,\r\n  },\r\n}"
+            },
+            {
+                "name": "options",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "WritableSignal<Option[]>",
+                "defaultValue": "signal([])"
             },
             {
                 "name": "Prefix",
@@ -567,6 +607,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<AutocompleteComponent>",
+                "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<RegaBreadcrumbComponent>",
                 "file": "projects/rega-ui-material/src/lib/stories/breadcrumb.stories.ts",
                 "deprecated": false,
@@ -687,6 +738,48 @@
         ],
         "enumerations": [],
         "groupedVariables": {
+            "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  argTypes: {\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum)\r\n        .filter(({ value }) => value !== SizeEnum.Small)\r\n        .map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(VariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"VariantEnum\",\r\n    },\r\n    error: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    options: {\r\n      name: \"options\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: [] as Option[],\r\n      description: \"Option[]\",\r\n      control: { type: \"object\" },\r\n    },\r\n    multiple: { control: { type: \"boolean\" } },\r\n    placeholder: { control: { type: \"text\" } },\r\n    autocompleteClass: { control: { type: \"text\" } },\r\n    emptyMessage: {\r\n      control: { type: \"text\" },\r\n      description: \"Empty result search message\",\r\n    },\r\n    lazy: {\r\n      control: { type: \"boolean\" },\r\n      description: \"If want to filter Or load data on demand from server not from client\",\r\n    },\r\n    onSearch: { description: \"(event: string) => void\" },\r\n    onLazyLoad: { description: \"(event: LazyLoadingEvent) => void\" },\r\n  },\r\n  args: {\r\n    size: SizeEnum.Medium,\r\n    label: \"Label\",\r\n    variant: VariantEnum.Default,\r\n    options: options(),\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta",
+                    "defaultValue": "{\r\n  title: \"Components/Select/Autocomplete\",\r\n  component: AutocompleteComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+                },
+                {
+                    "name": "MultipleValuesLarge",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    multiple: true,\r\n    // size: SizeEnum.Large,\r\n  },\r\n}"
+                },
+                {
+                    "name": "options",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "WritableSignal<Option[]>",
+                    "defaultValue": "signal([])"
+                }
+            ],
             "projects/rega-ui-material/src/lib/stories/breadcrumb.stories.ts": [
                 {
                     "name": "Default",
@@ -1060,7 +1153,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta",
-                    "defaultValue": "{\r\n  title: \"Components/Select/Autocomplete\",\r\n  component: AutocompleteComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+                    "defaultValue": "{\r\n  title: \"Components/Select/Select\",\r\n  component: AutocompleteComponent,\r\n  tags: [\"autodocs\"],\r\n}"
                 }
             ],
             "projects/rega-ui-material/src/lib/stories/text-input.stories.ts": [
@@ -1265,6 +1358,19 @@
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
+            "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AutocompleteComponent>",
+                    "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "projects/rega-ui-material/src/lib/stories/breadcrumb.stories.ts": [
                 {
                     "name": "Story",
@@ -1431,6 +1537,56 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "provideTheme",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "MultipleValuesLarge",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "options",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

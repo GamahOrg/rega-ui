@@ -10,9 +10,6 @@ import {
   Signal,
   WritableSignal,
   viewChild,
-  effect,
-  model,
-  ModelSignal,
   OutputEmitterRef,
   output,
   inject,
@@ -70,9 +67,7 @@ export class AutocompleteComponent implements ControlValueAccessor, OnInit {
   public options: InputSignal<Option[]> = input([] as Option[]);
   public filteredOptions: WritableSignal<Option[]> = linkedSignal(() => this.options());
 
-  public label: InputSignal<string> = input("label");
-
-  public optionValue: InputSignal<string> = input("id");
+  public label: InputSignal<string> = input("");
 
   public lazy: InputSignal<boolean> = input(false);
 
@@ -105,6 +100,12 @@ export class AutocompleteComponent implements ControlValueAccessor, OnInit {
   public selectedOptions: WritableSignal<unknown> = signal(null);
 
   public overlayVisible: WritableSignal<boolean> = signal(false);
+
+  public optionValue: Signal<string> = computed(() => (this.multiple() ? "id" : "label"));
+
+  public dropdownIcon: Signal<string> = computed(() =>
+    this.overlayVisible() ? "pi pi-angle-up" : "pi pi-angle-down"
+  );
 
   public readonly classes: Signal<string[]> = linkedSignal(() => {
     const classes: string[] = [
@@ -147,18 +148,23 @@ export class AutocompleteComponent implements ControlValueAccessor, OnInit {
   }
 
   public onClickAutocomplete = (): void => {
-    this.filteredOptions.set(this.options());
-    this.autocomplete()!.overlayVisible = true;
-    this.overlayVisible.set(true);
+    if (!this.linkedDisabled()) {
+      this.filteredOptions.set(this.options());
+      this.autocomplete()!.overlayVisible = true;
+      this.overlayVisible.set(true);
+    }
   };
 
   public filterOptions = (event: AutoCompleteCompleteEvent): void => {
+    const search: string = event.query.toLowerCase();
+
+    if (!this.multiple()) this._updateValue(search);
+
     if (this.lazy()) {
       this.onSearch.emit(event.query);
       return;
     }
 
-    const search: string = event.query.toLowerCase();
     const filtered: Option[] = search.length
       ? this.options().filter((op) => op.label.toLowerCase().includes(search))
       : this.options();
@@ -214,18 +220,4 @@ export class AutocompleteComponent implements ControlValueAccessor, OnInit {
   public setDisabledState?(isDisabled: boolean): void {
     this.linkedDisabled.set(isDisabled || (this.disabled() as boolean));
   }
-
-  constructor() {
-    for (let i = 0; i < 10; i++) {
-      this.options().push({ label: "Item label " + i, id: i });
-    }
-    this.onLazyLoad.subscribe((res) => console.log(res));
-  }
-
-  _effect$ = effect(() => {
-    console.log(
-      "🚀 ~ AutocompleteComponent ~ _effect$=effect ~ this.selectedItems():",
-      this.selectedOptions()
-    );
-  });
 }
