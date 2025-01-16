@@ -56,7 +56,7 @@ export const Default: Story = {
     onLazyLoad: { description: "(event: LazyLoadingEvent) => void" },
   },
   args: {
-    size: SizeEnum.Medium,
+    size: SizeEnum.Large,
     label: "Label",
     variant: VariantEnum.Default,
     options: options(),
