@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/angular";
-import { FileUploadComponent } from "../components/file-upload/file-upload.component";
+import { FileUploadComponent } from "../components";
 import { GStatic, SizeEnum } from "../../utils";
 
 const meta: Meta = {
