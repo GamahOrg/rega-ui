@@ -65,9 +65,9 @@ import { ScrollerOptions } from "primeng/api";
 export class AutocompleteComponent implements ControlValueAccessor, OnInit {
   readonly #injector = inject(Injector);
 
-  public autocompleteHeader = contentChild<any | undefined>("header");
+  public autocompleteHeader = contentChild<any | undefined>("autocompleteHeader");
 
-  public autocompleteFooter = contentChild<any | undefined>("footer");
+  public autocompleteFooter = contentChild<any | undefined>("autocompleteFooter");
 
   public options: InputSignal<Option[]> = input([] as Option[]);
   public filteredOptions: WritableSignal<Option[]> = linkedSignal(() => this.options());
