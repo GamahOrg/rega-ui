@@ -94,6 +94,29 @@ export const Error: Story = {
   },
 };
 
+export const SingleValuesWithFooter: Story = {
+  args: {
+    ...Default.args,
+    size: SizeEnum.Large,
+  },
+  render: (args) => {
+    return {
+      args,
+      template: `
+        <rega-autocomplete >
+            <ng-template #autocompleteFooter>
+              <div class="w-full flex justify-center items-center p-1 px-4">
+                  <button class="w-full flex justify-center items-center rounded bg-slate-50 hover:bg-slate-100 text-gray-800 text-sm font-medium py-1 px-2">
+                      Add Option +
+                  </button>
+              </div>
+            </ng-template>
+        </rega-autocomplete>
+      `,
+    };
+  },
+};
+
 export const RTLSingle: Story = {
   parameters: { direction: "rtl", dir: "rtl" },
   args: {
