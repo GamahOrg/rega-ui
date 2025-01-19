@@ -60,6 +60,18 @@
           </button>
         </span>
       </ng-template>
+
+      @if (autocompleteHeader()) {
+        <ng-template #header>
+          <ng-container *ngTemplateOutlet="autocompleteHeader()" />
+        </ng-template>
+      }
+
+      @if (autocompleteFooter()) {
+        <ng-template #footer>
+          <ng-container *ngTemplateOutlet="autocompleteFooter()" />
+        </ng-template>
+      }
     </p-autocomplete>
   </div>
 </div>

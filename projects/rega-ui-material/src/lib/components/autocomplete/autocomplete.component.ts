@@ -15,6 +15,7 @@ import {
   inject,
   Injector,
   OnInit,
+  contentChild,
 } from "@angular/core";
 import {
   ControlValueAccessor,
@@ -63,6 +64,10 @@ import { ScrollerOptions } from "primeng/api";
 })
 export class AutocompleteComponent implements ControlValueAccessor, OnInit {
   readonly #injector = inject(Injector);
+
+  public autocompleteHeader = contentChild<any | undefined>("header");
+
+  public autocompleteFooter = contentChild<any | undefined>("footer");
 
   public options: InputSignal<Option[]> = input([] as Option[]);
   public filteredOptions: WritableSignal<Option[]> = linkedSignal(() => this.options());
