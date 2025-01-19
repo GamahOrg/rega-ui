@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/angular";
-import { GStatic, SizeEnum } from "../../utils";
+import { BreadcrumbItem, GStatic, SizeEnum } from "../../utils";
 import { RegaBreadcrumbComponent } from "../components";
 
 const meta: Meta<RegaBreadcrumbComponent> = {
@@ -13,7 +13,13 @@ type Story = StoryObj<RegaBreadcrumbComponent>;
 
 export const Default: Story = {
   argTypes: {
-    items: {},
+    items: {
+      name: "items",
+      type: { name: "string", required: true },
+      defaultValue: [] as BreadcrumbItem[],
+      description: "BreadcrumbItem[]",
+      control: { type: "object" },
+    },
     size: {
       options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),
       control: { type: "radio" },
@@ -21,6 +27,14 @@ export const Default: Story = {
     },
     btnClass: { control: { type: "text" }, description: "String" },
     breadcrumbClass: { control: { type: "text" }, description: "String" },
+    breadcrumbBtn: {
+      control: { type: "object" },
+      description: "ContentChild with Template variable #breadcrumbBtn",
+    },
+    divider: {
+      control: { type: "object" },
+      description: "ContentChild with Template variable #divider",
+    },
   },
   args: {
     items: [
