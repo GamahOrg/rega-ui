@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from "@storybook/angular";
-import { TextInputComponent } from "../components/text-input/text-input.component";
+import { TextInputComponent, TextAreaComponent } from "../components";
 import { GStatic, TextareaVariantEnum } from "../../utils";
-import { TextAreaComponent } from "../components/textarea/textarea.component";
 
 const meta: Meta<TextInputComponent> = {
   title: "Components/Text Area",
