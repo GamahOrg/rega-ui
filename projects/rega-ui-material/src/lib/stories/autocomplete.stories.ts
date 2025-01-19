@@ -52,6 +52,14 @@ export const Default: Story = {
       control: { type: "boolean" },
       description: "If want to filter Or load data on demand from server not from client",
     },
+    autocompleteHeader: {
+      control: { type: "object" },
+      description: "ContentChild with Template variable #autocompleteHeader",
+    },
+    autocompleteFooter: {
+      control: { type: "object" },
+      description: "ContentChild with Template variable #autocompleteFooter",
+    },
     onSearch: { description: "(event: string) => void" },
     onLazyLoad: { description: "(event: LazyLoadingEvent) => void" },
   },
