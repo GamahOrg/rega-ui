@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/angular";
-import { DropZoneComponent } from "../components/drop-zone/drop-zone.component";
+import { DropZoneComponent } from "../components";
 
 const meta: Meta = {
   title: "Components/FileUpload/DropZone",
