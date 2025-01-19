@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/angular";
-import { TextInputComponent } from "../components/text-input/text-input.component";
+import { TextInputComponent } from "../components";
 import { GStatic, InputVariantEnum, SizeEnum } from "../../utils";
 
 const meta: Meta<TextInputComponent> = {
