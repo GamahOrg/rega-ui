@@ -13,14 +13,7 @@ import { from, take } from "rxjs";
 
 import { RegaButtonComponent } from "../rega-button/rega-button.component";
 import { BreadcrumbService } from "../../../services";
-import {
-  BreadcrumbItem,
-  SizeType,
-  SizeEnum,
-  Direction,
-  DirEnum,
-  Breadcrumb,
-} from "../../../utils";
+import { BreadcrumbItem, SizeType, SizeEnum, Breadcrumb } from "../../../utils";
 
 @Component({
   selector: "rega-breadcrumb",
