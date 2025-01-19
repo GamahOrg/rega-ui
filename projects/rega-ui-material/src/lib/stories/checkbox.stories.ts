@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/angular";
-import { CheckboxComponent } from "../components/checkbox/checkbox.component";
+import { CheckboxComponent } from "../components";
 import { ColorEnum, GStatic, SizeEnum } from "../../utils";
 const meta: Meta<CheckboxComponent> = {
   title: "Components/Checkbox",
@@ -26,9 +26,7 @@ export const Default: Story = {
     disabled: { control: { type: "boolean" }, description: "Boolean" },
     valueChange: { description: "(event: boolean) => void" },
   },
-  args: {
-    label: "Label",
-  },
+  args: { label: "Label" },
 };
 export const WithError: Story = {
   args: { ...Default.args, errorMsg: "Error Message" },
