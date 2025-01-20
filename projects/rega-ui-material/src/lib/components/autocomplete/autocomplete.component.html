@@ -25,53 +25,53 @@
       (onSelect)="onSelectOption($event)"
       (onUnselect)="onUnselectOption($event.value)"
       (completeMethod)="filterOptions($event)"
+      (onBlur)="onTouched(); touched.set(true)"
     >
       <ng-template #item let-option>
-        @let optVal = $any(option)[optionValue()];
         @let isSelected =
           multiple()
-            ? !!selectedOptions() && $any(selectedOptions()).includes(optVal)
-            : selectedOptions() === optVal;
-        <button
-          [disabled]="linkedDisabled()"
-          class="option"
-          (click)="isSelected && multiple() && onUnselectOption(optVal)"
-        >
-          <span>{{ option.label }}</span>
+            ? !!selectedOptions() && $any(selectedOptions()).includes(option["id"])
+            : selectedOptions() === option;
 
-          @if (isSelected) {
-            <span class="material-icons text-gray-700">done</span>
-          }
-        </button>
+        @if (linkedLoading()) {
+          <button class="option"><p-skeleton [ngClass]="'!w-full !h-[32px]'" /></button>
+        } @else {
+          <button
+            [disabled]="linkedDisabled()"
+            class="option"
+            (click)="isSelected && onUnselectOption(option)"
+          >
+            <span>{{ multiple() ? option.label : option }}</span>
+
+            @if (isSelected) {
+              <span class="material-icons text-gray-700">done</span>
+            }
+          </button>
+        }
       </ng-template>
 
       <ng-template #selecteditem let-option>
-        @let opt = options() | selectedOption: option;
-        @let optVal = $any(opt)[optionValue()];
+        @let opt = $any(options()) | selectedOption: option;
         <span class="chip">
           <span>{{ opt.label }}</span>
 
           <button
             [disabled]="linkedDisabled()"
             class="flex justify-center items-center text-gray-700 hover:text-[#1f2a37] outline-none border-none"
-            (click)="multiple() && onUnselectOption(optVal); $event.stopPropagation()"
+            (click)="onUnselectOption(opt); $event.stopPropagation()"
           >
             <span class="material-icons transition hover:scale-125">close</span>
           </button>
         </span>
       </ng-template>
 
-      @if (autocompleteHeader()) {
-        <ng-template #header>
-          <ng-container *ngTemplateOutlet="autocompleteHeader()" />
-        </ng-template>
-      }
+      <ng-template #header>
+        <ng-container *ngTemplateOutlet="autocompleteHeader()" />
+      </ng-template>
 
-      @if (autocompleteFooter()) {
-        <ng-template #footer>
-          <ng-container *ngTemplateOutlet="autocompleteFooter()" />
-        </ng-template>
-      }
+      <ng-template #footer>
+        <ng-container *ngTemplateOutlet="autocompleteFooter()" />
+      </ng-template>
     </p-autocomplete>
   </div>
 </div>

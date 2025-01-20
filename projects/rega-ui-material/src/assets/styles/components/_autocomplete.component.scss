@@ -15,6 +15,10 @@
 
   .option {
     @apply w-full h-[32px] flex justify-between items-center py-[4px] px-2 rounded-lg gap-2 outline-none border-none;
+
+    .p-skeleton {
+      height: 100% !important;
+    }
   }
 
   .chip {
@@ -127,7 +131,7 @@ $sizes: (
     $height: nth($values, 1);
 
     .p-autocomplete {
-      height: $height;
+      min-height: $height;
     }
 
     .option {

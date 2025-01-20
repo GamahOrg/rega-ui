@@ -40,6 +40,7 @@ import {
   VariantType,
 } from "../../../utils";
 import { MultiSelectModule } from "primeng/multiselect";
+import { SkeletonModule } from "primeng/skeleton";
 import { ScrollerOptions } from "primeng/api";
 
 @Component({
@@ -49,6 +50,7 @@ import { ScrollerOptions } from "primeng/api";
     FormsModule,
     ReactiveFormsModule,
     AutoCompleteModule,
+    SkeletonModule,
     MultiSelectModule,
     SelectedOptionPipe,
   ],
@@ -65,16 +67,23 @@ import { ScrollerOptions } from "primeng/api";
 export class AutocompleteComponent implements ControlValueAccessor, OnInit {
   readonly #injector = inject(Injector);
 
+  private readonly _autocomplete = viewChild("autocomplete", { read: AutoComplete });
+
   public autocompleteHeader = contentChild<any | undefined>("autocompleteHeader");
 
   public autocompleteFooter = contentChild<any | undefined>("autocompleteFooter");
 
-  public options: InputSignal<Option[]> = input([] as Option[]);
-  public filteredOptions: WritableSignal<Option[]> = linkedSignal(() => this.options());
+  public options: InputSignal<Option[] | string[]> = input([] as Option[] | string[]);
+  public filteredOptions: WritableSignal<Option[] | string[]> = linkedSignal(() =>
+    this.options()
+  );
 
   public label: InputSignal<string> = input("");
 
   public lazy: InputSignal<boolean> = input(false);
+
+  public loading: InputSignal<boolean> = input(false);
+  public linkedLoading = linkedSignal(() => this.loading());
 
   public multiple: InputSignal<boolean> = input(false);
 
@@ -100,13 +109,13 @@ export class AutocompleteComponent implements ControlValueAccessor, OnInit {
 
   public onLazyLoad: OutputEmitterRef<LazyLoadingEvent> = output();
 
-  public autocomplete = viewChild("autocomplete", { read: AutoComplete });
-
-  public selectedOptions: WritableSignal<unknown> = signal(null);
+  public selectedOptions: WritableSignal<string | string[]> = linkedSignal(() =>
+    this.multiple() ? [] : ""
+  );
 
   public overlayVisible: WritableSignal<boolean> = signal(false);
 
-  public optionValue: Signal<string> = computed(() => (this.multiple() ? "id" : "label"));
+  public optionValue: Signal<string> = computed(() => (this.multiple() ? "id" : ""));
 
   public dropdownIcon: Signal<string> = computed(() =>
     this.overlayVisible() ? "pi pi-angle-up" : "pi pi-angle-down"
@@ -155,7 +164,7 @@ export class AutocompleteComponent implements ControlValueAccessor, OnInit {
   public onClickAutocomplete = (): void => {
     if (!this.linkedDisabled()) {
       this.filteredOptions.set(this.options());
-      this.autocomplete()!.overlayVisible = true;
+      this._autocomplete()!.overlayVisible = true;
       this.overlayVisible.set(true);
     }
   };
@@ -165,42 +174,55 @@ export class AutocompleteComponent implements ControlValueAccessor, OnInit {
 
     if (!this.multiple()) this._updateValue(search);
 
-    if (this.lazy()) {
-      this.onSearch.emit(event.query);
-      return;
-    }
+    setTimeout(() => {
+      if (this.lazy()) {
+        if (this.filteredOptions().length === 0) {
+          const options = Array.from({ length: 4 }, (_, id) => ({ id, label: id }));
+          this.filteredOptions.set(options);
+        }
 
-    const filtered: Option[] = search.length
-      ? this.options().filter((op) => op.label.toLowerCase().includes(search))
-      : this.options();
+        this.linkedLoading.set(true);
+        this.onSearch.emit(event.query);
+        return;
+      }
 
-    this.filteredOptions.set(filtered);
+      const filtered: Option[] | string[] = search.length
+        ? this.multiple()
+          ? (this.options() as Option[]).filter((op) =>
+              op.label.toLowerCase().includes(search)
+            )
+          : (this.options() as string[]).filter((op) => op.toLowerCase().includes(search))
+        : this.options();
+
+      this.filteredOptions.set(filtered);
+    });
   };
 
   public onSelectOption = (event: AutoCompleteSelectEvent): void => {
-    const eventVal: any = (event.value as any)[this.optionValue()];
-    const val: any = this.multiple()
+    const result: string | string[] = this.multiple()
       ? GStatic.removeDuplicate(
-          [...((this.selectedOptions() as any) || []), eventVal],
+          [...((this.selectedOptions() as string[]) || []), (event.value as any)["id"]],
           null
         )
-      : eventVal;
+      : event.value;
 
-    this._updateValue(val);
+    this._updateValue(result);
   };
 
-  public onUnselectOption = (val: any): void => {
+  public onUnselectOption = (val: Option | string): void => {
     setTimeout(() => {
-      const options = (this.selectedOptions() as any[]).filter(
-        (opt) => !`${opt}`.includes(val + "")
-      );
+      const options = this.multiple()
+        ? (this.selectedOptions() as string[]).filter(
+            (id: string) => id !== (val as Option).id
+          )
+        : "";
 
       this.selectedOptions.set(options);
       this._updateValue(options);
     });
   };
 
-  private _updateValue = (val: any): void => {
+  private _updateValue = (val: string | string[]): void => {
     this.value = val;
     this.selectedOptions.set(val);
     this.onChange(val);
@@ -211,7 +233,7 @@ export class AutocompleteComponent implements ControlValueAccessor, OnInit {
   public onTouched: () => void = () => {};
 
   public writeValue(val: unknown): void {
-    this._updateValue(val);
+    this._updateValue(val as any);
   }
 
   public registerOnChange(fn: () => void): void {

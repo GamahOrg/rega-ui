@@ -13,9 +13,9 @@ export default meta;
 type Story = StoryObj<AutocompleteComponent>;
 
 const options: WritableSignal<Option[]> = signal([]);
-for (let i = 0; i < 4; i++) {
-  options().push({ label: "Item label " + i, id: i });
-}
+Array.from({ length: 4 }, (_, id) => ({ id, label: "Item label " + id })).forEach((op) =>
+  options().push(op)
+);
 
 export const Default: Story = {
   argTypes: {
@@ -38,7 +38,7 @@ export const Default: Story = {
       name: "options",
       type: { name: "string", required: true },
       defaultValue: [] as Option[],
-      description: "Option[]",
+      description: "Option[] | string[]",
       control: { type: "object" },
     },
     multiple: { control: { type: "boolean" } },
@@ -68,6 +68,7 @@ export const Default: Story = {
     label: "Label",
     variant: VariantEnum.Default,
     options: options(),
+    multiple: true,
   },
 };
 
@@ -82,6 +83,7 @@ export const MultipleValuesLarge: Story = {
 export const SingleValues: Story = {
   args: {
     ...Default.args,
+    options: options().map(({ label }) => label),
     multiple: false,
   },
 };
@@ -90,6 +92,7 @@ export const Error: Story = {
   args: {
     ...Default.args,
     size: SizeEnum.Large,
+    options: options().map(({ label }) => label),
     error: true,
   },
 };
@@ -98,6 +101,7 @@ export const SingleValuesWithFooter: Story = {
   args: {
     ...Default.args,
     size: SizeEnum.Large,
+    options: options().map(({ label }) => label),
   },
   render: (args) => {
     return {
@@ -125,6 +129,7 @@ export const RTLSingle: Story = {
     label: "العنوان",
     placeholder: "نص توضيحي",
     emptyMessage: "لا توجد بيانات",
+    options: options().map(({ label }) => label),
   },
 };
 
