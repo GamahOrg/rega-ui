@@ -10,15 +10,16 @@
 @import "components/breadcrumb.component";
 @import "components/text-input.component";
 @import "components/textarea.component";
-@import "./components/textarea.component";
-@import "./components/checkbox.component";
-@import "./components/file-upload.component";
-@import "./components/file-list.component";
-@import "./components/drop-zone.component";
-@import "./components/radio.component";
-@import "./components/card.component";
-@import "./components/pagination.component";
-@import "./components/autocomplete.component.scss";
+@import "components/textarea.component";
+@import "components/checkbox.component";
+@import "components/file-upload.component";
+@import "components/file-list.component";
+@import "components/drop-zone.component";
+@import "components/radio.component";
+@import "components/card.component";
+@import "components/pagination.component";
+@import "components/autocomplete.component";
+@import "components/dropdown.component";
 
 body {
   font-family: $font-family-fe, $font-family-fa;

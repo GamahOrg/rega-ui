@@ -18,7 +18,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  argTypes: {\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum)\r\n        .filter(({ value }) => value !== SizeEnum.Small)\r\n        .map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(VariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"VariantEnum\",\r\n    },\r\n    error: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    options: {\r\n      name: \"options\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: [] as Option[],\r\n      description: \"Option[]\",\r\n      control: { type: \"object\" },\r\n    },\r\n    multiple: { control: { type: \"boolean\" } },\r\n    placeholder: { control: { type: \"text\" } },\r\n    autocompleteClass: { control: { type: \"text\" } },\r\n    emptyMessage: {\r\n      control: { type: \"text\" },\r\n      description: \"Empty result search message\",\r\n    },\r\n    lazy: {\r\n      control: { type: \"boolean\" },\r\n      description: \"If want to filter Or load data on demand from server not from client\",\r\n    },\r\n    onSearch: { description: \"(event: string) => void\" },\r\n    onLazyLoad: { description: \"(event: LazyLoadingEvent) => void\" },\r\n  },\r\n  args: {\r\n    size: SizeEnum.Medium,\r\n    label: \"Label\",\r\n    variant: VariantEnum.Default,\r\n    options: options(),\r\n  },\r\n}"
+                "defaultValue": "{\r\n  argTypes: {\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum)\r\n        .filter(({ value }) => value !== SizeEnum.Small)\r\n        .map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(VariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"VariantEnum\",\r\n    },\r\n    error: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    options: {\r\n      name: \"options\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: [] as Option[],\r\n      description: \"Option[]\",\r\n      control: { type: \"object\" },\r\n    },\r\n    multiple: { control: { type: \"boolean\" } },\r\n    placeholder: { control: { type: \"text\" } },\r\n    autocompleteClass: { control: { type: \"text\" } },\r\n    emptyMessage: {\r\n      control: { type: \"text\" },\r\n      description: \"Empty result search message\",\r\n    },\r\n    lazy: {\r\n      control: { type: \"boolean\" },\r\n      description: \"If want to filter Or load data on demand from server not from client\",\r\n    },\r\n    autocompleteHeader: {\r\n      control: { type: \"object\" },\r\n      description: \"ContentChild with Template variable #autocompleteHeader\",\r\n    },\r\n    autocompleteFooter: {\r\n      control: { type: \"object\" },\r\n      description: \"ContentChild with Template variable #autocompleteFooter\",\r\n    },\r\n    onSearch: { description: \"(event: string) => void\" },\r\n    onLazyLoad: { description: \"(event: LazyLoadingEvent) => void\" },\r\n  },\r\n  args: {\r\n    size: SizeEnum.Large,\r\n    label: \"Label\",\r\n    variant: VariantEnum.Default,\r\n    options: options(),\r\n    multiple: true,\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -28,7 +28,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  argTypes: {\r\n    items: {},\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    btnClass: { control: { type: \"text\" }, description: \"String\" },\r\n    breadcrumbClass: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    items: [\r\n      { label: \"Link 1\", link: \"/link1\" },\r\n      { label: \"Link 2\", link: \"/link2\" },\r\n      { label: \"Link 3\", link: \"/link3\" },\r\n      { label: \"Link 4\", link: \"/link4\" },\r\n      { label: \"Link 5\", link: \"/link5\" },\r\n    ],\r\n  },\r\n}"
+                "defaultValue": "{\r\n  argTypes: {\r\n    items: {\r\n      name: \"items\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: [] as BreadcrumbItem[],\r\n      description: \"BreadcrumbItem[]\",\r\n      control: { type: \"object\" },\r\n    },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    btnClass: { control: { type: \"text\" }, description: \"String\" },\r\n    breadcrumbClass: { control: { type: \"text\" }, description: \"String\" },\r\n    breadcrumbBtn: {\r\n      control: { type: \"object\" },\r\n      description: \"ContentChild with Template variable #breadcrumbBtn\",\r\n    },\r\n    divider: {\r\n      control: { type: \"object\" },\r\n      description: \"ContentChild with Template variable #divider\",\r\n    },\r\n  },\r\n  args: {\r\n    items: [\r\n      { label: \"Link 1\", link: \"/link1\" },\r\n      { label: \"Link 2\", link: \"/link2\" },\r\n      { label: \"Link 3\", link: \"/link3\" },\r\n      { label: \"Link 4\", link: \"/link4\" },\r\n      { label: \"Link 5\", link: \"/link5\" },\r\n    ],\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -48,7 +48,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  argTypes: {\r\n    color: {\r\n      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),\r\n      control: { type: \"select\" },\r\n      description: \"ColorEnum\",\r\n    },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    errorMsg: { control: { type: \"text\" }, description: \"String\" },\r\n    description: { control: { type: \"text\" }, description: \"String\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    valueChange: { description: \"(event: boolean) => void\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
+                "defaultValue": "{\r\n  argTypes: {\r\n    color: {\r\n      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),\r\n      control: { type: \"select\" },\r\n      description: \"ColorEnum\",\r\n    },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    errorMsg: { control: { type: \"text\" }, description: \"String\" },\r\n    description: { control: { type: \"text\" }, description: \"String\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    valueChange: { description: \"(event: boolean) => void\" },\r\n  },\r\n  args: { label: \"Label\" },\r\n}"
             },
             {
                 "name": "Default",
@@ -59,6 +59,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  argTypes: {\r\n    accept: { control: { type: \"text\" } },\r\n    sizeLimit: { control: { type: \"number\" }, description: \"In MB\" },\r\n    multiple: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    title: { control: { type: \"text\" } },\r\n    description: { control: { type: \"text\" } },\r\n    btnLabel: { control: { type: \"text\" } },\r\n    dropzoneClass: { control: { type: \"text\" } },\r\n    onFileDropped: { description: \"(event: File[]) => void\" },\r\n  },\r\n  args: {\r\n    accept: \"image/*,application/pdf\",\r\n    sizeLimit: 2,\r\n    multiple: true,\r\n    disabled: false,\r\n    title: \"Drag and drop files here to upload\",\r\n    description:\r\n      \"Maximum file size allowed is 2MB, supported file formats include .jpg, .png, and.pdf.\",\r\n    btnLabel: \"Browse Files\",\r\n    dropzoneClass: \"\",\r\n    onFileDropped: (event: File[]): void => {},\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/dropdown.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{}"
             },
             {
                 "name": "Default",
@@ -89,16 +99,6 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  argTypes: {\r\n    label: { control: { type: \"text\" } },\r\n    description: { control: { type: \"text\" }, description: \"String\" },\r\n    errorMsg: { control: { type: \"text\" }, description: \"String\" },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    readOnly: { control: { type: \"boolean\" } },\r\n    color: {\r\n      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),\r\n      control: { type: \"select\" },\r\n      description: \"ButtonColorEnum\",\r\n    },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    value: { description: \"any\" },\r\n    onChange: { description: \"(event: boolean) => void\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n    color: ColorEnum.Primary,\r\n    size: SizeEnum.Medium,\r\n    disabled: false,\r\n    readOnly: false,\r\n  },\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{}"
             },
             {
                 "name": "Default",
@@ -149,6 +149,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    items: [\r\n      { label: \"Link 1\", link: \"/link1\" },\r\n      { label: \"Link 2\", link: \"/link2\" },\r\n      { label: \"Link 3\", link: \"/link3\", disabled: true },\r\n      { label: \"Link 4\", link: \"/link4\" },\r\n      { label: \"Link 5\", link: \"/link5\" },\r\n    ],\r\n  },\r\n}"
+            },
+            {
+                "name": "Error",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    size: SizeEnum.Large,\r\n    options: options().map(({ label }) => label),\r\n    multiple: false,\r\n    error: true,\r\n  },\r\n}"
             },
             {
                 "name": "Error",
@@ -238,7 +248,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<RegaButtonComponent>",
-                "defaultValue": "{\n  title: \"Components/Button\",\n  component: RegaButtonComponent,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  // args: { onClick: fn() },\n}"
+                "defaultValue": "{\n  title: \"Components/Button\",\n  component: RegaButtonComponent,\n  tags: [\"autodocs\"],\n}"
             },
             {
                 "name": "meta",
@@ -274,6 +284,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/dropdown.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta",
+                "defaultValue": "{\r\n  title: \"Components/Select/Dropdown\",\r\n  component: DropdownComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -304,16 +324,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta",
-                "defaultValue": "{\r\n  title: \"Components/Select/Select\",\r\n  component: AutocompleteComponent,\r\n  tags: [\"autodocs\"],\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/rega-ui-material/src/lib/stories/text-input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -338,7 +348,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    multiple: true,\r\n    // size: SizeEnum.Large,\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    multiple: true,\r\n    size: SizeEnum.Large,\r\n  },\r\n}"
             },
             {
                 "name": "options",
@@ -368,7 +378,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\n  decorators: [\n    applicationConfig({\n      providers: [\n        provideAnimations(),\n        {\n          provide: APP_INITIALIZER,\n          useFactory: provideTheme,\n          deps: [PrimeNG],\n          multi: true,\n        },\n      ],\n    }),\n  ],\n  parameters: {\n    layout: \"centered\",\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
+                "defaultValue": "{\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [\r\n        provideAnimations(),\r\n        {\r\n          provide: APP_INITIALIZER,\r\n          useFactory: provideTheme,\r\n          deps: [PrimeNG],\r\n          multi: true,\r\n        },\r\n      ],\r\n    }),\r\n  ],\r\n  parameters: {\r\n    layout: \"centered\",\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "Primary",
@@ -388,7 +398,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "(config: PrimeNG): any => {\n  return () => {\n    config.theme.set({\n      preset: PrimeNgPreset,\n      options: { darkModeSelector: false || \"none\" },\n    });\n  };\n}"
+                "defaultValue": "(config: PrimeNG): any => {\r\n  return () => {\r\n    config.theme.set({\r\n      preset: PrimeNgPreset,\r\n      options: { darkModeSelector: false || \"none\" },\r\n    });\r\n  };\r\n}"
             },
             {
                 "name": "RTL",
@@ -471,6 +481,16 @@
                 "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  argTypes: { ...Default.argTypes },\r\n  args: {\r\n    ...Default.args,\r\n    title: \"عنوان البطاقة\",\r\n    description: \"نص إضافي لمحتوى البطاقة\",\r\n    type: CardTypeEnum.Expandable,\r\n  },\r\n}"
             },
             {
+                "name": "RTLMultiple",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    multiple: true,\r\n    size: SizeEnum.Large,\r\n    label: \"العنوان\",\r\n    placeholder: \"نص توضيحي\",\r\n    emptyMessage: \"لا توجد بيانات\",\r\n  },\r\n}"
+            },
+            {
                 "name": "RTLSelectable",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -479,6 +499,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  argTypes: { ...Default.argTypes },\r\n  args: {\r\n    ...Default.args,\r\n    title: \"عنوان البطاقة\",\r\n    description: \"نص إضافي لمحتوى البطاقة\",\r\n    type: CardTypeEnum.Selectable,\r\n  },\r\n}"
+            },
+            {
+                "name": "RTLSingle",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    size: SizeEnum.Large,\r\n    label: \"العنوان\",\r\n    placeholder: \"نص توضيحي\",\r\n    emptyMessage: \"لا توجد بيانات\",\r\n    options: options().map(({ label }) => label),\r\n    multiple: false,\r\n  },\r\n}"
             },
             {
                 "name": "RTLWithSecondaryColorLarge",
@@ -509,6 +539,26 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n      <div class=\"flex flex-col justify-evenly items-center gap-4\">\r\n        <rega-card \r\n          [type]=\"'selectable'\"\r\n          title=\"Card Title 1\"\r\n          description=\"Card content 1\"\r\n        />\r\n        \r\n        <rega-card \r\n          [type]=\"'selectable'\"\r\n          [color]=\"'warning'\"\r\n          title=\"Card Title 2\"\r\n          description=\"Card content 2\"\r\n        />\r\n      </div>\r\n      `,\r\n    };\r\n  },\r\n}"
+            },
+            {
+                "name": "SingleValues",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    options: options().map(({ label }) => label),\r\n    multiple: false,\r\n  },\r\n}"
+            },
+            {
+                "name": "SingleValuesWithFooter",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    size: SizeEnum.Large,\r\n    options: options().map(({ label }) => label),\r\n    multiple: false,\r\n  },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-autocomplete >\r\n            <ng-template #autocompleteFooter>\r\n              <div class=\"w-full flex justify-center items-center p-1 px-4\">\r\n                  <button class=\"w-full flex justify-center items-center rounded bg-slate-50 hover:bg-slate-100 text-gray-800 text-sm font-medium py-1 px-2\">\r\n                      Add Option +\r\n                  </button>\r\n              </div>\r\n            </ng-template>\r\n        </rega-autocomplete>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "SolidWarning",
@@ -673,6 +723,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<DropdownComponent>",
+                "file": "projects/rega-ui-material/src/lib/stories/dropdown.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<FileUploadComponent>",
                 "file": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
                 "deprecated": false,
@@ -697,17 +758,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<RadioButtonComponent>",
                 "file": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj",
-                "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -747,7 +797,17 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  argTypes: {\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum)\r\n        .filter(({ value }) => value !== SizeEnum.Small)\r\n        .map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(VariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"VariantEnum\",\r\n    },\r\n    error: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    options: {\r\n      name: \"options\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: [] as Option[],\r\n      description: \"Option[]\",\r\n      control: { type: \"object\" },\r\n    },\r\n    multiple: { control: { type: \"boolean\" } },\r\n    placeholder: { control: { type: \"text\" } },\r\n    autocompleteClass: { control: { type: \"text\" } },\r\n    emptyMessage: {\r\n      control: { type: \"text\" },\r\n      description: \"Empty result search message\",\r\n    },\r\n    lazy: {\r\n      control: { type: \"boolean\" },\r\n      description: \"If want to filter Or load data on demand from server not from client\",\r\n    },\r\n    onSearch: { description: \"(event: string) => void\" },\r\n    onLazyLoad: { description: \"(event: LazyLoadingEvent) => void\" },\r\n  },\r\n  args: {\r\n    size: SizeEnum.Medium,\r\n    label: \"Label\",\r\n    variant: VariantEnum.Default,\r\n    options: options(),\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  argTypes: {\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum)\r\n        .filter(({ value }) => value !== SizeEnum.Small)\r\n        .map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    variant: {\r\n      options: GStatic.enumToArray(VariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"VariantEnum\",\r\n    },\r\n    error: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    options: {\r\n      name: \"options\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: [] as Option[],\r\n      description: \"Option[]\",\r\n      control: { type: \"object\" },\r\n    },\r\n    multiple: { control: { type: \"boolean\" } },\r\n    placeholder: { control: { type: \"text\" } },\r\n    autocompleteClass: { control: { type: \"text\" } },\r\n    emptyMessage: {\r\n      control: { type: \"text\" },\r\n      description: \"Empty result search message\",\r\n    },\r\n    lazy: {\r\n      control: { type: \"boolean\" },\r\n      description: \"If want to filter Or load data on demand from server not from client\",\r\n    },\r\n    autocompleteHeader: {\r\n      control: { type: \"object\" },\r\n      description: \"ContentChild with Template variable #autocompleteHeader\",\r\n    },\r\n    autocompleteFooter: {\r\n      control: { type: \"object\" },\r\n      description: \"ContentChild with Template variable #autocompleteFooter\",\r\n    },\r\n    onSearch: { description: \"(event: string) => void\" },\r\n    onLazyLoad: { description: \"(event: LazyLoadingEvent) => void\" },\r\n  },\r\n  args: {\r\n    size: SizeEnum.Large,\r\n    label: \"Label\",\r\n    variant: VariantEnum.Default,\r\n    options: options(),\r\n    multiple: true,\r\n  },\r\n}"
+                },
+                {
+                    "name": "Error",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    size: SizeEnum.Large,\r\n    options: options().map(({ label }) => label),\r\n    multiple: false,\r\n    error: true,\r\n  },\r\n}"
                 },
                 {
                     "name": "meta",
@@ -767,7 +827,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    multiple: true,\r\n    // size: SizeEnum.Large,\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    multiple: true,\r\n    size: SizeEnum.Large,\r\n  },\r\n}"
                 },
                 {
                     "name": "options",
@@ -778,6 +838,46 @@
                     "deprecationMessage": "",
                     "type": "WritableSignal<Option[]>",
                     "defaultValue": "signal([])"
+                },
+                {
+                    "name": "RTLMultiple",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    multiple: true,\r\n    size: SizeEnum.Large,\r\n    label: \"العنوان\",\r\n    placeholder: \"نص توضيحي\",\r\n    emptyMessage: \"لا توجد بيانات\",\r\n  },\r\n}"
+                },
+                {
+                    "name": "RTLSingle",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    size: SizeEnum.Large,\r\n    label: \"العنوان\",\r\n    placeholder: \"نص توضيحي\",\r\n    emptyMessage: \"لا توجد بيانات\",\r\n    options: options().map(({ label }) => label),\r\n    multiple: false,\r\n  },\r\n}"
+                },
+                {
+                    "name": "SingleValues",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    options: options().map(({ label }) => label),\r\n    multiple: false,\r\n  },\r\n}"
+                },
+                {
+                    "name": "SingleValuesWithFooter",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    size: SizeEnum.Large,\r\n    options: options().map(({ label }) => label),\r\n    multiple: false,\r\n  },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-autocomplete >\r\n            <ng-template #autocompleteFooter>\r\n              <div class=\"w-full flex justify-center items-center p-1 px-4\">\r\n                  <button class=\"w-full flex justify-center items-center rounded bg-slate-50 hover:bg-slate-100 text-gray-800 text-sm font-medium py-1 px-2\">\r\n                      Add Option +\r\n                  </button>\r\n              </div>\r\n            </ng-template>\r\n        </rega-autocomplete>\r\n      `,\r\n    };\r\n  },\r\n}"
                 }
             ],
             "projects/rega-ui-material/src/lib/stories/breadcrumb.stories.ts": [
@@ -789,7 +889,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  argTypes: {\r\n    items: {},\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    btnClass: { control: { type: \"text\" }, description: \"String\" },\r\n    breadcrumbClass: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    items: [\r\n      { label: \"Link 1\", link: \"/link1\" },\r\n      { label: \"Link 2\", link: \"/link2\" },\r\n      { label: \"Link 3\", link: \"/link3\" },\r\n      { label: \"Link 4\", link: \"/link4\" },\r\n      { label: \"Link 5\", link: \"/link5\" },\r\n    ],\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  argTypes: {\r\n    items: {\r\n      name: \"items\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: [] as BreadcrumbItem[],\r\n      description: \"BreadcrumbItem[]\",\r\n      control: { type: \"object\" },\r\n    },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    btnClass: { control: { type: \"text\" }, description: \"String\" },\r\n    breadcrumbClass: { control: { type: \"text\" }, description: \"String\" },\r\n    breadcrumbBtn: {\r\n      control: { type: \"object\" },\r\n      description: \"ContentChild with Template variable #breadcrumbBtn\",\r\n    },\r\n    divider: {\r\n      control: { type: \"object\" },\r\n      description: \"ContentChild with Template variable #divider\",\r\n    },\r\n  },\r\n  args: {\r\n    items: [\r\n      { label: \"Link 1\", link: \"/link1\" },\r\n      { label: \"Link 2\", link: \"/link2\" },\r\n      { label: \"Link 3\", link: \"/link3\" },\r\n      { label: \"Link 4\", link: \"/link4\" },\r\n      { label: \"Link 5\", link: \"/link5\" },\r\n    ],\r\n  },\r\n}"
                 },
                 {
                     "name": "DisabledItems",
@@ -893,7 +993,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  argTypes: {\r\n    color: {\r\n      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),\r\n      control: { type: \"select\" },\r\n      description: \"ColorEnum\",\r\n    },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    errorMsg: { control: { type: \"text\" }, description: \"String\" },\r\n    description: { control: { type: \"text\" }, description: \"String\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    valueChange: { description: \"(event: boolean) => void\" },\r\n  },\r\n  args: {\r\n    label: \"Label\",\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  argTypes: {\r\n    color: {\r\n      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),\r\n      control: { type: \"select\" },\r\n      description: \"ColorEnum\",\r\n    },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    label: { control: { type: \"text\" } },\r\n    errorMsg: { control: { type: \"text\" }, description: \"String\" },\r\n    description: { control: { type: \"text\" }, description: \"String\" },\r\n    disabled: { control: { type: \"boolean\" }, description: \"Boolean\" },\r\n    valueChange: { description: \"(event: boolean) => void\" },\r\n  },\r\n  args: { label: \"Label\" },\r\n}"
                 },
                 {
                     "name": "Disabled",
@@ -986,6 +1086,28 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    title: \"قم بسحب وإسقاط الملفات هنا للتحميل\",\r\n    description:\r\n      \"الحد الأقصى لحجم الملف المسموح به هو 2 ميجابايت، وتشمل تنسيقات الملفات المدعومة .jpg و.png و.pdf.\",\r\n    btnLabel: \"تصفح الملفات\",\r\n  },\r\n}"
+                }
+            ],
+            "projects/rega-ui-material/src/lib/stories/dropdown.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/dropdown.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/dropdown.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta",
+                    "defaultValue": "{\r\n  title: \"Components/Select/Dropdown\",\r\n  component: DropdownComponent,\r\n  tags: [\"autodocs\"],\r\n}"
                 }
             ],
             "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts": [
@@ -1134,28 +1256,6 @@
                     "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    checked: true,\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n    errorMsg: \"Error message\",\r\n  },\r\n}"
                 }
             ],
-            "projects/rega-ui-material/src/lib/stories/select.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta",
-                    "defaultValue": "{\r\n  title: \"Components/Select/Select\",\r\n  component: AutocompleteComponent,\r\n  tags: [\"autodocs\"],\r\n}"
-                }
-            ],
             "projects/rega-ui-material/src/lib/stories/text-input.stories.ts": [
                 {
                     "name": "Default",
@@ -1289,7 +1389,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<RegaButtonComponent>",
-                    "defaultValue": "{\n  title: \"Components/Button\",\n  component: RegaButtonComponent,\n  tags: [\"autodocs\"],\n  argTypes: {},\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  // args: { onClick: fn() },\n}"
+                    "defaultValue": "{\n  title: \"Components/Button\",\n  component: RegaButtonComponent,\n  tags: [\"autodocs\"],\n}"
                 },
                 {
                     "name": "Primary",
@@ -1341,7 +1441,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Preview",
-                    "defaultValue": "{\n  decorators: [\n    applicationConfig({\n      providers: [\n        provideAnimations(),\n        {\n          provide: APP_INITIALIZER,\n          useFactory: provideTheme,\n          deps: [PrimeNG],\n          multi: true,\n        },\n      ],\n    }),\n  ],\n  parameters: {\n    layout: \"centered\",\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
+                    "defaultValue": "{\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [\r\n        provideAnimations(),\r\n        {\r\n          provide: APP_INITIALIZER,\r\n          useFactory: provideTheme,\r\n          deps: [PrimeNG],\r\n          multi: true,\r\n        },\r\n      ],\r\n    }),\r\n  ],\r\n  parameters: {\r\n    layout: \"centered\",\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "provideTheme",
@@ -1351,7 +1451,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "(config: PrimeNG): any => {\n  return () => {\n    config.theme.set({\n      preset: PrimeNgPreset,\n      options: { darkModeSelector: false || \"none\" },\n    });\n  };\n}"
+                    "defaultValue": "(config: PrimeNG): any => {\r\n  return () => {\r\n    config.theme.set({\r\n      preset: PrimeNgPreset,\r\n      options: { darkModeSelector: false || \"none\" },\r\n    });\r\n  };\r\n}"
                 }
             ]
         },
@@ -1436,6 +1536,19 @@
                     "kind": 183
                 }
             ],
+            "projects/rega-ui-material/src/lib/stories/dropdown.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<DropdownComponent>",
+                    "file": "projects/rega-ui-material/src/lib/stories/dropdown.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts": [
                 {
                     "name": "Story",
@@ -1469,19 +1582,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<RadioButtonComponent>",
                     "file": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "projects/rega-ui-material/src/lib/stories/select.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj",
-                    "file": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1556,6 +1656,16 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "Error",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "meta",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -1577,6 +1687,46 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "options",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "RTLMultiple",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "RTLSingle",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SingleValues",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SingleValuesWithFooter",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1922,6 +2072,36 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/rega-ui-material/src/lib/stories/dropdown.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/dropdown.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/dropdown.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -2083,36 +2263,6 @@
             },
             {
                 "filePath": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
-                "type": "type alias",
-                "linktype": "miscellaneous",
-                "linksubtype": "typealias",
-                "name": "Story",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/rega-ui-material/src/lib/stories/select.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

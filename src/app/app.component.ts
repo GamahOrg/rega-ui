@@ -19,6 +19,7 @@ import {
   AutocompleteComponent,
   CardComponent,
   CheckboxComponent,
+  DropdownComponent,
   DropZoneComponent,
   FileUploadComponent,
   RadioButtonComponent,
@@ -26,6 +27,7 @@ import {
 } from "projects/rega-ui-material/src/lib";
 import { AutoCompleteModule } from "primeng/autocomplete";
 import { Option } from "projects/rega-ui-material/src/utils/interfaces";
+import { LazyLoadingEvent } from "dist/rega-ui-material/public-api";
 
 @Component({
   selector: "app-root",
@@ -45,6 +47,7 @@ import { Option } from "projects/rega-ui-material/src/utils/interfaces";
     CardComponent,
     AutoCompleteModule,
     AutocompleteComponent,
+    DropdownComponent,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
@@ -54,7 +57,10 @@ export class AppComponent implements OnInit {
   readonly #breadcrumbService = inject(BreadcrumbService);
 
   // public radio: string = "2";
-  public autocomplete: UntypedFormControl = this.#fb.nonNullable.control([0]);
+  public autocomplete: UntypedFormControl = this.#fb.nonNullable.control(
+    [0],
+    [Validators.required]
+  );
   public radio: UntypedFormControl = this.#fb.control({ value: 2, disabled: false });
   public controlArea: UntypedFormControl = this.#fb.control(null);
   public control: UntypedFormControl = this.#fb.control(true);
@@ -68,8 +74,9 @@ export class AppComponent implements OnInit {
     selection2: [null],
   });
 
-  public options: WritableSignal<Option[]> = signal([]);
+  public options: WritableSignal<any[]> = signal([]);
 
+  public optionsLoaded: WritableSignal<boolean> = signal(true);
   title = "rega-ui";
 
   public items: BreadcrumbItem[] = [
@@ -81,9 +88,10 @@ export class AppComponent implements OnInit {
   ];
 
   public ngOnInit(): void {
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 8; i++) {
       this.options().push({ label: "Item label " + i, id: i });
     }
+    // for (let i = 0; i < 4; i++) this.options().push("Item label " + i);
 
     this.autocomplete.valueChanges.subscribe((res) => {
       console.log(
@@ -111,6 +119,18 @@ export class AppComponent implements OnInit {
       items: this.items,
     });
   }
+
+  public onSearch = (event: string): void => {
+    this.optionsLoaded.set(false);
+    setTimeout(() => {
+      const options: Option[] = [];
+      for (let i = 0; i < 10; i++) {
+        options.push({ label: "Item label " + i, id: i });
+      }
+      this.options.set(options);
+      this.optionsLoaded.set(true);
+    }, 300);
+  };
 
   public onFileChange = (files: any): void => {
     console.log("🚀 ~ AppComponent ~ files:", files);

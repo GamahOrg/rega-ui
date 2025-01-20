@@ -1,0 +1,126 @@
+@use "../variables";
+
+// Base styles for the select component
+.rega-dropdown {
+  .p-select {
+    @apply w-full p-0 border border-borderColor rounded-[4px] outline-none;
+
+    .p-select-label,
+    .p-placeholder {
+      @apply h-full flex justify-start items-center;
+    }
+  }
+
+  .option {
+    @apply w-full h-[32px] flex justify-between items-center py-[4px] px-2 rounded-lg gap-2 outline-none border-none;
+  }
+
+  .p-select-option {
+    @apply py-0 px-1;
+
+    &:not(.p-select-option-selected):not(.p-disabled).p-focus {
+      @apply bg-lightColor text-darkColor;
+    }
+
+    &.p-select-option-selected,
+    &.p-select-option-selected.p-focus {
+      @apply bg-transparent text-darkColor;
+    }
+  }
+
+  // Variants
+  &.rega-dropdown--overlay {
+    .p-select {
+      @apply border-[#161616];
+    }
+  }
+
+  &.rega-dropdown--default {
+    .p-select {
+      @apply hover:border-[#161616] focus-within:border-[#161616] border border-borderColor;
+    }
+  }
+
+  &.rega-dropdown--darker {
+    @extend .rega-dropdown--default;
+
+    .p-select {
+      @apply bg-semiLightColor;
+    }
+  }
+
+  &.rega-dropdown--lighter {
+    @extend .rega-dropdown--default;
+
+    .p-select {
+      @apply border-0 focus-within:border bg-lightColor;
+    }
+  }
+
+  &.rega-dropdown--disabled {
+    .p-select {
+      @apply text-disabledColor border-disabledBorderColor pointer-events-none;
+
+      .p-select-input-multiple {
+        @apply bg-transparent;
+      }
+    }
+  }
+
+  &.rega-dropdown--invalid {
+    .p-select {
+      @apply focus-within:border-errorColor hover:border-errorColor border-errorColor;
+    }
+
+    .underline-animation {
+      &::after {
+        @apply bg-errorColor;
+      }
+    }
+  }
+}
+
+// Size variants
+$sizes: (
+  medium: (
+    32px,
+    14px,
+    50px,
+  ),
+  large: (
+    40px,
+    16px,
+    60px,
+  ),
+);
+
+@each $size, $values in $sizes {
+  $height: nth($values, 1);
+  $fontSize: nth($values, 2);
+
+  .rega-dropdown--#{$size} {
+    .p-select {
+      height: $height;
+    }
+
+    .filter {
+      input {
+        height: calc($height - 4px);
+        font-size: $fontSize;
+      }
+    }
+
+    .option {
+      .material-icons {
+        @include iconSize(calc($fontSize + 8px));
+      }
+    }
+
+    .p-select-label,
+    .p-placeholder,
+    .option,
+    label {
+      font-size: $fontSize;
+    }
+  }
+}
