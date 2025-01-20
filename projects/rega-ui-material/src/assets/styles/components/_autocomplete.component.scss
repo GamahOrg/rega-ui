@@ -1,12 +1,13 @@
 @use "../variables";
 
+// Base styles for the autocomplete component
 .rega-autocomplete {
   input {
     @apply focus:outline-none focus:border-none focus:ring-0;
   }
 
   .p-autocomplete {
-    @apply w-full p-0 border-[1px] rounded-[4px];
+    @apply w-full p-0 border border-borderColor rounded-[4px];
 
     input {
       @apply border-none hover:border-none focus:border-none px-2 bg-transparent;
@@ -35,11 +36,11 @@
 
   .p-autocomplete-dropdown {
     @apply outline-none hover:bg-transparent bg-transparent border-none;
-  }
 
-  .p-autocomplete-dropdown:not(:disabled):hover,
-  .p-autocomplete-dropdown:not(:disabled):active {
-    @apply bg-transparent;
+    &:not(:disabled):hover,
+    &:not(:disabled):active {
+      @apply bg-transparent;
+    }
   }
 
   .p-inputtext,
@@ -49,21 +50,22 @@
 
   .p-autocomplete-option {
     @apply py-0 px-1;
-  }
 
-  .p-autocomplete-option:not(.p-autocomplete-option-selected):not(.p-disabled).p-focus {
-    @apply bg-lightColor text-darkColor;
-  }
+    &:not(.p-autocomplete-option-selected):not(.p-disabled).p-focus {
+      @apply bg-lightColor text-darkColor;
+    }
 
-  .p-autocomplete-option-selected,
-  .p-autocomplete-option-selected.p-focus {
-    @apply bg-transparent text-darkColor;
+    &.p-autocomplete-option-selected,
+    &.p-autocomplete-option-selected.p-focus {
+      @apply bg-transparent text-darkColor;
+    }
   }
 
   spinnericon {
     @apply invisible;
   }
 
+  // Variants
   &.rega-autocomplete--overlay {
     .p-autocomplete {
       @apply border-[#161616];
@@ -73,6 +75,7 @@
   &.rega-autocomplete--default {
     .p-autocomplete {
       @apply hover:border-[#161616] focus-within:border-[#161616] border border-borderColor;
+
       input {
         @apply text-[#161616];
       }
@@ -81,6 +84,7 @@
 
   &.rega-autocomplete--darker {
     @extend .rega-autocomplete--default;
+
     .p-autocomplete {
       @apply bg-semiLightColor;
     }
@@ -88,6 +92,7 @@
 
   &.rega-autocomplete--lighter {
     @extend .rega-autocomplete--default;
+
     .p-autocomplete {
       @apply border-0 focus-within:border bg-lightColor;
     }
@@ -96,6 +101,7 @@
   &.rega-autocomplete--disabled {
     .p-autocomplete {
       @apply text-disabledColor border-disabledBorderColor pointer-events-none;
+
       .p-autocomplete-input-multiple {
         @apply bg-transparent;
       }
@@ -115,21 +121,25 @@
   }
 }
 
+// Size variants
 $sizes: (
-  // small: (
-  //   24px,
-  //   12px,
-  //   40px,
-  // ),
-  medium: (32px, 14px, 50px),
-  large: (40px, 16px, 60px)
+  medium: (
+    32px,
+    14px,
+    50px,
+  ),
+  large: (
+    40px,
+    16px,
+    60px,
+  ),
 );
 
 @each $size, $values in $sizes {
-  .rega-autocomplete--#{$size} {
-    $fontSize: nth($values, 2);
-    $height: nth($values, 1);
+  $height: nth($values, 1);
+  $fontSize: nth($values, 2);
 
+  .rega-autocomplete--#{$size} {
     .p-autocomplete {
       min-height: $height;
     }
@@ -143,6 +153,7 @@ $sizes: (
     .chip {
       height: calc($height - 8px);
       font-size: calc($fontSize - 2px);
+
       .material-icons {
         @include iconSize($fontSize);
       }

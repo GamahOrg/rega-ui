@@ -13,7 +13,6 @@
       [multiple]="multiple()"
       [placeholder]="placeholder()"
       [emptyMessage]="emptyMessage()"
-      [dropdownIcon]="dropdownIcon()"
       [lazy]="lazy()"
       [virtualScroll]="lazy()"
       [disabled]="linkedDisabled()"
@@ -27,6 +26,12 @@
       (completeMethod)="filterOptions($event)"
       (onBlur)="onTouched(); touched.set(true)"
     >
+      <ng-template #dropdownicon>
+        <span class="material-icons text-gray-700">
+          {{ this.overlayVisible() ? "expand_less" : "expand_more" }}
+        </span>
+      </ng-template>
+
       <ng-template #item let-option>
         @let isSelected =
           multiple()

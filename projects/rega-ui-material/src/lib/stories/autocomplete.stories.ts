@@ -12,9 +12,8 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj<AutocompleteComponent>;
 
-const options: WritableSignal<Option[]> = signal([]);
-Array.from({ length: 4 }, (_, id) => ({ id, label: "Item label " + id })).forEach((op) =>
-  options().push(op)
+const options: WritableSignal<Option[]> = signal(
+  Array.from({ length: 4 }, (_, id) => ({ id, label: "Item label " + id }))
 );
 
 export const Default: Story = {
@@ -107,7 +106,7 @@ export const SingleValuesWithFooter: Story = {
     return {
       args,
       template: `
-        <rega-autocomplete >
+        <rega-autocomplete>
             <ng-template #autocompleteFooter>
               <div class="w-full flex justify-center items-center p-1 px-4">
                   <button class="w-full flex justify-center items-center rounded bg-slate-50 hover:bg-slate-100 text-gray-800 text-sm font-medium py-1 px-2">
