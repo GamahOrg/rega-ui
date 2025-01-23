@@ -69,55 +69,65 @@ export class AutocompleteComponent implements ControlValueAccessor, OnInit {
 
   private readonly _autocomplete = viewChild("autocomplete", { read: AutoComplete });
 
-  public autocompleteHeader = contentChild<any | undefined>("autocompleteHeader");
-
-  public autocompleteFooter = contentChild<any | undefined>("autocompleteFooter");
-
-  public options: InputSignal<Option[] | string[]> = input([] as Option[] | string[]);
-  public filteredOptions: WritableSignal<Option[] | string[]> = linkedSignal(() =>
-    this.options()
+  public readonly autocompleteHeader = contentChild<any | undefined>(
+    "autocompleteHeader"
   );
 
-  public label: InputSignal<string> = input("");
+  public readonly autocompleteFooter = contentChild<any | undefined>(
+    "autocompleteFooter"
+  );
 
-  public lazy: InputSignal<boolean> = input(false);
+  public readonly options: InputSignal<Option[] | string[]> = input(
+    [] as Option[] | string[]
+  );
+  public readonly filteredOptions: WritableSignal<Option[] | string[]> = linkedSignal(
+    () => this.options()
+  );
 
-  public loading: InputSignal<boolean> = input(false);
-  public linkedLoading = linkedSignal(() => this.loading());
+  public readonly label: InputSignal<string> = input("");
 
-  public multiple: InputSignal<boolean> = input(false);
+  public readonly lazy: InputSignal<boolean> = input(false);
 
-  public size: InputSignal<SizeType> = input(SizeEnum.Large as SizeType);
+  public readonly loading: InputSignal<boolean> = input(false);
+  public readonly linkedLoading = linkedSignal(() => this.loading());
 
-  public variant: InputSignal<VariantType> = input(VariantEnum.Default as VariantType);
+  public readonly multiple: InputSignal<boolean> = input(false);
 
-  public error: InputSignal<boolean> = input(false);
-  public linkedError = computed(
+  public readonly size: InputSignal<SizeType> = input(SizeEnum.Large as SizeType);
+
+  public readonly variant: InputSignal<VariantType> = input(
+    VariantEnum.Default as VariantType
+  );
+
+  public readonly error: InputSignal<boolean> = input(false);
+  public readonly linkedError = computed(
     () => (this.touched() && this.hasError()) || this.error()
   );
 
-  public disabled: InputSignal<boolean> = input(false);
-  public linkedDisabled = linkedSignal(() => this.disabled());
+  public readonly disabled: InputSignal<boolean> = input(false);
+  public readonly linkedDisabled = linkedSignal(() => this.disabled());
 
-  public placeholder: InputSignal<string> = input("Placeholder text");
+  public readonly placeholder: InputSignal<string> = input("Placeholder text");
 
-  public autocompleteClass: InputSignal<string> = input("");
+  public readonly autocompleteClass: InputSignal<string> = input("");
 
-  public emptyMessage: InputSignal<string> = input("No data found");
+  public readonly emptyMessage: InputSignal<string> = input("No data found");
 
-  public onSearch: OutputEmitterRef<string> = output();
+  public readonly onSearch: OutputEmitterRef<string> = output();
 
-  public onLazyLoad: OutputEmitterRef<LazyLoadingEvent> = output();
+  public readonly onLazyLoad: OutputEmitterRef<LazyLoadingEvent> = output();
 
-  public selectedOptions: WritableSignal<string | string[]> = linkedSignal(() =>
+  public readonly selectedOptions: WritableSignal<string | string[]> = linkedSignal(() =>
     this.multiple() ? [] : ""
   );
 
-  public overlayVisible: WritableSignal<boolean> = signal(false);
+  public readonly overlayVisible: WritableSignal<boolean> = signal(false);
 
-  public optionValue: Signal<string> = computed(() => (this.multiple() ? "id" : ""));
+  public readonly optionValue: Signal<string> = computed(() =>
+    this.multiple() ? "id" : ""
+  );
 
-  public dropdownIcon: Signal<string> = computed(() =>
+  public readonly dropdownIcon: Signal<string> = computed(() =>
     this.overlayVisible() ? "pi pi-angle-up" : "pi pi-angle-down"
   );
 
@@ -139,11 +149,11 @@ export class AutocompleteComponent implements ControlValueAccessor, OnInit {
 
   protected value: any;
 
-  public hasError: WritableSignal<boolean> = signal(false);
+  public readonly hasError: WritableSignal<boolean> = signal(false);
 
-  public touched: WritableSignal<boolean> = signal(false);
+  public readonly touched: WritableSignal<boolean> = signal(false);
 
-  public lazyOptions: ScrollerOptions = {
+  public readonly lazyOptions: ScrollerOptions = {
     delay: 250,
     showLoader: false,
     lazy: true,

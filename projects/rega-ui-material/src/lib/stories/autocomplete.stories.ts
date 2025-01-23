@@ -92,6 +92,7 @@ export const Error: Story = {
     ...Default.args,
     size: SizeEnum.Large,
     options: options().map(({ label }) => label),
+    multiple: false,
     error: true,
   },
 };

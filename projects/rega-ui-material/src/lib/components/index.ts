@@ -12,3 +12,4 @@ export * from "./card/card.component";
 export * from "./pagination/pagination.component";
 export * from "./autocomplete/autocomplete.component";
 export * from "./dropdown/dropdown.component";
+export * from "./table/table.component";

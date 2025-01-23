@@ -52,14 +52,14 @@ import { ScrollerOptions } from "primeng/api";
 export class DropdownComponent implements ControlValueAccessor, OnInit {
   readonly #injector = inject(Injector);
 
-  public dropdownOption = contentChild<any | undefined>("dropdownOption");
+  public readonly dropdownOption = contentChild<any | undefined>("dropdownOption");
 
-  public dropdownHeader = contentChild<any | undefined>("dropdownHeader");
+  public readonly dropdownHeader = contentChild<any | undefined>("dropdownHeader");
 
-  public dropdownFooter = contentChild<any | undefined>("dropdownFooter");
+  public readonly dropdownFooter = contentChild<any | undefined>("dropdownFooter");
 
-  public options: InputSignal<Option[]> = input([] as Option[]);
-  public filteredOptions: WritableSignal<Option[]> = linkedSignal(() =>
+  public readonly options: InputSignal<Option[]> = input([] as Option[]);
+  public readonly filteredOptions: WritableSignal<Option[]> = linkedSignal(() =>
     !!this.searchInput()
       ? this.options().filter((op) =>
           op.label.toLowerCase().includes(this.searchInput().toLowerCase())
@@ -67,44 +67,46 @@ export class DropdownComponent implements ControlValueAccessor, OnInit {
       : this.options()
   );
 
-  public optionValue: InputSignal<string> = input("id");
+  public readonly optionValue: InputSignal<string> = input("id");
 
-  public label: InputSignal<string> = input("");
+  public readonly label: InputSignal<string> = input("");
 
-  public lazy: InputSignal<boolean> = input(false);
+  public readonly lazy: InputSignal<boolean> = input(false);
 
-  public loading: InputSignal<boolean> = input(false);
-  public linkedLoading = linkedSignal(() => this.loading());
+  public readonly loading: InputSignal<boolean> = input(false);
+  public readonly linkedLoading = linkedSignal(() => this.loading());
 
-  public size: InputSignal<SizeType> = input(SizeEnum.Large as SizeType);
+  public readonly size: InputSignal<SizeType> = input(SizeEnum.Large as SizeType);
 
-  public variant: InputSignal<VariantType> = input(VariantEnum.Default as VariantType);
+  public readonly variant: InputSignal<VariantType> = input(
+    VariantEnum.Default as VariantType
+  );
 
-  public error: InputSignal<boolean> = input(false);
-  public linkedError = computed(
+  public readonly error: InputSignal<boolean> = input(false);
+  public readonly linkedError = computed(
     () => (this.touched() && this.hasError()) || this.error()
   );
 
-  public disabled: InputSignal<boolean> = input(false);
-  public linkedDisabled = linkedSignal(() => this.disabled());
+  public readonly disabled: InputSignal<boolean> = input(false);
+  public readonly linkedDisabled = linkedSignal(() => this.disabled());
 
-  public placeholder: InputSignal<string> = input("Placeholder text");
+  public readonly placeholder: InputSignal<string> = input("Placeholder text");
 
-  public dropdownClass: InputSignal<string> = input("");
+  public readonly dropdownClass: InputSignal<string> = input("");
 
-  public emptyMessage: InputSignal<string> = input("No data found");
+  public readonly emptyMessage: InputSignal<string> = input("No data found");
 
-  public showClear: InputSignal<boolean> = input(false);
+  public readonly showClear: InputSignal<boolean> = input(false);
 
-  public filter: InputSignal<boolean> = input(false);
+  public readonly filter: InputSignal<boolean> = input(false);
 
-  public onSearch: OutputEmitterRef<string> = output();
+  public readonly onSearch: OutputEmitterRef<string> = output();
 
-  public onLazyLoad: OutputEmitterRef<LazyLoadingEvent> = output();
+  public readonly onLazyLoad: OutputEmitterRef<LazyLoadingEvent> = output();
 
-  public overlayVisible: WritableSignal<boolean> = signal(false);
+  public readonly overlayVisible: WritableSignal<boolean> = signal(false);
 
-  public searchInput: WritableSignal<string> = signal("");
+  public readonly searchInput: WritableSignal<string> = signal("");
 
   public readonly classes: Signal<string[]> = linkedSignal(() => {
     const classes: string[] = [
@@ -120,7 +122,7 @@ export class DropdownComponent implements ControlValueAccessor, OnInit {
     return classes.filter(Boolean);
   });
 
-  public lazyOptions: ScrollerOptions = {
+  public readonly lazyOptions: ScrollerOptions = {
     delay: 250,
     showLoader: true,
     lazy: true,
@@ -133,9 +135,9 @@ export class DropdownComponent implements ControlValueAccessor, OnInit {
 
   protected value: any;
 
-  public hasError: WritableSignal<boolean> = signal(false);
+  public readonly hasError: WritableSignal<boolean> = signal(false);
 
-  public touched: WritableSignal<boolean> = signal(false);
+  public readonly touched: WritableSignal<boolean> = signal(false);
 
   public ngOnInit(): void {
     this.#ngControl = this.#injector.get(NgControl, null);

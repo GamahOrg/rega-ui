@@ -7,6 +7,44 @@
   placeholder="ادخل النص"
 /> -->
 
+<div class="h-96 w-1/2 p-4">
+  <rega-table
+    [data]="data()"
+    [lazy]="true"
+    [rowsCount]="6"
+    [scrollHeight]="'21rem'"
+    [reorder]="true"
+    [contained]="true"
+    [colSpan]="4"
+  >
+    <ng-template #headerTemp>
+      <th></th>
+      <th>Name</th>
+      <th>Country</th>
+      <th>Company</th>
+      <th>Representative</th>
+    </ng-template>
+
+    <ng-template #bodyTemp let-row>
+      <td class="flex justify-center items-center">
+        <button
+          class="flex justify-center items-center cursor-move p-1 hover:bg-slate-100 rounded-full"
+        >
+          <span class="material-icons text-gray-600">drag_indicator</span>
+        </button>
+      </td>
+      <td class="w-6">{{ row.id }}</td>
+      <td class="w-48">{{ row.label }}</td>
+      <td class="w-48">{{ row.label }}</td>
+      <td class="w-48">{{ row.label }}</td>
+    </ng-template>
+
+    <ng-template #extendableArea let-row>
+      <h5 class="text-center">{{ row | json }}</h5>
+    </ng-template>
+  </rega-table>
+</div>
+
 <div class="w-1/2 p-4">
   <rega-dropdown [options]="options()" [formControl]="autocomplete">
     <ng-template #autocompleteFooter>

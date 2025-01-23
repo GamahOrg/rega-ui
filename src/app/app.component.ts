@@ -24,11 +24,12 @@ import {
   FileUploadComponent,
   RadioButtonComponent,
   RadioGroupComponent,
+  TableComponent,
 } from "projects/rega-ui-material/src/lib";
 import { AutoCompleteModule } from "primeng/autocomplete";
 import { Option } from "projects/rega-ui-material/src/utils/interfaces";
 import { LazyLoadingEvent } from "dist/rega-ui-material/public-api";
-
+import { CdkDragDrop, DragDropModule, moveItemInArray } from "@angular/cdk/drag-drop";
 @Component({
   selector: "app-root",
   standalone: true,
@@ -48,6 +49,8 @@ import { LazyLoadingEvent } from "dist/rega-ui-material/public-api";
     AutoCompleteModule,
     AutocompleteComponent,
     DropdownComponent,
+    TableComponent,
+    DragDropModule,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
@@ -75,6 +78,7 @@ export class AppComponent implements OnInit {
   });
 
   public options: WritableSignal<any[]> = signal([]);
+  public data: WritableSignal<any[]> = signal([]);
 
   public optionsLoaded: WritableSignal<boolean> = signal(true);
   title = "rega-ui";
@@ -91,6 +95,11 @@ export class AppComponent implements OnInit {
     for (let i = 0; i < 8; i++) {
       this.options().push({ label: "Item label " + i, id: i });
     }
+
+    this.data.set(
+      Array.from({ length: 12 }, (_, id) => ({ id, label: "Item label " + id }))
+    );
+
     // for (let i = 0; i < 4; i++) this.options().push("Item label " + i);
 
     this.autocomplete.valueChanges.subscribe((res) => {
@@ -119,6 +128,10 @@ export class AppComponent implements OnInit {
       items: this.items,
     });
   }
+
+  public drop = (event: CdkDragDrop<any[]>): void => {
+    moveItemInArray(this.data(), event.previousIndex, event.currentIndex);
+  };
 
   public onSearch = (event: string): void => {
     this.optionsLoaded.set(false);

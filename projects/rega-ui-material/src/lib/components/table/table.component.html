@@ -1,0 +1,108 @@
+<div [ngClass]="classes()">
+  <p-table
+    cdkDropList
+    [value]="data()"
+    [lazy]="lazy()"
+    [rows]="rowsCount()"
+    [virtualScroll]="lazy()"
+    [scrollHeight]="scrollHeight()"
+    [virtualScrollItemSize]="virtualScrollItemSize()"
+    [cdkDropListData]="data()"
+    [cdkDropListDisabled]="!reorder()"
+    [tableStyleClass]="tableClass()"
+    [scrollable]="true"
+    (onLazyLoad)="onLazyLoad.emit($event)"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <ng-template #header>
+      <tr>
+        <ng-container *ngTemplateOutlet="headerTemp()" />
+      </tr>
+    </ng-template>
+
+    <ng-template #body let-row let-rowIndex="rowIndex">
+      @let expanded = isExpanded(rowIndex);
+      @let context = { $implicit: row, rowIndex, expanded };
+
+      <tr
+        cdkDrag
+        cdkDragLockAxis="y"
+        cdkDragBoundary=".p-datatable-tbody"
+        [ngStyle]="{ height: virtualScrollItemSize() + 'px' }"
+        (click)="onExpandRow(row)"
+      >
+        <ng-template cdkDragPreview>
+          <div class="custom-drag-preview">
+            <ng-container *ngTemplateOutlet="bodyTemp(); context: context" />
+          </div>
+        </ng-template>
+
+        <ng-container *ngTemplateOutlet="bodyTemp(); context: context" />
+      </tr>
+
+      @if (!!extendableArea() && extendable()) {
+        @if (expanded) {
+          <tr class="expandedRow">
+            <td [attr.colspan]="colSpan()" class="p-0 h-auto w-full">
+              <div class="w-full flex justify-center items-center">
+                <ng-container *ngTemplateOutlet="extendableArea(); context: context" />
+              </div>
+            </td>
+          </tr>
+        }
+      }
+    </ng-template>
+
+    <ng-template #expandedrow let-product>
+      <tr>
+        <td [attr.colspan]="colSpan()">
+          <div class="empty-msg w-full flex justify-center items-center">
+            <ng-container *ngTemplateOutlet="emptyMessageTemp()" />
+
+            @if (!emptyMessageTemp()) {
+              <span class="md:text-sm text-xs text-gray-700">{{ emptyMessage() }}</span>
+            }
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template #emptymessage>
+      @if (emptyMessageTemp() || emptyMessage()) {
+        <tr>
+          <td [attr.colspan]="colSpan()">
+            <div class="empty-msg w-full flex justify-center items-center">
+              <ng-container *ngTemplateOutlet="emptyMessageTemp()" />
+
+              @if (!emptyMessageTemp()) {
+                <span class="md:text-sm text-xs text-gray-700">{{ emptyMessage() }}</span>
+              }
+            </div>
+          </td>
+        </tr>
+      }
+    </ng-template>
+
+    <ng-template #footer>
+      @if (footerTemp()) {
+        <tr>
+          <td [attr.colspan]="colSpan()">
+            <div class="footer w-full flex justify-center items-center">
+              <ng-container *ngTemplateOutlet="footerTemp()" />
+            </div>
+          </td>
+        </tr>
+      }
+    </ng-template>
+
+    <ng-template #loadingbody let-columns="columns">
+      <tr [ngStyle]="{ height: virtualScrollItemSize() + 'px' }">
+        @for (col of columns; track $index) {
+          <td>
+            <p-skeleton [ngStyle]="{ width: '60%' }" />
+          </td>
+        }
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
