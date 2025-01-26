@@ -1,0 +1,32 @@
+<button #dropdownToggleRef [ngClass]="dropdownClass()" (click)="isOpen.set(!isOpen())">
+  <ng-content select="[label]">{{ label() }}</ng-content>
+</button>
+
+<div class="relative w-full">
+  @if (isOpen()) {
+    <div
+      scrollToSelected
+      [ngClass]="overlayClass()"
+      class="absolute w-full max-h-40 flex flex-col justify-start items-stretch overflow-y-auto border rounded-md bg-white z-[1000] mt-1 border-solid border-[#ccc] left-0 top-full"
+      (click)="isOpen.set(!isOpen())"
+    >
+      @for (option of options(); track $index) {
+        @if (optionTemp()) {
+          <ng-container
+            *ngTemplateOutlet="
+              optionTemp();
+              context: { $implicit: option, index: $index }
+            "
+          />
+        } @else {
+          <button
+            class="cursor-pointer px-3 py-2 hover:bg-slate-100"
+            (click)="onChange.emit(option)"
+          >
+            {{ option }}
+          </button>
+        }
+      }
+    </div>
+  }
+</div>
