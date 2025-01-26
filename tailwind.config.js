@@ -25,6 +25,15 @@ module.exports = {
         borderColor: "var(--border-color)",
         disabledBorderColor: "var(--disabledCorder-color)",
       },
+      fontFamily: {
+        "ibm-bold": ["ibm-bold"],
+        "ibm-semiBold": ["ibm-semiBold"],
+        "ibm-regular": ["ibm-regular"],
+        "ibm-medium": ["ibm-medium"],
+        "ibm-light": ["ibm-light"],
+        "ibm-extraLight": ["ibm-extraLight"],
+        "ibm-thin": ["ibm-thin"],
+      },
     },
   },
   plugins: [

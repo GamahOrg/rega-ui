@@ -1,4 +1,53 @@
-// Design System - v2.0 (2022)
+// IBM Plex Sans Arabic
+@font-face {
+  font-family: "ibm-bold";
+  src:
+    url("../fonts/IBM-sans-arabic/IBMPlexSansArabic-Bold.ttf") format("woff2"),
+    url("../fonts/IBM-sans-arabic/IBMPlexSansArabic-Bold.ttf") format("woff");
+}
+
+@font-face {
+  font-family: "ibm-semiBold";
+  src:
+    url("../fonts/IBM-sans-arabic/IBMPlexSansArabic-SemiBold.ttf") format("woff2"),
+    url("../fonts/IBM-sans-arabic/IBMPlexSansArabic-SemiBold.ttf") format("woff");
+}
+
+@font-face {
+  font-family: "ibm-regular";
+  src:
+    url("../fonts/IBM-sans-arabic/IBMPlexSansArabic-Regular.ttf") format("woff2"),
+    url("../fonts/IBM-sans-arabic/IBMPlexSansArabic-Regular.ttf") format("woff");
+}
+
+@font-face {
+  font-family: "ibm-medium";
+  src:
+    url("../fonts/IBM-sans-arabic/IBMPlexSansArabic-Medium.ttf") format("woff2"),
+    url("../fonts/IBM-sans-arabic/IBMPlexSansArabic-Medium.ttf") format("woff");
+}
+
+@font-face {
+  font-family: "ibm-light";
+  src:
+    url("../fonts/IBM-sans-arabic/IBMPlexSansArabic-Light.ttf") format("woff2"),
+    url("../fonts/IBM-sans-arabic/IBMPlexSansArabic-Light.ttf") format("woff");
+}
+
+@font-face {
+  font-family: "ibm-extraLight";
+  src:
+    url("../fonts/IBM-sans-arabic/IBMPlexSansArabic-ExtraLight.ttf") format("woff2"),
+    url("../fonts/IBM-sans-arabic/IBMPlexSansArabic-ExtraLight.ttf") format("woff");
+}
+
+@font-face {
+  font-family: "ibm-thin";
+  src:
+    url("../fonts/IBM-sans-arabic/IBMPlexSansArabic-Thin.ttf") format("woff2"),
+    url("../fonts/IBM-sans-arabic/IBMPlexSansArabic-Thin.ttf") format("woff");
+}
+
 /* font-icon */
 @font-face {
   font-family: "Material Symbols Outlined";
@@ -6,6 +55,7 @@
   font-weight: 100 700;
   src: url(../fonts/font-icon/icon.woff2) format("woff2");
 }
+
 .material-symbols-outlined {
   font-family: "Material Symbols Outlined";
   font-weight: normal;
