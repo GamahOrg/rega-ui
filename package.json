@@ -7,6 +7,7 @@
     "rega-book": "ng run rega-ui-material:storybook",
     "start-rega-material": "npx -p @angular/cli ng build rega-ui-material --watch",
     "build-rega-material": "ng build rega-ui-material",
+    "build-rega-material-storybook": "ng run rega-ui-material:build-storybook",
     "npm-rega-material-pack": "cd dist/rega-ui-material && npm pack",
     "package-rega-material": "npm run build-rega-material && npm run npm-rega-material-pack",
     "build": "ng build",
