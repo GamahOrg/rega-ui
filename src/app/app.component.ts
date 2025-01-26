@@ -22,6 +22,7 @@ import {
   DropdownComponent,
   DropZoneComponent,
   FileUploadComponent,
+  PaginationComponent,
   RadioButtonComponent,
   RadioGroupComponent,
   TableComponent,
@@ -51,6 +52,7 @@ import { CdkDragDrop, DragDropModule, moveItemInArray } from "@angular/cdk/drag-
     DropdownComponent,
     TableComponent,
     DragDropModule,
+    PaginationComponent,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
@@ -128,6 +130,10 @@ export class AppComponent implements OnInit {
       items: this.items,
     });
   }
+
+  public onPageChange = (page: number): void => {
+    console.log("Page changed to:", page);
+  };
 
   public drop = (event: CdkDragDrop<any[]>): void => {
     moveItemInArray(this.data(), event.previousIndex, event.currentIndex);

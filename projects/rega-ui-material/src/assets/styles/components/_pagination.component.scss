@@ -1,0 +1,69 @@
+$sizes: (
+  small: (
+    74px,
+    24px,
+    8px,
+    12px,
+    400,
+  ),
+  medium: (
+    94px,
+    32px,
+    12px,
+    14px,
+    400,
+  ),
+  large: (
+    110px,
+    40px,
+    16px,
+    16px,
+    400,
+  ),
+);
+
+.rega-pagination {
+  @apply font-ibm-regular;
+
+  .rega-btn {
+    @apply min-w-0;
+    .material-icons {
+      @apply rtl:rotate-180;
+    }
+  }
+
+  .rega-btn::after:not(.arrow) {
+    @apply content-[""] block opacity-0 h-[3px] w-7 -mb-8 absolute z-[2] rounded-xl;
+    transition: opacity 0.4s ease;
+  }
+
+  .active {
+    .rega-btn::after {
+      @apply opacity-100 bg-primaryColor;
+    }
+  }
+
+  .rega-btn:hover::after {
+    @apply opacity-100 bg-[#161616];
+  }
+}
+
+@each $size, $values in $sizes {
+  .rega-pagination--#{$size} {
+    custom-dropdown {
+      .option {
+        .option-label {
+          @apply font-ibm-regular;
+        }
+
+        span {
+          font-size: nth($values, 4) !important;
+        }
+      }
+    }
+
+    .dropdown-label {
+      padding: 0 nth($values, 3) !important;
+    }
+  }
+}

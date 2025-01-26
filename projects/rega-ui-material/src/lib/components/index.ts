@@ -9,7 +9,7 @@ export * from "./drop-zone/drop-zone.component";
 export * from "./radio-button/radio.component";
 export * from "./radio-group/radio-group.component";
 export * from "./card/card.component";
-export * from "./pagination/pagination.component";
 export * from "./autocomplete/autocomplete.component";
 export * from "./dropdown/dropdown.component";
 export * from "./table/table.component";
+export * from "./pagination/pagination.component";

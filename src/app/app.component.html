@@ -46,6 +46,15 @@
 </div>
 
 <div class="w-1/2 p-4">
+  <rega-pagination
+    [count]="100"
+    [siblingCount]="1"
+    [currentPage]="1"
+    (onPageChange)="onPageChange($event)"
+  />
+</div>
+
+<div class="w-1/2 p-4">
   <rega-dropdown [options]="options()" [formControl]="autocomplete">
     <ng-template #autocompleteFooter>
       <div
