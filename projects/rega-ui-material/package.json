@@ -7,16 +7,37 @@
     "rega material",
     "rega ui material"
   ],
-  "version": "0.0.5",
+  "version": "0.0.22",
   "peerDependencies": {
     "@angular/common": "^19.0.0",
-    "@angular/core": "^19.0.0"
+    "@angular/core": "^19.0.0",
+    "@angular/animations": "^19.0.0"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "@angular/material": "^19.0.2",
+    "primeng": "^19.0.2",
+    "flowbite": "^2.5.2",
+    "material-icons": "^1.13.12",
+    "primeicons": "^7.0.0",
+    "@tailwindcss/forms": "^0.5.9"
   },
   "sideEffects": false,
   "devDependencies": {
-    "@storybook/addon-styling-webpack": "^1.0.1"
-  }
+    "@storybook/addon-styling-webpack": "^1.0.1",
+    "ng-packagr": "^19.1.1",
+    "autoprefixer": "^10.4.20",
+    "tailwindcss": "^3.4.16",
+    "postcss": "^8.4.49",
+    "postcss-loader": "^8.1.1"
+  },
+  "allowedNonPeerDependencies": [
+    "@angular/cdk",
+    "@angular/material",
+    "primeng",
+    "material-icons",
+    "primeicons",
+    "flowbite",
+    "@tailwindcss/forms"
+  ]
 }

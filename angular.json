@@ -6,9 +6,7 @@
     "rega-ui": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
+        "@schematics/angular:component": { "style": "scss" }
       },
       "root": "",
       "sourceRoot": "src",
@@ -38,7 +36,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumError": "5MB"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -90,6 +88,9 @@
       }
     },
     "rega-ui-material": {
+      "schematics": {
+        "@schematics/angular:component": { "style": "scss" }
+      },
       "projectType": "library",
       "root": "projects/rega-ui-material",
       "sourceRoot": "projects/rega-ui-material/src",
@@ -114,6 +115,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "tsConfig": "projects/rega-ui-material/tsconfig.spec.json",
+            "styles": ["projects/rega-ui-material/src/assets/styles/tailwind.scss"],
             "polyfills": ["zone.js", "zone.js/testing"]
           }
         },

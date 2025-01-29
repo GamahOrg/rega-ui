@@ -1,8 +1,22 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/rega-ui-material",
-  "assets": ["./src/assets"],
+  "assets": [
+    "./src/assets",
+    "./src/assets/styles/main.scss",
+    "./src/assets/styles/**/*.scss"
+  ],
+  "allowedNonPeerDependencies": [
+    "@angular/cdk",
+    "@angular/material",
+    "primeng",
+    "material-icons",
+    "primeicons",
+    "flowbite",
+    "@tailwindcss/forms"
+  ],
   "lib": {
-    "entryFile": "src/public-api.ts"
+    "entryFile": "src/public-api.ts",
+    "styleIncludePaths": ["src/assets/styles"]
   }
 }

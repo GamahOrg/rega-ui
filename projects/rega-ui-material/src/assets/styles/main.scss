@@ -5,6 +5,8 @@
 
 @import "primeicons/primeicons.css";
 @import "material-icons/iconfont/material-icons.css";
+
+@import "tailwind";
 /** Components **/
 @import "components/rega-button.component";
 @import "components/breadcrumb.component";
@@ -23,5 +25,5 @@
 @import "components/pagination.component";
 
 body {
-  font-family: $font-family-fe, $font-family-fa;
+  font-family: "ibm-regular";
 }

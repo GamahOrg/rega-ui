@@ -29,7 +29,6 @@ import {
 } from "projects/rega-ui-material/src/lib";
 import { AutoCompleteModule } from "primeng/autocomplete";
 import { Option } from "projects/rega-ui-material/src/utils/interfaces";
-import { LazyLoadingEvent } from "dist/rega-ui-material/public-api";
 import { CdkDragDrop, DragDropModule, moveItemInArray } from "@angular/cdk/drag-drop";
 @Component({
   selector: "app-root",

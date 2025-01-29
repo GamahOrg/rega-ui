@@ -6,12 +6,10 @@
     "start": "ng serve -o --port=2500",
     "rega-book": "ng run rega-ui-material:storybook",
     "start-rega-material": "npx -p @angular/cli ng build rega-ui-material --watch",
-    "build-rega-material": "ng build rega-ui-material",
+    "build:rega-material": "ng build rega-ui-material",
+    "pack-rega-lib": "pack-rega-lib.bat",
     "build-rega-material-storybook": "ng run rega-ui-material:build-storybook",
-    "npm-rega-material-pack": "cd dist/rega-ui-material && npm pack",
-    "package-rega-material": "npm run build-rega-material && npm run npm-rega-material-pack",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
   "private": true,
@@ -66,13 +64,14 @@
     "ng-packagr": "^19.0.0",
     "postcss": "^8.4.49",
     "postcss-loader": "^8.1.1",
+    "postcss-scss": "^4.0.9",
     "prettier": "3.4.2",
     "resolve-url-loader": "^5.0.0",
-    "sass": "^1.83.0",
+    "sass": "^1.83.4",
     "sass-loader": "^16.0.4",
     "storybook": "^8.4.7",
     "style-loader": "^4.0.0",
-    "tailwindcss": "^3.4.16",
+    "tailwindcss": "^3.4.17",
     "typescript": "~5.6.2"
   }
 }
