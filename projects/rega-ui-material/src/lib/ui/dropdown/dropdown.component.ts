@@ -41,8 +41,33 @@ export class CustomDropdownComponent {
 
   public readonly onChange: OutputEmitterRef<any> = output();
 
+  public dropdownDir: WritableSignal<"up" | "down"> = signal("down");
+
   @HostListener("document:click", ["$event"])
-  onClick(event: MouseEvent): void {
+  private onClick(event: MouseEvent): void {
     if (!this.#elementRef.nativeElement.contains(event.target)) this.isOpen.set(false);
   }
+
+  @HostListener("window:resize")
+  private onResize(): void {
+    if (this.isOpen()) this.calculateDropdownDir();
+  }
+
+  public toggleDropdown(): void {
+    this.isOpen.set(!this.isOpen());
+    if (this.isOpen()) this.calculateDropdownDir();
+  }
+
+  private calculateDropdownDir = (): void => {
+    const toggleElement = this.#elementRef.nativeElement.querySelector("button");
+    const toggleRect = toggleElement.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+
+    const spaceBelow = viewportHeight - toggleRect.bottom;
+    const dropdownHeight = 160;
+
+    this.dropdownDir.set(
+      spaceBelow < dropdownHeight && toggleRect.top > dropdownHeight ? "up" : "down"
+    );
+  };
 }

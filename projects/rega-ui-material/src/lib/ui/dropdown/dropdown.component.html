@@ -1,4 +1,4 @@
-<button #dropdownToggleRef [ngClass]="dropdownClass()" (click)="isOpen.set(!isOpen())">
+<button #dropdownToggleRef [ngClass]="dropdownClass()" (click)="toggleDropdown()">
   <ng-content select="[label]">{{ label() }}</ng-content>
 </button>
 
@@ -6,8 +6,11 @@
   @if (isOpen()) {
     <div
       scrollToSelected
-      [ngClass]="overlayClass()"
-      class="absolute w-full max-h-40 flex flex-col justify-start items-stretch overflow-y-auto border rounded-md bg-white z-[1000] mt-1 border-solid border-[#ccc] left-0 top-full"
+      [ngClass]="[
+        overlayClass(),
+        this.dropdownDir() === 'down' ? 'top-full' : 'bottom-full',
+      ]"
+      class="absolute w-full max-h-40 flex flex-col justify-start items-stretch overflow-y-auto border rounded-md bg-white z-[1000] mt-1 border-solid border-[#ccc] left-0"
       (click)="isOpen.set(!isOpen())"
     >
       @for (option of options(); track $index) {
