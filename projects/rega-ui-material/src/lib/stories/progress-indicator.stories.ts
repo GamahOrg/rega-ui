@@ -13,11 +13,11 @@ const meta: Meta<ProgressIndicatorComponent> = {
       template: `
         <section class="w-[800px] flex justify-center items-center">
           <rega-progress-indicator class="w-full" 
-          [steps]="[
-          {title:'Step 1', description:'description 1'}, 
-          {title:'Step 2', description:'description 2'}, 
-          {title:'Step 3', description:'description 3'}, 
-          {title:'Step 4', description:'description 4'}]"
+           [steps]="[
+           {title:'Step 1', description:'description 1'}, 
+           {title:'Step 2', description:'description 2'}, 
+           {title:'Step 3', description:'description 3'}, 
+           {title:'Step 4', description:'description 4'}]"
            [activeStepIndex] = "${args.activeStepIndex}"
            [alignment] = "'${args.alignment}'"
           />
@@ -59,12 +59,49 @@ export const Default: Story = {
       description: "number",
       control: { type: "object" },
     },
+    stepAction: {
+      control: { type: "object" },
+      description: "ContentChild with Template variable #stepAction",
+    },
+    stepContent: {
+      control: { type: "object" },
+      description: "ContentChild with Template variable #stepContent",
+    },
     onStepClick: { description: "(stepIndex: number) => void" },
   },
   args: {
     steps: steps(),
     activeStepIndex: 0,
     alignment: AlignmentEnum.Horizontal,
+  },
+};
+
+export const StepAction: Story = {
+  args: { ...Default.args },
+  render: (args) => {
+    return {
+      args,
+      template: `
+        <section class="w-[800px] flex justify-center items-center">
+          <rega-progress-indicator class="w-full" 
+            [steps]="[
+            {title:'Step 1', description:'description 1'}, 
+            {title:'Step 2', description:'description 2'}, 
+            {title:'Step 3', description:'description 3'}, 
+            {title:'Step 4', description:'description 4'}]"
+            [activeStepIndex] = "${args.activeStepIndex}"
+            [alignment] = "'${args.alignment}'"
+          >
+            <ng-template #stepAction let-step let-index="index" let-status="status">
+              <div
+                class = "h-10 w-10 relative flex justify-center items-center text-white bg-slate-300 !z-[1]">
+                 {{ index }}
+              </div>
+            </ng-template>
+          </rega-progress-indicator>
+        </section>
+      `,
+    };
   },
 };
 

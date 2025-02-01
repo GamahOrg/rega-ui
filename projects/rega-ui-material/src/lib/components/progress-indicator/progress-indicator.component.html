@@ -1,20 +1,30 @@
 <ul [ngClass]="classes()">
   @for (step of linkedSteps(); track $index) {
     <li [ngClass]="step.status" class="step" (click)="stepClick($index + 1)">
-      <button>
-        @if (step.status === IndicatorStatusEnum.Completed) {
-          <span class="material-icons text-[16px]">done</span>
-        } @else {
-          <span>{{ $index + 1 }}</span>
-        }
-      </button>
+      @let context = { $implicit: step, index: $index + 1, status: step.status };
+
+      @if (stepAction()) {
+        <ng-container *ngTemplateOutlet="stepAction(); context: context" />
+      } @else {
+        <button>
+          @if (step.status === IndicatorStatusEnum.Completed) {
+            <span class="material-icons text-[16px]">done</span>
+          } @else {
+            <span>{{ $index + 1 }}</span>
+          }
+        </button>
+      }
 
       <div class="step-content">
-        @if (step.title) {
-          <div class="title">{{ step.title }}</div>
-        }
-        @if (step.description) {
-          <p class="description">{{ step.description }}</p>
+        @if (stepContent()) {
+          <ng-container *ngTemplateOutlet="stepContent(); context: context" />
+        } @else {
+          @if (step.title) {
+            <div class="title">{{ step.title }}</div>
+          }
+          @if (step.description) {
+            <p class="description">{{ step.description }}</p>
+          }
         }
       </div>
     </li>

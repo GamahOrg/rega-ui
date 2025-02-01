@@ -1,6 +1,7 @@
 import {
   Component,
   computed,
+  contentChild,
   input,
   InputSignal,
   linkedSignal,
@@ -18,11 +19,11 @@ import {
   IndicatorStatusStep,
   IndicatorStep,
 } from "../../../utils";
-import { NgClass } from "@angular/common";
+import { NgClass, NgTemplateOutlet } from "@angular/common";
 
 @Component({
   selector: "rega-progress-indicator",
-  imports: [NgClass],
+  imports: [NgClass, NgTemplateOutlet],
   templateUrl: "./progress-indicator.component.html",
 })
 export class ProgressIndicatorComponent {
@@ -33,7 +34,7 @@ export class ProgressIndicatorComponent {
       : []
   );
 
-  public readonly activeStepIndex: ModelSignal<number> = model(0);
+  public readonly activeStepIndex: ModelSignal<number> = model(1);
 
   public readonly alignment: InputSignal<AlignmentType> = input(
     AlignmentEnum.Horizontal as AlignmentType
@@ -42,6 +43,10 @@ export class ProgressIndicatorComponent {
   public readonly indicatorClass: InputSignal<string> = input("");
 
   public readonly onStepClick: OutputEmitterRef<number> = output();
+
+  public readonly stepAction = contentChild<any | undefined>("stepAction");
+
+  public readonly stepContent = contentChild<any | undefined>("stepContent");
 
   public readonly classes: Signal<string[]> = computed(() => {
     const classes: string[] = [

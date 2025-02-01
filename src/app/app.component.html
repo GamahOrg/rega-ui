@@ -8,7 +8,13 @@
 /> -->
 
 <div class="w-1/2 p-4">
-  <rega-progress-indicator [steps]="steps()" />
+  <rega-progress-indicator [steps]="steps()">
+    <ng-template #stepAction let-step let-index="index" let-status="status">
+      <div>
+        {{ index }}
+      </div>
+    </ng-template>
+  </rega-progress-indicator>
 </div>
 
 <div class="h-96 w-1/2 p-4">
