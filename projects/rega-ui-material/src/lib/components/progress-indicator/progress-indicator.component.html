@@ -1,1 +1,22 @@
-<div [ngClass]="classes()"></div>
+<ul [ngClass]="classes()">
+  @for (step of linkedSteps(); track $index) {
+    <li [ngClass]="step.status" class="step" (click)="stepClick($index + 1)">
+      <button>
+        @if (step.status === IndicatorStatusEnum.Completed) {
+          <span class="material-icons text-[16px]">done</span>
+        } @else {
+          <span>{{ $index + 1 }}</span>
+        }
+      </button>
+
+      <div class="step-content">
+        @if (step.title) {
+          <div class="title">{{ step.title }}</div>
+        }
+        @if (step.description) {
+          <p class="description">{{ step.description }}</p>
+        }
+      </div>
+    </li>
+  }
+</ul>

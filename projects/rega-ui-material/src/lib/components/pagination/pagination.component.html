@@ -10,7 +10,7 @@
         (click)="currentPage() !== 1 && pageChange(currentPage() - 1)"
       >
         <span
-          [ngClass]="{ 'text-[#9da4ae]': currentPage() === 1 }"
+          [ngClass]="{ 'text-disabledColor': currentPage() === 1 }"
           class="material-icons text-[#384250]"
           >chevron_left</span
         >
@@ -67,7 +67,7 @@
         (click)="currentPage() !== count() && pageChange(currentPage() + 1)"
       >
         <span
-          [ngClass]="{ 'text-[#9da4ae]': currentPage() === count() }"
+          [ngClass]="{ 'text-disabledColor': currentPage() === count() }"
           class="material-icons text-[#384250]"
           >navigate_next</span
         >

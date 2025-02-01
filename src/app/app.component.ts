@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component, inject, OnInit, signal, WritableSignal } from "@angular/core";
+import { Component, inject, OnInit, Signal, signal, WritableSignal } from "@angular/core";
 import {
   BreadcrumbItem,
   BreadcrumbService,
@@ -23,12 +23,13 @@ import {
   DropZoneComponent,
   FileUploadComponent,
   PaginationComponent,
+  ProgressIndicatorComponent,
   RadioButtonComponent,
   RadioGroupComponent,
   TableComponent,
 } from "projects/rega-ui-material/src/lib";
 import { AutoCompleteModule } from "primeng/autocomplete";
-import { Option } from "projects/rega-ui-material/src/utils/interfaces";
+import { IndicatorStep, Option } from "projects/rega-ui-material/src/utils/interfaces";
 import { CdkDragDrop, DragDropModule, moveItemInArray } from "@angular/cdk/drag-drop";
 @Component({
   selector: "app-root",
@@ -52,6 +53,7 @@ import { CdkDragDrop, DragDropModule, moveItemInArray } from "@angular/cdk/drag-
     TableComponent,
     DragDropModule,
     PaginationComponent,
+    ProgressIndicatorComponent,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
@@ -77,6 +79,13 @@ export class AppComponent implements OnInit {
     selection1: [null],
     selection2: [null],
   });
+
+  public steps: Signal<IndicatorStep[]> = signal(
+    Array.from({ length: 4 }, (_, i) => ({
+      title: `Strep ${i}`,
+      description: `Description ${i}`,
+    }))
+  );
 
   public options: WritableSignal<any[]> = signal([]);
   public data: WritableSignal<any[]> = signal([]);

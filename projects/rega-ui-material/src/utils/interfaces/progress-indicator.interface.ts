@@ -1,8 +1,12 @@
-import { AlignmentEnum } from "../enums";
+import { AlignmentEnum, IndicatorStatusEnum } from "../enums";
 
-export interface ProcessStep {
+export interface IndicatorStep {
   title?: string;
   description?: string;
+}
+
+export interface IndicatorStatusStep extends IndicatorStep {
+  status: IndicatorStatusEnum;
 }
 
 export type AlignmentType = `${AlignmentEnum}`;
