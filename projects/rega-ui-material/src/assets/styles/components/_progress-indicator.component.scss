@@ -1,0 +1,87 @@
+@use "../colors";
+
+.rega-indicator {
+  @apply w-full flex font-ibm-regular text-[14px] outline-none border-none list-none;
+
+  .step {
+    @apply min-w-[100px] min-h-[100px] w-full relative cursor-pointer block;
+
+    button {
+      @apply w-8 h-8 flex justify-center items-center relative text-[#d2d6db] bg-white cursor-pointer outline-none z-[1]  rounded-[100%] border-2 border-solid border-[#d2d6db];
+    }
+
+    .step-content {
+      @apply mt-[8px] pe-[16px];
+
+      .title {
+        @apply text-[16px] leading-none;
+      }
+
+      .description {
+        @apply mt-[4px] text-[14px] leading-none;
+      }
+    }
+
+    &::after {
+      @apply content-[""] block absolute w-full h-[2px] top-[16px] bg-[#d2d6db];
+      inset-inline-start: 16px;
+    }
+
+    &:last-child::after {
+      @apply invisible;
+    }
+
+    &.upComing:hover {
+      button {
+        @apply border-disabledColor;
+      }
+
+      &::after {
+        @apply bg-disabledColor;
+      }
+    }
+
+    &.active {
+      button {
+        @apply text-black bg-white border-primaryColor z-[1];
+      }
+    }
+
+    &.completed {
+      button {
+        @apply border-primaryColor bg-primaryColor text-white z-[1];
+      }
+
+      &::after {
+        @apply bg-primaryColor;
+      }
+
+      &:hover {
+        button,
+        &::after {
+          background-color: darken($primaryColor, 5%);
+        }
+      }
+    }
+  }
+
+  &.rega-indicator--horizontal {
+    @apply flex-row;
+
+    .step {
+      @apply block;
+    }
+  }
+
+  &.rega-indicator--vertical {
+    @apply flex-col;
+
+    .step {
+      @apply flex after:h-full after:w-[2px];
+
+      .step-content {
+        @apply mt-0 ms-[8px];
+      }
+    }
+  }
+}

@@ -134,6 +134,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  argTypes: {\r\n    steps: {\r\n      name: \"steps\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: [] as IndicatorStep[],\r\n      description: \"IndicatorStep[]\",\r\n      control: { type: \"object\" },\r\n    },\r\n    alignment: {\r\n      options: GStatic.enumToArray(AlignmentEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"AlignmentEnum\",\r\n    },\r\n    indicatorClass: { control: { type: \"text\" }, description: \"String\" },\r\n    activeStepIndex: {\r\n      name: \"activeStepIndex\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: 1,\r\n      description: \"number\",\r\n      control: { type: \"object\" },\r\n    },\r\n    onStepClick: { description: \"(stepIndex: number) => void\" },\r\n  },\r\n  args: {\r\n    steps: steps(),\r\n    activeStepIndex: 0,\r\n    alignment: AlignmentEnum.Horizontal,\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/rega-ui-material/src/lib/stories/radio-group.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -429,6 +439,16 @@
                 "deprecationMessage": "",
                 "type": "Meta",
                 "defaultValue": "{\r\n  title: \"Components/Pagination\",\r\n  component: PaginationComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ProgressIndicatorComponent>",
+                "defaultValue": "{\r\n  title: \"Components/ProcessIndicator\",\r\n  component: ProgressIndicatorComponent,\r\n  tags: [\"autodocs\"],\r\n}"
             },
             {
                 "name": "meta",
@@ -751,6 +771,16 @@
                 "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Warning,\n    variant: ButtonVariantEnum.Solid,\n  },\n}"
             },
             {
+                "name": "steps",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Signal<IndicatorStep[]>",
+                "defaultValue": "signal(\r\n  Array.from({ length: 4 }, (_, i) => ({\r\n    title: `Strep ${i}`,\r\n    description: `Description ${i}`,\r\n  }))\r\n)"
+            },
+            {
                 "name": "TextInfo",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -937,6 +967,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<PaginationComponent>",
                 "file": "projects/rega-ui-material/src/lib/stories/pagination.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ProgressIndicatorComponent>",
+                "file": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1548,6 +1589,38 @@
                     "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: { ...Default.args },\r\n}"
                 }
             ],
+            "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  argTypes: {\r\n    steps: {\r\n      name: \"steps\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: [] as IndicatorStep[],\r\n      description: \"IndicatorStep[]\",\r\n      control: { type: \"object\" },\r\n    },\r\n    alignment: {\r\n      options: GStatic.enumToArray(AlignmentEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"AlignmentEnum\",\r\n    },\r\n    indicatorClass: { control: { type: \"text\" }, description: \"String\" },\r\n    activeStepIndex: {\r\n      name: \"activeStepIndex\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: 1,\r\n      description: \"number\",\r\n      control: { type: \"object\" },\r\n    },\r\n    onStepClick: { description: \"(stepIndex: number) => void\" },\r\n  },\r\n  args: {\r\n    steps: steps(),\r\n    activeStepIndex: 0,\r\n    alignment: AlignmentEnum.Horizontal,\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ProgressIndicatorComponent>",
+                    "defaultValue": "{\r\n  title: \"Components/ProcessIndicator\",\r\n  component: ProgressIndicatorComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+                },
+                {
+                    "name": "steps",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Signal<IndicatorStep[]>",
+                    "defaultValue": "signal(\r\n  Array.from({ length: 4 }, (_, i) => ({\r\n    title: `Strep ${i}`,\r\n    description: `Description ${i}`,\r\n  }))\r\n)"
+                }
+            ],
             "projects/rega-ui-material/src/lib/stories/radio-group.stories.ts": [
                 {
                     "name": "Default",
@@ -1975,6 +2048,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<PaginationComponent>",
                     "file": "projects/rega-ui-material/src/lib/stories/pagination.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ProgressIndicatorComponent>",
+                    "file": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2665,6 +2751,46 @@
             },
             {
                 "filePath": "projects/rega-ui-material/src/lib/stories/pagination.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "steps",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

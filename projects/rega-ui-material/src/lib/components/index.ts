@@ -13,3 +13,4 @@ export * from "./autocomplete/autocomplete.component";
 export * from "./dropdown/dropdown.component";
 export * from "./table/table.component";
 export * from "./pagination/pagination.component";
+export * from "./progress-indicator/progress-indicator.component";
