@@ -20,6 +20,8 @@ $sizes: (
 );
 
 .rega-radio {
+  @apply font-ibm-regular;
+
   input {
     display: none;
   }

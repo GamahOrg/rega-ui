@@ -7,7 +7,7 @@
   }
 
   .p-autocomplete {
-    @apply w-full p-0 border border-borderColor rounded-[4px];
+    @apply font-ibm-regular w-full p-0 border border-borderColor rounded-[4px];
 
     input {
       @apply border-none hover:border-none focus:border-none px-2 bg-transparent;
@@ -15,7 +15,7 @@
   }
 
   .option {
-    @apply w-full h-[32px] flex justify-between items-center py-[4px] px-2 rounded-lg gap-2 outline-none border-none;
+    @apply font-ibm-regular w-full h-[32px] flex justify-between items-center py-[4px] px-2 rounded-lg gap-2 outline-none border-none;
 
     .p-skeleton {
       height: 100% !important;

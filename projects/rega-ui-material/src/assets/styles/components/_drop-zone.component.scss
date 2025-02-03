@@ -1,5 +1,5 @@
 .rega-dropzone {
-  @apply rounded-[4px] border-dashed border-[3px] border-[#d2d6db] hover:border-successColor md:p-[24px] p-6 bg-semiLightColor hover:bg-[#f6fef9] text-darkColor hover:text-[#067647] outline-none cursor-pointer;
+  @apply rounded-[4px] border-dashed border-[3px] border-[#d2d6db] hover:border-successColor md:p-[24px] p-6 bg-semiLightColor hover:bg-[#f6fef9] text-darkColor hover:text-[#067647] outline-none cursor-pointer font-ibm-regular;
 
   &.rega-dropzone--disabled {
     @apply text-disabledColor hover:text-disabledColor hover:bg-semiLightColor hover:border-[#d2d6db] hover:cursor-default;

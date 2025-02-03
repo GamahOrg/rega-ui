@@ -1,5 +1,5 @@
 .rega-card {
-  @apply w-[350px] flex flex-col justify-start items-stretch gap-[24px] overflow-hidden outline-none text-[#1f2a37] p-[16px] rounded-[16px];
+  @apply w-[350px] flex flex-col justify-start items-stretch gap-[24px] overflow-hidden outline-none text-[#1f2a37] p-[16px] rounded-[16px] font-ibm-regular;
 
   .icon-wrapper {
     $icon-width: 25px;

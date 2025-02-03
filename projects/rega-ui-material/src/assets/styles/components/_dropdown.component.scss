@@ -3,7 +3,7 @@
 // Base styles for the select component
 .rega-dropdown {
   .p-select {
-    @apply w-full p-0 border border-borderColor rounded-[4px] outline-none;
+    @apply w-full p-0 border border-borderColor rounded-[4px] outline-none font-ibm-regular;
 
     .p-select-label,
     .p-placeholder {
@@ -12,7 +12,7 @@
   }
 
   .option {
-    @apply w-full h-[32px] flex justify-between items-center py-[4px] px-2 rounded-lg gap-2 outline-none border-none;
+    @apply w-full h-[32px] flex justify-between items-center py-[4px] px-2 rounded-lg gap-2 outline-none border-none font-ibm-regular;
   }
 
   .p-select-option {

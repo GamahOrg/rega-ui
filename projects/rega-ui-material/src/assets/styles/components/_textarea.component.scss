@@ -1,5 +1,7 @@
 // Base Style
 .rega-textarea {
+  @apply font-ibm-regular;
+
   label {
     font-size: 16px;
   }
