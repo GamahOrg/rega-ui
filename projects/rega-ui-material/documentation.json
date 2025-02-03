@@ -138,7 +138,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  argTypes: {\r\n    steps: {\r\n      name: \"steps\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: [] as IndicatorStep[],\r\n      description: \"IndicatorStep[]\",\r\n      control: { type: \"object\" },\r\n    },\r\n    alignment: {\r\n      options: GStatic.enumToArray(AlignmentEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"AlignmentEnum\",\r\n    },\r\n    indicatorClass: { control: { type: \"text\" }, description: \"String\" },\r\n    activeStepIndex: {\r\n      name: \"activeStepIndex\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: 1,\r\n      description: \"number\",\r\n      control: { type: \"object\" },\r\n    },\r\n    onStepClick: { description: \"(stepIndex: number) => void\" },\r\n  },\r\n  args: {\r\n    steps: steps(),\r\n    activeStepIndex: 0,\r\n    alignment: AlignmentEnum.Horizontal,\r\n  },\r\n}"
+                "defaultValue": "{\r\n  argTypes: {\r\n    steps: {\r\n      name: \"steps\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: [] as IndicatorStep[],\r\n      description: \"IndicatorStep[]\",\r\n      control: { type: \"object\" },\r\n    },\r\n    alignment: {\r\n      options: GStatic.enumToArray(AlignmentEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"AlignmentEnum\",\r\n    },\r\n    indicatorClass: { control: { type: \"text\" }, description: \"String\" },\r\n    activeStepIndex: {\r\n      name: \"activeStepIndex\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: 1,\r\n      description: \"number\",\r\n      control: { type: \"object\" },\r\n    },\r\n    stepAction: {\r\n      control: { type: \"object\" },\r\n      description: \"ContentChild with Template variable #stepAction\",\r\n    },\r\n    stepContent: {\r\n      control: { type: \"object\" },\r\n      description: \"ContentChild with Template variable #stepContent\",\r\n    },\r\n    onStepClick: { description: \"(stepIndex: number) => void\" },\r\n  },\r\n  args: {\r\n    steps: steps(),\r\n    activeStepIndex: 0,\r\n    alignment: AlignmentEnum.Horizontal,\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -448,7 +448,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ProgressIndicatorComponent>",
-                "defaultValue": "{\r\n  title: \"Components/ProcessIndicator\",\r\n  component: ProgressIndicatorComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+                "defaultValue": "{\r\n  title: \"Components/ProcessIndicator\",\r\n  component: ProgressIndicatorComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n           [steps]=\"[\r\n           {title:'Step 1', description:'description 1'}, \r\n           {title:'Step 2', description:'description 2'}, \r\n           {title:'Step 3', description:'description 3'}, \r\n           {title:'Step 4', description:'description 4'}]\"\r\n           [activeStepIndex] = \"${args.activeStepIndex}\"\r\n           [alignment] = \"'${args.alignment}'\"\r\n          />\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -644,6 +644,16 @@
                 "name": "RTL",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n          [steps]=\"[\r\n          {title:'خطوة 1', description:'وصف 1'}, \r\n          {title:'خطوة 2', description:'وصف 2'}, \r\n          {title:'خطوة 3', description:'وصف 3'}, \r\n          {title:'خطوة 4', description:'وصف 4'}]\"\r\n           [activeStepIndex] = \"${args.activeStepIndex}\"\r\n           [alignment] = \"'${args.alignment}'\"\r\n          />\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
+            },
+            {
+                "name": "RTL",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -711,6 +721,16 @@
                 "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    size: SizeEnum.Large,\r\n    label: \"العنوان\",\r\n    placeholder: \"نص توضيحي\",\r\n    emptyMessage: \"لا توجد بيانات\",\r\n    options: options().map(({ label }) => label),\r\n  },\r\n}"
             },
             {
+                "name": "RTLVertical",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: { ...Default.args, alignment: AlignmentEnum.Vertical, activeStepIndex: 2 },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n          [steps]=\"[\r\n          {title:'خطوة 1', description:'وصف 1'}, \r\n          {title:'خطوة 2', description:'وصف 2'}, \r\n          {title:'خطوة 3', description:'وصف 3'}, \r\n          {title:'خطوة 4', description:'وصف 4'}]\"\r\n           [activeStepIndex] = \"${args.activeStepIndex}\"\r\n           [alignment] = \"'${args.alignment}'\"\r\n          />\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
+            },
+            {
                 "name": "RTLWithSecondaryColorLarge",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -769,6 +789,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Warning,\n    variant: ButtonVariantEnum.Solid,\n  },\n}"
+            },
+            {
+                "name": "StepAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n            [steps]=\"[\r\n            {title:'Step 1', description:'description 1'}, \r\n            {title:'Step 2', description:'description 2'}, \r\n            {title:'Step 3', description:'description 3'}, \r\n            {title:'Step 4', description:'description 4'}]\"\r\n            [activeStepIndex] = \"${args.activeStepIndex}\"\r\n            [alignment] = \"'${args.alignment}'\"\r\n          >\r\n            <ng-template #stepAction let-step let-index=\"index\" let-status=\"status\">\r\n              <div\r\n                class = \"h-10 w-10 relative flex justify-center items-center text-white bg-slate-300 !z-[1]\">\r\n                 {{ index }}\r\n              </div>\r\n            </ng-template>\r\n          </rega-progress-indicator>\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "steps",
@@ -1598,7 +1628,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  argTypes: {\r\n    steps: {\r\n      name: \"steps\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: [] as IndicatorStep[],\r\n      description: \"IndicatorStep[]\",\r\n      control: { type: \"object\" },\r\n    },\r\n    alignment: {\r\n      options: GStatic.enumToArray(AlignmentEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"AlignmentEnum\",\r\n    },\r\n    indicatorClass: { control: { type: \"text\" }, description: \"String\" },\r\n    activeStepIndex: {\r\n      name: \"activeStepIndex\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: 1,\r\n      description: \"number\",\r\n      control: { type: \"object\" },\r\n    },\r\n    onStepClick: { description: \"(stepIndex: number) => void\" },\r\n  },\r\n  args: {\r\n    steps: steps(),\r\n    activeStepIndex: 0,\r\n    alignment: AlignmentEnum.Horizontal,\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  argTypes: {\r\n    steps: {\r\n      name: \"steps\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: [] as IndicatorStep[],\r\n      description: \"IndicatorStep[]\",\r\n      control: { type: \"object\" },\r\n    },\r\n    alignment: {\r\n      options: GStatic.enumToArray(AlignmentEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"AlignmentEnum\",\r\n    },\r\n    indicatorClass: { control: { type: \"text\" }, description: \"String\" },\r\n    activeStepIndex: {\r\n      name: \"activeStepIndex\",\r\n      type: { name: \"string\", required: true },\r\n      defaultValue: 1,\r\n      description: \"number\",\r\n      control: { type: \"object\" },\r\n    },\r\n    stepAction: {\r\n      control: { type: \"object\" },\r\n      description: \"ContentChild with Template variable #stepAction\",\r\n    },\r\n    stepContent: {\r\n      control: { type: \"object\" },\r\n      description: \"ContentChild with Template variable #stepContent\",\r\n    },\r\n    onStepClick: { description: \"(stepIndex: number) => void\" },\r\n  },\r\n  args: {\r\n    steps: steps(),\r\n    activeStepIndex: 0,\r\n    alignment: AlignmentEnum.Horizontal,\r\n  },\r\n}"
                 },
                 {
                     "name": "meta",
@@ -1608,7 +1638,37 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ProgressIndicatorComponent>",
-                    "defaultValue": "{\r\n  title: \"Components/ProcessIndicator\",\r\n  component: ProgressIndicatorComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+                    "defaultValue": "{\r\n  title: \"Components/ProcessIndicator\",\r\n  component: ProgressIndicatorComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n           [steps]=\"[\r\n           {title:'Step 1', description:'description 1'}, \r\n           {title:'Step 2', description:'description 2'}, \r\n           {title:'Step 3', description:'description 3'}, \r\n           {title:'Step 4', description:'description 4'}]\"\r\n           [activeStepIndex] = \"${args.activeStepIndex}\"\r\n           [alignment] = \"'${args.alignment}'\"\r\n          />\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
+                },
+                {
+                    "name": "RTL",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n          [steps]=\"[\r\n          {title:'خطوة 1', description:'وصف 1'}, \r\n          {title:'خطوة 2', description:'وصف 2'}, \r\n          {title:'خطوة 3', description:'وصف 3'}, \r\n          {title:'خطوة 4', description:'وصف 4'}]\"\r\n           [activeStepIndex] = \"${args.activeStepIndex}\"\r\n           [alignment] = \"'${args.alignment}'\"\r\n          />\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
+                },
+                {
+                    "name": "RTLVertical",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: { ...Default.args, alignment: AlignmentEnum.Vertical, activeStepIndex: 2 },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n          [steps]=\"[\r\n          {title:'خطوة 1', description:'وصف 1'}, \r\n          {title:'خطوة 2', description:'وصف 2'}, \r\n          {title:'خطوة 3', description:'وصف 3'}, \r\n          {title:'خطوة 4', description:'وصف 4'}]\"\r\n           [activeStepIndex] = \"${args.activeStepIndex}\"\r\n           [alignment] = \"'${args.alignment}'\"\r\n          />\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
+                },
+                {
+                    "name": "StepAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n            [steps]=\"[\r\n            {title:'Step 1', description:'description 1'}, \r\n            {title:'Step 2', description:'description 2'}, \r\n            {title:'Step 3', description:'description 3'}, \r\n            {title:'Step 4', description:'description 4'}]\"\r\n            [activeStepIndex] = \"${args.activeStepIndex}\"\r\n            [alignment] = \"'${args.alignment}'\"\r\n          >\r\n            <ng-template #stepAction let-step let-index=\"index\" let-status=\"status\">\r\n              <div\r\n                class = \"h-10 w-10 relative flex justify-center items-center text-white bg-slate-300 !z-[1]\">\r\n                 {{ index }}\r\n              </div>\r\n            </ng-template>\r\n          </rega-progress-indicator>\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
                 },
                 {
                     "name": "steps",
@@ -2775,6 +2835,36 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "RTL",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "RTLVertical",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "StepAction",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

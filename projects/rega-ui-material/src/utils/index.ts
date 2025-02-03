@@ -1,3 +1,4 @@
+export * from "./theme";
 export * from "./animations";
 export * from "./directives";
 export * from "./interfaces";

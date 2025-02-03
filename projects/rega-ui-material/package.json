@@ -7,7 +7,7 @@
     "rega material",
     "rega ui material"
   ],
-  "version": "0.0.22",
+  "version": "0.0.26",
   "peerDependencies": {
     "@angular/common": "^19.0.0",
     "@angular/core": "^19.0.0",
@@ -17,6 +17,7 @@
     "tslib": "^2.3.0",
     "@angular/material": "^19.0.2",
     "primeng": "^19.0.2",
+    "@primeng/themes": "^19.0.2",
     "flowbite": "^2.5.2",
     "material-icons": "^1.13.12",
     "primeicons": "^7.0.0",
@@ -35,6 +36,7 @@
     "@angular/cdk",
     "@angular/material",
     "primeng",
+    "@primeng/themes",
     "material-icons",
     "primeicons",
     "flowbite",
