@@ -1,0 +1,58 @@
+$sizes: (
+  small: (
+    20px,
+    8px,
+    10px,
+  ),
+  medium: (
+    24px,
+    8px,
+    12px,
+  ),
+  large: (
+    32px,
+    12px,
+    16px,
+  ),
+);
+
+@mixin tagColor($name, $color) {
+  border-color: mix(#ffffff, $color, 75%);
+  color: mix(#000000, $color, 40%);
+  background-color: mix(#ffffff, $color, 95%);
+}
+
+@mixin tagVariant($name, $color) {
+  &.rega-tag--outlined {
+    border-color: $color;
+    background-color: transparent !important;
+  }
+}
+
+.rega-tag {
+  @apply inline-flex items-center justify-center text-neutralColor outline-none rounded-[4px] border border-solid font-medium font-ibm-regular;
+  -webkit-tap-highlight-color: transparent;
+
+  &.rega-tag--rounded {
+    @apply rounded-full;
+  }
+}
+
+@each $name, $color in $colors {
+  .rega-tag--#{$name} {
+    @include tagVariant($name, $color);
+    @include tagColor($name, $color);
+
+    &.rega-tag--contained {
+      @extend .rega-tag--#{$name};
+    }
+  }
+}
+
+@each $size, $values in $sizes {
+  .rega-tag--#{$size} {
+    height: nth($values, 1);
+    padding: 0 nth($values, 2);
+    font-size: nth($values, 3);
+  }
+}

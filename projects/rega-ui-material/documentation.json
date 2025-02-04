@@ -164,11 +164,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  argTypes: {\r\n    selectedIndex: { control: { type: \"number\" } },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    vertical: { control: { type: \"boolean\" } },\r\n    flush: { control: { type: \"boolean\" } },\r\n    tabListClass: { control: { type: \"text\" } },\r\n  },\r\n  args: {\r\n    size: SizeEnum.Large,\r\n    selectedIndex: 0,\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  argTypes: {\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    selected: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    tabClass: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    size: SizeEnum.Large,\r\n  },\r\n}"
+                "defaultValue": "{\r\n  argTypes: {\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    selected: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    vertical: { control: { type: \"boolean\" } },\r\n    tabClass: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    size: SizeEnum.Large,\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -179,6 +189,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  argTypes: {\r\n    data: { control: { type: \"object\" }, description: \"Type of any[]\" },\r\n    colSpan: { control: { type: \"number\" }, description: \"Count of columns\" },\r\n    extendable: { control: { type: \"boolean\" } },\r\n    reorder: { control: { type: \"boolean\" }, description: \"Reorder table rows\" },\r\n    contained: { control: { type: \"boolean\" } },\r\n    columnDivider: { control: { type: \"boolean\" } },\r\n    alternatingRows: { control: { type: \"boolean\" } },\r\n    lazy: {\r\n      control: { type: \"boolean\" },\r\n      description:\r\n        \"Lazy is a performance-approach to handle huge data efficiently. Setting [lazy] property as true and providing a [virtualScrollItemSize] in pixels would be enough to enable this functionality. It is also suggested to use the same virtualScrollItemSize value on the tr element inside the body template, By default 32.\",\r\n    },\r\n    rowsCount: {\r\n      control: { type: \"number\" },\r\n      description: \"Number of rows to display per page.\",\r\n    },\r\n    scrollHeight: {\r\n      control: { type: \"text\" },\r\n      description:\r\n        \"Adding scrollable property along with a scrollHeight for the data viewport enables vertical scrolling with fixed headers.\",\r\n    },\r\n    virtualScrollItemSize: {\r\n      control: { type: \"number\" },\r\n      description:\r\n        \"It is also suggested to use the same virtualScrollItemSize value on the tr element inside the body template, By default 32.\",\r\n    },\r\n    emptyMessage: { control: { type: \"text\" }, description: \"Empty data message\" },\r\n    tableClass: { control: { type: \"text\" } },\r\n    headerTemp: {\r\n      control: { type: \"object\" },\r\n      description: \"ContentChild with Template variable #headerTemp\",\r\n    },\r\n    bodyTemp: {\r\n      control: { type: \"object\" },\r\n      description: \"ContentChild with Template variable #bodyTemp\",\r\n    },\r\n    footerTemp: {\r\n      control: { type: \"object\" },\r\n      description: \"ContentChild with Template variable #footerTemp\",\r\n    },\r\n    extendableArea: {\r\n      control: { type: \"object\" },\r\n      description: \"ContentChild with Template variable #extendableArea\",\r\n    },\r\n    emptyMessageTemp: {\r\n      control: { type: \"object\" },\r\n      description: \"ContentChild with Template variable #emptyMessageTemp\",\r\n    },\r\n    onRowClick: { description: \"(event: any) => void\" },\r\n    onLazyLoad: { description: \"(event: TableLazyLoadEvent) => void\" },\r\n  },\r\n  args: {\r\n    data: Array.from({ length: 12 }, (_, id) => ({ id, label: \"Item label \" + id })),\r\n    colSpan: 4,\r\n  },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n    <div class=\"h-96\">  \r\n      <rega-table\r\n        [data]=\"[{id: 0, label: 'Item label 0'}, {id: 1, label: 'Item label 1'}, {id: 2, label: 'Item label 2'}, {id: 3, label: 'Item label 3'}, {id: 4, label: 'Item label 4'}, {id: 5, label: 'Item label 5'}, {id: 6, label: 'Item label 6'}, {id: 7, label: 'Item label 7'}, {id: 8, label: 'Item label 8'}, {id: 9, label: 'Item label 9'}, {id: 10, label: 'Item label 10'}, {id: 11, label: 'Item label 11'}]\"\r\n        [reorder]=\"${args.reorder}\"\r\n        [extendable]=\"${args.extendable}\"\r\n        [contained]=\"${args.contained}\"\r\n        [columnDivider]=\"${args.columnDivider}\"\r\n        [alternatingRows]=\"${args.alternatingRows}\"\r\n        [colSpan]=\"${args.colSpan}\"\r\n      >\r\n        <ng-template #headerTemp>\r\n          <th>Name</th>\r\n          <th>Country</th>\r\n          <th>Company</th>\r\n          <th>Representative</th>\r\n        </ng-template>\r\n\r\n        <ng-template #bodyTemp let-row>\r\n          <td class=\"w-6\">{{ row.id }}</td>\r\n          <td class=\"w-48\">{{ row.label }}</td>\r\n          <td class=\"w-48\">{{ row.label }}</td>\r\n          <td class=\"w-48\">{{ row.label }}</td>\r\n        </ng-template>\r\n\r\n         <ng-template #headerTemp>\r\n          <th>Name</th>\r\n          <th>Country</th>\r\n          <th>Company</th>\r\n          <th>Representative</th>\r\n        </ng-template>\r\n      </rega-table>\r\n    </div>\r\n      `,\r\n    };\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/tag.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  argTypes: {\r\n    color: {\r\n      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),\r\n      control: { type: \"select\" },\r\n      description: \"ColorEnum\",\r\n    },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    variant: {\r\n      options: GStatic.enumToArray(TagVariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"TagVariantEnum\",\r\n    },\r\n    rounded: { control: { type: \"boolean\" } },\r\n    tagClass: { control: { type: \"text\" } },\r\n  },\r\n  args: {\r\n    color: ColorEnum.Neutral,\r\n    size: SizeEnum.Large,\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -219,6 +239,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    disabled: true,\r\n  },\r\n}"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab-list \r\n          [selectedIndex]=\"'${args.selectedIndex}'\" \r\n          [size]=\"'${args.size}'\" \r\n          [vertical]=\"${args.vertical}\" \r\n          [flush]=\"${args.flush}\" \r\n        >\r\n           <rega-tab><span class=\"material-icons\">home</span><span>Tab 1</span></rega-tab>\r\n           <rega-tab [disabled]=\"true\"><span class=\"material-icons\">settings</span><span>Tab 2</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">shopping_cart</span><span>Tab 3</span></rega-tab>\r\n        <rega-tab-list/>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "DisabledItems",
@@ -468,7 +498,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<RadioGroupComponent>",
-                "defaultValue": "{\r\n  title: \"Components/Radio/RadioGroup\",\r\n  component: RadioGroupComponent,\r\n  tags: [\"autodocs\"],\r\n  decorators: [moduleMetadata({ imports: [RadioGroupComponent, RadioButtonComponent] })],\r\n  render: (args) => {\r\n    const { size, color, readOnly, disabled, ...props } = args;\r\n    let prop: string = \"\";\r\n    if (color) prop += `[color]=\"'${color}'\" `;\r\n    if (size) prop += `[size]=\"'${size}'\" `;\r\n    if (disabled) prop += `[disabled]=\"${disabled}\" `;\r\n    if (readOnly) prop += `[readOnly]=\"${readOnly}\" `;\r\n    return {\r\n      props,\r\n      template: `\r\n        <rega-radio-group ${prop} class=\"flex justify-evenly items-center gap-10\">\r\n            <rega-radio-button value=\"1\">Label 1 </rega-radio-button>\r\n            <rega-radio-button value=\"2\">Label 2 </rega-radio-button>\r\n            <rega-radio-button value=\"3\">Label 3 </rega-radio-button>\r\n        </rega-radio-group>\r\n      `,\r\n    };\r\n  },\r\n}"
+                "defaultValue": "{\r\n  title: \"Components/Radio/RadioGroup\",\r\n  component: RadioGroupComponent,\r\n  decorators: [moduleMetadata({ imports: [RadioGroupComponent, RadioButtonComponent] })],\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    const { size, color, readOnly, disabled, ...props } = args;\r\n    let prop: string = \"\";\r\n    if (color) prop += `[color]=\"'${color}'\" `;\r\n    if (size) prop += `[size]=\"'${size}'\" `;\r\n    if (disabled) prop += `[disabled]=\"${disabled}\" `;\r\n    if (readOnly) prop += `[readOnly]=\"${readOnly}\" `;\r\n    return {\r\n      props,\r\n      template: `\r\n        <rega-radio-group ${prop} class=\"flex justify-evenly items-center gap-10\">\r\n            <rega-radio-button value=\"1\">Label 1 </rega-radio-button>\r\n            <rega-radio-button value=\"2\">Label 2 </rega-radio-button>\r\n            <rega-radio-button value=\"3\">Label 3 </rega-radio-button>\r\n        </rega-radio-group>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -484,11 +514,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TabListComponent>",
+                "defaultValue": "{\r\n  title: \"Components/Tabs/TabList\",\r\n  decorators: [moduleMetadata({ imports: [TabListComponent, TabComponent] })],\r\n  component: TabListComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab-list \r\n          [selectedIndex]=\"'${args.selectedIndex}'\" \r\n          [size]=\"'${args.size}'\" \r\n          [vertical]=\"${args.vertical}\" \r\n          [flush]=\"${args.flush}\" \r\n        >\r\n           <rega-tab><span class=\"material-icons\">home</span><span>Tab 1</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">settings</span><span>Tab 2</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">shopping_cart</span><span>Tab 3</span></rega-tab>\r\n        <rega-tab-list/>\r\n      `,\r\n    };\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TabComponent>",
-                "defaultValue": "{\r\n  title: \"Components/Tab\",\r\n  component: TabComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab \r\n          [size]=\"'${args.size}'\" \r\n          [selected]=\"${args.selected}\" \r\n          [disabled]=\"${args.disabled}\" \r\n        >\r\n            <span class=\"material-icons\">home</span>\r\n            <span>Text</span>\r\n        </rega-tab>\r\n      `,\r\n    };\r\n  },\r\n}"
+                "defaultValue": "{\r\n  title: \"Components/Tabs/Tab\",\r\n  component: TabComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab \r\n          [size]=\"'${args.size}'\" \r\n          [vertical]=\"${args.vertical}\" \r\n          [selected]=\"${args.selected}\" \r\n          [disabled]=\"${args.disabled}\" \r\n        >\r\n            <span class=\"material-icons\">home</span>\r\n            <span>Text</span>\r\n        </rega-tab>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -499,6 +539,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<TableComponent>",
                 "defaultValue": "{\r\n  title: \"Components/Table\",\r\n  component: TableComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/tag.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TagComponent>",
+                "defaultValue": "{\r\n  title: \"Components/Tags/Tag\",\r\n  component: TagComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tag [color]=\"'${args.color}'\" [size]=\"'${args.size}'\" [variant]=\"'${args.variant}'\" [rounded]=\"${args.rounded}\">Label</rega-tag>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -688,7 +738,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab \r\n          [size]=\"'${args.size}'\" \r\n          [selected]=\"${args.selected}\" \r\n          [disabled]=\"${args.disabled}\" \r\n        >\r\n            <span class=\"material-icons\">home</span>\r\n            <span>Text</span>\r\n        </rega-tab>\r\n      `,\r\n    };\r\n  },\r\n}"
+                "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab \r\n          [size]=\"'${args.size}'\" \r\n          [vertical]=\"${args.vertical}\" \r\n          [selected]=\"${args.selected}\" \r\n          [disabled]=\"${args.disabled}\" \r\n        >\r\n            <span class=\"material-icons\">home</span>\r\n            <span>Text</span>\r\n        </rega-tab>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "RTL",
@@ -719,6 +769,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  argTypes: { ...Default.argTypes },\r\n  args: {\r\n    ...Default.args,\r\n    title: \"عنوان البطاقة\",\r\n    description: \"نص إضافي لمحتوى البطاقة\",\r\n    type: CardTypeEnum.Expandable,\r\n  },\r\n}"
+            },
+            {
+                "name": "RTLFlush",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args, flush: true },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab-list \r\n          [selectedIndex]=\"'${args.selectedIndex}'\" \r\n          [size]=\"'${args.size}'\" \r\n          [vertical]=\"${args.vertical}\" \r\n          [flush]=\"${args.flush}\" \r\n        >\r\n           <rega-tab><span class=\"material-icons\">home</span><span>تاب 1</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">settings</span><span>تاب 2</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">shopping_cart</span><span>تاب 3</span></rega-tab>\r\n        <rega-tab-list/>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "RTLMultiple",
@@ -849,6 +909,26 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Info,\n    variant: ButtonVariantEnum.Text,\n  },\n}"
+            },
+            {
+                "name": "Vertical",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args, vertical: true },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab \r\n          [size]=\"'${args.size}'\" \r\n          [vertical]=\"${args.vertical}\" \r\n          [selected]=\"${args.selected}\" \r\n          [disabled]=\"${args.disabled}\" \r\n        >\r\n            <span class=\"material-icons\">home</span>\r\n            <span>Text</span>\r\n        </rega-tab>\r\n      `,\r\n    };\r\n  },\r\n}"
+            },
+            {
+                "name": "VerticalFlush",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args, flush: true, vertical: true },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab-list \r\n          [selectedIndex]=\"'${args.selectedIndex}'\" \r\n          [size]=\"'${args.size}'\" \r\n          [vertical]=\"${args.vertical}\" \r\n          [flush]=\"${args.flush}\" \r\n        >\r\n           <rega-tab><span class=\"material-icons\">home</span><span>Tab 1</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">settings</span><span>Tab 2</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">shopping_cart</span><span>Tab 3</span></rega-tab>\r\n        <rega-tab-list/>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "VerticalWithWarningColorSmall",
@@ -1069,6 +1149,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<TabListComponent>",
+                "file": "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<TabComponent>",
                 "file": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
                 "deprecated": false,
@@ -1082,6 +1173,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<TableComponent>",
                 "file": "projects/rega-ui-material/src/lib/stories/table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TagComponent>",
+                "file": "projects/rega-ui-material/src/lib/stories/tag.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1751,7 +1853,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<RadioGroupComponent>",
-                    "defaultValue": "{\r\n  title: \"Components/Radio/RadioGroup\",\r\n  component: RadioGroupComponent,\r\n  tags: [\"autodocs\"],\r\n  decorators: [moduleMetadata({ imports: [RadioGroupComponent, RadioButtonComponent] })],\r\n  render: (args) => {\r\n    const { size, color, readOnly, disabled, ...props } = args;\r\n    let prop: string = \"\";\r\n    if (color) prop += `[color]=\"'${color}'\" `;\r\n    if (size) prop += `[size]=\"'${size}'\" `;\r\n    if (disabled) prop += `[disabled]=\"${disabled}\" `;\r\n    if (readOnly) prop += `[readOnly]=\"${readOnly}\" `;\r\n    return {\r\n      props,\r\n      template: `\r\n        <rega-radio-group ${prop} class=\"flex justify-evenly items-center gap-10\">\r\n            <rega-radio-button value=\"1\">Label 1 </rega-radio-button>\r\n            <rega-radio-button value=\"2\">Label 2 </rega-radio-button>\r\n            <rega-radio-button value=\"3\">Label 3 </rega-radio-button>\r\n        </rega-radio-group>\r\n      `,\r\n    };\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  title: \"Components/Radio/RadioGroup\",\r\n  component: RadioGroupComponent,\r\n  decorators: [moduleMetadata({ imports: [RadioGroupComponent, RadioButtonComponent] })],\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    const { size, color, readOnly, disabled, ...props } = args;\r\n    let prop: string = \"\";\r\n    if (color) prop += `[color]=\"'${color}'\" `;\r\n    if (size) prop += `[size]=\"'${size}'\" `;\r\n    if (disabled) prop += `[disabled]=\"${disabled}\" `;\r\n    if (readOnly) prop += `[readOnly]=\"${readOnly}\" `;\r\n    return {\r\n      props,\r\n      template: `\r\n        <rega-radio-group ${prop} class=\"flex justify-evenly items-center gap-10\">\r\n            <rega-radio-button value=\"1\">Label 1 </rega-radio-button>\r\n            <rega-radio-button value=\"2\">Label 2 </rega-radio-button>\r\n            <rega-radio-button value=\"3\">Label 3 </rega-radio-button>\r\n        </rega-radio-group>\r\n      `,\r\n    };\r\n  },\r\n}"
                 },
                 {
                     "name": "RTLWithSecondaryColorLarge",
@@ -1836,6 +1938,58 @@
                     "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    checked: true,\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n    errorMsg: \"Error message\",\r\n  },\r\n}"
                 }
             ],
+            "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  argTypes: {\r\n    selectedIndex: { control: { type: \"number\" } },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    vertical: { control: { type: \"boolean\" } },\r\n    flush: { control: { type: \"boolean\" } },\r\n    tabListClass: { control: { type: \"text\" } },\r\n  },\r\n  args: {\r\n    size: SizeEnum.Large,\r\n    selectedIndex: 0,\r\n  },\r\n}"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab-list \r\n          [selectedIndex]=\"'${args.selectedIndex}'\" \r\n          [size]=\"'${args.size}'\" \r\n          [vertical]=\"${args.vertical}\" \r\n          [flush]=\"${args.flush}\" \r\n        >\r\n           <rega-tab><span class=\"material-icons\">home</span><span>Tab 1</span></rega-tab>\r\n           <rega-tab [disabled]=\"true\"><span class=\"material-icons\">settings</span><span>Tab 2</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">shopping_cart</span><span>Tab 3</span></rega-tab>\r\n        <rega-tab-list/>\r\n      `,\r\n    };\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TabListComponent>",
+                    "defaultValue": "{\r\n  title: \"Components/Tabs/TabList\",\r\n  decorators: [moduleMetadata({ imports: [TabListComponent, TabComponent] })],\r\n  component: TabListComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab-list \r\n          [selectedIndex]=\"'${args.selectedIndex}'\" \r\n          [size]=\"'${args.size}'\" \r\n          [vertical]=\"${args.vertical}\" \r\n          [flush]=\"${args.flush}\" \r\n        >\r\n           <rega-tab><span class=\"material-icons\">home</span><span>Tab 1</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">settings</span><span>Tab 2</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">shopping_cart</span><span>Tab 3</span></rega-tab>\r\n        <rega-tab-list/>\r\n      `,\r\n    };\r\n  },\r\n}"
+                },
+                {
+                    "name": "RTLFlush",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args, flush: true },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab-list \r\n          [selectedIndex]=\"'${args.selectedIndex}'\" \r\n          [size]=\"'${args.size}'\" \r\n          [vertical]=\"${args.vertical}\" \r\n          [flush]=\"${args.flush}\" \r\n        >\r\n           <rega-tab><span class=\"material-icons\">home</span><span>تاب 1</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">settings</span><span>تاب 2</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">shopping_cart</span><span>تاب 3</span></rega-tab>\r\n        <rega-tab-list/>\r\n      `,\r\n    };\r\n  },\r\n}"
+                },
+                {
+                    "name": "VerticalFlush",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args, flush: true, vertical: true },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab-list \r\n          [selectedIndex]=\"'${args.selectedIndex}'\" \r\n          [size]=\"'${args.size}'\" \r\n          [vertical]=\"${args.vertical}\" \r\n          [flush]=\"${args.flush}\" \r\n        >\r\n           <rega-tab><span class=\"material-icons\">home</span><span>Tab 1</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">settings</span><span>Tab 2</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">shopping_cart</span><span>Tab 3</span></rega-tab>\r\n        <rega-tab-list/>\r\n      `,\r\n    };\r\n  },\r\n}"
+                }
+            ],
             "projects/rega-ui-material/src/lib/stories/tab.stories.ts": [
                 {
                     "name": "Default",
@@ -1845,7 +1999,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  argTypes: {\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    selected: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    tabClass: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    size: SizeEnum.Large,\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  argTypes: {\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    selected: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    vertical: { control: { type: \"boolean\" } },\r\n    tabClass: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    size: SizeEnum.Large,\r\n  },\r\n}"
                 },
                 {
                     "name": "meta",
@@ -1855,7 +2009,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<TabComponent>",
-                    "defaultValue": "{\r\n  title: \"Components/Tab\",\r\n  component: TabComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab \r\n          [size]=\"'${args.size}'\" \r\n          [selected]=\"${args.selected}\" \r\n          [disabled]=\"${args.disabled}\" \r\n        >\r\n            <span class=\"material-icons\">home</span>\r\n            <span>Text</span>\r\n        </rega-tab>\r\n      `,\r\n    };\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  title: \"Components/Tabs/Tab\",\r\n  component: TabComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab \r\n          [size]=\"'${args.size}'\" \r\n          [vertical]=\"${args.vertical}\" \r\n          [selected]=\"${args.selected}\" \r\n          [disabled]=\"${args.disabled}\" \r\n        >\r\n            <span class=\"material-icons\">home</span>\r\n            <span>Text</span>\r\n        </rega-tab>\r\n      `,\r\n    };\r\n  },\r\n}"
                 },
                 {
                     "name": "RTL",
@@ -1865,7 +2019,39 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab \r\n          [size]=\"'${args.size}'\" \r\n          [selected]=\"${args.selected}\" \r\n          [disabled]=\"${args.disabled}\" \r\n        >\r\n            <span class=\"material-icons\">home</span>\r\n            <span>Text</span>\r\n        </rega-tab>\r\n      `,\r\n    };\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab \r\n          [size]=\"'${args.size}'\" \r\n          [vertical]=\"${args.vertical}\" \r\n          [selected]=\"${args.selected}\" \r\n          [disabled]=\"${args.disabled}\" \r\n        >\r\n            <span class=\"material-icons\">home</span>\r\n            <span>Text</span>\r\n        </rega-tab>\r\n      `,\r\n    };\r\n  },\r\n}"
+                },
+                {
+                    "name": "Vertical",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args, vertical: true },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab \r\n          [size]=\"'${args.size}'\" \r\n          [vertical]=\"${args.vertical}\" \r\n          [selected]=\"${args.selected}\" \r\n          [disabled]=\"${args.disabled}\" \r\n        >\r\n            <span class=\"material-icons\">home</span>\r\n            <span>Text</span>\r\n        </rega-tab>\r\n      `,\r\n    };\r\n  },\r\n}"
+                }
+            ],
+            "projects/rega-ui-material/src/lib/stories/tag.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/tag.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  argTypes: {\r\n    color: {\r\n      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),\r\n      control: { type: \"select\" },\r\n      description: \"ColorEnum\",\r\n    },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    variant: {\r\n      options: GStatic.enumToArray(TagVariantEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"TagVariantEnum\",\r\n    },\r\n    rounded: { control: { type: \"boolean\" } },\r\n    tagClass: { control: { type: \"text\" } },\r\n  },\r\n  args: {\r\n    color: ColorEnum.Neutral,\r\n    size: SizeEnum.Large,\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/tag.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TagComponent>",
+                    "defaultValue": "{\r\n  title: \"Components/Tags/Tag\",\r\n  component: TagComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tag [color]=\"'${args.color}'\" [size]=\"'${args.size}'\" [variant]=\"'${args.variant}'\" [rounded]=\"${args.rounded}\">Label</rega-tag>\r\n      `,\r\n    };\r\n  },\r\n}"
                 }
             ],
             "projects/rega-ui-material/src/lib/stories/text-input.stories.ts": [
@@ -2226,6 +2412,19 @@
                     "kind": 183
                 }
             ],
+            "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TabListComponent>",
+                    "file": "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "projects/rega-ui-material/src/lib/stories/tab.stories.ts": [
                 {
                     "name": "Story",
@@ -2246,6 +2445,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<TableComponent>",
                     "file": "projects/rega-ui-material/src/lib/stories/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/rega-ui-material/src/lib/stories/tag.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TagComponent>",
+                    "file": "projects/rega-ui-material/src/lib/stories/tag.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -3106,6 +3318,66 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "RTLFlush",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "VerticalFlush",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/tab-list.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -3131,6 +3403,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "RTL",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Vertical",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3247,6 +3529,36 @@
             },
             {
                 "filePath": "projects/rega-ui-material/src/lib/stories/table.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/tag.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/tag.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/tag.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
