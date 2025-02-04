@@ -1,3 +1,7 @@
-<button [ngClass]="classes()" [disabled]="disabled()">
+<button
+  [ngClass]="classes()"
+  [disabled]="disabled()"
+  (click)="!disabled() && onSelect.emit()"
+>
   <ng-content></ng-content>
 </button>

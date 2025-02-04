@@ -7,14 +7,48 @@
     &::after {
       @apply content-[""] block h-[3px] w-4/5 absolute z-[2] rounded-[10px] bottom-px inset-auto bg-primaryColor;
     }
+
+    &.rega-tab--vertical {
+      &::after {
+        @apply h-1/2 w-[3px] bottom-auto start-px inset-auto;
+      }
+
+      &.rega-tab--flush {
+        &::after {
+          @apply h-full;
+        }
+      }
+    }
   }
 
   &.rega-tab--disabled {
     @apply cursor-default pointer-events-none text-disabledColor;
+
+    &::after {
+      @apply invisible;
+    }
   }
 
   &:hover::after {
     @apply content-[""] block h-[3px] w-4/5 absolute z-[2] rounded-[10px] bottom-px inset-auto bg-[#161616];
+  }
+
+  &.rega-tab--flush {
+    &::after {
+      @apply w-full;
+    }
+  }
+
+  &.rega-tab--vertical {
+    &:hover::after {
+      @apply h-1/2 w-[3px] bottom-auto start-px;
+    }
+
+    &.rega-tab--flush {
+      &:hover::after {
+        @apply h-full;
+      }
+    }
   }
 
   &.rega-tab--small {

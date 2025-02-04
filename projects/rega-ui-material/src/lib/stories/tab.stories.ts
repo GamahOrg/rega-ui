@@ -1,10 +1,9 @@
 import { Meta, StoryObj } from "@storybook/angular";
-import { signal, WritableSignal } from "@angular/core";
 import { TabComponent } from "../components";
-import { GStatic, Option, SizeEnum, VariantEnum } from "../../utils";
+import { GStatic, SizeEnum } from "../../utils";
 
 const meta: Meta<TabComponent> = {
-  title: "Components/Tab",
+  title: "Components/Tabs/Tab",
   component: TabComponent,
   tags: ["autodocs"],
   render: (args) => {
@@ -13,6 +12,7 @@ const meta: Meta<TabComponent> = {
       template: `
         <rega-tab 
           [size]="'${args.size}'" 
+          [vertical]="${args.vertical}" 
           [selected]="${args.selected}" 
           [disabled]="${args.disabled}" 
         >
@@ -36,10 +36,32 @@ export const Default: Story = {
     },
     selected: { control: { type: "boolean" } },
     disabled: { control: { type: "boolean" } },
+    vertical: { control: { type: "boolean" } },
     tabClass: { control: { type: "text" }, description: "String" },
   },
   args: {
     size: SizeEnum.Large,
+  },
+};
+
+export const Vertical: Story = {
+  argTypes: { ...Default.argTypes },
+  args: { ...Default.args, vertical: true },
+  render: (args) => {
+    return {
+      args,
+      template: `
+        <rega-tab 
+          [size]="'${args.size}'" 
+          [vertical]="${args.vertical}" 
+          [selected]="${args.selected}" 
+          [disabled]="${args.disabled}" 
+        >
+            <span class="material-icons">home</span>
+            <span>Text</span>
+        </rega-tab>
+      `,
+    };
   },
 };
 
@@ -53,6 +75,7 @@ export const RTL: Story = {
       template: `
         <rega-tab 
           [size]="'${args.size}'" 
+          [vertical]="${args.vertical}" 
           [selected]="${args.selected}" 
           [disabled]="${args.disabled}" 
         >

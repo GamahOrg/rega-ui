@@ -1,6 +1,17 @@
-import { Component, computed, input, InputSignal, Signal } from "@angular/core";
+import {
+  Component,
+  computed,
+  inject,
+  input,
+  InputSignal,
+  linkedSignal,
+  output,
+  OutputEmitterRef,
+  Signal,
+} from "@angular/core";
 import { SizeType, SizeEnum } from "../../../utils";
 import { NgClass } from "@angular/common";
+import { TabListComponent } from "../tab-list/tab-list.component";
 
 @Component({
   selector: "rega-tab",
@@ -8,19 +19,39 @@ import { NgClass } from "@angular/common";
   templateUrl: "./tab.component.html",
 })
 export class TabComponent {
-  public size: InputSignal<SizeType> = input(SizeEnum.Large as SizeType);
+  readonly #tabList = inject(TabListComponent);
 
-  public selected: InputSignal<boolean> = input(false);
+  public readonly size: InputSignal<SizeType> = input(SizeEnum.Large as SizeType);
+  public readonly linkedSize = linkedSignal(() => this.#tabList.size() || this.size());
 
-  public disabled: InputSignal<boolean> = input(false);
+  public readonly selected: InputSignal<boolean> = input(false);
+  public readonly linkedSelected = linkedSignal(() => this.selected());
 
-  public tabClass: InputSignal<string> = input("");
+  public readonly vertical: InputSignal<boolean> = input(false);
+  public readonly linkedVertical = linkedSignal(
+    () => this.#tabList.vertical() || this.vertical()
+  );
+
+  public readonly flush: InputSignal<boolean> = input(false);
+  public readonly linkedFlush = linkedSignal(() => this.#tabList.flush() || this.flush());
+
+  public readonly disabled: InputSignal<boolean> = input(false);
+
+  public readonly tabClass: InputSignal<string> = input("");
+
+  public onSelect: OutputEmitterRef<void> = output();
 
   public readonly classes: Signal<string[]> = computed(() => {
-    const classes: string[] = ["rega-tab", `rega-tab--${this.size()}`, this.tabClass()];
+    const classes: string[] = [
+      "rega-tab",
+      `rega-tab--${this.linkedSize()}`,
+      this.tabClass(),
+    ];
 
+    if (this.linkedFlush()) classes.push("rega-tab--flush");
+    if (this.linkedVertical()) classes.push("rega-tab--vertical");
     if (this.disabled()) classes.push("rega-tab--disabled");
-    if (this.selected()) classes.push("rega-tab--selected");
+    if (this.linkedSelected()) classes.push("rega-tab--selected");
 
     return classes.filter(Boolean);
   });
