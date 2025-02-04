@@ -6,8 +6,8 @@ import { RadioButtonComponent, RadioGroupComponent } from "../components";
 const meta: Meta<RadioGroupComponent> = {
   title: "Components/Radio/RadioGroup",
   component: RadioGroupComponent,
-  tags: ["autodocs"],
   decorators: [moduleMetadata({ imports: [RadioGroupComponent, RadioButtonComponent] })],
+  tags: ["autodocs"],
   render: (args) => {
     const { size, color, readOnly, disabled, ...props } = args;
     let prop: string = "";

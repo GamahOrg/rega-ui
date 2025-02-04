@@ -1,0 +1,15 @@
+.rega-tab-list {
+  @apply relative flex justify-center items-center;
+
+  &::after {
+    @apply content-[""] block absolute h-[3px] w-full z-[1] rounded-[10px] left-0 bottom-px bg-[#d2d6db];
+  }
+
+  &.rega-tab-list--vertical {
+    @apply flex-col;
+
+    &::after {
+      @apply invisible;
+    }
+  }
+}

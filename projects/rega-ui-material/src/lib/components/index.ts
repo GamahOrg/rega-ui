@@ -15,3 +15,4 @@ export * from "./table/table.component";
 export * from "./pagination/pagination.component";
 export * from "./progress-indicator/progress-indicator.component";
 export * from "./tab/tab.component";
+export * from "./tab-list/tab-list.component";

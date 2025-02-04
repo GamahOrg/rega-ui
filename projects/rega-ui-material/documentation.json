@@ -487,8 +487,8 @@
                 "file": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta",
-                "defaultValue": "{\r\n  title: \"Components/Tab\",\r\n  component: TabComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab tabClass=\"bg-red-500\">\r\n            <span>Text</span>\r\n        </rega-tab>\r\n      `,\r\n    };\r\n  },\r\n}"
+                "type": "Meta<TabComponent>",
+                "defaultValue": "{\r\n  title: \"Components/Tab\",\r\n  component: TabComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab \r\n          [size]=\"'${args.size}'\" \r\n          [selected]=\"${args.selected}\" \r\n          [disabled]=\"${args.disabled}\" \r\n        >\r\n            <span class=\"material-icons\">home</span>\r\n            <span>Text</span>\r\n        </rega-tab>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -668,7 +668,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n          [steps]=\"[\r\n          {title:'خطوة 1', description:'وصف 1'}, \r\n          {title:'خطوة 2', description:'وصف 2'}, \r\n          {title:'خطوة 3', description:'وصف 3'}, \r\n          {title:'خطوة 4', description:'وصف 4'}]\"\r\n           [activeStepIndex] = \"${args.activeStepIndex}\"\r\n           [alignment] = \"'${args.alignment}'\"\r\n          />\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
+                "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n          [steps]=\"[\r\n          {title:'خطوة 1', description:'وصف 1'}, \r\n          {title:'خطوة 2', description:'وصف 2'}, \r\n          {title:'خطوة 3', description:'وصف 3'}, \r\n          {title:'خطوة 4', description:'وصف 4'}]\"\r\n           [activeStepIndex] = \"${args.activeStepIndex}\"\r\n           [alignment] = \"'${args.alignment}'\"\r\n          />\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "RTL",
@@ -679,6 +679,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    label: \"العنوان\",\r\n    description:\r\n      'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق \"ليتراسيت\" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل \"ألدوس بايج مايكر\" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.',\r\n    errorMsg: \"نص الخطأ\",\r\n  },\r\n}"
+            },
+            {
+                "name": "RTL",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab \r\n          [size]=\"'${args.size}'\" \r\n          [selected]=\"${args.selected}\" \r\n          [disabled]=\"${args.disabled}\" \r\n        >\r\n            <span class=\"material-icons\">home</span>\r\n            <span>Text</span>\r\n        </rega-tab>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "RTL",
@@ -748,7 +758,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: { ...Default.args, alignment: AlignmentEnum.Vertical, activeStepIndex: 2 },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n          [steps]=\"[\r\n          {title:'خطوة 1', description:'وصف 1'}, \r\n          {title:'خطوة 2', description:'وصف 2'}, \r\n          {title:'خطوة 3', description:'وصف 3'}, \r\n          {title:'خطوة 4', description:'وصف 4'}]\"\r\n           [activeStepIndex] = \"${args.activeStepIndex}\"\r\n           [alignment] = \"'${args.alignment}'\"\r\n          />\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
+                "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args, alignment: AlignmentEnum.Vertical, activeStepIndex: 2 },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n          [steps]=\"[\r\n          {title:'خطوة 1', description:'وصف 1'}, \r\n          {title:'خطوة 2', description:'وصف 2'}, \r\n          {title:'خطوة 3', description:'وصف 3'}, \r\n          {title:'خطوة 4', description:'وصف 4'}]\"\r\n           [activeStepIndex] = \"${args.activeStepIndex}\"\r\n           [alignment] = \"'${args.alignment}'\"\r\n          />\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "RTLWithSecondaryColorLarge",
@@ -818,7 +828,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n            [steps]=\"[\r\n            {title:'Step 1', description:'description 1'}, \r\n            {title:'Step 2', description:'description 2'}, \r\n            {title:'Step 3', description:'description 3'}, \r\n            {title:'Step 4', description:'description 4'}]\"\r\n            [activeStepIndex] = \"${args.activeStepIndex}\"\r\n            [alignment] = \"'${args.alignment}'\"\r\n          >\r\n            <ng-template #stepAction let-step let-index=\"index\" let-status=\"status\">\r\n              <div\r\n                class = \"h-10 w-10 relative flex justify-center items-center text-white bg-slate-300 !z-[1]\">\r\n                 {{ index }}\r\n              </div>\r\n            </ng-template>\r\n          </rega-progress-indicator>\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
+                "defaultValue": "{\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n            [steps]=\"[\r\n            {title:'Step 1', description:'description 1'}, \r\n            {title:'Step 2', description:'description 2'}, \r\n            {title:'Step 3', description:'description 3'}, \r\n            {title:'Step 4', description:'description 4'}]\"\r\n            [activeStepIndex] = \"${args.activeStepIndex}\"\r\n            [alignment] = \"'${args.alignment}'\"\r\n          >\r\n            <ng-template #stepAction let-step let-index=\"index\" let-status=\"status\">\r\n              <div\r\n                class = \"h-10 w-10 relative flex justify-center items-center text-white bg-slate-300 !z-[1]\">\r\n                 {{ index }}\r\n              </div>\r\n            </ng-template>\r\n          </rega-progress-indicator>\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "steps",
@@ -1679,7 +1689,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n          [steps]=\"[\r\n          {title:'خطوة 1', description:'وصف 1'}, \r\n          {title:'خطوة 2', description:'وصف 2'}, \r\n          {title:'خطوة 3', description:'وصف 3'}, \r\n          {title:'خطوة 4', description:'وصف 4'}]\"\r\n           [activeStepIndex] = \"${args.activeStepIndex}\"\r\n           [alignment] = \"'${args.alignment}'\"\r\n          />\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n          [steps]=\"[\r\n          {title:'خطوة 1', description:'وصف 1'}, \r\n          {title:'خطوة 2', description:'وصف 2'}, \r\n          {title:'خطوة 3', description:'وصف 3'}, \r\n          {title:'خطوة 4', description:'وصف 4'}]\"\r\n           [activeStepIndex] = \"${args.activeStepIndex}\"\r\n           [alignment] = \"'${args.alignment}'\"\r\n          />\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
                 },
                 {
                     "name": "RTLVertical",
@@ -1689,7 +1699,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: { ...Default.args, alignment: AlignmentEnum.Vertical, activeStepIndex: 2 },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n          [steps]=\"[\r\n          {title:'خطوة 1', description:'وصف 1'}, \r\n          {title:'خطوة 2', description:'وصف 2'}, \r\n          {title:'خطوة 3', description:'وصف 3'}, \r\n          {title:'خطوة 4', description:'وصف 4'}]\"\r\n           [activeStepIndex] = \"${args.activeStepIndex}\"\r\n           [alignment] = \"'${args.alignment}'\"\r\n          />\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args, alignment: AlignmentEnum.Vertical, activeStepIndex: 2 },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n          [steps]=\"[\r\n          {title:'خطوة 1', description:'وصف 1'}, \r\n          {title:'خطوة 2', description:'وصف 2'}, \r\n          {title:'خطوة 3', description:'وصف 3'}, \r\n          {title:'خطوة 4', description:'وصف 4'}]\"\r\n           [activeStepIndex] = \"${args.activeStepIndex}\"\r\n           [alignment] = \"'${args.alignment}'\"\r\n          />\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
                 },
                 {
                     "name": "StepAction",
@@ -1699,7 +1709,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n            [steps]=\"[\r\n            {title:'Step 1', description:'description 1'}, \r\n            {title:'Step 2', description:'description 2'}, \r\n            {title:'Step 3', description:'description 3'}, \r\n            {title:'Step 4', description:'description 4'}]\"\r\n            [activeStepIndex] = \"${args.activeStepIndex}\"\r\n            [alignment] = \"'${args.alignment}'\"\r\n          >\r\n            <ng-template #stepAction let-step let-index=\"index\" let-status=\"status\">\r\n              <div\r\n                class = \"h-10 w-10 relative flex justify-center items-center text-white bg-slate-300 !z-[1]\">\r\n                 {{ index }}\r\n              </div>\r\n            </ng-template>\r\n          </rega-progress-indicator>\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <section class=\"w-[800px] flex justify-center items-center\">\r\n          <rega-progress-indicator class=\"w-full\" \r\n            [steps]=\"[\r\n            {title:'Step 1', description:'description 1'}, \r\n            {title:'Step 2', description:'description 2'}, \r\n            {title:'Step 3', description:'description 3'}, \r\n            {title:'Step 4', description:'description 4'}]\"\r\n            [activeStepIndex] = \"${args.activeStepIndex}\"\r\n            [alignment] = \"'${args.alignment}'\"\r\n          >\r\n            <ng-template #stepAction let-step let-index=\"index\" let-status=\"status\">\r\n              <div\r\n                class = \"h-10 w-10 relative flex justify-center items-center text-white bg-slate-300 !z-[1]\">\r\n                 {{ index }}\r\n              </div>\r\n            </ng-template>\r\n          </rega-progress-indicator>\r\n        </section>\r\n      `,\r\n    };\r\n  },\r\n}"
                 },
                 {
                     "name": "steps",
@@ -1844,8 +1854,18 @@
                     "file": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta",
-                    "defaultValue": "{\r\n  title: \"Components/Tab\",\r\n  component: TabComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab tabClass=\"bg-red-500\">\r\n            <span>Text</span>\r\n        </rega-tab>\r\n      `,\r\n    };\r\n  },\r\n}"
+                    "type": "Meta<TabComponent>",
+                    "defaultValue": "{\r\n  title: \"Components/Tab\",\r\n  component: TabComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab \r\n          [size]=\"'${args.size}'\" \r\n          [selected]=\"${args.selected}\" \r\n          [disabled]=\"${args.disabled}\" \r\n        >\r\n            <span class=\"material-icons\">home</span>\r\n            <span>Text</span>\r\n        </rega-tab>\r\n      `,\r\n    };\r\n  },\r\n}"
+                },
+                {
+                    "name": "RTL",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  argTypes: { ...Default.argTypes },\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab \r\n          [size]=\"'${args.size}'\" \r\n          [selected]=\"${args.selected}\" \r\n          [disabled]=\"${args.disabled}\" \r\n        >\r\n            <span class=\"material-icons\">home</span>\r\n            <span>Text</span>\r\n        </rega-tab>\r\n      `,\r\n    };\r\n  },\r\n}"
                 }
             ],
             "projects/rega-ui-material/src/lib/stories/text-input.stories.ts": [
@@ -3101,6 +3121,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "RTL",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
