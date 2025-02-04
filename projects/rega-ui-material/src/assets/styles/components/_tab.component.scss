@@ -1,0 +1,31 @@
+.rega-tab {
+  @apply relative flex justify-center items-center outline-none box-border rounded-[4px] text-[14px] font-medium font-ibm-regular cursor-pointer text-[#384250];
+
+  &.rega-tab--selected {
+    @apply font-bold;
+
+    &::after {
+      @apply content-[""] block h-[3px] w-4/5 absolute z-[2] rounded-[10px] bottom-px inset-auto bg-primaryColor;
+    }
+  }
+
+  &.rega-tab--disabled {
+    @apply cursor-default pointer-events-none text-disabledColor;
+  }
+
+  &:hover::after {
+    @apply content-[""] block h-[3px] w-4/5 absolute z-[2] rounded-[10px] bottom-px inset-auto bg-[#161616];
+  }
+
+  &.rega-tab--small {
+    @apply h-[36px] min-w-[73px] px-[12px] py-[8px];
+  }
+
+  &.rega-tab--medium {
+    @apply h-[44px] min-w-[81px] px-[16px] py-[12px];
+  }
+
+  &.rega-tab--large {
+    @apply h-[52px] min-w-[81px] p-[16px];
+  }
+}

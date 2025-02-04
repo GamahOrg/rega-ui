@@ -164,6 +164,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  argTypes: {\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    selected: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    tabClass: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    size: SizeEnum.Large,\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/rega-ui-material/src/lib/stories/table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -469,6 +479,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<RadioButtonComponent>",
                 "defaultValue": "{\r\n  title: \"Components/Radio/Radio\",\r\n  component: RadioButtonComponent,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [RadioGroupComponent, RadioButtonComponent],\r\n      providers: [RadioGroupComponent],\r\n    }),\r\n  ],\r\n  tags: [\"autodocs\"],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta",
+                "defaultValue": "{\r\n  title: \"Components/Tab\",\r\n  component: TabComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab tabClass=\"bg-red-500\">\r\n            <span>Text</span>\r\n        </rega-tab>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -1030,6 +1050,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<RadioButtonComponent>",
                 "file": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TabComponent>",
+                "file": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1795,6 +1826,28 @@
                     "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    checked: true,\r\n    description:\r\n      \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n    errorMsg: \"Error message\",\r\n  },\r\n}"
                 }
             ],
+            "projects/rega-ui-material/src/lib/stories/tab.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  argTypes: {\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    selected: { control: { type: \"boolean\" } },\r\n    disabled: { control: { type: \"boolean\" } },\r\n    tabClass: { control: { type: \"text\" }, description: \"String\" },\r\n  },\r\n  args: {\r\n    size: SizeEnum.Large,\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta",
+                    "defaultValue": "{\r\n  title: \"Components/Tab\",\r\n  component: TabComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab tabClass=\"bg-red-500\">\r\n            <span>Text</span>\r\n        </rega-tab>\r\n      `,\r\n    };\r\n  },\r\n}"
+                }
+            ],
             "projects/rega-ui-material/src/lib/stories/text-input.stories.ts": [
                 {
                     "name": "Default",
@@ -2147,6 +2200,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<RadioButtonComponent>",
                     "file": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/rega-ui-material/src/lib/stories/tab.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TabComponent>",
+                    "file": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -3011,6 +3077,36 @@
             },
             {
                 "filePath": "projects/rega-ui-material/src/lib/stories/radio.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/tab.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

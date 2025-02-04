@@ -77,6 +77,7 @@ export const Default: Story = {
 };
 
 export const StepAction: Story = {
+  argTypes: { ...Default.argTypes },
   args: { ...Default.args },
   render: (args) => {
     return {
@@ -107,6 +108,7 @@ export const StepAction: Story = {
 
 export const RTL: Story = {
   parameters: { direction: "rtl", dir: "rtl" },
+  argTypes: { ...Default.argTypes },
   args: { ...Default.args },
   render: (args) => {
     return {
@@ -130,6 +132,7 @@ export const RTL: Story = {
 
 export const RTLVertical: Story = {
   parameters: { direction: "rtl", dir: "rtl" },
+  argTypes: { ...Default.argTypes },
   args: { ...Default.args, alignment: AlignmentEnum.Vertical, activeStepIndex: 2 },
   render: (args) => {
     return {
