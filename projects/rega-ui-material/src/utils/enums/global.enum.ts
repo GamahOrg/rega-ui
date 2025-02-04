@@ -11,6 +11,7 @@ export enum SizeEnum {
 }
 
 export enum ColorEnum {
+  Neutral = "neutral",
   Primary = "primary",
   Secondary = "secondary",
   Success = "success",

@@ -1,8 +1,7 @@
 import { type Meta, type StoryObj } from "@storybook/angular";
 import { RegaButtonComponent } from "../components";
-import { GStatic, SizeEnum, ButtonColorEnum, ButtonVariantEnum } from "../../utils";
+import { GStatic, SizeEnum, ButtonVariantEnum, ColorEnum } from "../../utils";
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<RegaButtonComponent> = {
   title: "Components/Button",
   component: RegaButtonComponent,
@@ -13,7 +12,6 @@ export default meta;
 
 type Story = StoryObj<RegaButtonComponent>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   argTypes: {
     disabled: { control: { type: "boolean" } },
@@ -29,9 +27,9 @@ export const Primary: Story = {
       description: " ['button', 'reset', 'submit']",
     },
     color: {
-      options: GStatic.enumToArray(ButtonColorEnum).map(({ value }) => value),
+      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),
       control: { type: "select" },
-      description: "ButtonColorEnum",
+      description: "ColorEnum",
     },
     variant: {
       options: GStatic.enumToArray(ButtonVariantEnum).map(({ value }) => value),
@@ -42,7 +40,7 @@ export const Primary: Story = {
   },
   args: {
     label: "Button",
-    color: ButtonColorEnum.Primary,
+    color: ColorEnum.Primary,
     size: SizeEnum.Medium,
     variant: ButtonVariantEnum.Contained,
     disabled: false,
@@ -56,7 +54,7 @@ export const SecondaryLarge: Story = {
   args: {
     ...Primary.args,
     size: SizeEnum.Large,
-    color: ButtonColorEnum.Secondary,
+    color: ColorEnum.Secondary,
   },
 };
 
@@ -64,7 +62,7 @@ export const SolidWarning: Story = {
   args: {
     ...Primary.args,
     size: SizeEnum.Medium,
-    color: ButtonColorEnum.Warning,
+    color: ColorEnum.Warning,
     variant: ButtonVariantEnum.Solid,
   },
 };
@@ -73,7 +71,7 @@ export const ErrorOutline: Story = {
   args: {
     ...Primary.args,
     size: SizeEnum.Medium,
-    color: ButtonColorEnum.Error,
+    color: ColorEnum.Error,
     variant: ButtonVariantEnum.Outlined,
   },
 };
@@ -82,7 +80,7 @@ export const TextInfo: Story = {
   args: {
     ...Primary.args,
     size: SizeEnum.Medium,
-    color: ButtonColorEnum.Info,
+    color: ColorEnum.Info,
     variant: ButtonVariantEnum.Text,
   },
 };

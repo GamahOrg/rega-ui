@@ -12,6 +12,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        neutralColor: "var(--neutral-color)",
         primaryColor: "var(--primary-color)",
         secondaryColor: "var(--secondary-color)",
         successColor: "var(--success-color)",

@@ -10,12 +10,12 @@ import {
 import { initFlowbite } from "flowbite";
 import {
   ButtonType,
-  ButtonColorType,
-  ButtonColorEnum,
   SizeType,
   SizeEnum,
   ButtonVariantType,
   ButtonVariantEnum,
+  ColorType,
+  ColorEnum,
 } from "../../../utils";
 
 @Component({
@@ -28,9 +28,7 @@ export class RegaButtonComponent implements AfterViewInit {
 
   public buttonType: InputSignal<ButtonType> = input("button" as ButtonType);
 
-  public color: InputSignal<ButtonColorType> = input(
-    ButtonColorEnum.Primary as ButtonColorType
-  );
+  public color: InputSignal<ColorType> = input(ColorEnum.Primary as ColorType);
 
   public size: InputSignal<SizeType> = input(SizeEnum.Medium as SizeType);
 
