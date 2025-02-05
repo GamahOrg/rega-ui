@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .bg-neutralColor {
+    background-color: theme("colors.neutralColor");
+  }
+
+  .bg-primaryColor {
+    background-color: theme("colors.primaryColor");
+  }
+
+  .bg-secondaryColor {
+    background-color: theme("colors.secondaryColor");
+  }
+
+  .bg-successColor {
+    background-color: theme("colors.successColor");
+  }
+
+  .bg-warningColor {
+    background-color: theme("colors.warningColor");
+  }
+
+  .bg-infoColor {
+    background-color: theme("colors.infoColor");
+  }
+
+  .bg-errorColor {
+    background-color: theme("colors.errorColor");
+  }
+
+  .bg-lightColor {
+    background-color: theme("colors.lightColor");
+  }
+
+  .bg-semiLightColor {
+    background-color: theme("colors.semiLightColor");
+  }
+
+  .bg-darkColor {
+    background-color: theme("colors.darkColor");
+  }
+
+  .bg-disabledColor {
+    background-color: theme("colors.disabledColor");
+  }
+
+  .bg-borderColor {
+    background-color: theme("colors.borderColor");
+  }
+
+  .bg-disabledBorderColor {
+    background-color: theme("colors.disabledBorderColor");
+  }
+}
