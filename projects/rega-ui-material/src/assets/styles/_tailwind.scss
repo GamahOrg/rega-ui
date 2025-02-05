@@ -3,6 +3,28 @@
 @tailwind utilities;
 
 @layer utilities {
+  .font-ibm-bold {
+    font-family: theme("fontFamily.ibm-bold");
+  }
+  .font-ibm-semiBold {
+    font-family: theme("fontFamily.ibm-semiBold");
+  }
+  .font-ibm-regular {
+    font-family: theme("fontFamily.ibm-regular");
+  }
+  .font-ibm-medium {
+    font-family: theme("fontFamily.ibm-medium");
+  }
+  .font-ibm-light {
+    font-family: theme("fontFamily.ibm-light");
+  }
+  .font-ibm-extraLight {
+    font-family: theme("fontFamily.ibm-extraLight");
+  }
+  .font-ibm-thin {
+    font-family: theme("fontFamily.ibm-thin");
+  }
+
   .bg-neutralColor {
     background-color: theme("colors.neutralColor");
   }
@@ -35,6 +57,9 @@
   }
   .bg-disabledColor {
     background-color: theme("colors.disabledColor");
+  }
+  .bg-disabledBorderColor {
+    background-color: theme("colors.disabledBorderColor");
   }
 
   .text-neutralColor {
@@ -69,6 +94,9 @@
   }
   .text-disabledColor {
     color: theme("colors.disabledColor");
+  }
+  .text-disabledBorderColor {
+    color: theme("colors.disabledBorderColor");
   }
 
   .border-neutralColor {
