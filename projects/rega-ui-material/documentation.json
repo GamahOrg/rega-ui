@@ -318,7 +318,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Error,\n    variant: ButtonVariantEnum.Outlined,\n  },\n}"
+                "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ColorEnum.Error,\n    variant: ButtonVariantEnum.Outlined,\n  },\n}"
             },
             {
                 "name": "ExtendableWithAlternatingRows",
@@ -628,7 +628,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  argTypes: {\n    disabled: { control: { type: \"boolean\" } },\n    loading: { control: { type: \"boolean\" } },\n    size: {\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n      description: \"SizeEnum\",\n    },\n    buttonType: {\n      options: [\"button\", \"reset\", \"submit\"],\n      control: { type: \"select\" },\n      description: \" ['button', 'reset', 'submit']\",\n    },\n    color: {\n      options: GStatic.enumToArray(ButtonColorEnum).map(({ value }) => value),\n      control: { type: \"select\" },\n      description: \"ButtonColorEnum\",\n    },\n    variant: {\n      options: GStatic.enumToArray(ButtonVariantEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n      description: \"ButtonVariantEnum\",\n    },\n    btnClass: { control: { type: \"text\" } },\n  },\n  args: {\n    label: \"Button\",\n    color: ButtonColorEnum.Primary,\n    size: SizeEnum.Medium,\n    variant: ButtonVariantEnum.Contained,\n    disabled: false,\n    loading: false,\n    buttonType: \"button\",\n    btnClass: \"\",\n  },\n}"
+                "defaultValue": "{\n  argTypes: {\n    disabled: { control: { type: \"boolean\" } },\n    loading: { control: { type: \"boolean\" } },\n    size: {\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n      description: \"SizeEnum\",\n    },\n    buttonType: {\n      options: [\"button\", \"reset\", \"submit\"],\n      control: { type: \"select\" },\n      description: \" ['button', 'reset', 'submit']\",\n    },\n    color: {\n      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),\n      control: { type: \"select\" },\n      description: \"ColorEnum\",\n    },\n    variant: {\n      options: GStatic.enumToArray(ButtonVariantEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n      description: \"ButtonVariantEnum\",\n    },\n    btnClass: { control: { type: \"text\" } },\n  },\n  args: {\n    label: \"Button\",\n    color: ColorEnum.Primary,\n    size: SizeEnum.Medium,\n    variant: ButtonVariantEnum.Contained,\n    disabled: false,\n    loading: false,\n    buttonType: \"button\",\n    btnClass: \"\",\n  },\n}"
             },
             {
                 "name": "provideTheme",
@@ -838,7 +838,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Large,\n    color: ButtonColorEnum.Secondary,\n  },\n}"
+                "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Large,\n    color: ColorEnum.Secondary,\n  },\n}"
             },
             {
                 "name": "SelectionGroup",
@@ -878,7 +878,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Warning,\n    variant: ButtonVariantEnum.Solid,\n  },\n}"
+                "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ColorEnum.Warning,\n    variant: ButtonVariantEnum.Solid,\n  },\n}"
             },
             {
                 "name": "StepAction",
@@ -908,7 +908,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Info,\n    variant: ButtonVariantEnum.Text,\n  },\n}"
+                "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ColorEnum.Info,\n    variant: ButtonVariantEnum.Text,\n  },\n}"
             },
             {
                 "name": "Vertical",
@@ -2167,7 +2167,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Error,\n    variant: ButtonVariantEnum.Outlined,\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ColorEnum.Error,\n    variant: ButtonVariantEnum.Outlined,\n  },\n}"
                 },
                 {
                     "name": "Loading",
@@ -2197,7 +2197,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  argTypes: {\n    disabled: { control: { type: \"boolean\" } },\n    loading: { control: { type: \"boolean\" } },\n    size: {\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n      description: \"SizeEnum\",\n    },\n    buttonType: {\n      options: [\"button\", \"reset\", \"submit\"],\n      control: { type: \"select\" },\n      description: \" ['button', 'reset', 'submit']\",\n    },\n    color: {\n      options: GStatic.enumToArray(ButtonColorEnum).map(({ value }) => value),\n      control: { type: \"select\" },\n      description: \"ButtonColorEnum\",\n    },\n    variant: {\n      options: GStatic.enumToArray(ButtonVariantEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n      description: \"ButtonVariantEnum\",\n    },\n    btnClass: { control: { type: \"text\" } },\n  },\n  args: {\n    label: \"Button\",\n    color: ButtonColorEnum.Primary,\n    size: SizeEnum.Medium,\n    variant: ButtonVariantEnum.Contained,\n    disabled: false,\n    loading: false,\n    buttonType: \"button\",\n    btnClass: \"\",\n  },\n}"
+                    "defaultValue": "{\n  argTypes: {\n    disabled: { control: { type: \"boolean\" } },\n    loading: { control: { type: \"boolean\" } },\n    size: {\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n      description: \"SizeEnum\",\n    },\n    buttonType: {\n      options: [\"button\", \"reset\", \"submit\"],\n      control: { type: \"select\" },\n      description: \" ['button', 'reset', 'submit']\",\n    },\n    color: {\n      options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),\n      control: { type: \"select\" },\n      description: \"ColorEnum\",\n    },\n    variant: {\n      options: GStatic.enumToArray(ButtonVariantEnum).map(({ value }) => value),\n      control: { type: \"radio\" },\n      description: \"ButtonVariantEnum\",\n    },\n    btnClass: { control: { type: \"text\" } },\n  },\n  args: {\n    label: \"Button\",\n    color: ColorEnum.Primary,\n    size: SizeEnum.Medium,\n    variant: ButtonVariantEnum.Contained,\n    disabled: false,\n    loading: false,\n    buttonType: \"button\",\n    btnClass: \"\",\n  },\n}"
                 },
                 {
                     "name": "SecondaryLarge",
@@ -2207,7 +2207,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Large,\n    color: ButtonColorEnum.Secondary,\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Large,\n    color: ColorEnum.Secondary,\n  },\n}"
                 },
                 {
                     "name": "SolidWarning",
@@ -2217,7 +2217,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Warning,\n    variant: ButtonVariantEnum.Solid,\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ColorEnum.Warning,\n    variant: ButtonVariantEnum.Solid,\n  },\n}"
                 },
                 {
                     "name": "TextInfo",
@@ -2227,7 +2227,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ButtonColorEnum.Info,\n    variant: ButtonVariantEnum.Text,\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    ...Primary.args,\n    size: SizeEnum.Medium,\n    color: ColorEnum.Info,\n    variant: ButtonVariantEnum.Text,\n  },\n}"
                 }
             ],
             "projects/rega-ui-material/.storybook/preview.ts": [
