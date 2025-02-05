@@ -6,52 +6,105 @@
   .bg-neutralColor {
     background-color: theme("colors.neutralColor");
   }
-
   .bg-primaryColor {
     background-color: theme("colors.primaryColor");
   }
-
   .bg-secondaryColor {
     background-color: theme("colors.secondaryColor");
   }
-
   .bg-successColor {
     background-color: theme("colors.successColor");
   }
-
   .bg-warningColor {
     background-color: theme("colors.warningColor");
   }
-
-  .bg-infoColor {
-    background-color: theme("colors.infoColor");
-  }
-
   .bg-errorColor {
     background-color: theme("colors.errorColor");
   }
-
+  .bg-infoColor {
+    background-color: theme("colors.infoColor");
+  }
   .bg-lightColor {
     background-color: theme("colors.lightColor");
   }
-
   .bg-semiLightColor {
     background-color: theme("colors.semiLightColor");
   }
-
   .bg-darkColor {
     background-color: theme("colors.darkColor");
   }
-
   .bg-disabledColor {
     background-color: theme("colors.disabledColor");
   }
 
-  .bg-borderColor {
-    background-color: theme("colors.borderColor");
+  .text-neutralColor {
+    color: theme("colors.neutralColor");
+  }
+  .text-primaryColor {
+    color: theme("colors.primaryColor");
+  }
+  .text-secondaryColor {
+    color: theme("colors.secondaryColor");
+  }
+  .text-successColor {
+    color: theme("colors.successColor");
+  }
+  .text-warningColor {
+    color: theme("colors.warningColor");
+  }
+  .text-errorColor {
+    color: theme("colors.errorColor");
+  }
+  .text-infoColor {
+    color: theme("colors.infoColor");
+  }
+  .text-lightColor {
+    color: theme("colors.lightColor");
+  }
+  .text-semiLightColor {
+    color: theme("colors.semiLightColor");
+  }
+  .text-darkColor {
+    color: theme("colors.darkColor");
+  }
+  .text-disabledColor {
+    color: theme("colors.disabledColor");
   }
 
-  .bg-disabledBorderColor {
-    background-color: theme("colors.disabledBorderColor");
+  .border-neutralColor {
+    border-color: theme("colors.neutralColor");
+  }
+  .border-primaryColor {
+    border-color: theme("colors.primaryColor");
+  }
+  .border-secondaryColor {
+    border-color: theme("colors.secondaryColor");
+  }
+  .border-successColor {
+    border-color: theme("colors.successColor");
+  }
+  .border-warningColor {
+    border-color: theme("colors.warningColor");
+  }
+  .border-errorColor {
+    border-color: theme("colors.errorColor");
+  }
+  .border-infoColor {
+    border-color: theme("colors.infoColor");
+  }
+  .border-lightColor {
+    border-color: theme("colors.lightColor");
+  }
+  .border-semiLightColor {
+    border-color: theme("colors.semiLightColor");
+  }
+  .border-darkColor {
+    border-color: theme("colors.darkColor");
+  }
+  .border-disabledColor {
+    border-color: theme("colors.disabledColor");
+  }
+  .border-disabledBorderColor {
+    border-color: theme("colors.disabledBorderColor");
   }
 }
