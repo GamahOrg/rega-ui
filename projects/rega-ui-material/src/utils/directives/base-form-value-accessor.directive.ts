@@ -30,7 +30,8 @@ export class BaseFormValueAccessorComponent implements ControlValueAccessor {
   public onTouched: () => void = () => {};
 
   public writeValue(val: unknown): void {
-    !!val && (this.value = val);
+    this.value = val;
+    this.onChange(val);
   }
 
   public registerOnChange(fn: () => void): void {
