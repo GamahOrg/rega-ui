@@ -102,6 +102,8 @@ export class DropdownComponent implements ControlValueAccessor, OnInit {
 
   public readonly onSearch: OutputEmitterRef<string> = output();
 
+  public readonly dropdownChange: OutputEmitterRef<unknown> = output();
+
   public readonly onLazyLoad: OutputEmitterRef<LazyLoadingEvent> = output();
 
   public readonly overlayVisible: WritableSignal<boolean> = signal(false);
@@ -151,9 +153,11 @@ export class DropdownComponent implements ControlValueAccessor, OnInit {
 
   public onValueChange = (val: any): void => {
     this.value = val;
+    this.dropdownChange.emit(val);
     this.onChange(val);
     this.onTouched();
   };
+
   public onChange: (val: any) => void = (val: any) => {};
 
   public onTouched: () => void = () => {};
