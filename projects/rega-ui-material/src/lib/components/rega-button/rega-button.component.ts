@@ -17,13 +17,14 @@ import {
   ColorType,
   ColorEnum,
 } from "../../../utils";
+import { Params, RouterLink, UrlTree } from "@angular/router";
 
 @Component({
   selector: "rega-button",
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: "./rega-button.component.html",
 })
-export class RegaButtonComponent implements AfterViewInit {
+export class ButtonComponent implements AfterViewInit {
   public label: InputSignal<string> = input.required();
 
   public buttonType: InputSignal<ButtonType> = input("button" as ButtonType);
@@ -39,6 +40,10 @@ export class RegaButtonComponent implements AfterViewInit {
   public loading: InputSignal<boolean> = input(false);
 
   public disabled: InputSignal<boolean> = input(false);
+
+  public routerLink: InputSignal<string | any[] | UrlTree | null | undefined> = input();
+
+  public queryParams: InputSignal<Params | null | undefined> = input();
 
   public btnClass: InputSignal<string> = input("");
 

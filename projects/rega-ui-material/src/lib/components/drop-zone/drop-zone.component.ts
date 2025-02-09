@@ -15,7 +15,7 @@ import {
   WritableSignal,
 } from "@angular/core";
 import { MatIconModule } from "@angular/material/icon";
-import { RegaButtonComponent } from "../rega-button/rega-button.component";
+import { ButtonComponent } from "../rega-button/rega-button.component";
 import { UploadFilesService } from "../../../services";
 import {
   BaseFormValueAccessorComponent,
@@ -31,7 +31,7 @@ import { NG_VALUE_ACCESSOR } from "@angular/forms";
   imports: [
     CommonModule,
     MatIconModule,
-    RegaButtonComponent,
+    ButtonComponent,
     FileListComponent,
     DropzoneDirective,
   ],

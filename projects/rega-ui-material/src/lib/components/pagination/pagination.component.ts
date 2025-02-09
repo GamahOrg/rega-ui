@@ -12,11 +12,11 @@ import {
 } from "@angular/core";
 import { SizeEnum, SizeType } from "../../../utils";
 import { CustomDropdownComponent } from "../../ui";
-import { RegaButtonComponent } from "../rega-button/rega-button.component";
+import { ButtonComponent } from "../rega-button/rega-button.component";
 
 @Component({
   selector: "rega-pagination",
-  imports: [CommonModule, CustomDropdownComponent, RegaButtonComponent],
+  imports: [CommonModule, CustomDropdownComponent, ButtonComponent],
   templateUrl: "./pagination.component.html",
 })
 export class PaginationComponent {

@@ -1,8 +1,9 @@
+@import "../variables";
+
 .file-label {
-  @apply font-ibm-regular;
+  @apply font-ibm-regular bg-semiLightColor;
 
   border-radius: 4px;
-  background-color: $semiLightColor;
 
   .name {
     font-size: 14px;

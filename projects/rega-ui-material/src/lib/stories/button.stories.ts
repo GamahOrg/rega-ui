@@ -1,16 +1,16 @@
 import { type Meta, type StoryObj } from "@storybook/angular";
-import { RegaButtonComponent } from "../components";
+import { ButtonComponent } from "../components";
 import { GStatic, SizeEnum, ButtonVariantEnum, ColorEnum } from "../../utils";
 
-const meta: Meta<RegaButtonComponent> = {
+const meta: Meta<ButtonComponent> = {
   title: "Components/Button",
-  component: RegaButtonComponent,
+  component: ButtonComponent,
   tags: ["autodocs"],
 };
 
 export default meta;
 
-type Story = StoryObj<RegaButtonComponent>;
+type Story = StoryObj<ButtonComponent>;
 
 export const Primary: Story = {
   argTypes: {
@@ -47,6 +47,15 @@ export const Primary: Story = {
     loading: false,
     buttonType: "button",
     btnClass: "",
+  },
+};
+
+export const LinkLarge: Story = {
+  args: {
+    ...Primary.args,
+    size: SizeEnum.Large,
+    color: ColorEnum.Secondary,
+    buttonType: "link",
   },
 };
 

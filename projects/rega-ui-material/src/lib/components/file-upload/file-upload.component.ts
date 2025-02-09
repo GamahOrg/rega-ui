@@ -25,7 +25,7 @@ import {
 
 import { UploadFilesService } from "../../../services";
 
-import { RegaButtonComponent } from "../rega-button/rega-button.component";
+import { ButtonComponent } from "../rega-button/rega-button.component";
 import { MatIconModule } from "@angular/material/icon";
 import { FileListComponent } from "../../ui";
 
@@ -34,7 +34,7 @@ import { FileListComponent } from "../../ui";
   imports: [
     CommonModule,
     MatIconModule,
-    RegaButtonComponent,
+    ButtonComponent,
     FileListComponent,
     DropzoneDirective,
   ],

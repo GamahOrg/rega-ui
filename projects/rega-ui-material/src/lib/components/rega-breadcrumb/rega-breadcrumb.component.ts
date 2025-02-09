@@ -11,13 +11,13 @@ import {
 import { Router, RouterModule } from "@angular/router";
 import { from, take } from "rxjs";
 
-import { RegaButtonComponent } from "../rega-button/rega-button.component";
+import { ButtonComponent } from "../rega-button/rega-button.component";
 import { BreadcrumbService } from "../../../services";
 import { BreadcrumbItem, SizeType, SizeEnum, Breadcrumb } from "../../../utils";
 
 @Component({
   selector: "rega-breadcrumb",
-  imports: [CommonModule, RouterModule, RegaButtonComponent],
+  imports: [CommonModule, RouterModule, ButtonComponent],
   templateUrl: "./rega-breadcrumb.component.html",
 })
 export class RegaBreadcrumbComponent {
