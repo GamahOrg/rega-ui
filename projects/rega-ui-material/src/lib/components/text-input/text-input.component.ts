@@ -12,8 +12,6 @@ import {
 import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from "@angular/forms";
 import {
   BaseFormValueAccessorComponent,
-  InputPrefixDirective,
-  InputSuffixDirective,
   InputVariantEnum,
   InputVariantType,
   SizeEnum,
@@ -63,9 +61,9 @@ export class TextInputComponent extends BaseFormValueAccessorComponent {
 
   public inputClass: InputSignal<string> = input("");
 
-  public inputPrefix = contentChild<InputPrefixDirective>(InputPrefixDirective);
+  public readonly inputPrefix = contentChild<any | undefined>("inputPrefix");
 
-  public inputSuffix = contentChild<InputSuffixDirective>(InputSuffixDirective);
+  public readonly inputSuffix = contentChild<any | undefined>("inputSuffix");
 
   public readonly classes: Signal<string[]> = linkedSignal(() => {
     const classes: string[] = [

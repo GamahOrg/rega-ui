@@ -1,18 +1,18 @@
 <div [ngClass]="classes()">
   @if (label()) {
-    <label for="input" class="block mb-1 px-[2px] text-sm font-medium text-gray-900">{{
-      label()
-    }}</label>
+    <label for="input" class="block mb-1 px-[2px] text-sm font-medium text-gray-900">
+      {{ label() }}
+    </label>
   }
 
-  <div class="relative underline-animation mb-1">
+  <div class="relative underline-animation">
     @if (prefix() || inputPrefix()) {
       <button
         [ngClass]="prefixClass()"
         class="absolute prefix h-[calc(100%-2px)] start-[1px] bottom-[1px] flex justify-center items-center text-[#6c737f] bg-semiLightColor"
       >
         @if (inputPrefix()) {
-          <ng-container *ngTemplateOutlet="$any(inputPrefix()?.ref)" />
+          <ng-container *ngTemplateOutlet="inputPrefix()" />
         } @else {
           {{ prefix() }}
         }
@@ -37,7 +37,7 @@
         class="absolute suffix h-[calc(100%-2px)] end-[1px] bottom-[1px] flex justify-center items-center text-[#6c737f] bg-semiLightColor"
       >
         @if (inputSuffix()) {
-          <ng-container *ngTemplateOutlet="$any(inputSuffix()?.ref)" />
+          <ng-container *ngTemplateOutlet="inputSuffix()" />
         } @else {
           {{ suffix() }}
         }

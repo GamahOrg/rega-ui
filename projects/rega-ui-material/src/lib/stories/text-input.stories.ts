@@ -30,14 +30,12 @@ export const Default: Story = {
     prefix: { control: { type: "text" }, description: "Boolean" },
     inputPrefix: {
       control: { type: "object" },
-      description:
-        "Make sure you importing <InputPrefixDirective> ... Then inside component tag <ng-template inputPrefix>prefix<ng-template/>",
+      description: "ContentChild with Template variable #inputPrefix",
     },
     suffix: { control: { type: "text" }, description: "String" },
     inputSuffix: {
       control: { type: "object" },
-      description:
-        "Make sure you importing <InputSuffixDirective> ... Then inside component tag <ng-template suffixPrefix>suffix<ng-template/>",
+      description: "ContentChild with Template variable #inputSuffix",
     },
     inputClass: { control: { type: "text" }, description: "String" },
     prefixClass: { control: { type: "text" }, description: "String" },
