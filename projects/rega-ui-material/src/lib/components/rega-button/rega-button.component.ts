@@ -17,35 +17,40 @@ import {
   ColorType,
   ColorEnum,
 } from "../../../utils";
-import { Params, RouterLink, UrlTree } from "@angular/router";
+import { Params, RouterLink, RouterLinkActive, UrlTree } from "@angular/router";
 
 @Component({
   selector: "rega-button",
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: "./rega-button.component.html",
 })
 export class ButtonComponent implements AfterViewInit {
-  public label: InputSignal<string> = input.required();
+  public readonly label: InputSignal<string> = input("");
 
-  public buttonType: InputSignal<ButtonType> = input("button" as ButtonType);
+  public readonly buttonType: InputSignal<ButtonType> = input("button" as ButtonType);
 
-  public color: InputSignal<ColorType> = input(ColorEnum.Primary as ColorType);
+  public readonly color: InputSignal<ColorType> = input(ColorEnum.Primary as ColorType);
 
-  public size: InputSignal<SizeType> = input(SizeEnum.Medium as SizeType);
+  public readonly size: InputSignal<SizeType> = input(SizeEnum.Medium as SizeType);
 
-  public variant: InputSignal<ButtonVariantType> = input(
+  public readonly variant: InputSignal<ButtonVariantType> = input(
     ButtonVariantEnum.Contained as ButtonVariantType
   );
 
-  public loading: InputSignal<boolean> = input(false);
+  public readonly loading: InputSignal<boolean> = input(false);
 
-  public disabled: InputSignal<boolean> = input(false);
+  public readonly disabled: InputSignal<boolean> = input(false);
 
-  public routerLink: InputSignal<string | any[] | UrlTree | null | undefined> = input();
+  public readonly routerLink: InputSignal<string | any[] | UrlTree | null | undefined> =
+    input();
 
-  public queryParams: InputSignal<Params | null | undefined> = input();
+  public readonly routerLinkActive: InputSignal<string | string[]> = input(
+    "" as string | string[]
+  );
 
-  public btnClass: InputSignal<string> = input("");
+  public readonly queryParams: InputSignal<Params | null | undefined> = input();
+
+  public readonly btnClass: InputSignal<string> = input("");
 
   public readonly classes: Signal<string[]> = linkedSignal(() => {
     const classes: string[] = [

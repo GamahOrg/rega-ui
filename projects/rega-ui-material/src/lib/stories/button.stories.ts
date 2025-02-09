@@ -22,9 +22,9 @@ export const Primary: Story = {
       description: "SizeEnum",
     },
     buttonType: {
-      options: ["button", "reset", "submit"],
+      options: ["button", "reset", "submit", "link"],
       control: { type: "select" },
-      description: " ['button', 'reset', 'submit']",
+      description: " ['button', 'reset', 'submit', 'link']",
     },
     color: {
       options: GStatic.enumToArray(ColorEnum).map(({ value }) => value),
@@ -36,6 +36,12 @@ export const Primary: Story = {
       control: { type: "radio" },
       description: "ButtonVariantEnum",
     },
+    routerLink: {
+      control: { type: "text" },
+      description: "string | any[] | UrlTree | null | undefined",
+    },
+    routerLinkActive: { control: { type: "text" }, description: "string | string[]" },
+    queryParams: { control: { type: "text" }, description: "Params | null | undefined" },
     btnClass: { control: { type: "text" } },
   },
   args: {
