@@ -149,6 +149,11 @@ export class DropdownComponent implements ControlValueAccessor, OnInit {
     }
   }
 
+  public onValueChange = (val: any): void => {
+    this.value = val;
+    this.onChange(val);
+    this.onTouched();
+  };
   public onChange: (val: any) => void = (val: any) => {};
 
   public onTouched: () => void = () => {};

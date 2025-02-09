@@ -17,6 +17,7 @@ import {
 import { TextAreaComponent } from "projects/rega-ui-material/src/lib/components/textarea/textarea.component";
 import {
   AutocompleteComponent,
+  ButtonComponent,
   CardComponent,
   CheckboxComponent,
   DropdownComponent,
@@ -39,7 +40,7 @@ import { CdkDragDrop, DragDropModule, moveItemInArray } from "@angular/cdk/drag-
     ReactiveFormsModule,
     FormsModule,
     // RegaBreadcrumbComponent,
-    // TextInputComponent,
+    TextInputComponent,
     TextAreaComponent,
     CheckboxComponent,
     FileUploadComponent,
@@ -54,6 +55,7 @@ import { CdkDragDrop, DragDropModule, moveItemInArray } from "@angular/cdk/drag-
     DragDropModule,
     PaginationComponent,
     ProgressIndicatorComponent,
+    ButtonComponent,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
@@ -62,11 +64,16 @@ export class AppComponent implements OnInit {
   readonly #fb = inject(FormBuilder);
   readonly #breadcrumbService = inject(BreadcrumbService);
 
+  public readonly textInput: WritableSignal<string> = signal("Hello World");
+
   // public radio: string = "2";
   public autocomplete: UntypedFormControl = this.#fb.nonNullable.control(
     [0],
     [Validators.required]
   );
+  public dropdown: UntypedFormControl = this.#fb.nonNullable.control(2, [
+    Validators.required,
+  ]);
   public radio: UntypedFormControl = this.#fb.control({ value: 2, disabled: false });
   public controlArea: UntypedFormControl = this.#fb.control(null);
   public control: UntypedFormControl = this.#fb.control(true);
@@ -90,6 +97,7 @@ export class AppComponent implements OnInit {
   public options: WritableSignal<any[]> = signal([]);
   public data: WritableSignal<any[]> = signal([]);
 
+  public loading: WritableSignal<boolean> = signal(true);
   public optionsLoaded: WritableSignal<boolean> = signal(true);
   title = "rega-ui";
 
@@ -106,9 +114,12 @@ export class AppComponent implements OnInit {
       this.options().push({ label: "Item label " + i, id: i });
     }
 
-    this.data.set(
-      Array.from({ length: 12 }, (_, id) => ({ id, label: "Item label " + id }))
-    );
+    setTimeout(() => {
+      this.data.set(
+        Array.from({ length: 12 }, (_, id) => ({ id, label: "Item label " + id }))
+      );
+      this.loading.set(false);
+    }, 5000);
 
     // for (let i = 0; i < 4; i++) this.options().push("Item label " + i);
 

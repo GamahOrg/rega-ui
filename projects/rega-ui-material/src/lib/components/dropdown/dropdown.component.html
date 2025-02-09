@@ -8,8 +8,8 @@
   <div class="relative underline-animation">
     <p-select
       #select
-      [options]="filteredOptions()"
       [(ngModel)]="value"
+      [options]="filteredOptions()"
       [optionValue]="optionValue()"
       [disabled]="linkedDisabled()"
       [placeholder]="placeholder()"
@@ -17,12 +17,13 @@
       [showClear]="showClear()"
       [virtualScroll]="lazy()"
       [virtualScrollOptions]="lazyOptions"
+      (onChange)="onValueChange($event.value)"
       (onClear)="searchInput.set('')"
       (onBlur)="onTouched(); touched.set(true)"
       (onHide)="overlayVisible.set(select.overlayVisible || false)"
     >
       <ng-template #item let-option>
-        @let isSelected = (!!value || value == 0) && value === option.id;
+        @let isSelected = (!!value || value == 0) && value == option.id;
         @if (dropdownOption()) {
           <ng-container
             *ngTemplateOutlet="

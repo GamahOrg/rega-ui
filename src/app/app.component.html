@@ -8,6 +8,39 @@
 /> -->
 
 <div class="w-1/2 p-4">
+  <rega-button
+    [routerLink]="'/'"
+    [label]="'utils.details'"
+    [color]="'neutral'"
+    [size]="'medium'"
+    [variant]="'outlined'"
+    buttonType="link"
+    btnClass="w-10 text-base"
+  />
+
+  <rega-button
+    [routerLink]="'/'"
+    [label]="''"
+    [size]="'medium'"
+    [variant]="'transparent'"
+    buttonType="button"
+    btnClass="h-auto w-48"
+  >
+    <img src="icon.png" alt="Logo" class="md:h-[calc(5rem-5px)] h-[calc(3rem-5px)]" />
+  </rega-button>
+</div>
+
+<div class="w-1/2 p-4">
+  <rega-input
+    [(ngModel)]="textInput"
+    [placeholder]="'registrar_licenses.search_phone_license'"
+    [size]="'medium'"
+  >
+    <ng-template #inputSuffix>🔎</ng-template>
+  </rega-input>
+</div>
+
+<div class="w-1/2 p-4">
   <rega-progress-indicator [steps]="steps()">
     <ng-template #stepAction let-step let-index="index" let-status="status">
       <div>
@@ -20,12 +53,13 @@
 <div class="h-96 w-1/2 p-4">
   <rega-table
     [data]="data()"
+    [loading]="loading()"
     [lazy]="true"
     [rowsCount]="6"
     [scrollHeight]="'21rem'"
     [reorder]="true"
     [contained]="true"
-    [colSpan]="4"
+    [colSpan]="5"
   >
     <ng-template #headerTemp>
       <th></th>
@@ -65,7 +99,7 @@
 </div>
 
 <div class="w-1/2 p-4">
-  <rega-dropdown [options]="options()" [formControl]="autocomplete">
+  <rega-dropdown [options]="options()" [formControl]="dropdown">
     <ng-template #autocompleteFooter>
       <div
         class="w-full h-8 flex justify-center items-center text-gray-800 text-sm font-medium"
@@ -75,11 +109,11 @@
     </ng-template>
   </rega-dropdown>
 
-  {{ "Value: " + autocomplete.value }}
+  {{ "Value: " + dropdown.value }}
   <br />
-  {{ "Is Valid: " + autocomplete.valid }}
+  {{ "Is Valid: " + dropdown.valid }}
   <br />
-  {{ "Errors: " + (autocomplete.errors | json) }}
+  {{ "Errors: " + (dropdown.errors | json) }}
 </div>
 
 <div class="w-1/2 p-4">
