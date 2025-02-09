@@ -3,6 +3,7 @@ import {
   Component,
   computed,
   contentChildren,
+  effect,
   forwardRef,
   input,
   InputSignal,
@@ -44,8 +45,6 @@ export class TabListComponent implements AfterContentInit {
 
   public ngAfterContentInit(): void {
     if (this.tabList().length > 0) {
-      this.tabList()[this.selectedIndex()]?.linkedSelected.set(true);
-
       this.tabList().forEach((tab, index) => {
         tab.onSelect.subscribe(() => this.onSelectTab(index));
       });
@@ -61,4 +60,14 @@ export class TabListComponent implements AfterContentInit {
       }
     });
   };
+
+  private _effect$ = effect(() => {
+    if (this.tabList().length > 0) {
+      this.tabList().forEach((tab, i) =>
+        tab.linkedSelected.set(
+          i === (+this.selectedIndex() >= 0 ? +this.selectedIndex() : 0)
+        )
+      );
+    }
+  });
 }

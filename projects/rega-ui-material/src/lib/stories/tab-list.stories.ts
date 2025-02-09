@@ -20,7 +20,7 @@ const meta: Meta<TabListComponent> = {
            <rega-tab><span class="material-icons">home</span><span>Tab 1</span></rega-tab>
            <rega-tab><span class="material-icons">settings</span><span>Tab 2</span></rega-tab>
            <rega-tab><span class="material-icons">shopping_cart</span><span>Tab 3</span></rega-tab>
-        <rega-tab-list/>
+        </rega-tab-list>
       `,
     };
   },
@@ -63,7 +63,7 @@ export const Disabled: Story = {
            <rega-tab><span class="material-icons">home</span><span>Tab 1</span></rega-tab>
            <rega-tab [disabled]="true"><span class="material-icons">settings</span><span>Tab 2</span></rega-tab>
            <rega-tab><span class="material-icons">shopping_cart</span><span>Tab 3</span></rega-tab>
-        <rega-tab-list/>
+        </rega-tab-list>
       `,
     };
   },
@@ -85,7 +85,7 @@ export const VerticalFlush: Story = {
            <rega-tab><span class="material-icons">home</span><span>Tab 1</span></rega-tab>
            <rega-tab><span class="material-icons">settings</span><span>Tab 2</span></rega-tab>
            <rega-tab><span class="material-icons">shopping_cart</span><span>Tab 3</span></rega-tab>
-        <rega-tab-list/>
+        </rega-tab-list>
       `,
     };
   },
@@ -108,7 +108,7 @@ export const RTLFlush: Story = {
            <rega-tab><span class="material-icons">home</span><span>تاب 1</span></rega-tab>
            <rega-tab><span class="material-icons">settings</span><span>تاب 2</span></rega-tab>
            <rega-tab><span class="material-icons">shopping_cart</span><span>تاب 3</span></rega-tab>
-        <rega-tab-list/>
+        </rega-tab-list>
       `,
     };
   },

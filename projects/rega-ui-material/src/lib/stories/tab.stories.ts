@@ -1,10 +1,16 @@
-import { Meta, StoryObj } from "@storybook/angular";
-import { TabComponent } from "../components";
+import { moduleMetadata, Meta, StoryObj } from "@storybook/angular";
+import { TabComponent, TabListComponent } from "../components";
 import { GStatic, SizeEnum } from "../../utils";
 
 const meta: Meta<TabComponent> = {
   title: "Components/Tabs/Tab",
   component: TabComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [TabListComponent, TabComponent],
+      providers: [TabListComponent],
+    }),
+  ],
   tags: ["autodocs"],
   render: (args) => {
     return {
