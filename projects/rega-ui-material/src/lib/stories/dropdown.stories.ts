@@ -69,6 +69,7 @@ export const Default: Story = {
       control: { type: "object" },
       description: "ContentChild with Template variable #dropdownFooter",
     },
+    dropdownChange: { description: "(event: unknown) => void" },
     onSearch: { description: "(event: string) => void" },
     onLazyLoad: { description: "(event: LazyLoadingEvent) => void" },
   },
