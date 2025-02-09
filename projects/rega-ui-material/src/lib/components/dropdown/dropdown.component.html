@@ -23,7 +23,7 @@
       (onHide)="overlayVisible.set(select.overlayVisible || false)"
     >
       <ng-template #item let-option>
-        @let isSelected = (!!value || value == 0) && value == option.id;
+        @let isSelected = (!!value() || value() == 0) && value() == option.id;
         @if (dropdownOption()) {
           <ng-container
             *ngTemplateOutlet="
