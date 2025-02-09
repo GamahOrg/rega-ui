@@ -41,6 +41,10 @@ export const Primary: Story = {
       description: "string | any[] | UrlTree | null | undefined",
     },
     routerLinkActive: { control: { type: "text" }, description: "string | string[]" },
+    routerLinkActiveOptions: {
+      control: { type: "text" },
+      description: "{ exact: boolean } | IsActiveMatchOptions",
+    },
     queryParams: { control: { type: "text" }, description: "Params | null | undefined" },
     btnClass: { control: { type: "text" } },
   },

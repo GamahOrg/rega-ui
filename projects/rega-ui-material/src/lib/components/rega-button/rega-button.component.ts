@@ -17,7 +17,13 @@ import {
   ColorType,
   ColorEnum,
 } from "../../../utils";
-import { Params, RouterLink, RouterLinkActive, UrlTree } from "@angular/router";
+import {
+  IsActiveMatchOptions,
+  Params,
+  RouterLink,
+  RouterLinkActive,
+  UrlTree,
+} from "@angular/router";
 
 @Component({
   selector: "rega-button",
@@ -47,6 +53,10 @@ export class ButtonComponent implements AfterViewInit {
   public readonly routerLinkActive: InputSignal<string | string[]> = input(
     "" as string | string[]
   );
+
+  public readonly routerLinkActiveOptions: InputSignal<
+    { exact: boolean } | IsActiveMatchOptions
+  > = input({ exact: false } as { exact: boolean } | IsActiveMatchOptions);
 
   public readonly queryParams: InputSignal<Params | null | undefined> = input();
 
