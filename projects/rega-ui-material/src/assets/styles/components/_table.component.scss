@@ -44,6 +44,14 @@
       }
     }
 
+    .p-datatable-tbody > tr:last-child {
+      @apply border-none outline-none bg-transparent;
+
+      td {
+        @apply border-none;
+      }
+    }
+
     .p-datatable-thead > tr > th {
       @apply bg-semiLightColor;
     }

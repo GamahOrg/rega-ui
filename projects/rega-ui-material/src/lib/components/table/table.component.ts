@@ -54,6 +54,8 @@ export class TableComponent {
 
   public readonly alternatingRows: InputSignal<boolean> = input(false);
 
+  public readonly loading: InputSignal<boolean> = input(false);
+
   public readonly emptyMessage: InputSignal<string> = input("No data found!");
 
   public readonly tableClass: InputSignal<string> = input("");

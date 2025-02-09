@@ -19,6 +19,7 @@ export const Default: Story = {
     contained: { control: { type: "boolean" } },
     columnDivider: { control: { type: "boolean" } },
     alternatingRows: { control: { type: "boolean" } },
+    loading: { control: { type: "boolean" } },
     lazy: {
       control: { type: "boolean" },
       description:
@@ -79,6 +80,7 @@ export const Default: Story = {
         [contained]="${args.contained}"
         [columnDivider]="${args.columnDivider}"
         [alternatingRows]="${args.alternatingRows}"
+        [loading]="${args.loading}"
         [colSpan]="${args.colSpan}"
       >
         <ng-template #headerTemp>
@@ -93,13 +95,6 @@ export const Default: Story = {
           <td class="w-48">{{ row.label }}</td>
           <td class="w-48">{{ row.label }}</td>
           <td class="w-48">{{ row.label }}</td>
-        </ng-template>
-
-         <ng-template #headerTemp>
-          <th>Name</th>
-          <th>Country</th>
-          <th>Company</th>
-          <th>Representative</th>
         </ng-template>
       </rega-table>
     </div>
@@ -136,13 +131,6 @@ export const Contained: Story = {
           <td class="w-48">{{ row.label }}</td>
           <td class="w-48">{{ row.label }}</td>
         </ng-template>
-
-         <ng-template #headerTemp>
-          <th>Name</th>
-          <th>Country</th>
-          <th>Company</th>
-          <th>Representative</th>
-         </ng-template>
       </rega-table>
     </div>
       `,
@@ -180,13 +168,6 @@ export const ColumnDividerWithContained: Story = {
           <td class="w-48">{{ row.label }}</td>
           <td class="w-48">{{ row.label }}</td>
         </ng-template>
-
-         <ng-template #headerTemp>
-          <th>Name</th>
-          <th>Country</th>
-          <th>Company</th>
-          <th>Representative</th>
-         </ng-template>
       </rega-table>
     </div>
       `,
@@ -222,13 +203,41 @@ export const AlternatingRows: Story = {
           <td class="w-48">{{ row.label }}</td>
           <td class="w-48">{{ row.label }}</td>
         </ng-template>
+      </rega-table>
+    </div>
+      `,
+    };
+  },
+};
 
-         <ng-template #headerTemp>
+export const Loading: Story = {
+  args: {
+    ...Default.args,
+    loading: true,
+  },
+  render: (args) => {
+    return {
+      args,
+      template: `
+    <div class="h-auto">  
+      <rega-table
+        [data]="[{id: 0, label: 'Item label 0'}, {id: 1, label: 'Item label 1'}, {id: 2, label: 'Item label 2'}, {id: 3, label: 'Item label 3'}, {id: 4, label: 'Item label 4'}, {id: 5, label: 'Item label 5'}, {id: 6, label: 'Item label 6'}]"
+        [loading]="${args.loading}"
+        [colSpan]="${args.colSpan}"
+      >
+        <ng-template #headerTemp>
           <th>Name</th>
           <th>Country</th>
           <th>Company</th>
           <th>Representative</th>
-         </ng-template>
+        </ng-template>
+
+        <ng-template #bodyTemp let-row let-expanded="expanded">
+          <td class="w-6">{{ row.id }}</td>
+          <td class="w-48">{{ row.label }}</td>
+          <td class="w-48">{{ row.label }}</td>
+          <td class="w-48">{{ row.label }}</td>
+        </ng-template>
       </rega-table>
     </div>
       `,
@@ -272,13 +281,6 @@ export const ExtendableWithAlternatingRows: Story = {
           <td class="w-48">{{ row.label }}</td>
           <td class="w-48">{{ row.label }}</td>
         </ng-template>
-
-         <ng-template #headerTemp>
-          <th>Name</th>
-          <th>Country</th>
-          <th>Company</th>
-          <th>Representative</th>
-         </ng-template>
 
          <ng-template #extendableArea let-row>
           <h5 class="text-center py-8">{{ row | json }}</h5>
@@ -326,13 +328,6 @@ export const ReorderWithAlternatingRows: Story = {
           <td class="w-48">{{ row.label }}</td>
           <td class="w-48">{{ row.label }}</td>
         </ng-template>
-
-         <ng-template #headerTemp>
-          <th>Name</th>
-          <th>Country</th>
-          <th>Company</th>
-          <th>Representative</th>
-         </ng-template>
       </rega-table>
     </div>
       `,
@@ -377,13 +372,6 @@ export const lazyWithAlternatingRows: Story = {
           <td class="w-48">{{ row.label }}</td>
           <td class="w-48">{{ row.label }}</td>
         </ng-template>
-
-         <ng-template #headerTemp>
-          <th>Name</th>
-          <th>Country</th>
-          <th>Company</th>
-          <th>Representative</th>
-         </ng-template>
       </rega-table>
     </div>
       `,
@@ -421,13 +409,6 @@ export const EmptyMessageTemplate: Story = {
           <td class="w-48">{{ row.label }}</td>
           <td class="w-48">{{ row.label }}</td>
         </ng-template>
-
-         <ng-template #headerTemp>
-          <th>Name</th>
-          <th>Country</th>
-          <th>Company</th>
-          <th>Representative</th>
-         </ng-template>
 
          <ng-template #emptyMessageTemp let-row>
            <div class="flex justify-center items-center p-8">
@@ -471,13 +452,6 @@ export const FooterTemplate: Story = {
           <td class="w-48">{{ row.label }}</td>
           <td class="w-48">{{ row.label }}</td>
         </ng-template>
-
-         <ng-template #headerTemp>
-          <th>Name</th>
-          <th>Country</th>
-          <th>Company</th>
-          <th>Representative</th>
-         </ng-template>
 
          <ng-template #footerTemp let-row>
            <div class="flex justify-center items-center p-8">

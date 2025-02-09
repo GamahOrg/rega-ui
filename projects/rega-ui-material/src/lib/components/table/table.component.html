@@ -11,6 +11,8 @@
     [cdkDropListDisabled]="!reorder()"
     [tableStyleClass]="tableClass()"
     [scrollable]="true"
+    [loading]="loading()"
+    [showLoader]="true"
     (onLazyLoad)="onLazyLoad.emit($event)"
     (cdkDropListDropped)="drop($event)"
   >
