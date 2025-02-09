@@ -30,7 +30,7 @@ export const Default: Story = {
       control: { type: "radio" },
       description: "SizeEnum",
     },
-    onPageChange: { description: "(event: string) => void" },
+    onPageChange: { description: "(event: number) => void" },
   },
   args: {
     count: 100,
