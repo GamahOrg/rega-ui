@@ -135,7 +135,7 @@ export class DropdownComponent implements ControlValueAccessor, OnInit {
 
   #ngControl: NgControl | null = null;
 
-  protected value: any;
+  protected value: WritableSignal<unknown> = signal(null);
 
   public readonly hasError: WritableSignal<boolean> = signal(false);
 
@@ -152,7 +152,7 @@ export class DropdownComponent implements ControlValueAccessor, OnInit {
   }
 
   public onValueChange = (val: any): void => {
-    this.value = val;
+    this.value.set(val);
     this.dropdownChange.emit(val);
     this.onChange(val);
     this.onTouched();
@@ -163,7 +163,7 @@ export class DropdownComponent implements ControlValueAccessor, OnInit {
   public onTouched: () => void = () => {};
 
   public writeValue(val: unknown): void {
-    this.value = val;
+    this.value.set(val);
     this.onChange(val);
   }
 
