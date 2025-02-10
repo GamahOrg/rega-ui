@@ -99,7 +99,11 @@
 </div>
 
 <div class="w-1/2 p-4">
-  <rega-dropdown [options]="options()" [formControl]="dropdown">
+  <rega-dropdown
+    [options]="options()"
+    [(ngModel)]="dropdown"
+    (dropdownChange)="dropdownChange($event)"
+  >
     <ng-template #autocompleteFooter>
       <div
         class="w-full h-8 flex justify-center items-center text-gray-800 text-sm font-medium"
@@ -109,11 +113,12 @@
     </ng-template>
   </rega-dropdown>
 
-  {{ "Value: " + dropdown.value }}
+  {{ "Value: " + dropdown }}
+  <!-- {{ "Value: " + dropdown.value }}
   <br />
   {{ "Is Valid: " + dropdown.valid }}
   <br />
-  {{ "Errors: " + (dropdown.errors | json) }}
+  {{ "Errors: " + (dropdown.errors | json) }} -->
 </div>
 
 <div class="w-1/2 p-4">

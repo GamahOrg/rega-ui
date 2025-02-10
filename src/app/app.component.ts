@@ -71,9 +71,10 @@ export class AppComponent implements OnInit {
     [0],
     [Validators.required]
   );
-  public dropdown: UntypedFormControl = this.#fb.nonNullable.control(2, [
-    Validators.required,
-  ]);
+  public dropdown = 2;
+  // public dropdown: UntypedFormControl = this.#fb.nonNullable.control("2", [
+  //   Validators.required,
+  // ]);
   public radio: UntypedFormControl = this.#fb.control({ value: 2, disabled: false });
   public controlArea: UntypedFormControl = this.#fb.control(null);
   public control: UntypedFormControl = this.#fb.control(true);
@@ -149,6 +150,10 @@ export class AppComponent implements OnInit {
       items: this.items,
     });
   }
+
+  dropdownChange = (event: unknown): void => {
+    console.log("🚀 ~ AppComponent ~ event:", event);
+  };
 
   public onPageChange = (page: number): void => {
     console.log("Page changed to:", page);
