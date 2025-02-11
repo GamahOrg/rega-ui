@@ -30,7 +30,7 @@ $sizes: (
 }
 
 .rega-tag {
-  @apply inline-flex items-center justify-center text-neutralColor outline-none rounded-[4px] border border-solid font-medium font-ibm-regular;
+  @apply flex items-center justify-center text-neutralColor outline-none rounded-[4px] border border-solid font-medium font-ibm-regular;
   -webkit-tap-highlight-color: transparent;
 
   &.rega-tag--rounded {
