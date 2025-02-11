@@ -6,8 +6,16 @@
   label="العنوان"
   placeholder="ادخل النص"
 /> -->
+<div class="w-1/2 p-4 flex justify-start items-center gap-4">
+  <rega-button
+    [label]="'Open Modal'"
+    [color]="'neutral'"
+    [size]="'medium'"
+    [variant]="'contained'"
+    btnClass="min-w-0 text-base"
+    (click)="openModal()"
+  />
 
-<div class="w-1/2 p-4">
   <rega-button
     [routerLink]="'/'"
     [label]="'utils.details'"
@@ -18,7 +26,7 @@
     btnClass="w-10 text-base"
   />
 
-  <rega-button
+  <!-- <rega-button
     [routerLink]="'/'"
     [label]="''"
     [size]="'medium'"
@@ -27,7 +35,7 @@
     btnClass="h-auto w-48"
   >
     <img src="icon.png" alt="Logo" class="md:h-[calc(5rem-5px)] h-[calc(3rem-5px)]" />
-  </rega-button>
+  </rega-button> -->
 </div>
 
 <div class="w-1/2 p-4">

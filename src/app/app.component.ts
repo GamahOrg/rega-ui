@@ -1,10 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component, inject, OnInit, Signal, signal, WritableSignal } from "@angular/core";
-import {
-  BreadcrumbItem,
-  BreadcrumbService,
-  RegaBreadcrumbComponent,
-} from "rega-material-ui";
+import { BreadcrumbItem, BreadcrumbService } from "rega-material-ui";
 
 import { TextInputComponent } from "projects/rega-ui-material/src/lib/components/text-input/text-input.component";
 import {
@@ -23,6 +19,7 @@ import {
   DropdownComponent,
   DropZoneComponent,
   FileUploadComponent,
+  ModalComponent,
   PaginationComponent,
   ProgressIndicatorComponent,
   RadioButtonComponent,
@@ -32,6 +29,9 @@ import {
 import { AutoCompleteModule } from "primeng/autocomplete";
 import { IndicatorStep, Option } from "projects/rega-ui-material/src/utils/interfaces";
 import { CdkDragDrop, DragDropModule, moveItemInArray } from "@angular/cdk/drag-drop";
+import { ModalTestComponent } from "./modal-test/modal-test.component";
+import { ModalService } from "projects/rega-ui-material/src/services";
+import { tap } from "rxjs/operators";
 @Component({
   selector: "app-root",
   standalone: true,
@@ -63,6 +63,7 @@ import { CdkDragDrop, DragDropModule, moveItemInArray } from "@angular/cdk/drag-
 export class AppComponent implements OnInit {
   readonly #fb = inject(FormBuilder);
   readonly #breadcrumbService = inject(BreadcrumbService);
+  readonly #modalService = inject(ModalService);
 
   public readonly textInput: WritableSignal<string> = signal("Hello World");
 
@@ -150,6 +151,19 @@ export class AppComponent implements OnInit {
       items: this.items,
     });
   }
+
+  public openModal = (): void => {
+    this.#modalService
+      .open(ModalTestComponent, {
+        data: { title: "Modal Title", message: "Modal Content" },
+        backdropClose: true,
+        width: "400px",
+        height: "150px",
+      })
+      .afterClosed()
+      .pipe(tap(console.log))
+      .subscribe();
+  };
 
   dropdownChange = (event: unknown): void => {
     console.log("🚀 ~ AppComponent ~ event:", event);

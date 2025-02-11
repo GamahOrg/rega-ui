@@ -9,3 +9,4 @@ export * from "./autocomplete.interface";
 export * from "./table.interface";
 export * from "./progress-indicator.interface";
 export * from "./tag.interface";
+export * from "./modal.interface";
