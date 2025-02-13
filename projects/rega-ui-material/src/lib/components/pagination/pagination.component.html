@@ -1,34 +1,51 @@
 <nav [ngClass]="classes()" class="h-auto w-auto" aria-label="Pagination">
   <ul class="flex justify-center items-center gap-3 list-none p-0">
     <li>
-      <rega-button
-        [label]="''"
-        [size]="size()"
-        [disabled]="currentPage() === 1"
-        variant="transparent"
-        btnClass="arrow"
-        (click)="currentPage() !== 1 && pageChange(currentPage() - 1)"
-      >
-        <span
-          [ngClass]="{ 'text-disabledColor': currentPage() === 1 }"
-          class="material-icons text-[#384250]"
-          >chevron_left</span
+      @let previousDisabled = currentPage() === 1;
+      @if (previousTemp()) {
+        <ng-container
+          *ngTemplateOutlet="
+            previousTemp();
+            context: { $implicit: currentPage(), disabled: previousDisabled }
+          "
+        />
+      } @else {
+        <rega-button
+          [label]="''"
+          [size]="size()"
+          [disabled]="previousDisabled"
+          variant="transparent"
+          btnClass="arrow"
+          (click)="currentPage() !== 1 && pageChange(currentPage() - 1)"
         >
-      </rega-button>
+          <span
+            [ngClass]="{ 'text-disabledColor': currentPage() === 1 }"
+            class="material-icons text-[#384250]"
+            >chevron_left</span
+          >
+        </rega-button>
+      }
     </li>
 
     @for (page of pageList(); track $index) {
       <li>
         @if (page !== -1) {
-          <rega-button
-            [label]="''"
-            [size]="size()"
-            [class.active]="page === currentPage()"
-            variant="transparent"
-            (click)="pageChange(page)"
-          >
-            <span class="text-[#384250]">{{ page }}</span>
-          </rega-button>
+          @let isActive = page === currentPage();
+          @if (numberTemp()) {
+            <ng-container
+              *ngTemplateOutlet="numberTemp(); context: { $implicit: page, isActive }"
+            />
+          } @else {
+            <rega-button
+              [label]="''"
+              [size]="size()"
+              [class.active]="isActive"
+              variant="transparent"
+              (click)="pageChange(page)"
+            >
+              <span class="text-[#384250]">{{ page }}</span>
+            </rega-button>
+          }
         } @else {
           <custom-dropdown
             [options]="pages()"
@@ -58,20 +75,30 @@
     }
 
     <li>
-      <rega-button
-        [label]="''"
-        [size]="size()"
-        [disabled]="currentPage() === count()"
-        variant="transparent"
-        btnClass="arrow"
-        (click)="currentPage() !== count() && pageChange(currentPage() + 1)"
-      >
-        <span
-          [ngClass]="{ 'text-disabledColor': currentPage() === count() }"
-          class="material-icons text-[#384250]"
-          >navigate_next</span
+      @let nextDisabled = currentPage() === count();
+      @if (nextTemp()) {
+        <ng-container
+          *ngTemplateOutlet="
+            nextTemp();
+            context: { $implicit: currentPage(), disabled: nextDisabled }
+          "
+        />
+      } @else {
+        <rega-button
+          [label]="''"
+          [size]="size()"
+          [disabled]="nextDisabled"
+          variant="transparent"
+          btnClass="arrow"
+          (click)="currentPage() !== count() && pageChange(currentPage() + 1)"
         >
-      </rega-button>
+          <span
+            [ngClass]="{ 'text-disabledColor': currentPage() === count() }"
+            class="material-icons text-[#384250]"
+            >navigate_next</span
+          >
+        </rega-button>
+      }
     </li>
   </ul>
 </nav>

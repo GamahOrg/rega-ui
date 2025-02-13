@@ -2,6 +2,7 @@ import { CommonModule } from "@angular/common";
 import {
   Component,
   computed,
+  contentChild,
   input,
   InputSignal,
   model,
@@ -20,6 +21,12 @@ import { ButtonComponent } from "../rega-button/rega-button.component";
   templateUrl: "./pagination.component.html",
 })
 export class PaginationComponent {
+  public readonly previousTemp = contentChild<any | undefined>("previousTemp");
+
+  public readonly nextTemp = contentChild<any | undefined>("nextTemp");
+
+  public readonly numberTemp = contentChild<any | undefined>("numberTemp");
+
   public readonly count: InputSignal<number> = input(0);
 
   public readonly currentPage: ModelSignal<number> = model(1);
