@@ -9,7 +9,7 @@ import {
   Type,
 } from "@angular/core";
 import { Observable, Subject, take } from "rxjs";
-import { MODAL_DATA, ModalOptions } from "../utils";
+import { ALIGN, MODAL_DATA, ModalAlignEnum, ModalOptions, STYLE_CLASSES } from "../utils";
 
 @Injectable({ providedIn: "root" })
 export class ModalService {
@@ -27,7 +27,11 @@ export class ModalService {
     this.#afterCloseSubject = new Subject();
     // Create a custom injector to provide modal data
     const modalInjector = Injector.create({
-      providers: [{ provide: MODAL_DATA, useValue: options?.data || null }],
+      providers: [
+        { provide: MODAL_DATA, useValue: options?.data || null },
+        { provide: ALIGN, useValue: options?.align || ModalAlignEnum.Center },
+        { provide: STYLE_CLASSES, useValue: options?.styleClasses || [""] },
+      ],
       parent: this.#injector,
     });
 
@@ -60,6 +64,9 @@ export class ModalService {
     document.body.appendChild(modalElement);
 
     if (options?.data) Object.assign(this.#componentRef?.instance, options.data);
+    if (options?.align) Object.assign(this.#componentRef?.instance, options.align);
+    if (options?.styleClasses)
+      Object.assign(this.#componentRef?.instance, options.styleClasses);
     if (options?.backdropClose) this._setupBackdropClose(modalElement);
 
     return { afterClosed: () => this.#afterCloseSubject!.pipe(take(1)) };
@@ -78,7 +85,7 @@ export class ModalService {
   };
 
   private _setupBackdropClose = (modalElement: HTMLElement): void => {
-    const overlay = modalElement.querySelector(".modal-overlay") as HTMLElement;
+    const overlay = modalElement.querySelector(".rega-modal") as HTMLElement;
 
     if (overlay) {
       overlay.addEventListener("click", (event: MouseEvent) => {
