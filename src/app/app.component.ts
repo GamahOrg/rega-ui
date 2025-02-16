@@ -20,6 +20,7 @@ import {
   DropZoneComponent,
   FileUploadComponent,
   ModalComponent,
+  // ModalTestComponent,
   PaginationComponent,
   ProgressIndicatorComponent,
   RadioButtonComponent,
@@ -29,9 +30,10 @@ import {
 import { AutoCompleteModule } from "primeng/autocomplete";
 import { IndicatorStep, Option } from "projects/rega-ui-material/src/utils/interfaces";
 import { CdkDragDrop, DragDropModule, moveItemInArray } from "@angular/cdk/drag-drop";
-import { ModalTestComponent } from "./modal-test/modal-test.component";
 import { ModalService } from "projects/rega-ui-material/src/services";
 import { tap } from "rxjs/operators";
+import { ModalAlignEnum } from "projects/rega-ui-material/src/utils";
+import { ModalTestComponent } from "../modal-test/modal-test.component";
 @Component({
   selector: "app-root",
   standalone: true,
@@ -150,6 +152,8 @@ export class AppComponent implements OnInit {
     this.#breadcrumbService.breadcrumb.set({
       items: this.items,
     });
+
+    this.openModal();
   }
 
   public openModal = (): void => {
@@ -157,8 +161,10 @@ export class AppComponent implements OnInit {
       .open(ModalTestComponent, {
         data: { title: "Modal Title", message: "Modal Content" },
         backdropClose: true,
+        align: ModalAlignEnum.Start,
         width: "400px",
         height: "150px",
+        // styleClasses: ["!bg-[#000]"],
       })
       .afterClosed()
       .pipe(tap(console.log))
