@@ -6,3 +6,4 @@ export * from "./file-upload.enum";
 export * from "./card.enum";
 export * from "./progress-indicator.enum";
 export * from "./tag.enum";
+export * from "./modal.enum";
