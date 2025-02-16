@@ -121,7 +121,7 @@ $sizes: (
       }
 
       &:disabled {
-        @include btnColor($disabledBorderColor, #ffffff);
+        @include btnColor($disabledBorderColor !important, #ffffff !important);
       }
     }
 

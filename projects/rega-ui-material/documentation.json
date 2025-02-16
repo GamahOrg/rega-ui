@@ -51,6 +51,16 @@
                 "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    contained: true,\r\n  },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n    <div class=\"h-auto\">  \r\n      <rega-table\r\n        [data]=\"[{id: 0, label: 'Item label 0'}, {id: 1, label: 'Item label 1'}, {id: 2, label: 'Item label 2'}, {id: 3, label: 'Item label 3'}, {id: 4, label: 'Item label 4'}, {id: 5, label: 'Item label 5'}, {id: 6, label: 'Item label 6'}]\"\r\n        [contained]=\"${args.contained}\"\r\n        [colSpan]=\"${args.colSpan}\"\r\n      >\r\n        <ng-template #headerTemp>\r\n          <th>Name</th>\r\n          <th>Country</th>\r\n          <th>Company</th>\r\n          <th>Representative</th>\r\n        </ng-template>\r\n\r\n        <ng-template #bodyTemp let-row let-expanded=\"expanded\">\r\n          <td class=\"w-6\">{{ row.id }}</td>\r\n          <td class=\"w-48\">{{ row.label }}</td>\r\n          <td class=\"w-48\">{{ row.label }}</td>\r\n          <td class=\"w-48\">{{ row.label }}</td>\r\n        </ng-template>\r\n      </rega-table>\r\n    </div>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
+                "name": "CustomPagination",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/pagination.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-pagination\r\n          #pagination\r\n          [count]=\"${args.count}\"\r\n          [currentPage]=\"${args.currentPage}\"\r\n          [siblingCount]=\"${args.siblingCount}\"\r\n          size=\"medium\"\r\n        >\r\n          <ng-template #previousTemp let-currentP><span class=\"h-8 w-8  flex justify-center items-center cursor-pointer material-icons text-[#384250]\" (click)=\"currentP !== 1 && pagination.pageChange(currentP - 1)\">chevron_left</span></ng-template>\r\n\r\n          <ng-template #numberTemp let-page let-isActive=\"isActive\"> \r\n            <span class=\"h-8 w-8 flex justify-center items-center rounded-full border-2 cursor-pointer {{isActive ? 'bg-primaryColor text-white shadow' : 'border-white'}}\" (click)=\"pagination.pageChange(page)\">{{ page }}</span> \r\n          </ng-template>\r\n          \r\n          <ng-template #nextTemp let-currentP><span class=\"h-8 w-8 flex justify-center items-center cursor-pointer material-icons text-[#384250]\" (click)=\"currentP !== ${args.count} && pagination.pageChange(currentP + 1)\">navigate_next</span></ng-template>\r\n        </rega-pagination>\r\n      `,\r\n    };\r\n  },\r\n}"
+            },
+            {
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -124,11 +134,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/rega-ui-material/src/lib/stories/pagination.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  argTypes: {\r\n    count: {\r\n      name: \"count\",\r\n      type: { name: \"number\", required: true },\r\n      default: 100,\r\n      description: \"Total length\",\r\n    },\r\n    currentPage: {\r\n      type: { name: \"number\", required: true },\r\n      description: \"Selected page index\",\r\n      default: 1,\r\n    },\r\n    siblingCount: { type: \"number\", default: 1 },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    onPageChange: { description: \"(event: number) => void\" },\r\n  },\r\n  args: {\r\n    count: 100,\r\n    currentPage: 1,\r\n    siblingCount: 1,\r\n    size: SizeEnum.Medium,\r\n  },\r\n}"
+                "defaultValue": "{\r\n  argTypes: {\r\n    count: {\r\n      name: \"count\",\r\n      type: { name: \"number\", required: true },\r\n      default: 100,\r\n      description: \"Total length\",\r\n    },\r\n    currentPage: {\r\n      type: { name: \"number\", required: true },\r\n      description: \"Selected page index\",\r\n      default: 1,\r\n    },\r\n    siblingCount: { type: \"number\", default: 1 },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    numberTemp: {\r\n      control: { type: \"object\" },\r\n      description:\r\n        \"ContentChild with Template variable #numberTemp; extract page as default variable and also isActive\",\r\n    },\r\n    previousTemp: {\r\n      control: { type: \"object\" },\r\n      description:\r\n        \"ContentChild with Template variable #previousTemp, extract current page as default variable and also disabled\",\r\n    },\r\n    nextTemp: {\r\n      control: { type: \"object\" },\r\n      description:\r\n        \"ContentChild with Template variable #nextTemp, extract current page as default variable and also disabled\",\r\n    },\r\n    onPageChange: { description: \"(event: number) => void\" },\r\n  },\r\n  args: {\r\n    count: 100,\r\n    currentPage: 1,\r\n    siblingCount: 1,\r\n    size: SizeEnum.Medium,\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -489,6 +509,16 @@
                 "deprecationMessage": "",
                 "type": "Meta",
                 "defaultValue": "{\r\n  title: \"Components/FileUpload/FileUpload\",\r\n  component: FileUploadComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/rega-ui-material/src/lib/stories/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ModalComponent>",
+                "defaultValue": "{\r\n  title: \"Components/Modal\",\r\n  component: ModalComponent,\r\n  decorators: [\r\n    moduleMetadata({ imports: [BrowserModule, ModalComponent, ButtonComponent] }),\r\n    applicationConfig({\r\n      providers: [\r\n        ModalService,\r\n        { provide: MODAL_DATA, useValue: {} },\r\n        { provide: ALIGN, useValue: ModalAlignEnum.Center },\r\n        { provide: STYLE_CLASSES, useValue: [\"\"] },\r\n        { provide: ErrorHandler, useClass: ErrorHandler },\r\n      ],\r\n    }),\r\n  ],\r\n  tags: [\"autodocs\"],\r\n  render: () => {\r\n    // let modalService: ModalService;\r\n    // const injector = inject(Injector);\r\n\r\n    // runInInjectionContext(injector, () => {\r\n    //   modalService = inject(ModalService);\r\n    // });\r\n\r\n    return {\r\n      applicationConfig: {\r\n        providers: [\r\n          ModalService,\r\n          { provide: MODAL_DATA, useValue: {} },\r\n          { provide: ALIGN, useValue: ModalAlignEnum.Center },\r\n          { provide: STYLE_CLASSES, useValue: [\"\"] },\r\n          { provide: ErrorHandler, useClass: ErrorHandler },\r\n        ],\r\n      },\r\n      template: `\r\n       <rega-button\r\n        label=\"Open Modal\"\r\n        color=\"primary\"\r\n        size=\"large\"\r\n        btnClass=\"min-w-0 text-base\"\r\n        (click)=\"openModal()\"\r\n        />\r\n      `,\r\n      props: {\r\n        openModal: () => {},\r\n      },\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -1125,6 +1155,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<ModalComponent>",
+                "file": "projects/rega-ui-material/src/lib/stories/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<PaginationComponent>",
                 "file": "projects/rega-ui-material/src/lib/stories/pagination.stories.ts",
                 "deprecated": false,
@@ -1426,6 +1467,48 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    showClear: true,\r\n  },\r\n}"
+                }
+            ],
+            "projects/rega-ui-material/src/lib/stories/pagination.stories.ts": [
+                {
+                    "name": "CustomPagination",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/pagination.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: { ...Default.args },\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-pagination\r\n          #pagination\r\n          [count]=\"${args.count}\"\r\n          [currentPage]=\"${args.currentPage}\"\r\n          [siblingCount]=\"${args.siblingCount}\"\r\n          size=\"medium\"\r\n        >\r\n          <ng-template #previousTemp let-currentP><span class=\"h-8 w-8  flex justify-center items-center cursor-pointer material-icons text-[#384250]\" (click)=\"currentP !== 1 && pagination.pageChange(currentP - 1)\">chevron_left</span></ng-template>\r\n\r\n          <ng-template #numberTemp let-page let-isActive=\"isActive\"> \r\n            <span class=\"h-8 w-8 flex justify-center items-center rounded-full border-2 cursor-pointer {{isActive ? 'bg-primaryColor text-white shadow' : 'border-white'}}\" (click)=\"pagination.pageChange(page)\">{{ page }}</span> \r\n          </ng-template>\r\n          \r\n          <ng-template #nextTemp let-currentP><span class=\"h-8 w-8 flex justify-center items-center cursor-pointer material-icons text-[#384250]\" (click)=\"currentP !== ${args.count} && pagination.pageChange(currentP + 1)\">navigate_next</span></ng-template>\r\n        </rega-pagination>\r\n      `,\r\n    };\r\n  },\r\n}"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/pagination.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  argTypes: {\r\n    count: {\r\n      name: \"count\",\r\n      type: { name: \"number\", required: true },\r\n      default: 100,\r\n      description: \"Total length\",\r\n    },\r\n    currentPage: {\r\n      type: { name: \"number\", required: true },\r\n      description: \"Selected page index\",\r\n      default: 1,\r\n    },\r\n    siblingCount: { type: \"number\", default: 1 },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    numberTemp: {\r\n      control: { type: \"object\" },\r\n      description:\r\n        \"ContentChild with Template variable #numberTemp; extract page as default variable and also isActive\",\r\n    },\r\n    previousTemp: {\r\n      control: { type: \"object\" },\r\n      description:\r\n        \"ContentChild with Template variable #previousTemp, extract current page as default variable and also disabled\",\r\n    },\r\n    nextTemp: {\r\n      control: { type: \"object\" },\r\n      description:\r\n        \"ContentChild with Template variable #nextTemp, extract current page as default variable and also disabled\",\r\n    },\r\n    onPageChange: { description: \"(event: number) => void\" },\r\n  },\r\n  args: {\r\n    count: 100,\r\n    currentPage: 1,\r\n    siblingCount: 1,\r\n    size: SizeEnum.Medium,\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/pagination.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta",
+                    "defaultValue": "{\r\n  title: \"Components/Pagination\",\r\n  component: PaginationComponent,\r\n  tags: [\"autodocs\"],\r\n}"
+                },
+                {
+                    "name": "RTL",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/rega-ui-material/src/lib/stories/pagination.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: { ...Default.args },\r\n}"
                 }
             ],
             "projects/rega-ui-material/src/lib/stories/autocomplete.stories.ts": [
@@ -1760,36 +1843,26 @@
                     "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: {\r\n    ...Default.args,\r\n    label: \"تصفح الملفات\",\r\n  },\r\n}"
                 }
             ],
-            "projects/rega-ui-material/src/lib/stories/pagination.stories.ts": [
+            "projects/rega-ui-material/src/lib/stories/modal.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/stories/pagination.stories.ts",
+                    "file": "projects/rega-ui-material/src/lib/stories/modal.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  argTypes: {\r\n    count: {\r\n      name: \"count\",\r\n      type: { name: \"number\", required: true },\r\n      default: 100,\r\n      description: \"Total length\",\r\n    },\r\n    currentPage: {\r\n      type: { name: \"number\", required: true },\r\n      description: \"Selected page index\",\r\n      default: 1,\r\n    },\r\n    siblingCount: { type: \"number\", default: 1 },\r\n    size: {\r\n      options: GStatic.enumToArray(SizeEnum).map(({ value }) => value),\r\n      control: { type: \"radio\" },\r\n      description: \"SizeEnum\",\r\n    },\r\n    onPageChange: { description: \"(event: number) => void\" },\r\n  },\r\n  args: {\r\n    count: 100,\r\n    currentPage: 1,\r\n    siblingCount: 1,\r\n    size: SizeEnum.Medium,\r\n  },\r\n}"
+                    "defaultValue": "{}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/stories/pagination.stories.ts",
+                    "file": "projects/rega-ui-material/src/lib/stories/modal.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta",
-                    "defaultValue": "{\r\n  title: \"Components/Pagination\",\r\n  component: PaginationComponent,\r\n  tags: [\"autodocs\"],\r\n}"
-                },
-                {
-                    "name": "RTL",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/rega-ui-material/src/lib/stories/pagination.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  parameters: { direction: \"rtl\", dir: \"rtl\" },\r\n  args: { ...Default.args },\r\n}"
+                    "type": "Meta<ModalComponent>",
+                    "defaultValue": "{\r\n  title: \"Components/Modal\",\r\n  component: ModalComponent,\r\n  decorators: [\r\n    moduleMetadata({ imports: [BrowserModule, ModalComponent, ButtonComponent] }),\r\n    applicationConfig({\r\n      providers: [\r\n        ModalService,\r\n        { provide: MODAL_DATA, useValue: {} },\r\n        { provide: ALIGN, useValue: ModalAlignEnum.Center },\r\n        { provide: STYLE_CLASSES, useValue: [\"\"] },\r\n        { provide: ErrorHandler, useClass: ErrorHandler },\r\n      ],\r\n    }),\r\n  ],\r\n  tags: [\"autodocs\"],\r\n  render: () => {\r\n    // let modalService: ModalService;\r\n    // const injector = inject(Injector);\r\n\r\n    // runInInjectionContext(injector, () => {\r\n    //   modalService = inject(ModalService);\r\n    // });\r\n\r\n    return {\r\n      applicationConfig: {\r\n        providers: [\r\n          ModalService,\r\n          { provide: MODAL_DATA, useValue: {} },\r\n          { provide: ALIGN, useValue: ModalAlignEnum.Center },\r\n          { provide: STYLE_CLASSES, useValue: [\"\"] },\r\n          { provide: ErrorHandler, useClass: ErrorHandler },\r\n        ],\r\n      },\r\n      template: `\r\n       <rega-button\r\n        label=\"Open Modal\"\r\n        color=\"primary\"\r\n        size=\"large\"\r\n        btnClass=\"min-w-0 text-base\"\r\n        (click)=\"openModal()\"\r\n        />\r\n      `,\r\n      props: {\r\n        openModal: () => {},\r\n      },\r\n    };\r\n  },\r\n}"
                 }
             ],
             "projects/rega-ui-material/src/lib/stories/progress-indicator.stories.ts": [
@@ -2394,6 +2467,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<FileUploadComponent>",
                     "file": "projects/rega-ui-material/src/lib/stories/file-upload.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/rega-ui-material/src/lib/stories/modal.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ModalComponent>",
+                    "file": "projects/rega-ui-material/src/lib/stories/modal.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -3123,6 +3209,46 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
                 "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/modal.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/modal.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/modal.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/rega-ui-material/src/lib/stories/pagination.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "CustomPagination",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

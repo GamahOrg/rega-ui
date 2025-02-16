@@ -153,7 +153,7 @@ export class AppComponent implements OnInit {
       items: this.items,
     });
 
-    this.openModal();
+    // this.openModal();
   }
 
   public openModal = (): void => {
