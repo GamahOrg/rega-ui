@@ -60,15 +60,6 @@ export const Primary: Story = {
   },
 };
 
-export const LinkLarge: Story = {
-  args: {
-    ...Primary.args,
-    size: SizeEnum.Large,
-    color: ColorEnum.Secondary,
-    buttonType: "link",
-  },
-};
-
 export const SecondaryLarge: Story = {
   args: {
     ...Primary.args,
