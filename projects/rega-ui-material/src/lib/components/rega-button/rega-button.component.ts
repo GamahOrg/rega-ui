@@ -20,6 +20,7 @@ import {
 import {
   IsActiveMatchOptions,
   Params,
+  QueryParamsHandling,
   RouterLink,
   RouterLinkActive,
   UrlTree,
@@ -59,6 +60,10 @@ export class ButtonComponent implements AfterViewInit {
   > = input({ exact: false } as { exact: boolean } | IsActiveMatchOptions);
 
   public readonly queryParams: InputSignal<Params | null | undefined> = input();
+
+  public readonly queryParamsHandling: InputSignal<
+    QueryParamsHandling | null | undefined
+  > = input("merge" as QueryParamsHandling | null | undefined);
 
   public readonly btnClass: InputSignal<string> = input("");
 
