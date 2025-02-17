@@ -7,11 +7,13 @@ import {
   input,
   InputSignal,
   linkedSignal,
+  signal,
   Signal,
 } from "@angular/core";
 import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from "@angular/forms";
 import {
   BaseFormValueAccessorComponent,
+  GStatic,
   InputVariantEnum,
   InputVariantType,
   SizeEnum,
@@ -79,6 +81,8 @@ export class TextInputComponent extends BaseFormValueAccessorComponent {
 
     return classes.filter(Boolean);
   });
+
+  public readonly uniqueId: Signal<string> = signal(GStatic.uniqueId);
 
   public onInputChange = (event: Event): void => {
     const input: any = (event.target as HTMLInputElement).value;

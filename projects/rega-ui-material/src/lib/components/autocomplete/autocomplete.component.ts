@@ -162,6 +162,8 @@ export class AutocompleteComponent implements ControlValueAccessor, AfterViewIni
     onLazyLoad: (res: LazyLoadingEvent) => this.onLazyLoad.emit(res),
   };
 
+  public readonly uniqueId: Signal<string> = signal(GStatic.uniqueId);
+
   public ngAfterViewInit(): void {
     this.#ngControl = this.#injector.get(NgControl, null);
     if (this.#ngControl) {

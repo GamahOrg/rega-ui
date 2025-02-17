@@ -9,11 +9,15 @@
 <div class="w-1/2 p-4 flex justify-start items-center gap-4">
   <ng-container [formGroup]="userForm">
     <div class="grid sm:grid-cols-2 md:grid-cols-4 grid-cols-1 sm:gap-2 md:gap-5 gap-3">
-      <rega-input formControlName="username" [placeholder]="'users.user_name'" />
+      <rega-input
+        label="Username"
+        formControlName="username"
+        [placeholder]="'users.user_name'"
+      />
 
-      <rega-input formControlName="email" [placeholder]="'utils.email'" />
+      <rega-input label="Email" formControlName="email" [placeholder]="'utils.email'" />
 
-      <rega-dropdown formControlName="role" [options]="roleList" />
+      <rega-dropdown [label]="'Role'" formControlName="role" [options]="roleList" />
     </div>
   </ng-container>
 </div>

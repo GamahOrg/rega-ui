@@ -1,6 +1,7 @@
 <div [ngClass]="classes()" class="flex flex-col justify-start items-start">
-  <label class="flex justify-center items-center cursor-pointer">
+  <label [attr.for]="uniqueId()" class="flex justify-center items-center cursor-pointer">
     <input
+      [id]="uniqueId()"
       [value]="value()"
       [checked]="checked()"
       [disabled]="linkedDisabled()"

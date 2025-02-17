@@ -9,12 +9,13 @@ import {
   ModelSignal,
   output,
   OutputEmitterRef,
+  signal,
   Signal,
 } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgClass } from "@angular/common";
 
-import { ColorEnum, ColorType, SizeEnum, SizeType } from "../../../utils";
+import { ColorEnum, ColorType, GStatic, SizeEnum, SizeType } from "../../../utils";
 import { RadioGroupComponent } from "../../";
 import { MatIconModule } from "@angular/material/icon";
 
@@ -73,6 +74,8 @@ export class RadioButtonComponent {
 
     return classes.filter(Boolean);
   });
+
+  public readonly uniqueId: Signal<string> = signal(GStatic.uniqueId);
 
   public onInputChange = (event: any): void => {
     const checked: boolean = (event.target as HTMLInputElement).checked;

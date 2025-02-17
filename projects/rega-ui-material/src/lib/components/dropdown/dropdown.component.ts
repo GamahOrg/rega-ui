@@ -28,6 +28,7 @@ import { provideAnimations } from "@angular/platform-browser/animations";
 import { SelectChangeEvent, SelectModule } from "primeng/select";
 
 import {
+  GStatic,
   LazyLoadingEvent,
   Option,
   SizeEnum,
@@ -141,6 +142,8 @@ export class DropdownComponent implements ControlValueAccessor, AfterViewInit {
   public readonly hasError: WritableSignal<boolean> = signal(false);
 
   public readonly touched: WritableSignal<boolean> = signal(false);
+
+  public readonly uniqueId: Signal<string> = signal(GStatic.uniqueId);
 
   public ngAfterViewInit(): void {
     this.#ngControl = this.#injector.get(NgControl, null);

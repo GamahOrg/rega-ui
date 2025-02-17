@@ -91,4 +91,9 @@ export abstract class GStatic {
       .filter((key) => isNaN(Number(key)))
       .map((key) => ({ key, value: enumObj[key as keyof typeof enumObj] }));
   };
+
+  public static get uniqueId(): string {
+    const randomPart = Math.random().toString(36).substring(2, 11);
+    return `id-${randomPart}`;
+  }
 }

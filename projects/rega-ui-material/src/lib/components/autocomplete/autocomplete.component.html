@@ -1,12 +1,15 @@
 <div [ngClass]="classes()">
   @if (label()) {
-    <label for="input" class="block mb-1 px-[2px] text-sm font-medium text-gray-900">{{
-      label()
-    }}</label>
+    <label
+      [attr.for]="uniqueId()"
+      class="block mb-1 px-[2px] text-sm font-medium text-gray-900"
+      >{{ label() }}</label
+    >
   }
   <div class="relative underline-animation">
     <p-autocomplete
       #autocomplete
+      [id]="uniqueId()"
       [(ngModel)]="selectedOptions"
       [suggestions]="filteredOptions()"
       [optionValue]="optionValue()"

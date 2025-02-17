@@ -1,15 +1,15 @@
 <div [ngClass]="classes()" class="flex flex-col justify-start items-start">
   <div class="flex justify-start items-center gap-2">
     <input
+      [id]="uniqueId()"
       [(ngModel)]="value"
       [disabled]="disabled()"
-      id="checkbox"
       type="checkbox"
       (input)="onCheckboxChange($event)"
       (blur)="onTouched(); touched.set(true)"
     />
 
-    <label for="checkbox">{{ label() }}</label>
+    <label [attr.for]="uniqueId()">{{ label() }}</label>
   </div>
 
   @if (description()) {

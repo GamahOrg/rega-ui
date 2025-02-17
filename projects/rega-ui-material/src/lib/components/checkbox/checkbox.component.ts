@@ -8,6 +8,7 @@ import {
   linkedSignal,
   output,
   OutputEmitterRef,
+  signal,
   Signal,
 } from "@angular/core";
 import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from "@angular/forms";
@@ -16,6 +17,7 @@ import {
   BaseFormValueAccessorComponent,
   ColorEnum,
   ColorType,
+  GStatic,
   SizeEnum,
   SizeType,
 } from "../../../utils";
@@ -63,6 +65,8 @@ export class CheckboxComponent extends BaseFormValueAccessorComponent {
 
     return classes.filter(Boolean);
   });
+
+  public readonly uniqueId: Signal<string> = signal(GStatic.uniqueId);
 
   public onCheckboxChange = (event: Event): void => {
     const input: any = (event.target as HTMLInputElement).checked;
