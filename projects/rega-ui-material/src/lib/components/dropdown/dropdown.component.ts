@@ -24,7 +24,7 @@ import {
   ReactiveFormsModule,
 } from "@angular/forms";
 import { provideAnimations } from "@angular/platform-browser/animations";
-import { SelectModule } from "primeng/select";
+import { SelectChangeEvent, SelectModule } from "primeng/select";
 
 import {
   LazyLoadingEvent,
@@ -102,7 +102,7 @@ export class DropdownComponent implements ControlValueAccessor, OnInit {
 
   public readonly onSearch: OutputEmitterRef<string> = output();
 
-  public readonly dropdownChange: OutputEmitterRef<unknown> = output();
+  public readonly dropdownChange: OutputEmitterRef<SelectChangeEvent> = output();
 
   public readonly onLazyLoad: OutputEmitterRef<LazyLoadingEvent> = output();
 
