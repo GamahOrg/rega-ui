@@ -44,6 +44,8 @@ export class PaginationComponent {
   );
 
   public readonly pageList = computed(() => {
+    if (this.count() === 1) return [1];
+
     const center: number[] = Array.from(
         { length: this.siblingCount() * 2 + 1 },
         (_, i) => this.currentPage() - this.siblingCount() + i
@@ -74,6 +76,7 @@ export class PaginationComponent {
   });
 
   public pageChange = (page: number): void => {
+    console.log(this.pages());
     if (page !== this.currentPage()) {
       this.currentPage.set(page);
       this.onPageChange.emit(page);
