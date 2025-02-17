@@ -5,6 +5,8 @@ import { BreadcrumbItem, BreadcrumbService } from "rega-material-ui";
 import { TextInputComponent } from "projects/rega-ui-material/src/lib/components/text-input/text-input.component";
 import {
   FormBuilder,
+  FormControl,
+  FormGroup,
   FormsModule,
   ReactiveFormsModule,
   UntypedFormControl,
@@ -67,7 +69,9 @@ export class AppComponent implements OnInit {
   readonly #breadcrumbService = inject(BreadcrumbService);
   readonly #modalService = inject(ModalService);
 
-  public readonly textInput: WritableSignal<string> = signal("Hello World");
+  public readonly textInput: FormControl<string> = this.#fb.nonNullable.control("", [
+    Validators.required,
+  ]);
 
   // public radio: string = "2";
   public autocomplete: UntypedFormControl = this.#fb.nonNullable.control(
@@ -84,6 +88,15 @@ export class AppComponent implements OnInit {
 
   public formGroup = this.#fb.group({
     control: [null, [Validators.required]],
+  });
+
+  public readonly userForm: FormGroup<any> = this.#fb.nonNullable.group({
+    username: [
+      "",
+      [Validators.required, Validators.minLength(2), Validators.maxLength(50)],
+    ],
+    email: ["", [Validators.required, Validators.email]],
+    role: ["", [Validators.required]],
   });
 
   public selectionGroup = this.#fb.group({
@@ -103,7 +116,11 @@ export class AppComponent implements OnInit {
 
   public loading: WritableSignal<boolean> = signal(true);
   public optionsLoaded: WritableSignal<boolean> = signal(true);
-  title = "rega-ui";
+  public roleList: Option[] = [
+    { id: "1", label: "Role1" },
+    { id: "2", label: "Role2" },
+    { id: "3", label: "Role3" },
+  ];
 
   public items: BreadcrumbItem[] = [
     { label: "Link 1", link: "/link1" },
@@ -128,25 +145,25 @@ export class AppComponent implements OnInit {
     // for (let i = 0; i < 4; i++) this.options().push("Item label " + i);
 
     this.autocomplete.valueChanges.subscribe((res) => {
-      console.log(
-        "🚀 ~ AppComponent ~ this.autocomplete.valueChanges.subscribe ~ res:",
-        res
-      );
+      // console.log(
+      //   "🚀 ~ AppComponent ~ this.autocomplete.valueChanges.subscribe ~ res:",
+      //   res
+      // );
     });
 
     this.control.valueChanges.subscribe((res) => {
-      console.log("🚀 ~ AppComponent ~ this.control.valueChanges.subscribe ~ res:", res);
+      // console.log("🚀 ~ AppComponent ~ this.control.valueChanges.subscribe ~ res:", res);
     });
 
     this.radio.valueChanges.subscribe((res) => {
-      console.log("🚀 ~ AppComponent ~ this.control.valueChanges.subscribe ~ res:", res);
+      // console.log("🚀 ~ AppComponent ~ this.control.valueChanges.subscribe ~ res:", res);
     });
 
     this.selectionGroup.valueChanges.subscribe((res) => {
-      console.log(
-        "🚀 ~ AppComponent ~ this.selectionGroup.valueChanges.subscribe ~ res:",
-        res
-      );
+      // console.log(
+      //   "🚀 ~ AppComponent ~ this.selectionGroup.valueChanges.subscribe ~ res:",
+      //   res
+      // );
     });
 
     this.#breadcrumbService.breadcrumb.set({
@@ -154,6 +171,11 @@ export class AppComponent implements OnInit {
     });
 
     // this.openModal();
+  }
+
+  public ngAfterViewInit(): void {
+    this.userForm.markAllAsTouched();
+    this.userForm.updateValueAndValidity();
   }
 
   public openModal = (): void => {
@@ -196,6 +218,6 @@ export class AppComponent implements OnInit {
   };
 
   public onFileChange = (files: any): void => {
-    console.log("🚀 ~ AppComponent ~ files:", files);
+    // console.log("🚀 ~ AppComponent ~ files:", files);
   };
 }

@@ -7,6 +7,28 @@
   placeholder="ادخل النص"
 /> -->
 <div class="w-1/2 p-4 flex justify-start items-center gap-4">
+  <ng-container [formGroup]="userForm">
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 grid-cols-1 sm:gap-2 md:gap-5 gap-3">
+      <rega-input formControlName="username" [placeholder]="'users.user_name'" />
+
+      <rega-input formControlName="email" [placeholder]="'utils.email'" />
+
+      <rega-dropdown formControlName="role" [options]="roleList" />
+    </div>
+  </ng-container>
+</div>
+
+<div class="w-1/2 p-4">
+  <rega-input
+    [formControl]="textInput"
+    [placeholder]="'registrar_licenses.search_phone_license'"
+    [size]="'medium'"
+  >
+    <ng-template #inputSuffix>🔎</ng-template>
+  </rega-input>
+</div>
+
+<div class="w-1/2 p-4 flex justify-start items-center gap-4">
   <rega-button
     [label]="'Open Modal'"
     [color]="'neutral'"
@@ -43,16 +65,6 @@
   >
     <img src="icon.png" alt="Logo" class="md:h-[calc(5rem-5px)] h-[calc(3rem-5px)]" />
   </rega-button> -->
-</div>
-
-<div class="w-1/2 p-4">
-  <rega-input
-    [(ngModel)]="textInput"
-    [placeholder]="'registrar_licenses.search_phone_license'"
-    [size]="'medium'"
-  >
-    <ng-template #inputSuffix>🔎</ng-template>
-  </rega-input>
 </div>
 
 <div class="w-1/2 p-4">

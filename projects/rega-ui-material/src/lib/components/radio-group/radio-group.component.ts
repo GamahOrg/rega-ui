@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   ContentChildren,
   forwardRef,
@@ -13,7 +14,12 @@ import {
   signal,
   WritableSignal,
 } from "@angular/core";
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from "@angular/forms";
+import {
+  AbstractControl,
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR,
+  NgControl,
+} from "@angular/forms";
 import { ColorType, SizeType } from "../../../utils";
 import { RadioButtonComponent } from "../radio-button/radio.component";
 @Component({
@@ -27,7 +33,7 @@ import { RadioButtonComponent } from "../radio-button/radio.component";
     },
   ],
 })
-export class RadioGroupComponent implements ControlValueAccessor {
+export class RadioGroupComponent implements ControlValueAccessor, AfterViewInit {
   readonly #injector = inject(Injector);
 
   @ContentChildren(forwardRef(() => RadioButtonComponent))
@@ -55,13 +61,19 @@ export class RadioGroupComponent implements ControlValueAccessor {
 
   public touched: WritableSignal<boolean> = signal(false);
 
-  public ngOnInit(): void {
+  public ngAfterViewInit(): void {
     this.#ngControl = this.#injector.get(NgControl, null);
     if (this.#ngControl) {
       this.#ngControl.valueAccessor = this;
       const control = this.#ngControl?.control;
-      this.hasError.set(control!.invalid);
-      control?.valueChanges?.subscribe(() => this.hasError.set(control!.invalid));
+      if (control) {
+        this.hasError.set(control.invalid);
+
+        control.valueChanges?.subscribe(() => this.hasError.set(control.invalid));
+        control.statusChanges?.subscribe(() => this.hasError.set(control.invalid));
+
+        this._observeMarkAsTouched(control);
+      }
     }
   }
 
@@ -99,5 +111,19 @@ export class RadioGroupComponent implements ControlValueAccessor {
         this._radioButtons.forEach((btn) => btn.checked.set(btn.value() == this.value));
       }
     });
+  }
+
+  private _observeMarkAsTouched(control: AbstractControl) {
+    const originalMarkAsTouched = control.markAsTouched.bind(control);
+
+    control.markAsTouched = (opts?: { onlySelf?: boolean }) => {
+      originalMarkAsTouched(opts);
+      if (!this.touched()) {
+        this.touched.set(true);
+        this.onTouched();
+        if (this.#ngControl?.control)
+          this.#ngControl.control.markAsTouched({ onlySelf: false });
+      }
+    };
   }
 }

@@ -14,10 +14,11 @@ import {
   output,
   inject,
   Injector,
-  OnInit,
   contentChild,
+  AfterViewInit,
 } from "@angular/core";
 import {
+  AbstractControl,
   ControlValueAccessor,
   FormsModule,
   NG_VALUE_ACCESSOR,
@@ -64,7 +65,7 @@ import { ScrollerOptions } from "primeng/api";
     provideAnimations(),
   ],
 })
-export class AutocompleteComponent implements ControlValueAccessor, OnInit {
+export class AutocompleteComponent implements ControlValueAccessor, AfterViewInit {
   readonly #injector = inject(Injector);
 
   private readonly _autocomplete = viewChild("autocomplete", { read: AutoComplete });
@@ -161,13 +162,19 @@ export class AutocompleteComponent implements ControlValueAccessor, OnInit {
     onLazyLoad: (res: LazyLoadingEvent) => this.onLazyLoad.emit(res),
   };
 
-  public ngOnInit(): void {
+  public ngAfterViewInit(): void {
     this.#ngControl = this.#injector.get(NgControl, null);
     if (this.#ngControl) {
       this.#ngControl.valueAccessor = this;
       const control = this.#ngControl?.control;
-      this.hasError.set(control!.invalid);
-      control?.valueChanges?.subscribe(() => this.hasError.set(control!.invalid));
+      if (control) {
+        this.hasError.set(control.invalid);
+
+        control.valueChanges?.subscribe(() => this.hasError.set(control.invalid));
+        control.statusChanges?.subscribe(() => this.hasError.set(control.invalid));
+
+        this._observeMarkAsTouched(control);
+      }
     }
   }
 
@@ -256,5 +263,19 @@ export class AutocompleteComponent implements ControlValueAccessor, OnInit {
 
   public setDisabledState?(isDisabled: boolean): void {
     this.linkedDisabled.set(isDisabled || (this.disabled() as boolean));
+  }
+
+  private _observeMarkAsTouched(control: AbstractControl) {
+    const originalMarkAsTouched = control.markAsTouched.bind(control);
+
+    control.markAsTouched = (opts?: { onlySelf?: boolean }) => {
+      originalMarkAsTouched(opts);
+      if (!this.touched()) {
+        this.touched.set(true);
+        this.onTouched();
+        if (this.#ngControl?.control)
+          this.#ngControl.control.markAsTouched({ onlySelf: false });
+      }
+    };
   }
 }

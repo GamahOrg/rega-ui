@@ -1,6 +1,5 @@
 import { CommonModule } from "@angular/common";
 import {
-  AfterViewInit,
   Component,
   computed,
   forwardRef,
@@ -20,7 +19,6 @@ import {
   SizeEnum,
   SizeType,
 } from "../../../utils";
-import { initFlowbite } from "flowbite";
 import { MatIconModule } from "@angular/material/icon";
 
 @Component({
@@ -36,10 +34,7 @@ import { MatIconModule } from "@angular/material/icon";
     },
   ],
 })
-export class CheckboxComponent
-  extends BaseFormValueAccessorComponent
-  implements AfterViewInit
-{
+export class CheckboxComponent extends BaseFormValueAccessorComponent {
   public label: InputSignal<string> = input("");
 
   public description: InputSignal<string> = input("");
@@ -68,10 +63,6 @@ export class CheckboxComponent
 
     return classes.filter(Boolean);
   });
-
-  public ngAfterViewInit(): void {
-    initFlowbite();
-  }
 
   public onCheckboxChange = (event: Event): void => {
     const input: any = (event.target as HTMLInputElement).checked;
