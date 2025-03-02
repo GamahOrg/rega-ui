@@ -66,7 +66,6 @@ export const Default: Story = {
   },
   args: {
     data: Array.from({ length: 12 }, (_, id) => ({ id, label: "Item label " + id })),
-    colSpan: 4,
   },
   render: (args) => {
     return {
@@ -81,7 +80,7 @@ export const Default: Story = {
         [columnDivider]="${args.columnDivider}"
         [alternatingRows]="${args.alternatingRows}"
         [loading]="${args.loading}"
-        [colSpan]="${args.colSpan}"
+        scrollHeight="21rem"
       >
         <ng-template #headerTemp>
           <th>Name</th>
@@ -116,8 +115,8 @@ export const Contained: Story = {
       <rega-table
         [data]="[{id: 0, label: 'Item label 0'}, {id: 1, label: 'Item label 1'}, {id: 2, label: 'Item label 2'}, {id: 3, label: 'Item label 3'}, {id: 4, label: 'Item label 4'}, {id: 5, label: 'Item label 5'}, {id: 6, label: 'Item label 6'}]"
         [contained]="${args.contained}"
-        [colSpan]="${args.colSpan}"
-      >
+        scrollHeight="21rem"
+        >
         <ng-template #headerTemp>
           <th>Name</th>
           <th>Country</th>
@@ -153,7 +152,7 @@ export const ColumnDividerWithContained: Story = {
         [data]="[{id: 0, label: 'Item label 0'}, {id: 1, label: 'Item label 1'}, {id: 2, label: 'Item label 2'}, {id: 3, label: 'Item label 3'}, {id: 4, label: 'Item label 4'}, {id: 5, label: 'Item label 5'}, {id: 6, label: 'Item label 6'}]"
         [contained]="${args.contained}"
         [columnDivider]="${args.columnDivider}"
-        [colSpan]="${args.colSpan}"
+        scrollHeight="21rem"
       >
         <ng-template #headerTemp>
           <th>Name</th>
@@ -188,7 +187,7 @@ export const AlternatingRows: Story = {
       <rega-table
         [data]="[{id: 0, label: 'Item label 0'}, {id: 1, label: 'Item label 1'}, {id: 2, label: 'Item label 2'}, {id: 3, label: 'Item label 3'}, {id: 4, label: 'Item label 4'}, {id: 5, label: 'Item label 5'}, {id: 6, label: 'Item label 6'}]"
         [alternatingRows]="${args.alternatingRows}"
-        [colSpan]="${args.colSpan}"
+        scrollHeight="21rem"
       >
         <ng-template #headerTemp>
           <th>Name</th>
@@ -223,7 +222,7 @@ export const Loading: Story = {
       <rega-table
         [data]="[{id: 0, label: 'Item label 0'}, {id: 1, label: 'Item label 1'}, {id: 2, label: 'Item label 2'}, {id: 3, label: 'Item label 3'}, {id: 4, label: 'Item label 4'}, {id: 5, label: 'Item label 5'}, {id: 6, label: 'Item label 6'}]"
         [loading]="${args.loading}"
-        [colSpan]="${args.colSpan}"
+        scrollHeight="21rem"
       >
         <ng-template #headerTemp>
           <th>Name</th>
@@ -260,7 +259,7 @@ export const ExtendableWithAlternatingRows: Story = {
         [data]="[{id: 0, label: 'Item label 0'}, {id: 1, label: 'Item label 1'}, {id: 2, label: 'Item label 2'}, {id: 3, label: 'Item label 3'}, {id: 4, label: 'Item label 4'}, {id: 5, label: 'Item label 5'}, {id: 6, label: 'Item label 6'}]"
         [extendable]="${args.extendable}"
         [alternatingRows]="${args.alternatingRows}"
-        [colSpan]="${args.colSpan}"
+        scrollHeight="21rem"
       >
         <ng-template #headerTemp>
           <th></th>
@@ -307,7 +306,7 @@ export const ReorderWithAlternatingRows: Story = {
         [data]="[{id: 0, label: 'Item label 0'}, {id: 1, label: 'Item label 1'}, {id: 2, label: 'Item label 2'}, {id: 3, label: 'Item label 3'}, {id: 4, label: 'Item label 4'}, {id: 5, label: 'Item label 5'}, {id: 6, label: 'Item label 6'}]"
         [reorder]="${args.reorder}"
         [alternatingRows]="${args.alternatingRows}"
-        [colSpan]="${args.colSpan}"
+        scrollHeight="21rem"
       >
         <ng-template #headerTemp>
           <th></th>
@@ -343,7 +342,6 @@ export const lazyWithAlternatingRows: Story = {
     scrollHeight: "20rem",
     virtualScrollItemSize: 32,
     rowsCount: 5,
-    colSpan: 4,
   },
   render: (args) => {
     return {
@@ -357,7 +355,6 @@ export const lazyWithAlternatingRows: Story = {
         [virtualScrollItemSize]="${args.virtualScrollItemSize}"
         [alternatingRows]="${args.alternatingRows}"
         scrollHeight="20rem"
-        [colSpan]="${args.colSpan}"
       >
         <ng-template #headerTemp>
           <th>Name</th>
@@ -384,7 +381,6 @@ export const EmptyMessageTemplate: Story = {
     ...Default.args,
     data: [],
     contained: true,
-    colSpan: 4,
   },
   render: (args) => {
     return {
@@ -394,7 +390,7 @@ export const EmptyMessageTemplate: Story = {
       <rega-table
         [data]="[]"
         [contained]="${args.contained}"
-        [colSpan]="${args.colSpan}"
+        scrollHeight="21rem"
       >
         <ng-template #headerTemp>
           <th>Name</th>
@@ -427,7 +423,6 @@ export const FooterTemplate: Story = {
     ...Default.args,
     data: [],
     contained: true,
-    colSpan: 4,
   },
   render: (args) => {
     return {
@@ -437,7 +432,7 @@ export const FooterTemplate: Story = {
       <rega-table
         [data]="[{id: 0, label: 'Item label 0'}, {id: 1, label: 'Item label 1'}, {id: 2, label: 'Item label 2'}]"
         [contained]="${args.contained}"
-        [colSpan]="${args.colSpan}"
+        scrollHeight="21rem"
       >
         <ng-template #headerTemp>
           <th>Name</th>

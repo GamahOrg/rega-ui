@@ -81,16 +81,14 @@
   </rega-progress-indicator>
 </div>
 
-<div class="h-96 w-1/2 p-4">
+<div class="w-1/2 p-4">
   <rega-table
     [data]="data()"
     [loading]="loading()"
-    [lazy]="true"
     [rowsCount]="6"
     [scrollHeight]="'21rem'"
     [reorder]="true"
     [contained]="true"
-    [colSpan]="5"
   >
     <ng-template #headerTemp>
       <th></th>

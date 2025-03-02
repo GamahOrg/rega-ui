@@ -3,6 +3,7 @@ import {
   Component,
   computed,
   contentChild,
+  ElementRef,
   input,
   InputSignal,
   model,
@@ -11,6 +12,7 @@ import {
   OutputEmitterRef,
   signal,
   Signal,
+  viewChild,
   WritableSignal,
 } from "@angular/core";
 
@@ -35,8 +37,6 @@ export class TableComponent {
   public data: ModelSignal<any[]> = model([] as any);
 
   public readonly lazy: InputSignal<boolean> = input(false);
-
-  public readonly colSpan: InputSignal<number> = input(1);
 
   public readonly rowsCount: InputSignal<number> = input(1);
 
@@ -64,6 +64,8 @@ export class TableComponent {
 
   public readonly onLazyLoad: OutputEmitterRef<TableLazyLoadEvent> = output();
 
+  public readonly headerRow: Signal<ElementRef | undefined> = viewChild("headerRow");
+
   public readonly bodyTemp = contentChild<any | undefined>("bodyTemp");
 
   public readonly extendableArea = contentChild<any | undefined>("extendableArea");
@@ -75,6 +77,8 @@ export class TableComponent {
   public readonly emptyMessageTemp = contentChild<any | undefined>("emptyMessageTemp");
 
   readonly #expandedRows: WritableSignal<number[]> = signal([]);
+
+  public readonly colSpan: WritableSignal<number> = signal(1);
 
   public readonly isExpanded = (i: number): boolean => this.#expandedRows().includes(i);
 
@@ -90,6 +94,11 @@ export class TableComponent {
 
     return classes.filter(Boolean);
   });
+
+  public ngAfterViewInit(): void {
+    const thElements = this.headerRow()?.nativeElement.querySelectorAll("th");
+    this.colSpan.set(thElements.length);
+  }
 
   public onExpandRow = (row: any): void => {
     this.onRowClick.emit(row);

@@ -17,7 +17,7 @@
     (cdkDropListDropped)="drop($event)"
   >
     <ng-template #header>
-      <tr>
+      <tr #headerRow>
         <ng-container *ngTemplateOutlet="headerTemp()" />
       </tr>
     </ng-template>
