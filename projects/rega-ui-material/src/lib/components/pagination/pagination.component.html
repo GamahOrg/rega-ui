@@ -1,7 +1,7 @@
 <nav [ngClass]="classes()" class="h-auto w-auto" aria-label="Pagination">
   <ul class="flex justify-center items-center gap-3 list-none p-0">
     <li>
-      @let previousDisabled = currentPage() === 1;
+      @let previousDisabled = currentPage() <= 1;
       @if (previousTemp()) {
         <ng-container
           *ngTemplateOutlet="
@@ -55,7 +55,7 @@
             <span label class="dropdown-label text-base font-medium">...</span>
 
             <ng-template #optionTemp let-option>
-              @let selected = option.index === currentPage();
+              @let selected = option.index >= currentPage();
 
               <button
                 [ngClass]="{ selected }"

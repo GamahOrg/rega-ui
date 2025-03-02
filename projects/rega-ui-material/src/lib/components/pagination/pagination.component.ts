@@ -76,7 +76,6 @@ export class PaginationComponent {
   });
 
   public pageChange = (page: number): void => {
-    console.log(this.pages());
     if (page !== this.currentPage()) {
       this.currentPage.set(page);
       this.onPageChange.emit(page);
