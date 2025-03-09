@@ -79,22 +79,22 @@ export const Animations = [
     transition("void <=> *", animate("500ms ease-in")),
   ]),
 
-  trigger("slideInOut", [
-    state(
-      "0",
-      style({
-        height: "0px",
-      })
-    ),
-    state(
-      "1",
-      style({
-        height: "*",
-      })
-    ),
-    transition("1 => 0", animate("300ms ease-out")),
-    transition("0 => 1", animate("300ms ease-in")),
-  ]),
+  // trigger("slideInOut", [
+  //   state(
+  //     "0",
+  //     style({
+  //       height: "0px",
+  //     })
+  //   ),
+  //   state(
+  //     "1",
+  //     style({
+  //       height: "*",
+  //     })
+  //   ),
+  //   transition("1 => 0", animate("300ms ease-out")),
+  //   transition("0 => 1", animate("300ms ease-in")),
+  // ]),
 
   trigger("slideIn", [
     transition("void => left", [
@@ -182,5 +182,40 @@ export const Animations = [
     ),
     transition("void => *", animate("300ms ease-out")),
     transition("* => void", animate("300ms ease-in")),
+  ]),
+
+  trigger("slideInOut", [
+    state(
+      "void",
+      style({
+        opacity: 0,
+        transform: "scaleY(0.9)",
+      })
+    ),
+    state(
+      "*",
+      style({
+        opacity: 1,
+        transform: "scaleY(1)",
+      })
+    ),
+    transition("void => *", [
+      style({
+        opacity: 0,
+        transform: "scaleY(0.9)",
+        transformOrigin: "top",
+      }),
+      animate("100ms ease-out"),
+    ]),
+    transition("* => void", [
+      style({ transformOrigin: "top" }),
+      animate(
+        "100ms ease-in",
+        style({
+          opacity: 0,
+          transform: "scaleY(0.9)",
+        })
+      ),
+    ]),
   ]),
 ];

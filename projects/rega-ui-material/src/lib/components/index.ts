@@ -18,3 +18,4 @@ export * from "./tab/tab.component";
 export * from "./tab-list/tab-list.component";
 export * from "./tag/tag.component";
 export * from "./modal/modal.component";
+export * from "./menu";

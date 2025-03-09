@@ -118,13 +118,29 @@
   </rega-table>
 </div>
 
-<div class="w-1/2 p-4">
+<div class="w-1/2 p-4 flex justify-center items-center gap-4">
   <rega-pagination
     [count]="100"
     [siblingCount]="1"
     [currentPage]="1"
     (onPageChange)="onPageChange($event)"
   />
+
+  <rega-button [menuTriggerFor]="menu" label="Menu 1" variant="text" color="neutral" />
+  <rega-menu #menu="regaMenu" menuClass="mt-2">
+    <rega-button label="Action 1" variant="text" color="neutral" size="medium" />
+    <rega-button label="Action 2" variant="text" color="neutral" size="medium" />
+    <rega-button label="Action 3" variant="text" color="neutral" size="medium" />
+    <rega-button label="Action 4" variant="text" color="neutral" size="medium" />
+  </rega-menu>
+
+  <rega-button [menuTriggerFor]="menu2" label="Menu 2" variant="text" color="neutral" />
+  <rega-menu #menu2="regaMenu" menuClass="mt-2">
+    <rega-button label="Action 1" variant="text" color="neutral" size="medium" />
+    <rega-button label="Action 2" variant="text" color="neutral" size="medium" />
+    <rega-button label="Action 3" variant="text" color="neutral" size="medium" />
+    <rega-button label="Action 4" variant="text" color="neutral" size="medium" />
+  </rega-menu>
 </div>
 
 <div class="w-1/2 p-4">

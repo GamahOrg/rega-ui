@@ -13,7 +13,6 @@ type Story = StoryObj<TableComponent>;
 export const Default: Story = {
   argTypes: {
     data: { control: { type: "object" }, description: "Type of any[]" },
-    colSpan: { control: { type: "number" }, description: "Count of columns" },
     extendable: { control: { type: "boolean" } },
     reorder: { control: { type: "boolean" }, description: "Reorder table rows" },
     contained: { control: { type: "boolean" } },
