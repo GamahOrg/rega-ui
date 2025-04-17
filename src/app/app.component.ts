@@ -1,6 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component, inject, OnInit, Signal, signal, WritableSignal } from "@angular/core";
-import { BreadcrumbItem, BreadcrumbService } from "rega-material-ui";
+import { BreadcrumbItem, BreadcrumbService, MenuComponent } from "rega-material-ui";
 
 import { TextInputComponent } from "projects/rega-ui-material/src/lib/components/text-input/text-input.component";
 import {
@@ -21,7 +21,7 @@ import {
   DropdownComponent,
   DropZoneComponent,
   FileUploadComponent,
-  MenuComponent,
+  // MenuComponent,
   ModalComponent,
   // ModalTestComponent,
   PaginationComponent,
@@ -219,7 +219,7 @@ export class AppComponent implements OnInit {
     }, 300);
   };
 
-  public onFileChange = (files: any): void => {
-    // console.log("🚀 ~ AppComponent ~ files:", files);
+  public onFileChange = (files: any, name: string): void => {
+    console.log("🚀 ~ AppComponent ~ files:", files, name);
   };
 }

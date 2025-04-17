@@ -1,7 +1,7 @@
 import { Injectable, signal, WritableSignal } from "@angular/core";
 import { FilesListItem, FileState } from "../utils";
 
-@Injectable({ providedIn: "root" })
+@Injectable()
 export class UploadFilesService {
   public selectedFiles: WritableSignal<FilesListItem[]> = signal([]);
 

@@ -40,6 +40,7 @@ import { FileListComponent } from "../../ui";
   ],
   templateUrl: "./file-upload.component.html",
   providers: [
+    UploadFilesService,
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => FileUploadComponent),
@@ -87,7 +88,7 @@ export class FileUploadComponent
 
   public selectFile(event: any, files: FileList | null | undefined): void {
     this.#uploadFilesService.selectFile(files);
-    event.target.value = null;
+    if (event) event.target.value = null;
   }
 
   public removeFile = (file: FilesListItem): void => {
@@ -101,6 +102,6 @@ export class FileUploadComponent
 
     this.value = result;
     this.onChange(result);
-    this.onSelectFiles.emit(result);
+    if (result.length) this.onSelectFiles.emit(result);
   });
 }

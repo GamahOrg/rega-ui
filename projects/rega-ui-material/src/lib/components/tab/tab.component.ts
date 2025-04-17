@@ -11,7 +11,7 @@ import {
 } from "@angular/core";
 import { SizeType, SizeEnum } from "../../../utils";
 import { NgClass } from "@angular/common";
-import { TabListComponent } from "../tab-list/tab-list.component";
+import { TabListComponent } from "./tab-list.component";
 
 @Component({
   selector: "rega-tab",
