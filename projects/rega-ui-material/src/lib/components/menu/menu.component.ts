@@ -3,6 +3,7 @@ import {
   Component,
   computed,
   ElementRef,
+  HostBinding,
   HostListener,
   inject,
   input,
@@ -29,6 +30,8 @@ export class Menu {
   readonly #renderer = inject(Renderer2);
   readonly #el = inject(ElementRef);
 
+  @HostBinding("class") public component = "fixed";
+
   public readonly menuContainer = viewChild<ElementRef | undefined>("menuContainer");
 
   public readonly keepOpenOnItemsClicked: InputSignal<boolean> = input(false);
@@ -43,9 +46,12 @@ export class Menu {
 
   public readonly menuDir: WritableSignal<"up" | "down"> = signal("down");
 
+  public readonly menuAlign: WritableSignal<"left" | "right"> = signal("left");
+
   public readonly classes: Signal<string[]> = computed(() => [
     "rega-menu",
     this.menuDir() === "down" ? "top-full " : "bottom-full",
+    this.menuAlign() === "right" ? "end-0" : "start-0",
     this.menuClass(),
   ]);
 
@@ -98,11 +104,19 @@ export class Menu {
       if (menuBtn instanceof HTMLElement && menuContainer) {
         const toggleRect = menuBtn.getBoundingClientRect();
         const viewportHeight = window.innerHeight;
+        const viewportWidth = window.innerWidth;
+
         const spaceBelow = viewportHeight - toggleRect.bottom;
+        const spaceRight = viewportWidth - toggleRect.left;
         const menuHeight = menuContainer.offsetHeight + menuBtn.offsetHeight;
+        const menuWidth = menuContainer.offsetWidth;
 
         this.menuDir.set(
           spaceBelow < menuHeight && toggleRect.top > menuHeight ? "up" : "down"
+        );
+
+        this.menuAlign.set(
+          spaceRight < menuWidth && toggleRect.right > menuWidth ? "right" : "left"
         );
       }
     });

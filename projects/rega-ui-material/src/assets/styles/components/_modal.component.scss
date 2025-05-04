@@ -6,7 +6,7 @@
   }
 
   .modal-content {
-    @apply max-w-full max-h-screen overflow-auto p-4 rounded-lg font-ibm-regular text-[14px] bg-white text-[#384250];
+    @apply max-w-full max-h-screen overflow-visible p-4 rounded-lg font-ibm-regular text-[14px] bg-white text-[#384250];
 
     width: var(--modal-width, 500px);
     height: var(--modal-height, 200px);
