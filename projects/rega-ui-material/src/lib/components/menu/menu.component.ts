@@ -3,21 +3,21 @@ import {
   Component,
   computed,
   ElementRef,
-  HostBinding,
-  HostListener,
   inject,
   input,
   InputSignal,
   output,
   OutputEmitterRef,
-  Renderer2,
   Signal,
   signal,
   viewChild,
+  ViewContainerRef,
   WritableSignal,
 } from "@angular/core";
+import { Overlay, OverlayRef, OverlayConfig } from "@angular/cdk/overlay";
+import { TemplatePortal } from "@angular/cdk/portal";
 
-import { Animations, GStatic } from "../../../utils";
+import { Animations } from "../../../utils";
 
 @Component({
   selector: "rega-menu",
@@ -27,14 +27,16 @@ import { Animations, GStatic } from "../../../utils";
   animations: [Animations],
 })
 export class Menu {
-  readonly #renderer = inject(Renderer2);
-  readonly #el = inject(ElementRef);
+  readonly #overlay = inject(Overlay);
+  readonly #viewContainerRef = inject(ViewContainerRef);
 
-  @HostBinding("class") public component = "fixed";
+  private readonly _templateRef = viewChild<ElementRef<any> | undefined>("menuTemplate");
 
-  public readonly menuContainer = viewChild<ElementRef | undefined>("menuContainer");
+  private readonly _menuContentRef = viewChild<ElementRef<HTMLElement>>("menuContent");
 
   public readonly keepOpenOnItemsClicked: InputSignal<boolean> = input(false);
+
+  public readonly hasBackdrop: InputSignal<boolean> = input(true);
 
   public readonly menuClass: InputSignal<string> = input("");
 
@@ -44,98 +46,86 @@ export class Menu {
 
   public readonly isOpen: WritableSignal<boolean> = signal(false);
 
-  public readonly menuDir: WritableSignal<"up" | "down"> = signal("down");
-
-  public readonly menuAlign: WritableSignal<"left" | "right"> = signal("left");
-
   public readonly classes: Signal<string[]> = computed(() => [
     "rega-menu",
-    this.menuDir() === "down" ? "top-full " : "bottom-full",
-    this.menuAlign() === "right" ? "end-0" : "start-0",
+    this.isOpen() ? "visible" : "",
     this.menuClass(),
   ]);
 
-  public readonly id: Signal<string> = signal(GStatic.uniqueId);
+  private readonly _overlayRef: WritableSignal<OverlayRef | null> = signal(null);
 
-  public readonly wrapper: WritableSignal<HTMLElement | null> = signal(null);
+  public open = (trigger: HTMLElement): void => {
+    if (!this._overlayRef()) {
+      const positionStrategy = this.#overlay
+        .position()
+        .flexibleConnectedTo(trigger)
+        .withPositions([
+          {
+            originX: "start",
+            originY: "bottom",
+            overlayX: "start",
+            overlayY: "top",
+          },
+          {
+            originX: "start",
+            originY: "top",
+            overlayX: "start",
+            overlayY: "bottom",
+          },
+        ])
+        .withFlexibleDimensions(true)
+        .withPush(true);
 
-  @HostListener("document:click", ["$event"])
-  protected onClick(event: MouseEvent): void {
-    const menuBtn = document.querySelector(`[data-menu-id="${this.id()}"]`);
+      const config = new OverlayConfig({
+        hasBackdrop: this.hasBackdrop(),
+        backdropClass: "cdk-overlay-transparent-backdrop",
+        positionStrategy,
+        scrollStrategy: this.#overlay.scrollStrategies.close(),
+      });
 
-    if (this.isOpen() && !menuBtn?.contains(event.target as Node)) {
-      const menuContainer = this.menuContainer()?.nativeElement;
-      if (
-        this.keepOpenOnItemsClicked() &&
-        menuContainer?.contains(event.target as Node)
-      ) {
-        return;
-      }
+      this._overlayRef.set(this.#overlay.create(config));
 
-      this.isOpen.set(false);
-      this.onClose.emit();
+      this._overlayRef()
+        ?.backdropClick()
+        .subscribe(() => this.close());
     }
-  }
 
-  @HostListener("document:keydown.escape")
-  protected onEscape(): void {
-    this.isOpen.set(false);
-    this.onClose.emit();
-  }
+    const portal = new TemplatePortal(this._templateRef() as any, this.#viewContainerRef);
+    this._overlayRef()?.attach(portal);
+    document.addEventListener("click", this._onDocumentClick, true);
 
-  @HostListener("window:resize")
-  protected onResize(): void {
-    if (this.isOpen()) this._calculateMenuDir();
-  }
-
-  public toggleMenu(): void {
-    this.isOpen.set(!this.isOpen());
-
-    if (this.isOpen()) {
-      this._calculateMenuDir();
-      this._createWrapperAndMoveElements();
-    } else this.onClose.emit();
-  }
-
-  private _calculateMenuDir = (): void => {
-    const menuBtn = document.querySelector(`[data-menu-id="${this.id()}"]`);
-    setTimeout(() => {
-      const menuContainer = this.menuContainer()?.nativeElement;
-      if (menuBtn instanceof HTMLElement && menuContainer) {
-        const toggleRect = menuBtn.getBoundingClientRect();
-        const viewportHeight = window.innerHeight;
-        const viewportWidth = window.innerWidth;
-
-        const spaceBelow = viewportHeight - toggleRect.bottom;
-        const spaceRight = viewportWidth - toggleRect.left;
-        const menuHeight = menuContainer.offsetHeight + menuBtn.offsetHeight;
-        const menuWidth = menuContainer.offsetWidth;
-
-        this.menuDir.set(
-          spaceBelow < menuHeight && toggleRect.top > menuHeight ? "up" : "down"
-        );
-
-        this.menuAlign.set(
-          spaceRight < menuWidth && toggleRect.right > menuWidth ? "right" : "left"
-        );
-      }
-    });
+    this.isOpen.set(true);
+    this.onOpen.emit();
   };
 
-  private _createWrapperAndMoveElements = (): void => {
-    this.onOpen.emit();
+  public close = (): void => {
+    if (this._overlayRef()) this._overlayRef()?.detach();
+    document.removeEventListener("click", this._onDocumentClick, true);
 
-    const parentElement = this.#el.nativeElement.parentElement;
-    if (parentElement && !this.wrapper()) {
-      this.wrapper.set(this.#renderer.createElement("div"));
-      this.wrapper()!.classList.add(`menu-wrapper-${this.id()}`);
-      this.#renderer.setStyle(this.wrapper(), "position", "relative");
+    this.isOpen.set(false);
+    this.onClose.emit();
+  };
 
-      this.#renderer.insertBefore(parentElement, this.wrapper(), this.#el.nativeElement);
+  public toggle = (trigger: HTMLElement): void => {
+    this.isOpen() ? this.close() : this.open(trigger);
+  };
 
-      const button = document.querySelector(`[data-menu-id="${this.id()}"]`);
-      if (button) this.#renderer.appendChild(this.wrapper(), button);
-      this.#renderer.appendChild(this.wrapper(), this.#el.nativeElement);
+  private readonly _onDocumentClick = (event: MouseEvent): void => {
+    const menuEl = this._menuContentRef()?.nativeElement;
+    const target = event.target as Node;
+    if (menuEl?.contains(target)) {
+      const clickedEl = event.target as HTMLElement;
+      const isExplicitClose =
+        clickedEl.closest("[data-menu-close], .menu-close") !== null;
+      // If clicked inside menu
+      if (this.keepOpenOnItemsClicked() && !isExplicitClose) {
+        // Prevent closing
+        event.stopPropagation();
+        return;
+      }
     }
+
+    // Otherwise close
+    this.close();
   };
 }

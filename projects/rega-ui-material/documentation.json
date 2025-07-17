@@ -229,7 +229,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  argTypes: {\r\n    keepOpenOnItemsClicked: {\r\n      control: { type: \"boolean\" },\r\n      description: \"keep menu open if menu item(s) clicked\",\r\n    },\r\n    menuClass: { control: { type: \"text\" } },\r\n    onOpen: { description: \"(event: Event) => void\" },\r\n    onClose: { description: \"(event: Event) => void\" },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  argTypes: {\r\n    keepOpenOnItemsClicked: {\r\n      control: { type: \"boolean\" },\r\n      description: \"keep menu open if menu item(s) clicked\",\r\n    },\r\n    hasBackdrop: { control: { type: \"boolean\" } },\r\n    menuClass: { control: { type: \"text\" } },\r\n    onOpen: { description: \"(event: Event) => void\" },\r\n    onClose: { description: \"(event: Event) => void\" },\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -689,7 +689,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TabListComponent>",
-                "defaultValue": "{\r\n  title: \"Components/Tabs/TabList\",\r\n  decorators: [moduleMetadata({ imports: [TabListComponent, TabComponent] })],\r\n  component: TabListComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab-list \r\n          [selectedIndex]=\"'${args.selectedIndex}'\" \r\n          [size]=\"'${args.size}'\" \r\n          [vertical]=\"${args.vertical}\" \r\n          [flush]=\"${args.flush}\" \r\n        >\r\n           <rega-tab><span class=\"material-icons\">home</span><span>Tab 1</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">settings</span><span>Tab 2</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">shopping_cart</span><span>Tab 3</span></rega-tab>\r\n        </rega-tab-list>\r\n      `,\r\n    };\r\n  },\r\n}"
+                "defaultValue": "{\r\n  title: \"Components/Tabs/TabList\",\r\n  decorators: [moduleMetadata({ imports: [TabsComponent] })],\r\n  component: TabListComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab-list \r\n          [selectedIndex]=\"'${args.selectedIndex}'\" \r\n          [size]=\"'${args.size}'\" \r\n          [vertical]=\"${args.vertical}\" \r\n          [flush]=\"${args.flush}\" \r\n        >\r\n           <rega-tab><span class=\"material-icons\">home</span><span>Tab 1</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">settings</span><span>Tab 2</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">shopping_cart</span><span>Tab 3</span></rega-tab>\r\n        </rega-tab-list>\r\n      `,\r\n    };\r\n  },\r\n}"
             },
             {
                 "name": "meta",
@@ -2015,7 +2015,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  argTypes: {\r\n    keepOpenOnItemsClicked: {\r\n      control: { type: \"boolean\" },\r\n      description: \"keep menu open if menu item(s) clicked\",\r\n    },\r\n    menuClass: { control: { type: \"text\" } },\r\n    onOpen: { description: \"(event: Event) => void\" },\r\n    onClose: { description: \"(event: Event) => void\" },\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  argTypes: {\r\n    keepOpenOnItemsClicked: {\r\n      control: { type: \"boolean\" },\r\n      description: \"keep menu open if menu item(s) clicked\",\r\n    },\r\n    hasBackdrop: { control: { type: \"boolean\" } },\r\n    menuClass: { control: { type: \"text\" } },\r\n    onOpen: { description: \"(event: Event) => void\" },\r\n    onClose: { description: \"(event: Event) => void\" },\r\n  },\r\n}"
                 },
                 {
                     "name": "Grouped",
@@ -2275,7 +2275,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<TabListComponent>",
-                    "defaultValue": "{\r\n  title: \"Components/Tabs/TabList\",\r\n  decorators: [moduleMetadata({ imports: [TabListComponent, TabComponent] })],\r\n  component: TabListComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab-list \r\n          [selectedIndex]=\"'${args.selectedIndex}'\" \r\n          [size]=\"'${args.size}'\" \r\n          [vertical]=\"${args.vertical}\" \r\n          [flush]=\"${args.flush}\" \r\n        >\r\n           <rega-tab><span class=\"material-icons\">home</span><span>Tab 1</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">settings</span><span>Tab 2</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">shopping_cart</span><span>Tab 3</span></rega-tab>\r\n        </rega-tab-list>\r\n      `,\r\n    };\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  title: \"Components/Tabs/TabList\",\r\n  decorators: [moduleMetadata({ imports: [TabsComponent] })],\r\n  component: TabListComponent,\r\n  tags: [\"autodocs\"],\r\n  render: (args) => {\r\n    return {\r\n      args,\r\n      template: `\r\n        <rega-tab-list \r\n          [selectedIndex]=\"'${args.selectedIndex}'\" \r\n          [size]=\"'${args.size}'\" \r\n          [vertical]=\"${args.vertical}\" \r\n          [flush]=\"${args.flush}\" \r\n        >\r\n           <rega-tab><span class=\"material-icons\">home</span><span>Tab 1</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">settings</span><span>Tab 2</span></rega-tab>\r\n           <rega-tab><span class=\"material-icons\">shopping_cart</span><span>Tab 3</span></rega-tab>\r\n        </rega-tab-list>\r\n      `,\r\n    };\r\n  },\r\n}"
                 },
                 {
                     "name": "RTLFlush",

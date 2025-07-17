@@ -17,7 +17,7 @@
             } @else {
               <svg
                 [ngClass]="iconSize"
-                class="text-gray-300 mx-1 rtl:scale-x-[-1]"
+                class="text-disabledColor mx-1 rtl:scale-x-[-1]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -41,7 +41,7 @@
           } @else {
             @let disabled = item.disabled || $last;
             @let btnClass =
-              (disabled ? "!text-gray-400" : "!text-gray-900") +
+              (disabled ? "!text-disabledColor" : "!text-[#384250]") +
               " !min-w-5 !px-0 " +
               linkedBtnClass();
 

@@ -2,9 +2,9 @@
   @if (label()) {
     <label
       [attr.for]="uniqueId()"
-      class="block mb-1 px-[2px] text-sm font-medium text-gray-900"
-      >{{ label() }}</label
-    >
+      [innerHTML]="label()"
+      class="block mb-1 px-[2px] text-sm font-medium text-[#161616]"
+    ></label>
   }
   <div class="relative underline-animation">
     <p-autocomplete
@@ -30,7 +30,7 @@
       (onBlur)="onTouched(); touched.set(true)"
     >
       <ng-template #dropdownicon>
-        <span class="material-icons text-gray-700">
+        <span class="material-icons text-[#161616]">
           {{ this.overlayVisible() ? "expand_less" : "expand_more" }}
         </span>
       </ng-template>
@@ -52,7 +52,7 @@
             <span>{{ multiple() ? option.label : option }}</span>
 
             @if (isSelected) {
-              <span class="material-icons text-gray-700">done</span>
+              <span class="material-icons text-[#161616]">done</span>
             }
           </button>
         }
@@ -65,7 +65,7 @@
 
           <button
             [disabled]="linkedDisabled()"
-            class="flex justify-center items-center text-gray-700 hover:text-neutralColor outline-none border-none"
+            class="flex justify-center items-center text-[#161616] hover:text-neutralColor outline-none border-none"
             (click)="onUnselectOption(opt); $event.stopPropagation()"
           >
             <span class="material-icons transition hover:scale-125">close</span>
