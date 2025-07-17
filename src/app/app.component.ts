@@ -1,6 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component, inject, OnInit, Signal, signal, WritableSignal } from "@angular/core";
-import { BreadcrumbItem, BreadcrumbService, MenuComponent } from "rega-material-ui";
+import { BreadcrumbItem, BreadcrumbService } from "rega-material-ui";
 
 import { TextInputComponent } from "projects/rega-ui-material/src/lib/components/text-input/text-input.component";
 import {
@@ -29,6 +29,7 @@ import {
   RadioButtonComponent,
   RadioGroupComponent,
   TableComponent,
+  MenuComponent,
 } from "projects/rega-ui-material/src/lib";
 import { AutoCompleteModule } from "primeng/autocomplete";
 import { IndicatorStep, Option } from "projects/rega-ui-material/src/utils/interfaces";
@@ -85,7 +86,7 @@ export class AppComponent implements OnInit {
   //   Validators.required,
   // ]);
   public radio: UntypedFormControl = this.#fb.control({ value: 2, disabled: false });
-  public controlArea: UntypedFormControl = this.#fb.control(null);
+  public controlArea: UntypedFormControl = this.#fb.control(null, [Validators.required]);
   public control: UntypedFormControl = this.#fb.control(true);
 
   public formGroup = this.#fb.group({
@@ -137,12 +138,12 @@ export class AppComponent implements OnInit {
       this.options().push({ label: "Item label " + i, id: i });
     }
 
-    setTimeout(() => {
-      this.data.set(
-        Array.from({ length: 12 }, (_, id) => ({ id, label: "Item label " + id }))
-      );
-      this.loading.set(false);
-    }, 5000);
+    // setTimeout(() => {
+    this.data.set(
+      Array.from({ length: 12 }, (_, id) => ({ id, label: "Item label " + id }))
+    );
+    this.loading.set(false);
+    // }, 5000);
 
     // for (let i = 0; i < 4; i++) this.options().push("Item label " + i);
 

@@ -44,7 +44,7 @@ $sizes: (
 }
 
 @function border-color($color) {
-  @return mix($color, #ffffff, 25%);
+  @return mix($color, #ffffff, if($color == $neutralColor, 12%, 25%));
 }
 
 @function bg-color($color) {
@@ -72,7 +72,11 @@ $sizes: (
   &.rega-btn--text,
   &.rega-btn--outlined {
     &:hover {
-      background-color: if($name == disabled, transparent, bg-color($color));
+      background-color: if(
+        $name == disabled,
+        transparent,
+        if($name == neutral, $semiLightColor, bg-color($color))
+      );
     }
     &:disabled {
       color: $disabledColor;
@@ -86,9 +90,17 @@ $sizes: (
   &.rega-btn--solid {
     border: none;
     color: if($name == disabled, #ffffff, $color);
-    background-color: if($name == disabled, $color, bg-color($color));
+    background-color: if(
+      $name == disabled,
+      $color,
+      if($name == neutral, $semiLightColor, bg-color($color))
+    );
     &:hover {
-      background-color: if($name == disabled, $color, mix($color, #ffffff, 30%));
+      background-color: if(
+        $name == disabled,
+        $color,
+        if($color == $neutralColor, #e5e7eb, mix($color, #ffffff, 30%))
+      );
     }
 
     &:disabled {

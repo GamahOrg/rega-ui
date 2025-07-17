@@ -70,6 +70,8 @@ export class AutocompleteComponent implements ControlValueAccessor, AfterViewIni
 
   private readonly _autocomplete = viewChild("autocomplete", { read: AutoComplete });
 
+  public readonly labelRef = contentChild<any | undefined>("labelRef");
+
   public readonly autocompleteHeader = contentChild<any | undefined>(
     "autocompleteHeader"
   );

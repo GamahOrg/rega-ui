@@ -1,5 +1,5 @@
 .rega-menu {
-  @apply absolute min-w-16 max-h-[400px] flex flex-col justify-center items-stretch font-ibm-regular overflow-y-auto border rounded-md border-solid border-[#ccc] bg-white shadow-[0px_4px_6px_#0000001a] z-[1000] start-0;
+  @apply min-w-16 max-h-[400px] overflow-auto bg-white border rounded-md shadow-md z-[1000];
 
   button {
     @apply w-full cursor-pointer transition-[background] duration-[0.3s] p-2.5;

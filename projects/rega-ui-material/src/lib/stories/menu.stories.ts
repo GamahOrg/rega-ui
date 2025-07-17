@@ -34,6 +34,7 @@ export const Default: Story = {
       control: { type: "boolean" },
       description: "keep menu open if menu item(s) clicked",
     },
+    hasBackdrop: { control: { type: "boolean" } },
     menuClass: { control: { type: "text" } },
     onOpen: { description: "(event: Event) => void" },
     onClose: { description: "(event: Event) => void" },

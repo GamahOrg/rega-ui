@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $sizes: (
   small: (
     20px,
@@ -16,15 +18,101 @@ $sizes: (
   ),
 );
 
+$tagColors: (
+  neutral: (
+    color: $neutralColor,
+    background: #f9fafb,
+    border: $disabledBorderColor,
+  ),
+  primary: (
+    color: #14573a,
+    background: #f3fcf6,
+    border: #b8eacb,
+  ),
+  secondary: (
+    color: #945c01,
+    background: #fffef2,
+    border: #fcf3bd,
+  ),
+  success: (
+    color: #085d3a,
+    background: #ecfdf3,
+    border: #abefc6,
+  ),
+  error: (
+    color: #912018,
+    background: #fef3f2,
+    border: #fecdca,
+  ),
+  warning: (
+    color: #93370d,
+    background: #fffaeb,
+    border: #fedf89,
+  ),
+  info: (
+    color: #1849a9,
+    background: #eff8ff,
+    border: #b2ddff,
+  ),
+  disabled: (
+    color: $disabledColor,
+    background: #f9fafb,
+    border: $disabledBorderColor,
+  ),
+);
+
+$tagOutlineColors: (
+  neutral: (
+    color: $neutralColor,
+    border: #4d5761,
+  ),
+  primary: (
+    color: #14573a,
+    border: #1b8354,
+  ),
+  secondary: (
+    color: #945c01,
+    border: #dba102,
+  ),
+  success: (
+    color: #085d3a,
+    border: #079455,
+  ),
+  error: (
+    color: #912018,
+    border: #d92d20,
+  ),
+  warning: (
+    color: #93370d,
+    border: #dc6803,
+  ),
+  info: (
+    color: #1849a9,
+    border: #1570ef,
+  ),
+  disabled: (
+    color: $disabledColor,
+    border: $disabledBorderColor,
+  ),
+);
+
+@function transform-orange($base-color) {
+  @return color.adjust($base-color, $hue: 11, $saturation: 150%, $lightness: 0%);
+}
+
 @mixin tagColor($name, $color) {
-  border-color: mix(#ffffff, $color, 75%);
-  color: mix(#000000, $color, 40%);
-  background-color: mix(#ffffff, $color, 95%);
+  $tagColor: map-get($tagColors, $name);
+
+  color: map-get($tagColor, color);
+  background-color: map-get($tagColor, background);
+  border-color: map-get($tagColor, border);
 }
 
 @mixin tagVariant($name, $color) {
+  $tagOutlineColor: map-get($tagOutlineColors, $name);
+
   &.rega-tag--outlined {
-    border-color: $color;
+    border-color: map-get($tagOutlineColor, border);
     background-color: transparent !important;
   }
 }

@@ -9,7 +9,7 @@
       (blur)="onTouched(); touched.set(true)"
     />
 
-    <label [attr.for]="uniqueId()">{{ label() }}</label>
+    <label [attr.for]="uniqueId()" [innerHTML]="label()"></label>
   </div>
 
   @if (description()) {

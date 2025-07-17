@@ -88,6 +88,7 @@
     [scrollHeight]="'21rem'"
     [reorder]="true"
     [contained]="true"
+    [columnDivider]="true"
   >
     <ng-template #headerTemp>
       <th></th>
@@ -95,6 +96,9 @@
       <th>Country</th>
       <th>Company</th>
       <th>Representative</th>
+      <th>Representative</th>
+      <th>Representative</th>
+      <th>Actions</th>
     </ng-template>
 
     <ng-template #bodyTemp let-row>
@@ -109,6 +113,102 @@
       <td class="w-48">{{ row.label }}</td>
       <td class="w-48">{{ row.label }}</td>
       <td class="w-48">{{ row.label }}</td>
+      <td class="w-48">{{ row.label }}</td>
+      <td class="w-48">
+        <rega-button
+          [menuTriggerFor]="actionMenu"
+          label="•••"
+          variant="outlined"
+          color="neutral"
+          size="small"
+          btnClass="min-w-0 w-9 !p-0 text-base !text-secondaryColor flex justify-center items-center rounded-lg"
+        />
+
+        <rega-menu #actionMenu="regaMenu" menuClass="mt-1">
+          <div
+            class="flex flex-col justify-center items-stretch divide-y-[1px] divide-disabledBorderColor"
+          >
+            <rega-button
+              [label]="'utils.view_details'"
+              [routerLink]="row.requestId"
+              buttonType="link"
+              variant="text"
+              color="neutral"
+              btnClass="min-w-0 w-full h-9 font-ibm-medium"
+            />
+
+            <rega-button
+              [label]="'requests.distributing_orders_internal_employees'"
+              [disabled]="true"
+              variant="text"
+              color="neutral"
+              btnClass="min-w-0 w-full h-9 font-ibm-medium"
+            />
+
+            <rega-button
+              [label]="'requests.direct_request_relevant_authorities'"
+              [disabled]="true"
+              variant="text"
+              color="neutral"
+              btnClass="min-w-0 w-full h-9 font-ibm-medium"
+            />
+
+            <rega-button
+              [label]="'requests.redirect_request'"
+              [disabled]="true"
+              variant="text"
+              color="neutral"
+              btnClass="min-w-0 w-full h-9 font-ibm-medium"
+            />
+
+            <rega-button
+              [label]="'requests.authorize_request'"
+              [disabled]="true"
+              variant="text"
+              color="neutral"
+              btnClass="min-w-0 w-full h-9 font-ibm-medium"
+            />
+
+            <rega-button
+              [label]="'requests.deny_applicant_right_modify'"
+              [disabled]="true"
+              variant="text"
+              color="neutral"
+              btnClass="min-w-0 w-full h-9 font-ibm-medium"
+            />
+
+            <rega-button
+              [label]="'requests.request_complete'"
+              [disabled]="true"
+              variant="text"
+              color="neutral"
+              btnClass="min-w-0 w-full h-9 font-ibm-medium"
+            />
+
+            <rega-button
+              [label]="'requests.close_request'"
+              [disabled]="true"
+              variant="text"
+              color="neutral"
+              btnClass="min-w-0 w-full h-9 font-ibm-medium"
+            />
+          </div>
+        </rega-menu>
+      </td>
+      <td class="w-48">
+        <rega-button
+          [menuTriggerFor]="menu"
+          label="Menu 1"
+          variant="text"
+          color="neutral"
+        />
+        <rega-menu #menu="regaMenu" menuClass="mt-2">
+          <rega-button label="Action 1" variant="text" color="neutral" size="medium" />
+          <rega-button label="Action 2" variant="text" color="neutral" size="medium" />
+          <rega-button label="Action 3" variant="text" color="neutral" size="medium" />
+          <rega-button label="Action 4" variant="text" color="neutral" size="medium" />
+        </rega-menu>
+      </td>
     </ng-template>
 
     <ng-template #extendableArea let-row>
@@ -166,7 +266,12 @@
 </div>
 
 <div class="w-1/2 p-4">
-  <rega-autocomplete [options]="options()" [multiple]="true" [formControl]="autocomplete">
+  <rega-autocomplete
+    [label]="'Label <span class=' + 'text-red-600' + '>*</span>'"
+    [options]="options()"
+    [multiple]="true"
+    [formControl]="autocomplete"
+  >
     <ng-template #autocompleteFooter>
       <div
         class="w-full h-8 flex justify-center items-center text-gray-800 text-sm font-medium"

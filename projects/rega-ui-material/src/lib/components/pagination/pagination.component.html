@@ -55,7 +55,7 @@
             <span label class="dropdown-label text-base font-medium">...</span>
 
             <ng-template #optionTemp let-option>
-              @let selected = option.index >= currentPage();
+              @let selected = option.index === currentPage();
 
               <button
                 [ngClass]="{ selected }"

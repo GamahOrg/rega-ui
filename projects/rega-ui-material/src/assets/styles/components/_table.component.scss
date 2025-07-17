@@ -45,11 +45,11 @@
     }
 
     .p-datatable-tbody > tr:last-child {
-      @apply border-none outline-none;
+      // @apply border-none outline-none;
 
-      td {
-        @apply border-none;
-      }
+      // td {
+      //   @apply border-none;
+      // }
     }
 
     .p-datatable-thead > tr > th {

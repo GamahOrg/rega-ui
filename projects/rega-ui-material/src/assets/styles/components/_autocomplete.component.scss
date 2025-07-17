@@ -23,7 +23,7 @@
   }
 
   .chip {
-    @apply h-8 text-neutralColor bg-[#f9fafb] border border-disabledBorderColor inline-flex items-center justify-center gap-2 font-medium px-3 py-0 rounded-full border-solid;
+    @apply h-8 text-[#161616] bg-[#f9fafb] border border-disabledBorderColor inline-flex items-center justify-center gap-2 font-medium px-3 py-0 rounded-full border-solid;
   }
 
   .p-autocomplete-input-multiple {

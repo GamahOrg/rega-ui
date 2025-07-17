@@ -14,11 +14,11 @@
       @apply mt-[8px] pe-[16px];
 
       .title {
-        @apply text-[16px] leading-none;
+        @apply text-[16px] leading-[24px];
       }
 
       .description {
-        @apply mt-[4px] text-[14px] leading-none;
+        @apply mt-[4px] text-[14px] leading-[20px];
       }
     }
 
